@@ -1,3 +1,31 @@
-<h1>
-    Hello World
-</h1>
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<section class="" style=" min-height: 100vh; padding-top: 30vh; background: #9191c7;">
+    <div class="container">
+        <div class="row">
+            <article class="col-12 col-md-7">
+
+            </article>
+            <article class="col-12 col-sm-5 col-md-4">
+                <div class=" text-center">
+                    <h2>LOGIN</h2>
+                </div>
+                <form action="">
+                    <div class=" form-group pb-3">
+                        <label for="ID">Your ID</label>
+                        <input type="text" class=" form-control form-control-lg">
+                    </div>
+                    <div class=" form-group pb-3">
+                        <label for="password">Password</label>
+                        <input type="password" class=" form-control form-control-lg">
+                    </div>
+                    <div class=" form-group">
+                        <input type="button" class="btn btn-lg btn-warning" value="Log In">
+                    </div>
+                </form>
+            </article>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
