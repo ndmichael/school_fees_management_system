@@ -28,17 +28,28 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SITE_ID = 1
 
 # Application definition
 
 INSTALLED_APPS = [
+    # customs
+    'fees',
+    'user',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'fees'
+    # allauth
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    # 'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.facebook',
+    "django.contrib.sites",
 ]
 
 MIDDLEWARE = [
@@ -127,5 +138,22 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+
+
+# django-allauth registraion settings
+
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "optional"
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "account_login"
+
+# 1 day
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400
+LOGIN_URL = 'account_login'
+LOGIN_REDIRECT_URL = '/'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
