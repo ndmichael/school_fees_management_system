@@ -2,8 +2,21 @@
 css for the index boxes
 */
 
-a {
+#index-main {
+    min-height: 80vh;
+    padding-top: 10vh;
+}
+
+#index-main a {
     display: block;
     text-decoration: none;
     color: inherit;
+}
+
+i.bi {
+    font-size: 30px;
+}
+
+#index-main .footer {
+    background: rgba(08, 08, 08, 0.4);
 }
