@@ -8,13 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="{% static 'fees/css/b5css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'fees/css/mdb/mdb.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'fees/css/nile.css' %}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent shadow-sm fixed-top">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent shadow-sm">
+        <div class="container-fluid">
             <a class="navbar-brand" href="/">
                 <b class="text-primary">NILE FEE SYSTEM</b>
             </a>
@@ -33,7 +35,7 @@
         </div>
     </nav>
 
-    {% block content %} {% endblock content %}
+    {% block sidebar %} {% endblock sidebar %} {% block content %} {% endblock content %}
 
     <script src="{% static 'labapp/js/b5js/bootstrap.min.js' %}">
     </script>
