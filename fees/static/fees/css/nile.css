@@ -1,0 +1,9 @@
+/* 
+css for the index boxes
+*/
+
+a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
