@@ -4,7 +4,6 @@ from django.utils import timezone
 from smart_selects.db_fields import ChainedForeignKey # import from smart_select package
 
 
-
 # Create your models here.
 
 choices = (
