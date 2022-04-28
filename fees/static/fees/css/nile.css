@@ -7,10 +7,13 @@ css for the index boxes
     padding-top: 10vh;
 }
 
-#index-main a {
+#index-main .action-box {
     display: block;
+}
+
+#index-main a {
     text-decoration: none;
-    color: inherit;
+    color: none;
 }
 
 i.bi {
