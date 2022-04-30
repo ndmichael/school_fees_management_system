@@ -41,7 +41,7 @@ class StudentProfile (models.Model):
     )
     image = models.ImageField(default='avatar.png', upload_to='profile_pics/', blank=True, null=True)
     address  = models.TextField(max_length=1000)
-    gender = models.CharField(choices = choices, max_length = 10)
+    gender = models.CharField(choices = choices, max_length = 10, default="male")
     mobile_number = models.CharField(blank= True, max_length=15)
     admission_date = models.DateField(default=timezone.now)
     record_date  = models.DateTimeField(default=timezone.now)
