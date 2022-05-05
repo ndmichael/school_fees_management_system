@@ -12,13 +12,17 @@ class UserForm(UserCreationForm):
         fields = ['username','email', 'first_name', 'last_name', 'password1', 'password2']
 
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
 class StudentForm(forms.ModelForm):
+    admission_date = forms.DateField(widget=DateInput)
     class Meta:
         model = StudentProfile
         widgets = {
           'address': forms.Textarea(attrs={'rows':2})
         }
-        fields =  ['faculty', 'courses', 'address', 'gender', 'admission_date']
+        fields =  ['faculty', 'courses', 'address', 'gender', 'admission_date', 'image']
 
 class AdminForm(forms.ModelForm):
     pass
