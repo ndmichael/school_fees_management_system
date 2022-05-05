@@ -4,7 +4,7 @@
     <div class="container">
         <section class="row">
             <article class="col-6 mx-auto">
-                <form action="" method="POST">
+                <form action="" method="POST" enctype="multipart/form-data">
                     {% csrf_token %} 
                     <article class="row">
                         <div class="form-group col-12 col-md-6 mb-3">
@@ -37,14 +37,17 @@
                         <div class="form-group col-12  mb-3">
                             {{studentform.address|as_crispy_field}}
                         </div>
-                        <div class="form-group col-12 col-md-4 mb-3">
+                        <div class="form-group col-6 col-md-4 mb-3">
                             {{studentform.gender|as_crispy_field}}
                         </div>
-                        <div class="form-group col-12 col-md-8 mb-3">
+                        <div class="form-group col-6 col-md-5 mb-3">
                             {{studentform.admission_date|as_crispy_field}}
                         </div>
+                        <div class="form-group col-12 col-md-3 mb-3">
+                            {{studentform.image|as_crispy_field}}
+                        </div>
                         <div class="pt-3">
-                            <input type="submit" value="Submit Report" class="btn btn-lg btn-outline-primary">
+                            <input type="submit" value="ADD USER" class="btn btn-lg btn-outline-primary">
                         </div>
                 </form>
 
