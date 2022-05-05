@@ -29,7 +29,7 @@ class Course(models.Model):
 
 
 class StudentProfile (models.Model):
-    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    user = models.OneToOneField(User, on_delete = models.CASCADE)
     faculty = models.ForeignKey(Faculty, on_delete = models.CASCADE)
     courses = ChainedForeignKey(
         Course,
