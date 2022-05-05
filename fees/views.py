@@ -12,7 +12,7 @@ def index(request):
 def addUser(request):
     if request.method == 'POST':
         userform = UserForm(request.POST)
-        studentform = StudentForm(request.POST)
+        studentform = StudentForm(request.POST, request.FILES)
         if userform.is_valid() and studentform.is_valid():
             userform.save(commit=False)
             user = userform.save()

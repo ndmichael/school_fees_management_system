@@ -62,7 +62,7 @@ class StaffProfile(models.Model):
         ("admin", "ADMIN"),
     )
     user = models.ForeignKey(User, on_delete = models.CASCADE)
-    image = models.ImageField(default='avatar.png', upload_to='profile_pics/', blank=True, null=True)
+    image = models.ImageField(default='avatar.png', upload_to='profile_pics/', blank=False, null=False)
     address = models.TextField()
     mobileNo = models.CharField(blank= True, max_length = 15)
     DOB = models.DateField()
