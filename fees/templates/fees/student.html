@@ -48,7 +48,8 @@
                                                 <!-- <label for="deactivate" class="form-check-label" name="deactivate" id="deactivate">deactivate:</label>
                                                 <input type="checkbox" class="form-check-input"> -->
                                                 {% csrf_token %}
-                                                <input type="hidden" value="{{student.user.username}}" name="id"> {{d_form | crispy}}
+                                                <input type="hidden" value="{{student.user.username}}" name="username"> 
+                                                {{d_form | crispy}}
                                             </div>
                                         </div>
                                         <div class="modal-footer">
