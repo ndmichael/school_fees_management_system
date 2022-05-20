@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import UserForm, StudentForm, StudentUpdateForm, UserUpdateForm
+from .forms import UserForm, StudentForm, StudentUpdateForm, UserUpdateForm, DeactivateStudent
 from .models import Student
 from django.contrib.auth.decorators import login_required
 
@@ -12,11 +12,27 @@ def index(request):
 
 
 def student(request):
+    if request.POST:
+        username = request.POST.get('username')
+        # user = User.objects.get(username=username)
+        user = get_object_or_404(User, username=username)
+        if  request.POST.get('deactivate') == 'on':
+            user.is_active = False
+            user.save()
+            messages.success(
+                request, f"{username} has been deactivated."
+            )
+        return redirect(
+                "students"
+            )  
+    else:
+        deactivate_form = DeactivateStudent()
     students = Student.objects.all().filter(user__is_active=True).order_by('-added_date')
     total_students =  Student.objects.all().filter(user__is_active=True).count()
     context = {
         'students': students,
-        'total_students': total_students
+        'total_students': total_students,
+        'd_form': deactivate_form
     }
     return render(request, 'fees/student.html', context)
 
