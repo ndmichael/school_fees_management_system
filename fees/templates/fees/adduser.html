@@ -1,6 +1,6 @@
 {% extends 'base.html' %}{% load crispy_forms_tags %} {% load static %} {% block content %}
 
-<section>
+<section class="py-5">
     <div class="container">
         <section class="row">
             <article class="col-6 mx-auto">
@@ -47,7 +47,7 @@
                             {{studentform.image|as_crispy_field}}
                         </div>
                         <div class="pt-3">
-                            <input type="submit" value="ADD USER" class="btn btn-lg btn-outline-primary">
+                            <input type="submit" value="ADD STUDENT" class="btn btn-lg btn-primary">
                         </div>
                 </form>
 
