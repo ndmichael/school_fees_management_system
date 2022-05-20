@@ -19,8 +19,7 @@ def addUser(request):
             sform = studentform.save(commit=False)
             sform.user = user
             sform.save()
-            
-            
+                      
     else:
         userform = UserForm()
         studentform = StudentForm()
