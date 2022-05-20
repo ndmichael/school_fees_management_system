@@ -13,6 +13,12 @@ class UserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username','email', 'first_name', 'last_name', 'password1', 'password2']
+    
+    def __init__(self, *args, **kwargs):
+            super(UserForm, self).__init__(*args, **kwargs)
+
+            for fieldname in ['username', 'password1', 'password2']:
+                self.fields[fieldname].help_text = None
 
 
 class DateInput(forms.DateInput):
@@ -26,6 +32,7 @@ class StudentForm(forms.ModelForm):
           'address': forms.Textarea(attrs={'rows':2})
         }
         fields =  ['faculty', 'courses', 'address', 'gender', 'admission_date', 'image']
+    
 
 class AdminForm(forms.ModelForm):
     pass
