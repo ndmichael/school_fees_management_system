@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm , UsernameField
-from .models import StaffProfile, StudentProfile
+from .models import Staff, Student
 
 class UserForm(UserCreationForm):
     email = forms.EmailField()
@@ -27,12 +27,24 @@ class DateInput(forms.DateInput):
 class StudentForm(forms.ModelForm):
     admission_date = forms.DateField(widget=DateInput)
     class Meta:
-        model = StudentProfile
+        model = Student
         widgets = {
           'address': forms.Textarea(attrs={'rows':2})
         }
         fields =  ['faculty', 'courses', 'address', 'gender', 'admission_date', 'image']
     
+
+class UserUpdateForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['last_name', 'first_name', 'username']
+
+
+class StudentUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['image', 'faculty', 'courses', 'address', 'mobile_number']
+
 
 class AdminForm(forms.ModelForm):
     pass

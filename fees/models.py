@@ -28,7 +28,7 @@ class Course(models.Model):
         return self.name
 
 
-class StudentProfile (models.Model):
+class Student (models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE)
     faculty = models.ForeignKey(Faculty, on_delete = models.CASCADE)
     courses = ChainedForeignKey(
@@ -42,9 +42,14 @@ class StudentProfile (models.Model):
     image = models.ImageField(default='avatar.png', upload_to='profile_pics/', blank=True, null=True)
     address  = models.TextField(max_length=1000)
     gender = models.CharField(choices = choices, max_length = 10, default="male")
+    is_payed =  models.BooleanField(default=False)
     mobile_number = models.CharField(blank= True, max_length=15)
     admission_date = models.DateField(default=timezone.now)
-    record_date  = models.DateTimeField(default=timezone.now)
+    added_date  = models.DateTimeField(default=timezone.now)
+
+    @property
+    def fullname(self):
+        return self.user.first_name + ' ' + self.user.last_name
 
     @property
     def photo_url(self):
@@ -57,7 +62,7 @@ class StudentProfile (models.Model):
         return f'{self.user.username}'
 
  
-class StaffProfile(models.Model):
+class Staff(models.Model):
     DEPARTMENT = (
         ("admin", "ADMIN"),
     )

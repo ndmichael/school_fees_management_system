@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import (Faculty, Course, StudentProfile, StaffProfile)
+from .models import (Faculty, Course, Student, Staff)
 # Register your models here.
 
 admin.site.register(Faculty)
 
 admin.site.register(Course)
 
-admin.site.register(StudentProfile)
+admin.site.register(Student)
 
-admin.site.register(StaffProfile)
+admin.site.register(Staff)

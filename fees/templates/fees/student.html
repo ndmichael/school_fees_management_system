@@ -1,20 +1,104 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
 
-<section>
-    <div class="container">
-        <section class="row">
+<section class="py-5" style="min-height: 100vh;">
+    <div class="container py-4">
+        <div class="row">
+            <article class="col-12 col-md-6">
+                <div class=" pb-4">
+                    <h1>
+                        All students ({{total_students}})
+                    </h1>
+                    <p>
+                        <small class=" text-muted">
+                            Here you can update students profile, or deactivate
+                            students account
+                        </small>
+                    </p>
+                </div>
+            </article>
+        </div>
+        <div class="row">
             <article class="col-12">
-                <table class="table">
-                    <thead class="table-dark">
-                        ...
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th scope="col">S.NO</th>
+                            <th scope="col">Student ID</th>
+                            <th scope="col">FullName</th>
+                            <th scope="col">Information</th>
+                            <th scope="col">Fee Status</th>
+                            <th scope="col">Action</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        ...
+                        {%for student in students %}
+                        <!-- Modal For User Update-->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <form action="" method="POST">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">
+                                                DEACTIVATE FORM.
+                                            </h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div>
+                                                <!-- <label for="deactivate" class="form-check-label" name="deactivate" id="deactivate">deactivate:</label>
+                                                <input type="checkbox" class="form-check-input"> -->
+                                                {% csrf_token %}
+                                                <input type="hidden" value="{{student.user.username}}" name="id"> {{d_form | crispy}}
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save
+                                                changes</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <tr>
+                            <td>
+                                <a href="{% url 'students' %}">
+
+                                </a>
+                            </td>
+                            <td>
+                                {{student.user.username}}
+                            </td>
+                            <td>
+                                {{student.fullname}}
+                            </td>
+                            <td>
+                                <span>{{student.user.email}}</span> <br />
+                                <span>{{student.mobile_number}}</span> <br />
+                                <span>{{student.address}}</span> <br />
+                            </td>
+                            <td>
+                                {% if client.is_payed %} Paid {% else %} not Paid {% endif %}
+                            </td>
+                            <td>
+                                <a href="{% url 'update_student' student.user.username %}" class="btn btn-warning btn-sm">
+                                    <i class="bi bi-pencil-square text-dark" style="font-size:18px"></i>
+                                </a>
+                                <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i class="bi bi-trash" style="font-size:18px"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <h1>No Registered students</h1>
+                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
-
             </article>
-        </section>
+        </div>
     </div>
 </section>
-{% endblock content %}
+
+{% endblock %}
