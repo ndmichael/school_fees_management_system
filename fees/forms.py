@@ -46,6 +46,9 @@ class StudentUpdateForm(forms.ModelForm):
         fields = ['image', 'faculty', 'courses', 'address', 'mobile_number']
 
 
+class DeactivateStudent(forms.Form):
+    deactivate = forms.BooleanField()
+
 class AdminForm(forms.ModelForm):
     pass
     
