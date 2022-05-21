@@ -65,7 +65,7 @@ def update_student(request, username):
             print("failed to update") 
     else:
         u_form = UserUpdateForm(instance=user)
-        stud_form = StudentUpdateForm(instance=user.student)
+        stud_form = StudentUpdateForm(instance=user.student_user)
 
     context = {"u_form": u_form, "stud_form": stud_form}
     return render(request, "fees/update_student.html", context)
