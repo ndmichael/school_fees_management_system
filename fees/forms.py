@@ -51,6 +51,11 @@ class PaymentForm(forms.ModelForm):
         model = Payment
         fields = ['student','academic_year', 'semester', 'amount', 'payment_method']
 
+class PaymentUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Payment
+        fields = ['student','academic_year', 'semester', 'amount', 'payment_method']
+
 class DeactivateStudent(forms.Form):
     deactivate = forms.BooleanField()
 
