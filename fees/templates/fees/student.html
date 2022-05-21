@@ -17,7 +17,7 @@
                 </div>
             </article>
             <article class="col-4 col-md-6 text-end">
-                <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class=" btn btn-primary btn-lg">
+                <a href="{% url 'adduser' %}" class=" btn btn-primary btn-lg">
                     Add New Student
                 </a>
             </article>
@@ -37,7 +37,7 @@
                     </thead>
                     <tbody>
                         {%for student in students %}
-                        <!-- Modal For User Update-->
+                        <!-- Modal For User Deactivation-->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <form action="" method="POST">
@@ -53,8 +53,7 @@
                                                 <!-- <label for="deactivate" class="form-check-label" name="deactivate" id="deactivate">deactivate:</label>
                                                 <input type="checkbox" class="form-check-input"> -->
                                                 {% csrf_token %}
-                                                <input type="hidden" value="{{student.user.username}}" name="username"> 
-                                                {{d_form | crispy}}
+                                                <input type="hidden" value="{{student.user.username}}" name="username"> {{d_form | crispy}}
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -90,7 +89,7 @@
                                     <i class="bi bi-pencil-square text-dark" style="font-size:18px"></i>
                                 </a>
                                 <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="bi bi-trash" style="font-size:18px"></i>
+                                    <i class="bi bi-x-circle" style="font-size:18px"></i>
                                 </a>
                             </td>
                         </tr>

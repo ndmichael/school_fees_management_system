@@ -58,32 +58,68 @@
                 <table class="table table-responsive">
                     <thead>
                         <tr>
-                            <th scope="col">Full Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Country</th>
-                            <th scope="col">Acc Number</th>
-                            <th scope="col">Balance</th>
+                            <th scope="col">Payment ID</th>
+                            <th scope="col">Academic Year</th>
+                            <th scope="col">Semester</th>
+                            <th scope="col">Amount</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {%for client in clients %}
+                        {%for payment in payments %}
+                        <!-- Modal For Payment Deactivation-->
+                        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <form action="{% url 'delete_payment' %}" method="POST">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="deleteModalLabel">
+                                                DELETE PAYMENT.
+                                            </h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div>
+                                                {% csrf_token %}
+                                                <input type="hidden" value="{{payment.pk}}" name="pay_id">
+                                                <h4>
+                                                    Are you sure you want to delete payment?
+                                                </h4>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-danger">
+                                                DELETE
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                         <tr>
                             <td>
-                                <a href="{% url 'userprofile' user.username %}">
-                                    {{client.user.last_name}}
-                                    {{client.user.first_name}}
+                                <a href="">
+                                    {{payment.pk}}
                                 </a>
                             </td>
                             <td>
-                                {{client.user.email}}
+                                {{payment.academic_year}}
                             </td>
-                            <td>{{ client.country.name}}</td>
-                            <td>{{client.account_number }}</td>
-                            <td>&#36;{{client.balance}}</td>
+                            <td>{{ payment.semester}}</td>
+                            <td>&#8358;{{payment.amount }}</td>
+                            <td>
+                                <a href="{% url 'update_payment' payment.id %}" class="btn btn-warning btn-sm">
+                                    <i class="bi bi-pencil-square text-dark" style="font-size:18px"></i>
+                                </a>
+                                <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                    <i class="bi bi-trash" style="font-size:18px"></i>
+                                </a>
+                            </td>
                         </tr>
                         {% empty %}
                         <tr>
-                            <h1>No Registered Clients</h1>
+                            <h1>No Payment Recorded.</h1>
                         </tr>
                         {% endfor %}
                     </tbody>
