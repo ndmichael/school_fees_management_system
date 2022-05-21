@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm , UsernameField
-from .models import Staff, Student
+from .models import Staff, Student, Payment
 
 class UserForm(UserCreationForm):
     email = forms.EmailField()
@@ -45,6 +45,11 @@ class StudentUpdateForm(forms.ModelForm):
         model = Student
         fields = ['image', 'faculty', 'courses', 'address', 'mobile_number']
 
+
+class PaymentForm(forms.ModelForm):
+    class Meta:
+        model = Payment
+        fields = ['student','academic_year', 'semester', 'amount', 'payment_method']
 
 class DeactivateStudent(forms.Form):
     deactivate = forms.BooleanField()

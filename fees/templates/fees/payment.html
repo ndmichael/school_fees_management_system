@@ -1,0 +1,95 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+<section class="py-5" style="min-height: 100vh;">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form action="" method="POST">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-secondary" id="exampleModalLabel">
+                            ADD NEW PAYMENT.
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ p_form.student|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ p_form.academic_year|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ p_form.semester|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ p_form.amount|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ p_form.payment_method|as_crispy_field }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save
+                            changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <section class="row">
+            <article class="col-8 col-md-6">
+                <h1 class="h3"><small>Welcome</small> <span class="text-danger">{{request.user.last_name}}</span>
+                </h1>
+                <p>Manage <b>PAYMENTS</b> Here.</p>
+            </article>
+            <article class="col-4 col-md-6 text-end">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class=" btn btn-primary btn-lg">
+                    Add New Payment
+                </a>
+            </article>
+        </section>
+
+        <section class="row mt-5">
+            <div class="col-12">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">Acc Number</th>
+                            <th scope="col">Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for client in clients %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'userprofile' user.username %}">
+                                    {{client.user.last_name}}
+                                    {{client.user.first_name}}
+                                </a>
+                            </td>
+                            <td>
+                                {{client.user.email}}
+                            </td>
+                            <td>{{ client.country.name}}</td>
+                            <td>{{client.account_number }}</td>
+                            <td>&#36;{{client.balance}}</td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <h1>No Registered Clients</h1>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</section>
+{% endblock %}

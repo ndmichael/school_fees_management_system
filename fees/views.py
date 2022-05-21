@@ -1,7 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import UserForm, StudentForm, StudentUpdateForm, UserUpdateForm, DeactivateStudent
+from .forms import (
+    UserForm, StudentForm, StudentUpdateForm, UserUpdateForm, 
+    DeactivateStudent, PaymentForm
+)
 from .models import Student
 from django.contrib.auth.decorators import login_required
 
@@ -88,3 +91,23 @@ def addUser(request):
         'studentform': studentform
     }
     return render(request, 'fees/adduser.html', context)
+
+
+def payment(request):
+    # print(request.user.staff_user)
+    if request.method == 'POST':
+        p_form = PaymentForm(request.POST)
+        if p_form.is_valid():
+            p_form = p_form.save(commit=False)
+            p_form.staff = request.user.staff_user
+            p_form.save()
+            id = p_form.student
+            messages.success(
+                request, f"Payment fee has been added for student with id: {id}"
+            )
+            return redirect(
+                "make_payment"
+            ) 
+    p_form = PaymentForm()
+    context = {'p_form': p_form}
+    return render(request, 'fees/payment.html', context)

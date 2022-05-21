@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.admin import User
 from django.utils import timezone
+import datetime
 from smart_selects.db_fields import ChainedForeignKey # import from smart_select package
 
 
@@ -29,8 +30,8 @@ class Course(models.Model):
 
 
 class Student (models.Model):
-    user = models.OneToOneField(User, on_delete = models.CASCADE)
-    faculty = models.ForeignKey(Faculty, on_delete = models.CASCADE)
+    user = models.OneToOneField(User, on_delete = models.CASCADE, related_name='student_staff')
+    faculty = models.ForeignKey(Faculty, on_delete = models.CASCADE, related_name='faculty')
     courses = ChainedForeignKey(
         Course,
         chained_field="faculty",
@@ -66,7 +67,7 @@ class Staff(models.Model):
     DEPARTMENT = (
         ("admin", "ADMIN"),
     )
-    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    user = models.OneToOneField(User, on_delete = models.CASCADE, related_name='staff_user')
     image = models.ImageField(default='avatar.png', upload_to='profile_pics/', blank=False, null=False)
     address = models.TextField()
     mobileNo = models.CharField(blank= True, max_length = 15)
@@ -85,3 +86,34 @@ class Staff(models.Model):
             return f'{self.user.username}'
 
 
+# def year_choices():
+#     return [(r,r) for r in range(1990, datetime.date.today().year + 1)]
+
+# print(year_choices)
+
+def current_year():
+    return datetime.date.today().year
+
+class Payment(models.Model):
+    
+    sems = (
+        ('semester 1', 'SEMESTER 1'),
+        ('semester 2', 'SEMESTER 2')
+    )
+    p_method = (
+        ('bank teller', 'BANK TELLER'),
+        ('cash', 'CASH'),
+        ('transfer', 'TRANSFER'),
+        ('pos', 'POS')
+    )
+    year_choices = [(r,r) for r in range(2005, datetime.date.today().year + 1)]
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="staff")
+    staff = models.ForeignKey(Staff, on_delete=models.CASCADE, related_name="staff")
+    academic_year = models.PositiveIntegerField(choices = year_choices, default=current_year)
+    semester = models.CharField(choices= sems, max_length=15, default='semester 1')
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    date_entered = models.DateTimeField(default=timezone.now)
+    payment_method = models.CharField(choices=p_method, max_length=15)
+
+    def __str__(self):
+        return f"{self.student}"
