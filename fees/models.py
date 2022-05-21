@@ -21,8 +21,9 @@ class Faculty(models.Model):
 
 
 class Course(models.Model):
-    faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE)
+    faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE, related_name='course_faculty')
     name = models.CharField(max_length = 150)
+    fee = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     slug = models.SlugField(max_length=200)
 
     def __str__(self):
@@ -31,7 +32,7 @@ class Course(models.Model):
 
 class Student (models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE, related_name='student_user')
-    faculty = models.ForeignKey(Faculty, on_delete = models.CASCADE, related_name='faculty')
+    faculty = models.ForeignKey(Faculty, on_delete = models.CASCADE, related_name='stud_faculty')
     courses = ChainedForeignKey(
         Course,
         chained_field="faculty",
