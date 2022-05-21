@@ -3,9 +3,9 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import (
     UserForm, StudentForm, StudentUpdateForm, UserUpdateForm, 
-    DeactivateStudent, PaymentForm
+    DeactivateStudent, PaymentForm, PaymentUpdateForm
 )
-from .models import Student
+from .models import Student, Payment
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -109,5 +109,52 @@ def payment(request):
                 "make_payment"
             ) 
     p_form = PaymentForm()
-    context = {'p_form': p_form}
+
+    payments = Payment.objects.all().order_by('-date_entered')
+    total_payments =  Payment.objects.all().count()
+    context = {
+        'p_form': p_form,
+        'payments': payments,
+        'total_payments': total_payments
+    }
     return render(request, 'fees/payment.html', context)
+
+
+@login_required
+def update_payment(request, pk):
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
+    payment = get_object_or_404(
+            Payment, id=pk
+        )
+    if request.method == "POST":
+        p_form = PaymentUpdateForm(
+            request.POST, instance=payment
+        )
+        if p_form.is_valid():
+            p_form.save()
+            print("Payment update successful")
+            return redirect(
+                "make_payment"
+            ) 
+    else:
+        p_form = PaymentUpdateForm(instance=payment)
+
+    context = {"p_form": p_form}
+    return render(request, "fees/update_payment.html", context)
+
+def delete_payment(request):
+    if request.POST:
+        id = request.POST.get('pay_id')
+        # user = User.objects.get(username=username)
+        Payment.objects.filter(pk=id).delete()
+        
+        messages.success(
+            request, f"{id} has been deactivated."
+        )
+        return redirect(
+                "make_payment"
+        ) 
