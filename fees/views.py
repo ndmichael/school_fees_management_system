@@ -14,7 +14,13 @@ def index(request):
     return render(request, 'fees/index.html')
 
 
+@login_required
 def student(request):
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
     if request.POST:
         username = request.POST.get('username')
         # user = User.objects.get(username=username)
@@ -25,11 +31,12 @@ def student(request):
             messages.success(
                 request, f"{username} has been deactivated."
             )
-        return redirect(
+            return redirect(
                 "students"
             )  
     else:
         deactivate_form = DeactivateStudent()
+
     students = Student.objects.all().filter(user__is_active=True).order_by('-added_date')
     total_students =  Student.objects.all().filter(user__is_active=True).count()
     context = {
@@ -52,12 +59,12 @@ def update_student(request, username):
     if request.method == "POST":
         u_form = UserUpdateForm(request.POST, instance=user)
         stud_form = StudentUpdateForm(
-            request.POST, request.FILES, instance=user.student
+            request.POST, request.FILES, instance=user.student_user
         )
         if u_form.is_valid() and stud_form.is_valid():
             u_form.save()
             stud_form.save(commit=True)
-            print("update success")
+            messages.success(request, f"{user.student_user} has been updated successfully.")
             return redirect(
                 "students"
             ) 
@@ -72,7 +79,12 @@ def update_student(request, username):
 
 
 @login_required
-def addUser(request):
+def addStudent(request):
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
     if request.method == 'POST':
         userform = UserForm(request.POST)
         studentform = StudentForm(request.POST, request.FILES)
@@ -82,6 +94,10 @@ def addUser(request):
             sform = studentform.save(commit=False)
             sform.user = user
             sform.save()
+            messages.success(request, f"{user.student_user} has been added to record.")
+            return redirect(
+                "students"
+            ) 
                       
     else:
         userform = UserForm()
@@ -94,7 +110,11 @@ def addUser(request):
 
 
 def payment(request):
-    # print(request.user.staff_user)
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
     if request.method == 'POST':
         p_form = PaymentForm(request.POST)
         if p_form.is_valid():
@@ -146,7 +166,14 @@ def update_payment(request, pk):
     context = {"p_form": p_form}
     return render(request, "fees/update_payment.html", context)
 
+
+@login_required
 def delete_payment(request):
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
     if request.POST:
         id = request.POST.get('pay_id')
         # user = User.objects.get(username=username)
