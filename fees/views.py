@@ -13,6 +13,9 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     return render(request, 'fees/index.html')
 
+def admin_dashboard(request):
+    return render(request, 'fees/admin_dashboard.html')
+
 
 @login_required
 def student(request):
