@@ -1,0 +1,116 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<section class=" bg-light" id="index-main">
+    <div class="container">
+        <div class="row">
+            <article class="offset-sm-2 col-12 col-md-8 text-end">
+                <a href="{% url 'addstudent' %}" class=" btn btn-primary btn-lg">
+                    Add Student
+                </a>
+                <a href="#" class=" btn btn-outline-dark btn-lg">
+                    Add Admin
+                </a>
+            </article>
+        </div>
+        <div class="row">
+            <article class="col-6 col-md-3 offset-sm-1 py-2 py-md-5">
+                <a href="{% url 'students' %}" class="bg-info text-light  pt-3 action-box">
+                    <div class="d-flex justify-content-between px-3">
+                        <i class="bi bi-person-badge "></i>
+                        <p>
+                            <span>421</span>
+                            <br />
+                            <b class=" text-white">Students</b>
+                        </p>
+                    </div>
+                    <div class="footer px-2 w-100 text-white text-center">
+                        <p class="p-2 m-0">Manage Students</p>
+                    </div>
+                </a>
+            </article>
+
+            <article class="col-6 col-md-3 py-2 py-md-5">
+                <a href="{% url 'make_payment' %}" class="bg-success text-light pt-3 action-box">
+                    <div class="d-flex justify-content-between px-3">
+                        <i class="bi bi-wallet2 "></i>
+                        <p>
+                            <span>421,000,000</span>
+                            <br />
+                            <b>Fees</b>
+                        </p>
+                    </div>
+                    <div class="footer px-2 w-100 text-white text-center">
+                        <p class="p-2 m-0">Manage Payments</p>
+                    </div>
+                </a>
+            </article>
+
+            <article class="col-6 col-md-3 py-2 py-md-5">
+                <a href="#" class="bg-warning text-light  pt-3 action-box">
+                    <div class="d-flex justify-content-between px-3">
+                        <i class="bi bi-gear-wide-connected"></i>
+                        <p>
+                            <span>102</span>
+                            <br />
+                            <b> Report</b>
+                        </p>
+                    </div>
+                    <div class="footer px-2 w-100 text-white text-center">
+                        <p class="p-2 m-0">Payment Report</p>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Bottom rows -->
+            <article class="col-6 col-md-3 py-2 py-md-5 offset-sm-1">
+                <a href="#" class="bg-secondary text-light  pt-3 action-box">
+                    <div class="d-flex justify-content-between px-3">
+                        <i class="bi bi-rss "></i>
+                        <p>
+                            <span>view, read..</span>
+                            <br />
+                            <b>Feedbacks</b>
+                        </p>
+                    </div>
+                    <div class="footer px-2 w-100 text-white text-center">
+                        <p class="p-2 m-0">Manage Feedback</p>
+                    </div>
+                </a>
+            </article>
+
+            <article class="col-6 col-md-3 py-2 py-md-5">
+                <a href="#" class="bg-primary text-light  pt-3 action-box">
+                    <div class="d-flex justify-content-between px-3">
+                        <i class="bi bi-graph-up-arrow "></i>
+                        <p>
+                            <span>View</span>
+                            <br />
+                            <b>Faculties</b>
+                        </p>
+                    </div>
+                    <div class="footer px-2 w-100 text-white text-center">
+                        <p class="p-2 m-0">All Faculties</p>
+                    </div>
+                </a>
+            </article>
+
+            <article class="col-6 col-md-3 py-2 py-md-5">
+                <a href="#" class="bg-danger text-light pt-3 action-box">
+                    <div class="d-flex justify-content-between px-3">
+                        <i class="bi bi-gear "></i>
+                        <p>
+                            <span>All Quick</span>
+                            <br />
+                            <b>Settings</b>
+                        </p>
+                    </div>
+                    <div class="footer px-2 w-100 text-white text-center">
+                        <p class="p-2 m-0">Manage Settings</p>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
