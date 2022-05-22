@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import index, addStudent, student, update_student, payment, update_payment, delete_payment
+from .views import index, addStudent, student, update_student, payment, update_payment, delete_payment, admin_dashboard
 
 urlpatterns = [
     path('', index, name="index"),
+    path('admin-dashboard/', admin_dashboard, name="admin_dashboard"),
     path('adduser/', addStudent, name="addstudent"),
     path('students/all/', student, name="students"),
     path('students/update/<str:username>', update_student, name="update_student"),
