@@ -16,7 +16,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent shadow-sm">
-        <div class="container-fluid">
+        <div class="container">
             <a class="navbar-brand" href="/">
                 <b class="text-primary">NFMS</b>
             </a>
@@ -24,12 +24,29 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-lg-0">
+                    {% if user.is_authenticated and user.is_staff %}
                     <li class="nav-item">
-                        <a class="nav-link" href="">
-                            User Image
+                        <a class="nav-link" href="{% url 'admin_dashboard' %}">
+                            <b>admin</b>
                         </a>
                     </li>
+                    {% endif %}
+                </ul>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
+                            welcome, <b>{{ user.last_name}}</b>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-sm btn-secondary" href="">
+                            LOGIN
+                        </a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
