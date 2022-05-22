@@ -1,16 +1,16 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<section>
+<section style="min-height: 100vh; padding-top: 18vh;">
     <div class="container">
         <section class="row">
-            <article class="col-12 col-md-7">
-                <div>
+            <article class="col-12 col-md-5 offset-1 align-self-center">
+                <div class="p-2 p-sm-4">
                     <h1>
                         Welcome To Nile University School Fees System
                     </h1>
                     <p>
                         This app is opened to only registered students and Fee Management Staffs. Please endeavour to pay your fees.
                     </p>
-                    <div>
+                    <div class="pt-4">
                         {% if user.is_authenticated and not user.is_staff %}
                         <a href="" class=" btn btn-primary btn-lg">
                             your profile
@@ -22,6 +22,11 @@
                             Login
                         </a> {% endif %}
                     </div>
+                </div>
+            </article>
+            <article class="col-12 col-md-5">
+                <div>
+                    <img class="img-fluid shadow" style="height: 400px;  object-fit: cover; object-position: top;" src="{% static 'fees/images/nileimg1.jpg' %}">
                 </div>
             </article>
         </section>
