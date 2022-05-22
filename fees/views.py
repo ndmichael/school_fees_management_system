@@ -6,6 +6,7 @@ from .forms import (
     DeactivateStudent, PaymentForm, PaymentUpdateForm
 )
 from .models import Student, Payment
+from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -14,7 +15,13 @@ def index(request):
     return render(request, 'fees/index.html')
 
 def admin_dashboard(request):
-    return render(request, 'fees/admin_dashboard.html')
+    total_students = Student.objects.all().count()
+    total_money = Payment.objects.aggregate(total=Sum('amount'))['total']
+    context = {
+        'total_students': total_students,
+        'total_money': total_money
+    }
+    return render(request, 'fees/admin_dashboard.html', context)
 
 
 @login_required
@@ -159,7 +166,9 @@ def update_payment(request, pk):
         )
         if p_form.is_valid():
             p_form.save()
-            print("Payment update successful")
+            messages.success(
+                request, f"Payment fee with id: {pk} has been updated."
+            )
             return redirect(
                 "make_payment"
             ) 
