@@ -35,6 +35,18 @@
         </div>
     </nav>
 
+    <section class="container">
+        <div class="row">
+            <div class="offset-sm-3 col-sm-6">
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    <b>{{ message }}</b>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
     {% block sidebar %} {% endblock sidebar %} {% block content %} {% endblock content %}
 
     <footer class="bg-white">
