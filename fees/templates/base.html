@@ -37,7 +37,16 @@
                     {% if user.is_authenticated %}
                     <li class="nav-item dropdown nav-item nav-auth pt-2">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="img-fluid rounded-circle shadow-lg user-thumbnail" src="{{ request.user.profile.photo_url }}"> {{ request.user.username }}
+                            {% if user.is_authenticated and user.is_staff %}
+                            <img class="img-fluid rounded-circle shadow-lg user-thumbnail"
+                                style="height: 30px; width: 30px;"
+                                src="{{ request.user.staff_user.photo_url }}">
+                            {% else %}
+                            <img class="img-fluid rounded-circle shadow-lg user-thumbnail"
+                                style="height: 30px; width: 30px;"
+                                src="{{ request.user.student_user.photo_url }}">
+                            {% endif %}
+                            {{ request.user.username }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="">
@@ -49,7 +58,7 @@
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link btn btn-sm btn-secondary" href="">
+                        <a class="nav-link btn btn-sm btn-secondary text-white" href="">
                             LOGIN
                         </a>
                     </li>

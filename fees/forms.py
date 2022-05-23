@@ -31,7 +31,7 @@ class StudentForm(forms.ModelForm):
         widgets = {
           'address': forms.Textarea(attrs={'rows':2})
         }
-        fields =  ['faculty', 'courses', 'address', 'gender', 'admission_date', 'image']
+        fields =  ['faculty', 'courses','mobile_number', 'address', 'gender', 'admission_date', 'image']
     
 
 class UserUpdateForm(forms.ModelForm):
