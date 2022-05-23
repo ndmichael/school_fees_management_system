@@ -116,7 +116,7 @@ def addStudent(request):
         'userform': userform,
         'studentform': studentform
     }
-    return render(request, 'fees/adduser.html', context)
+    return render(request, 'fees/addstudent.html', context)
 
 
 def payment(request):
