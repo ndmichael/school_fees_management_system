@@ -18,7 +18,11 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <b class="text-primary">NFMS</b>
+                <b class="text-primary">
+                    <img class="img-fluid rounded-circle shadow-lg user-thumbnail"
+                        style="height: 40px; width: 40px;"
+                        src="{% static 'fees/images/nile.jpg' %}">
+                </b>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -39,12 +43,12 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {% if user.is_authenticated and user.is_staff %}
                             <img class="img-fluid rounded-circle shadow-lg user-thumbnail"
-                                style="height: 30px; width: 30px;"
+                                style="height: 35px; width: 35px;"
                                 src="{{ request.user.staff_user.photo_url }}">
                             {% else %}
                             <img class="img-fluid rounded-circle shadow-lg user-thumbnail"
                                 style="height: 30px; width: 30px;"
-                                src="{{ request.user.student_user.photo_url }}">
+                                src="{{ user.student_user.photo_url }}">
                             {% endif %}
                             {{ request.user.username }}
                         </a>
