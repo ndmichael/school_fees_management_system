@@ -1,0 +1,25 @@
+/* 
+css for the index boxes
+*/
+
+#index-main {
+    min-height: 83vh;
+    padding-top: 10vh;
+}
+
+#index-main .action-box {
+    display: block;
+}
+
+#index-main a {
+    text-decoration: none;
+    color: none;
+}
+
+i.bi {
+    font-size: 30px;
+}
+
+#index-main .footer {
+    background: rgba(08, 08, 08, 0.4);
+}
