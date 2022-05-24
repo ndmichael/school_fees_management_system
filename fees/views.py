@@ -210,3 +210,11 @@ def payment_report(request):
         'payments': payments
     }
     return render(request, 'fees/payment_report.html/', context)
+
+
+def payment_detail(request, id):
+    payment = Payment.objects.get(id=id)
+    context = {
+        'payment':payment
+    }
+    return render(request, 'fees/payment_details.html', context)
