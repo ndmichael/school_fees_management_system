@@ -197,3 +197,16 @@ def delete_payment(request):
         return redirect(
                 "make_payment"
         ) 
+
+@login_required
+def payment_report(request):
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
+    payments = Payment.objects.all().order_by('-date_entered')
+    context ={
+        'payments': payments
+    }
+    return render(request, 'fees/payment_report.html/', context)
