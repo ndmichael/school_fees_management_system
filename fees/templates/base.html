@@ -47,8 +47,7 @@
                                 src="{{ request.user.staff_user.photo_url }}">
                             {% else %}
                             <img class="img-fluid rounded-circle shadow-lg user-thumbnail"
-                                style="height: 30px; width: 30px;"
-                                src="{{ user.student_user.photo_url }}">
+                                style="height: 30px; width: 30px;" src="">
                             {% endif %}
                             {{ request.user.username }}
                         </a>
