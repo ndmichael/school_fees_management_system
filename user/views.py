@@ -12,3 +12,5 @@ def student_profile(request, username):
         'payments': payments
     }
     return render(request, 'account/student_profile.html', context)
+
+
