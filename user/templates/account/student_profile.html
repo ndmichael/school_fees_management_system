@@ -5,7 +5,7 @@
             <article class="col-12 col-md-5">
                 <div class=" text-center mb-5">
                     <div class="pb-5">
-                        <img class="img-fluid shadow-lg " style="height: 150px; width: 150px;" src="{% static 'fees/images/nileimg1.jpg' %}">
+                        <img class="img-fluid shadow-lg " style="height: 250px; width: 250px; object-fit: cover; object-position: top;" src="{{ user.student_user.photo_url }}">
                     </div>
                     <div>
                         <a href="" class="btn btn-sm btn-light">Remark</a>
@@ -55,7 +55,11 @@
                         <tbody>
                             {% if payments %} {% for payment in payments %}
                             <tr>
-                                <td>100{{payment.pk}}</td>
+                                <td>
+                                    <a href="{% url 'payment_detail' payment.pk %}">
+                                        100{{payment.pk}}
+                                    </a>
+                                </td>
                                 <td>{{payment.academic_year}}</td>
                                 <td>{{payment.semester}}</td>
                                 <td>{{payment.amount}}</td>
