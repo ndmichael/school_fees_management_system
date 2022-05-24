@@ -12,7 +12,7 @@
                     </p>
                     <div class="pt-4">
                         {% if user.is_authenticated and not user.is_staff %}
-                        <a href="" class=" btn btn-primary btn-lg">
+                        <a href="{% url 'stud_profile' request.user.username %}" class=" btn btn-primary btn-lg">
                             your profile
                         </a> {% elif user.is_authenticated and user.is_staff %}
                         <a href="{% url 'admin_dashboard' %}" class=" btn btn-primary btn-lg">
