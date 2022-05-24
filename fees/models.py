@@ -108,8 +108,8 @@ class Payment(models.Model):
         ('pos', 'POS')
     )
     year_choices = [(r,r) for r in range(2005, datetime.date.today().year + 1)]
-    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="staff")
-    staff = models.ForeignKey(Staff, on_delete=models.CASCADE, related_name="staff")
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="stud_payment")
+    staff = models.ForeignKey(Staff, on_delete=models.CASCADE, related_name="staff_payment")
     academic_year = models.PositiveIntegerField(choices = year_choices, default=current_year)
     semester = models.CharField(choices= sems, max_length=15, default='semester 1')
     amount = models.DecimalField(max_digits=10, decimal_places=2)
