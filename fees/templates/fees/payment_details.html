@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<section class="my-5" style=" min-height: 80vh;">
+    <div class="container">
+        <section class="row">
+            <article class="col-12 col-sm-8 mx-auto text-center">
+                <h1 class="pb-4">PAYMENT RECEIPT</h1>
+                <table class="table table-responsive table-striped">
+                    <tbody>
+                        <tr>
+                            <th>Name:</th>
+                            <td>{{payment.student.user.first_name}} {{payment.student.user.last_name}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Amount Paid:</th>
+                            <td>&#8358;{{payment.amount}}</td>
+                        </tr>
+                        <tr>
+                            <th>Faculty:</th>
+                            <td>{{payment.academic_year}}</td>
+                        </tr>
+                        <tr>
+                            <th>Semester:</th>
+                            <td>{{payment.semester}}</td>
+                        </tr>
+                        <tr>
+                            <th>Payment Method:</th>
+                            <td>{{payment.payment_method}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="pt-4">
+                    <a href="" class=" btn btn-lg btn-primary">PRINT ITEM</a>
+                </div>
+            </article>
+        </section>
+    </div>
+</section>
+
+{% endblock %}
