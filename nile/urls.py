@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('fees.urls')),
+    path('profile/', include('user.urls')),
     path('accounts/', include('allauth.urls')),
     # path('chaining/', include('smart_selects.urls')),
     re_path(r'^chaining/', include('smart_selects.urls')),
