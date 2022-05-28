@@ -103,6 +103,7 @@ class Payment(models.Model):
     )
     p_method = (
         ('bank teller', 'BANK TELLER'),
+        ('online payment', 'ONLINE PAYMENT'),
         ('cash', 'CASH'),
         ('transfer', 'TRANSFER'),
         ('pos', 'POS')
@@ -118,3 +119,10 @@ class Payment(models.Model):
 
     def __str__(self):
         return f"{self.student}"
+
+
+class Remark(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="remark")
+    subject = models.CharField(max_length=100)
+    body = models.TextField()
+    date = models.DateTimeField(default=timezone.now)

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm , UsernameField
-from .models import Staff, Student, Payment
+from .models import Staff, Student, Payment, Remark
 
 class UserForm(UserCreationForm):
     email = forms.EmailField()
@@ -32,6 +32,15 @@ class StudentForm(forms.ModelForm):
           'address': forms.Textarea(attrs={'rows':2})
         }
         fields =  ['faculty', 'courses','mobile_number', 'address', 'gender', 'admission_date', 'image']
+
+
+class RemarkForm(forms.ModelForm):
+    class Meta:
+        model = Remark
+        widgets = {
+          'body': forms.Textarea(attrs={'rows':4})
+        }
+        fields = ['subject', 'body']
     
 
 class UserUpdateForm(forms.ModelForm):
