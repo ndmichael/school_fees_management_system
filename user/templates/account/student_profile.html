@@ -1,6 +1,35 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} {% block content %}
 <section id="student_profile" class="py-5" style="min-height: 80vh;">
     <div class="container">
+        <!-- Modal For User Deactivation-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <form action="" method="POST">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">
+                                REMARK FORM.
+                            </h5>
+                            <p>
+                                Send us a remark today.
+                            </p>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                {% csrf_token %} {{r_form | crispy}}
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger">
+                                Send Us A Remark
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
         <section class="row">
             <article class="col-12 col-md-5">
                 <div class=" text-center mb-5">
@@ -8,7 +37,7 @@
                         <img class="img-fluid shadow-lg " style="height: 250px; width: 250px; object-fit: cover; object-position: top;" src="{{ user.student_user.photo_url }}">
                     </div>
                     <div>
-                        <a href="" class="btn btn-sm btn-light">Remark</a>
+                        <a href="" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">Remark</a>
                         <a href="" class="btn btn-sm btn-primary">Pay Fee</a>
                     </div>
                 </div>
