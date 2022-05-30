@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} {% block content %}
+
+<section>
+    <div class="container">
+        <section class="row">
+            {% for remark in remarks %}
+            <article class="col-6 col-md-3">
+                <a href="#" class="p-3 p-4 shadow-sm d-block rounded ">
+                    <h4>{{remark.subject}}</h4>
+
+                    <div class="d-flex justify-content-between pt-2">
+                        <div class="border-end border-2 px-2 text-dark">
+                            {{remark.student.user.username}}
+                        </div>
+                        <div class=" text-muted">
+                            {{remark.date}}
+                        </div>
+                    </div>
+                </a>
+            </article>
+            {% endfor %}
+        </section>
+    </div>
+
+</section>
+
+
+
+{% endblock content %}
