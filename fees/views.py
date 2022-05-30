@@ -5,7 +5,7 @@ from .forms import (
     UserForm, StudentForm, StudentUpdateForm, UserUpdateForm, 
     DeactivateStudent, PaymentForm, PaymentUpdateForm
 )
-from .models import Student, Payment
+from .models import Student, Payment, Remark
 from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
 
@@ -218,3 +218,16 @@ def payment_detail(request, id):
         'payment':payment
     }
     return render(request, 'fees/payment_details.html', context)
+
+def remark_list(request):
+    remarks = Remark.objects.all().order_by('-date')
+    context={
+        'remarks': remarks
+    }
+    return render(request, 'fees/remark_list.html', context)
+
+def remark_details(request, slug):
+    context={
+        
+    }
+    return render(request, 'fees/remark_details.html', context)
