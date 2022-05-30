@@ -2,7 +2,9 @@ from django.db import models
 from django.contrib.auth.admin import User
 from django.utils import timezone
 import datetime
+from django.utils.text import slugify
 from smart_selects.db_fields import ChainedForeignKey # import from smart_select package
+from django.urls import reverse
 
 
 # Create your models here.
@@ -125,7 +127,17 @@ class Remark(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="remark", default="")
     subject = models.CharField(max_length=100)
     body = models.TextField()
+    slug = models.SlugField(default="remark", max_length=100, unique=True)
     date = models.DateTimeField(default=timezone.now)
+
+    def save(
+        self, *args, **kwargs
+    ):  # i override the save to pre-populate slugs, another way is using signals
+        self.slug = slugify(self.food_name)
+        super(Remark, self).save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.subject}"
+    
+    def get_absolute_url(self):
+        return reverse('remark_details', args=[self.slug])
