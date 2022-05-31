@@ -133,7 +133,7 @@ class Remark(models.Model):
     def save(
         self, *args, **kwargs
     ):  # i override the save to pre-populate slugs, another way is using signals
-        self.slug = slugify(self.food_name)
+        self.slug = slugify(self.subject)
         super(Remark, self).save(*args, **kwargs)
 
     def __str__(self):
