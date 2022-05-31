@@ -1,12 +1,19 @@
 {% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} {% block content %}
 
-<section>
+<section class=" bg-light py-5" style="min-height: 70vh;">
     <div class="container">
+        <section class="row pb-4">
+            <div class="col-12">
+                <h1 class="h3">
+                    All Remarks.
+                </h1>
+            </div>
+        </section>
         <section class="row">
             {% for remark in remarks %}
-            <article class="col-6 col-md-3">
-                <a href="#" class="p-3 p-4 shadow-sm d-block rounded ">
-                    <h4>{{remark.subject}}</h4>
+            <article class="col-6 col-md-4 my-3">
+                <a href="{{ remark.get_absolute_url }}" class="p-3 p-4 shadow-sm d-block rounded bg-white">
+                    <h5 class=" text-primary">{{remark.subject}}</h5>
 
                     <div class="d-flex justify-content-between pt-2">
                         <div class="border-end border-2 px-2 text-dark">
