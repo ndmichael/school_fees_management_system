@@ -17,5 +17,5 @@ urlpatterns = [
     path('payment/details/<int:id>', payment_detail, name="payment_detail"),
     path('payment/delete/', delete_payment, name="delete_payment"),
     path('remark/list/', remark_list, name="remark_list",),
-    path('remark/details/<str:slug>', remark_details, name="remark_list")
+    path('remark/details/<slug:slug>', remark_details, name="remark_details")
 ]
