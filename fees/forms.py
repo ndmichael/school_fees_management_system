@@ -3,6 +3,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm , UsernameField
 from .models import Staff, Student, Payment, Remark
 
+sems = (
+        ('semester 1', 'SEMESTER 1'),
+        ('semester 2', 'SEMESTER 2')
+    )
+
 class UserForm(UserCreationForm):
     email = forms.EmailField()
     username = forms.CharField()
@@ -65,8 +70,19 @@ class PaymentUpdateForm(forms.ModelForm):
         model = Payment
         fields = ['student','academic_year', 'semester', 'amount', 'payment_method']
 
+
+# class OnlinePaymentForm(forms.Form):
+#     cardnumber = forms.CharField(max_length=16)
+#     cvc = forms.IntegerField()
+#     expiration_date =forms.DateField()
+#     academic_year = forms.CharField(max_length=4)
+#     semester = forms.CharField(choices=sems)
+#     amount = forms.DecimalField(max_digits=10, decimal_places=2)
+
+
 class DeactivateStudent(forms.Form):
     deactivate = forms.BooleanField()
+    
 
 class AdminForm(forms.ModelForm):
     pass
