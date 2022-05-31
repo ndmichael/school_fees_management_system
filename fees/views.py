@@ -220,6 +220,11 @@ def payment_detail(request, id):
     return render(request, 'fees/payment_details.html', context)
 
 def remark_list(request):
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
     remarks = Remark.objects.all().order_by('-date')
     context={
         'remarks': remarks
@@ -227,7 +232,13 @@ def remark_list(request):
     return render(request, 'fees/remark_list.html', context)
 
 def remark_details(request, slug):
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
+    remark = Remark.objects.get(slug=slug)
     context={
-        
+        'remark': remark
     }
     return render(request, 'fees/remark_details.html', context)
