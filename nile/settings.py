@@ -35,7 +35,7 @@ SECRET_KEY = 'django-insecure-4j&2@5g(y_roi!dz@-5-%a&vdmx*kyih7ikt2w9e!117_ufzk@
 DEBUG = os.environ.get("DEBUG_VALUE") == "True"
 print(DEBUG)
 
-ALLOWED_HOSTS = ['*', 'localhost']
+ALLOWED_HOSTS = ['web-production-1a4a.up.railway.app', 'nilepay.us', 'localhost']
 
 SITE_ID = 1
 
