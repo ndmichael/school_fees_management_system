@@ -35,7 +35,7 @@ SECRET_KEY = 'django-insecure-4j&2@5g(y_roi!dz@-5-%a&vdmx*kyih7ikt2w9e!117_ufzk@
 DEBUG = os.environ.get("DEBUG_VALUE") == "True"
 print(DEBUG)
 
-ALLOWED_HOSTS = ['nilestudpayment.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['*', 'localhost']
 
 SITE_ID = 1
 
