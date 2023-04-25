@@ -10,16 +10,18 @@
 
 <div class="container py-5 bg-light">
     <div class="row">
-        <div class="offset-md-2 col-12 col-md-4">
-            <div class="form-override">
-                <h1>{% trans "Login into your account" %}</h1>
-                <br />
+        <div class="offset-md-2 mx-auto col-12 col-md-5  bg-white shadow-sm  rounded-9">
+            <div class="m-0 p-4 border-bottom text-dark">
+                <h3>{% trans "Login  into your account" %}</h3>
+            </div>
+            <div class="form-override p-4">
+                
                 <form class="login" method="POST" action="{% url 'account_login' %}">
                     {% csrf_token %} {{ form|crispy }} {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
 
-                    <button class="btn btn-primary btn-block primaryAction" type="submit">{% trans "Sign In" %}</button>
-                    <a class="button secondaryAction" href="{% url 'account_reset_password' %}">
+                    <button class="btn btn-primary btn-lg btn-block primaryAction" type="submit">{% trans "Log In" %}</button>
+                    <a class="button secondaryAction pt-3 d-block" href="{% url 'account_reset_password' %}">
             {% trans "Forgot Password?" %}</a>
                 </form>
                 <div class="row">
@@ -44,7 +46,7 @@
             </div>
         </div>
     </div>
-    < </div>
+</div>
 
 
 
