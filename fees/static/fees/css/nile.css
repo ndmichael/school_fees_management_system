@@ -8,6 +8,20 @@ css for the index boxes
     box-sizing: border-box;
 }
 
+.form-control::placeholder {
+    color: grey;
+    font-size: small;
+    opacity: 0.85; /* Firefox */
+  }
+  
+  input[type="text"]:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: #dee2e6;
+  }
+  
+  input[type="text"]::-ms-input-placeholder { /* Microsoft Edge */
+   color: #dee2e6;
+  }
+
 #hero{
     min-height: 80vh; 
     padding-top: 14vh;
