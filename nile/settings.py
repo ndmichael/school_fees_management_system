@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-4j&2@5g(y_roi!dz@-5-%a&vdmx*kyih7ikt2w9e!117_ufzk@
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = os.environ.get("DEBUG_VALUE") == "True"
+DEBUG = env('DEBUG')
 print(DEBUG)
 
 ALLOWED_HOSTS = ['web-production-1a4a.up.railway.app', 'nilepay.us', 'localhost']
@@ -101,18 +101,18 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
 
-        # 'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': env('NAME'),
-        # 'USER': env('USER') ,
-        # 'PASSWORD': env('PASSWORD') ,
-        # 'HOST': 'localhost',
-        # 'PORT': '5432',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('NAME'),
+        'USER': env('USER') ,
+        'PASSWORD': env('PASSWORD') ,
+        'HOST': 'localhost',
+        'PORT': '5432',
 
-        'NAME': env('PGDATABASE'),
-        'USER': env('PGUSER') ,
-        'PASSWORD': env('PGPASSWORD') ,
-        'HOST': env('PGHOST'),
-        'PORT': env('PGPORT'),
+        # 'NAME': env('PGDATABASE'),
+        # 'USER': env('PGUSER') ,
+        # 'PASSWORD': env('PGPASSWORD') ,
+        # 'HOST': env('PGHOST'),
+        # 'PORT': env('PGPORT'),
     }
 }
 
@@ -151,11 +151,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [
+    
+]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL = "/media/"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 

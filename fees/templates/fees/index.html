@@ -1,11 +1,11 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<section style="min-height: 80vh; padding-top: 14vh;">
+<section id="hero" >
     <div class="container">
         <section class="row">
-            <article class="col-12 col-md-5 offset-md-1 align-self-center">
+            <article class="col-12 col-md-6 offset-md-1 align-self-center">
                 <div class="p-2 p-sm-3">
                     <h1>
-                        Welcome To Nile University School Fees System
+                        Welcome To Nile University School Fees System.
                     </h1>
                     <p>
                         This app is opened to only registered students and Fee Management Staffs. Please endeavour to pay your fees.
@@ -26,7 +26,7 @@
             </article>
             <article class="col-12 col-md-5">
                 <div>
-                    <img class="img-fluid shadow" style="height: 350px;  object-fit: cover; object-position: top;" src="{% static 'fees/images/nileimg2.jpg' %}">
+                    <img class="img-fluid shadow" style="height: 350px; width: 100%;  object-fit: cover; object-position: center; transform: translate(80px, 0px);" src="{% static 'fees/images/nileimg2.jpg' %}">
                 </div>
             </article>
         </section>
