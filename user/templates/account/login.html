@@ -8,11 +8,11 @@
 
 {% get_providers as socialaccount_providers %}
 
-<div class="container py-5">
+<div class="container py-5 bg-light">
     <div class="row">
         <div class="offset-md-2 col-12 col-md-4">
             <div class="form-override">
-                <h1>{% trans "Login" %}</h1>
+                <h1>{% trans "Login into your account" %}</h1>
                 <br />
                 <form class="login" method="POST" action="{% url 'account_login' %}">
                     {% csrf_token %} {{ form|crispy }} {% if redirect_field_value %}
