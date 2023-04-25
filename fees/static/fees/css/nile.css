@@ -2,6 +2,26 @@
 css for the index boxes
 */
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#hero{
+    min-height: 80vh; 
+    padding-top: 14vh;
+}
+
+#hero h1{
+    font-size: 3.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 3px 3px rgba(08, 08, 08, 0.4);
+}
+
+
+
 #index-main {
     min-height: 83vh;
     padding-top: 10vh;
