@@ -2,6 +2,20 @@
 css for the index boxes
 */
 
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#h1{
+    font-size: 3.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 5px 5px rgba(08, 08, 08, 0.7);
+}
+
+
+
 #index-main {
     min-height: 83vh;
     padding-top: 10vh;
