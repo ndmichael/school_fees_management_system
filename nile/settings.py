@@ -35,7 +35,7 @@ SECRET_KEY = 'django-insecure-4j&2@5g(y_roi!dz@-5-%a&vdmx*kyih7ikt2w9e!117_ufzk@
 DEBUG = env('DEBUG')
 print(DEBUG)
 
-ALLOWED_HOSTS = ['web-production-1a4a.up.railway.app', 'nilepay.us', 'localhost']
+ALLOWED_HOSTS = ['web-production-1a4a.up.railway.app', 'nilepay.us', 'localhost', '127.0.0.1']
 
 SITE_ID = 1
 
@@ -101,7 +101,8 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
 
-        # 'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql',
+
         # 'NAME': env('NAME'),
         # 'USER': env('USER') ,
         # 'PASSWORD': env('PASSWORD') ,
@@ -186,6 +187,10 @@ LOGIN_REDIRECT_URL = '/'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ACCOUNT_FORMS = {
+    "login": "user.forms.SelfLoginForm"
+}
 
 django_heroku.settings(locals())
 
