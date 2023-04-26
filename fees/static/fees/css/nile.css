@@ -26,6 +26,11 @@ css for the index boxes
     opacity: 0.85; /* Firefox */
   }
 
+  h1, h2, h3, h4, h4, h6{
+    font-weight: bold;
+    color: black;
+  }
+
 #hero{
     min-height: 80vh; 
     padding-top: 14vh;

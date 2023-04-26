@@ -10,12 +10,11 @@
 
 <div class="container py-5 bg-light">
     <div class="row">
-        <div class="offset-md-2 mx-auto col-12 col-md-5  bg-white shadow-sm  rounded-9">
-            <div class="m-0 p-4 border-bottom text-dark">
+        <div class="offset-md-2 mx-auto col-12 col-md-5  bg-white shadow-sm p-0 rounded-9">
+            <div class="m-0 px-5 text-dark py-4 border-bottom">
                 <h3>{% trans "Login  into your account" %}</h3>
             </div>
-            <div class="form-override p-4">
-                
+            <div class="p-5">
                 <form class="login" method="POST" action="{% url 'account_login' %}">
                     {% csrf_token %} {{ form|crispy }} {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
