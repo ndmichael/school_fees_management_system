@@ -3,16 +3,13 @@
 <section class="py-5">
     <div class="container">
         <section class="row">
-            <article class="col-12 col-md-6 text-center mb-4 mx-auto">
-                <div>
-
+            
+            <article class="col-12 col-md-6 mx-auto shadow rounded-4 p-0">
+                <div class="py-4 px-5 m-0 border-bottom ">
+                    <h1>Add New Student</h1>
                 </div>
-                <h1>Add New Student</h1>
-            </article>
-        </section>
-        <section class="row">
-            <article class="col-12 col-md-6 mx-auto">
-                <form action="" method="POST" enctype="multipart/form-data">
+
+                <form action="" method="POST" enctype="multipart/form-data" class="p-5">
                     {% csrf_token %}
                     <article class="row">
                         <div class="form-group col-12 col-md-6 mb-3">
@@ -42,19 +39,19 @@
                         <div class="form-group col-12 col-md-4 mb-3">
                             {{studentform.courses|as_crispy_field}}
                         </div>
-                        <div class="form-group col-12 col-md-4 mb-3">
+                        <div class="form-group  col-12 col-md-4 mb-3">
                             {{studentform.mobile_number|as_crispy_field}}
                         </div>
                         <div class="form-group col-12  mb-3">
                             {{studentform.address|as_crispy_field}}
                         </div>
-                        <div class="form-group col-6 col-md-4 mb-3">
+                        <div class="form-group col-6 col-md-3 mb-3">
                             {{studentform.gender|as_crispy_field}}
                         </div>
-                        <div class="form-group col-6 col-md-5 mb-3">
+                        <div class="form-group col-6 col-md-4 mb-3">
                             {{studentform.admission_date|as_crispy_field}}
                         </div>
-                        <div class="form-group col-12 col-md-3 mb-3">
+                        <div class="form-group col-12 col-md-5 mb-3">
                             {{studentform.image|as_crispy_field}}
                         </div>
                         <div class="pt-3">
