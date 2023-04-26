@@ -28,7 +28,6 @@ css for the index boxes
 
   h1, h2, h3, h4, h4, h6{
     font-weight: bold;
-    color: black;
   }
 
 #hero{
@@ -45,7 +44,10 @@ css for the index boxes
     /* opacity: 0.8; */
 }
 
-
+#stud-page{
+    /* background: linear-gradient(to bottom, rgba(68, 68, 161, 1) 0%, rgba(68, 68, 161, 1) 20%, white 20%, white 100%); */
+    background: linear-gradient(to bottom, rgb(222, 226, 230, 0.7) 50%, white 50%, white 100%);
+}
 
 #index-main {
     min-height: 83vh;
