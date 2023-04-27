@@ -16,7 +16,7 @@ def index(request):
 
 def admin_dashboard(request):
     total_students = Student.objects.all().count()
-    total_money = Payment.objects.aggregate(total=Sum('amount'))['total']
+    total_money = Payment.objects.aggregate(total=Sum('amount'))['total'] or 0
     context = {
         'total_students': total_students,
         'total_money': total_money
