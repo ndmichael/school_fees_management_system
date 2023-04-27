@@ -12,14 +12,15 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
-    return render(request, 'fees/index.html')
+    return render(request, 'fees/index.html', {"title": "nile-home"})
 
 def admin_dashboard(request):
     total_students = Student.objects.all().count()
     total_money = Payment.objects.aggregate(total=Sum('amount'))['total'] or 0
     context = {
         'total_students': total_students,
-        'total_money': total_money
+        'total_money': total_money,
+        "title": "dashboard"
     }
     return render(request, 'fees/admin_dashboard.html', context)
 
@@ -84,7 +85,7 @@ def update_student(request, username):
         u_form = UserUpdateForm(instance=user)
         stud_form = StudentUpdateForm(instance=user.student_user)
 
-    context = {"u_form": u_form, "stud_form": stud_form}
+    context = {"u_form": u_form, "stud_form": stud_form, 'title': 'update student'}
     return render(request, "fees/update_student.html", context)
 
 
@@ -114,7 +115,8 @@ def addStudent(request):
         studentform = StudentForm()
     context = {
         'userform': userform,
-        'studentform': studentform
+        'studentform': studentform,
+        'title': 'add student page'
     }
     return render(request, 'fees/addstudent.html', context)
 
@@ -145,7 +147,8 @@ def payment(request):
     context = {
         'p_form': p_form,
         'payments': payments,
-        'total_payments': total_payments
+        'total_payments': total_payments,
+        'title': 'nile-payment page'
     }
     return render(request, 'fees/payment.html', context)
 
@@ -207,7 +210,8 @@ def payment_report(request):
         return redirect("/")
     payments = Payment.objects.all().order_by('-date_entered')
     context ={
-        'payments': payments
+        'payments': payments,
+        'title': 'payments'
     }
     return render(request, 'fees/payment_report.html/', context)
 
@@ -215,7 +219,8 @@ def payment_report(request):
 def payment_detail(request, id):
     payment = Payment.objects.get(id=id)
     context = {
-        'payment':payment
+        'payment':payment,
+        'title': 'payment details'
     }
     return render(request, 'fees/payment_details.html', context)
 
@@ -239,6 +244,7 @@ def remark_details(request, slug):
         return redirect("/")
     remark = Remark.objects.get(slug=slug)
     context={
-        'remark': remark
+        'remark': remark,
+        'title': 'student-remarks'
     }
     return render(request, 'fees/remark_details.html', context)
