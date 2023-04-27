@@ -9,8 +9,8 @@
 
 <div class="container flex-fill">
   <div class="row">
-    <div class="offset-3 col-12 col-md-6">
-      <div class="form-override">
+    <div class="col-12 col-md-6 mx-auto text-center py-5">
+      <div style="height: 55vh" class="d-flex flex-column justify-content-center">
         <h1>{% trans "Sign Out" %}</h1>
 
         <p>{% trans 'Are you sure you want to sign out?' %}</p>
@@ -20,7 +20,7 @@
           {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
-          <button type="submit" class="btn btn-lg btn-dark">{% trans 'Sign Out' %}</button>
+          <button type="submit" class="btn btn-danger">{% trans 'Sign Out' %}</button>
         </form>
       </div>
     </div>
