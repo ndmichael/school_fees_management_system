@@ -27,7 +27,8 @@ def student_profile(request, username):
     context = {
         'student': student,
         'payments': payments,
-        'r_form': r_form
+        'r_form': r_form,
+        "title": "profile page"
     }
     return render(request, 'account/student_profile.html', context)
 
