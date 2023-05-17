@@ -48,6 +48,7 @@ class Student (models.Model):
     gender = models.CharField(choices = choices, max_length = 10, default="male")
     is_payed =  models.BooleanField(default=False)
     mobile_number = models.CharField(blank= True, max_length=15)
+    dob =  models.DateField(default=timezone.now)
     admission_date = models.DateField(default=timezone.now)
     added_date  = models.DateTimeField(default=timezone.now)
 
