@@ -31,12 +31,13 @@ class DateInput(forms.DateInput):
 
 class StudentForm(forms.ModelForm):
     admission_date = forms.DateField(widget=DateInput)
+    dob = forms.DateField(widget=DateInput)
     class Meta:
         model = Student
         widgets = {
           'address': forms.Textarea(attrs={'rows':2})
         }
-        fields =  ['faculty', 'courses','mobile_number', 'address', 'gender', 'admission_date', 'image']
+        fields =  ['faculty', 'courses','mobile_number', 'address', 'gender','dob', 'admission_date', 'image']
 
 
 class RemarkForm(forms.ModelForm):
