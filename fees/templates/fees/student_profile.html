@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load l10n %} {% load crispy_forms_tags %} {% block content %}
+{% extends 'base.html' %} {% load l10n %} {% load humanize %} {% load crispy_forms_tags %} {% block content %}
 
 <section class="py-5 border-bottom">
     <div class="container">
@@ -58,7 +58,7 @@
                                 <tr>
                                     <td>{{payment.academic_year}}</td>
                                     <td>{{payment.semester}}</td>
-                                    <td class="fw-bold">&#x20A6;{{payment.amount}}</td>
+                                    <td class="fw-bold">&#x20A6;{{payment.amount|intcomma}}</td>
                                     <td> --- </td>
                                     <td>{{payment.date_paid|date}}</td>
                                     <td class="text-success fw-bold">{{payment.staff}}</td>
