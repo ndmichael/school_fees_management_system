@@ -62,9 +62,10 @@ class StudentUpdateForm(forms.ModelForm):
 
 
 class PaymentForm(forms.ModelForm):
+    date_paid = forms.DateField(widget=DateInput)
     class Meta:
         model = Payment
-        fields = ['student','academic_year', 'semester', 'amount', 'payment_method']
+        fields = ['student','academic_year', 'semester', 'amount', 'payment_method', 'date_paid']
 
 class PaymentUpdateForm(forms.ModelForm):
     class Meta:
