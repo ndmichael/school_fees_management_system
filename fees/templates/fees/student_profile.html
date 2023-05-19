@@ -1,0 +1,80 @@
+{% extends 'base.html' %} {% load l10n %} {% load crispy_forms_tags %} {% block content %}
+
+<section class="py-5 border-bottom">
+    <div class="container">
+        <section class="row">
+            <article class="col-12 col-md-8 mx-auto bg-dark text-white d-flex justify-content-between p-3 p-md-5">
+                <div class="d-flex">
+                    <div class="pe-5">
+                        <img class="img-fluid rounded-circle shadow-lg user-thumbnail"
+                                style="height: 100px; width: 100px;"
+                                src="{{ user.student_user.photo_url }}">
+                    </div>
+                    <div>
+                        <h3 class="text-warning">{{user.last_name}} {{user.first_name}}</h3>
+                        <span class="text-muted pb-3">{{user.student_user.gender|upper}}</span>
+                        <p>
+                            <b>{{user.student_user.faculty}}</b> <br/>
+                            <span class="text-light">{{user.student_user.courses}}</span>
+                        </p>     
+                    </div>
+                </div>
+                <div>
+                    settings option here
+                </div>
+            </article>
+        </section>
+
+
+        <section class="row">
+            <article class="col-12 col-md-8 mx-auto">
+                <table class="table table-striped">
+                    <thead class=" fs-6 fw-bold bg-primary text-white">
+                        <tr>
+                            <th>
+                                Academic Year
+                            </th>
+                            <th>
+                                Semester
+                            </th>
+                            <th>
+                                Amount
+                            </th>
+                            <th>
+                                balance
+                            </th>
+                            <th>
+                                Date Paid
+                            </th>
+                            <th>
+                                Staff Handler
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% if payments %}
+                            {% for payment in payments %}
+                                <tr>
+                                    <td>{{payment.academic_year}}</td>
+                                    <td>{{payment.semester}}</td>
+                                    <td class="fw-bold">&#x20A6;{{payment.amount}}</td>
+                                    <td> --- </td>
+                                    <td>{{payment.date_paid}}</td>
+                                    <td class="text-success fw-bold">{{payment.staff}}</td>
+                                </tr>
+                            {% endfor %}
+                    {% else %}
+                            <tr>
+                                <h4>No Payment Records</h4>
+                            </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </article>
+        </section>
+
+    </div>
+</section>
+
+{% endblock %}
