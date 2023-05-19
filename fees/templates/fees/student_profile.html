@@ -26,9 +26,9 @@
         </section>
 
 
-        <section class="row">
+        <section class="row py-5">
             <article class="col-12 col-md-8 mx-auto">
-                <table class="table table-striped">
+                <table class="table table-striped w-100">
                     <thead class=" fs-6 fw-bold bg-primary text-white">
                         <tr>
                             <th>
@@ -60,7 +60,7 @@
                                     <td>{{payment.semester}}</td>
                                     <td class="fw-bold">&#x20A6;{{payment.amount}}</td>
                                     <td> --- </td>
-                                    <td>{{payment.date_paid}}</td>
+                                    <td>{{payment.date_paid|date}}</td>
                                     <td class="text-success fw-bold">{{payment.staff}}</td>
                                 </tr>
                             {% endfor %}
