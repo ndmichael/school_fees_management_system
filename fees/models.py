@@ -117,6 +117,7 @@ class Payment(models.Model):
     academic_year = models.PositiveIntegerField(choices = year_choices, default=current_year)
     semester = models.CharField(choices= sems, max_length=15, default='semester 1')
     amount = models.DecimalField(max_digits=10, decimal_places=2)
+    date_paid = models.DateTimeField(default=timezone.now)
     date_entered = models.DateTimeField(default=timezone.now)
     payment_method = models.CharField(choices=p_method, max_length=15)
 
