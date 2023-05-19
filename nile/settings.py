@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     # 'allauth.socialaccount.providers.google',
     # 'allauth.socialaccount.providers.facebook',
     "django.contrib.sites",
+    # 'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
