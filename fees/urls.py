@@ -2,7 +2,8 @@ from django.urls import path
 from .views import (
     index, addStudent, student, update_student, 
     payment, update_payment, delete_payment, admin_dashboard,
-    payment_report, payment_detail, remark_details, remark_list
+    payment_report, payment_detail, remark_details, remark_list,
+    faculty, student_profile
 )
 
 urlpatterns = [
@@ -11,11 +12,13 @@ urlpatterns = [
     path('adduser/', addStudent, name="addstudent"),
     path('students/all/', student, name="students"),
     path('students/update/<str:username>/', update_student, name="update_student"),
+    path('student/profile/<str:username>/', student_profile, name="student_profile"),
     path('payment/', payment, name="make_payment"),
     path('payment/update/<int:pk>/', update_payment, name="update_payment"),
     path('payment/report/',payment_report, name="payment_report"),
     path('payment/details/<int:id>', payment_detail, name="payment_detail"),
     path('payment/delete/', delete_payment, name="delete_payment"),
     path('remark/list/', remark_list, name="remark_list",),
-    path('remark/details/<slug:slug>', remark_details, name="remark_details")
+    path('remark/details/<slug:slug>', remark_details, name="remark_details"),
+    path('school/faculties/', faculty, name="faculties")
 ]
