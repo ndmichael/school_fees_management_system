@@ -5,7 +5,7 @@ from .forms import (
     UserForm, StudentForm, StudentUpdateForm, UserUpdateForm, 
     DeactivateStudent, PaymentForm, PaymentUpdateForm
 )
-from .models import Student, Payment, Remark
+from .models import Student, Payment, Remark, Staff
 from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
 
@@ -129,9 +129,12 @@ def payment(request):
         return redirect("/")
     if request.method == 'POST':
         p_form = PaymentForm(request.POST)
+        # user = get_object_or_404(User, username=request.user.username)
+        staff = get_object_or_404(Staff, user=request.user)
+
         if p_form.is_valid():
             p_form = p_form.save(commit=False)
-            p_form.staff = request.user.staff_user
+            p_form.staff = staff
             p_form.save()
             id = p_form.student
             messages.success(
@@ -248,3 +251,21 @@ def remark_details(request, slug):
         'title': 'student-remarks'
     }
     return render(request, 'fees/remark_details.html', context)
+
+
+def student_profile(request, username):
+    user = User.objects.get(username=username)
+    student = Student.objects.filter(user=user).first()
+    payments = Payment.objects.filter(student=student)
+    context = {
+        'user': user,
+        'payments': payments,
+    }
+    return render(request, 'fees/student_profile.html', context)
+
+
+def faculty(request):
+    context = {
+
+    }
+    return render(request, 'fees/faculty.html', context)
