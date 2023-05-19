@@ -36,7 +36,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {%for student in students %}
+                        {% for student in students %}
                         <!-- Modal For User Deactivation-->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -66,13 +66,14 @@
                             </div>
                         </div>
                         <tr>
-                            <td>
-                                <a href="{% url 'students' %}">
-
-                                </a>
+                            <td>   
+                                {{forloop.counter}}
                             </td>
                             <td>
-                                {{student.user.username}}
+                                <a href="{% url 'students' %}">
+                                    {{student.user.username}}
+                                </a>
+                                
                             </td>
                             <td>
                                 {{student.fullname}}
