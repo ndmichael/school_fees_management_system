@@ -1,13 +1,35 @@
 {% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
 
-<section>
+<section class="py-5">
     <div class="container">
         <section class="row">
             <article class="col-12 col-md-6 mx-auto">
-                <h1>Hello suckers</h1>
+                <div class="accordion" id="accordionExample">
+                
+                    {% for faculty in faculties %}
+                    <div class="accordion-item ">
+                    <h1 class="accordion-header" id="{{faculty.name}}">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{faculty.slug}}" aria-expanded="false" aria-controls="{{faculty.slug}}">
+                        {{faculty.name}}
+                      </button>
+                    </h1>
+                    <div id="{{faculty.slug}}" class="accordion-collapse collapse" aria-labelledby="{{faculty.name}}" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <ul class=" list-group">
+                            {% for course in faculty.courses.all %}
+                                <li class="list-group-item">
+                                    {{ course.name }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                      </div>
+                    </div>
+                    </div>
+                    {% endfor %}
+                
+                </div>
             </article>
         </section>
     </div>
 </section>
-
 {% endblock %}
