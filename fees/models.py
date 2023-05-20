@@ -23,7 +23,7 @@ class Faculty(models.Model):
 
 
 class Course(models.Model):
-    faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE, related_name='course_faculty')
+    faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE, related_name='courses')
     name = models.CharField(max_length = 150)
     fee = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     slug = models.SlugField(max_length=200)
