@@ -5,7 +5,7 @@ from .forms import (
     UserForm, StudentForm, StudentUpdateForm, UserUpdateForm, 
     DeactivateStudent, PaymentForm, PaymentUpdateForm
 )
-from .models import Student, Payment, Remark, Staff
+from .models import Student, Payment, Remark, Staff, Faculty
 from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
 
@@ -265,7 +265,8 @@ def student_profile(request, username):
 
 
 def faculty(request):
+    faculties = Faculty.objects.all()
     context = {
-
+        'faculties': faculties
     }
     return render(request, 'fees/faculty.html', context)
