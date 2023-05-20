@@ -8,6 +8,13 @@ css for the index boxes
     box-sizing: border-box;
 }
 
+.accordion-button{
+    font-size: 18px !important;
+    font-weight: bolder !important;
+    border: 2px double rgba(98, 98, 98, 0.4) !important;
+
+}
+
 .form-control::placeholder {
     color: grey;
     font-size: small;
@@ -70,3 +77,4 @@ i.bi {
 #index-main .footer {
     background: rgba(08, 08, 08, 0.4);
 }
+
