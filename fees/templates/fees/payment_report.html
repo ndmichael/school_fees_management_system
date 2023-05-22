@@ -40,8 +40,8 @@
                                 <td>
                                     {{payment.date_entered}}
                                 </td>
-                                <td>
-                                    {{payment.staff.user.first_name}}
+                                <td class="fw-bolder text-danger">
+                                    {{payment.staff.user.last_name}} {{payment.staff.user.first_name}}
                                 </td>
                             </tr>
                             {% empty %}
