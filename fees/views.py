@@ -253,13 +253,15 @@ def remark_details(request, slug):
     return render(request, 'fees/remark_details.html', context)
 
 
+@login_required
 def student_profile(request, username):
-    user = User.objects.get(username=username)
-    student = Student.objects.filter(user=user).first()
+    print("username : ", username)
+    student = Student.objects.filter(user__username=username).first()
     payments = Payment.objects.filter(student=student)
     context = {
-        'user': user,
+        'student': student,
         'payments': payments,
+        "title": "student profile"
     }
     return render(request, 'fees/student_profile.html', context)
 
