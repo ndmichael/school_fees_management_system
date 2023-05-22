@@ -8,19 +8,32 @@
                     <div class="pe-5">
                         <img class="img-fluid rounded-circle shadow-lg user-thumbnail"
                                 style="height: 100px; width: 100px;"
-                                src="{{ user.student_user.photo_url }}">
+                                src="{{ student.photo_url }}">
                     </div>
                     <div>
-                        <h3 class="text-warning">{{user.last_name}} {{user.first_name}}</h3>
-                        <span class="text-muted pb-3">{{user.student_user.gender|upper}}</span>
+                        <h3 class="text-warning">{{student.user.last_name}} {{user.first_name}}</h3>
+                        <span class="text-muted pb-3">{{student.gender|upper}}</span>
                         <p>
-                            <b>{{user.student_user.faculty}}</b> <br/>
-                            <span class="text-light">{{user.student_user.courses}}</span>
+                            <span class="text-light">{{student.faculty}}</span> <br/>
+                            <b>{{student.courses}}</b>
                         </p>     
                     </div>
                 </div>
-                <div>
-                    settings option here
+                <div class="align-self-center">
+                    <ul class="list-group">
+                        <a href="">
+                            <li class="list-group-item"> 
+                                <i class="bi bi-envelope-paper-fill me-3 text-primary" style="font-size: 18px;"></i> 
+                                Send Feedback
+                            </li>
+                        </a> 
+                        <a href="">
+                            <li class="list-group-item">
+                                <i class="bi bi-cash-stack me-3 text-primary" style="font-size: 18px;"></i> 
+                                Make Payment
+                            </li>
+                        </a>
+                    </ul>
                 </div>
             </article>
         </section>
