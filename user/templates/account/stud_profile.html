@@ -1,0 +1,114 @@
+{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} {% block content %}
+<section id="student_profile" class="py-5" style="min-height: 80vh;">
+    <div class="container">
+        <!-- Modal For User Deactivation-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <form action="" method="POST">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">
+                                REMARK FORM.
+                            </h5>
+                            <p>
+                                Send us a remark today.
+                            </p>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                {% csrf_token %} {{r_form | crispy}}
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger">
+                                Send Us A Remark
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <section class="row">
+            <article class="col-12 col-md-5">
+                <div class=" text-center mb-5">
+                    <div class="pb-5">
+                        <img class="img-fluid shadow-lg " style="height: 250px; width: 250px; object-fit: cover; object-position: top;" src="{{ user.student_user.photo_url }}">
+                    </div>
+                    <div>
+                        <a href="" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">Remark</a>
+                        <a href="" class="btn btn-sm btn-primary">Pay Fee</a>
+                    </div>
+                </div>
+                <table class="table table-responsive table-striped">
+                    <tbody>
+                        <tr>
+                            <th>Name:</th>
+                            <td>{{student.user.first_name}} {{student.user.last_name}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>user ID:</th>
+                            <td>{{student.user.username}}</td>
+                        </tr>
+                        <tr>
+                            <th>Faculty:</th>
+                            <td>{{student.faculty}}</td>
+                        </tr>
+                        <tr>
+                            <th>DEPT:</th>
+                            <td>{{student.courses}}</td>
+                        </tr>
+                        <tr>
+                            <th>Admission Date:</th>
+                            <td>{{student.admission_date}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            <article class="col-12 col-md-7 p-2 p-md-4">
+                <h3>Your Payment History</h3>
+                <p class=" text-muted">
+                    Click on the payment id for more details and to print receipt.
+                </p>
+                <div class="pt-4">
+                    <table class="table table-responsive table-borderless">
+                        <thead>
+                            <th>Payment ID.</th>
+                            <th>Academic Year.</th>
+                            <th>Semester</th>
+                            <th>Amount</th>
+                            <th>Date:</th>
+                        </thead>
+                        <tbody>
+                            {% if payments %} {% for payment in payments %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'payment_detail' payment.pk %}">
+                                        100{{payment.pk}}
+                                    </a>
+                                </td>
+                                <td>{{payment.academic_year}}</td>
+                                <td>{{payment.semester}}</td>
+                                <td>{{payment.amount}}</td>
+                                <td>{{payment.date_entered}}</td>
+                            </tr>
+
+                            {% endfor %} {% else %}
+                            <tr>
+                                <h3>Empty Payment records</h3>
+                            </tr>
+                            {% endif %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+    </div>
+
+</section>
+
+
+{% endblock content %}
