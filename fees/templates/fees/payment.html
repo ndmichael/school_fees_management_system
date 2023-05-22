@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+{% extends 'base.html' %}  {% load humanize %} {% load crispy_forms_tags %} {% block content %}
 <section class="py-5" style="min-height: 100vh;">
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -60,7 +60,7 @@
         <section class="row mt-5">
             <div class="col-12">
                 <table class="table table-responsive">
-                    <thead>
+                    <thead class="bg-primary text-white">
                         <tr>
                             <th scope="col">Payment ID</th>
                             <th scope="col">Academic Year</th>
@@ -103,7 +103,7 @@
                         </div>
                         <tr>
                             <td>
-                                <a href="{% url 'payment_report' %}">
+                                <a href="{% url 'payment_detail' %}">
                                     100{{payment.pk}}
                                 </a>
                             </td>
@@ -111,7 +111,7 @@
                                 {{payment.academic_year}}
                             </td>
                             <td>{{ payment.semester}}</td>
-                            <td>&#8358;{{payment.amount }}</td>
+                            <td>&#8358;{{payment.amount|intcomma }}</td>
                             <td>
                                 <a href="{% url 'update_payment' payment.id %}" class="btn btn-warning btn-sm me-2">
                                     <i class="bi bi-pencil-square text-dark" style="font-size:16px"></i>

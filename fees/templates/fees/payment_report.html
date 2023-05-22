@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} {% load humanize %} {% load static %} {% block content %}
 
 <section class="py-5" style="min-height: 70vh;">
     <div class="container">
@@ -6,7 +6,7 @@
             <article class="col-12">
                 <div>
                     <table class="table table-responsive">
-                        <thead>
+                        <thead class=" bg-primary text-white fw-bolder">
                             <tr>
                                 <th scope="col">Payment ID</th>
                                 <th scope="col">Student ID</th>
@@ -22,7 +22,7 @@
                             {%for payment in payments %}
                             <tr>
                                 <td>
-                                    <a href="">
+                                    <a href="{% url 'payment_detail' %}">
                                         100{{payment.pk}}
                                     </a>
                                 </td>
@@ -32,8 +32,8 @@
                                 <td>
                                     {{payment.student.user.first_name}} {{payment.student.user.last_name}}
                                 </td>
-                                <td>
-                                    &#8358;{{payment.amount}}
+                                <td style="font-weight: 700;">
+                                    &#8358;{{payment.amount|intcomma}}
                                 </td>
                                 <td> {{payment.academic_year}} </td>
                                 <td>{{payment.semester}}</td>
