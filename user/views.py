@@ -2,11 +2,12 @@ from django.shortcuts import render, redirect
 from fees.models import Student, Payment
 from fees.forms import RemarkForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 
-def student_profile(request, username):
+def stud_profile(request, username):
     if request.POST:
         r_form = RemarkForm(request.POST)
         if r_form.is_valid():
@@ -30,6 +31,18 @@ def student_profile(request, username):
         'r_form': r_form,
         "title": "profile page"
     }
-    return render(request, 'account/student_profile.html', context)
+    return render(request, 'account/stud_profile.html', context)
 
+
+@login_required
+def student_profile(request, username):
+    print("username : ", username)
+    student = Student.objects.filter(user__username=username).first()
+    payments = Payment.objects.filter(student=student)
+    context = {
+        'student': student,
+        'payments': payments,
+        "title": "student profile"
+    }
+    return render(request, 'account/student_profile.html', context)
 
