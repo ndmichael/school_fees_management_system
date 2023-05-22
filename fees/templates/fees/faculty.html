@@ -13,7 +13,7 @@
                         {{faculty.name}}
                       </button>
                     </h1>
-                    <div id="{{faculty.slug}}" class="accordion-collapse collapse" aria-labelledby="{{faculty.name}}" data-bs-parent="#accordionExample">
+                    <div id="{{faculty.slug}}" class="accordion-collapse collapse open" aria-labelledby="{{faculty.name}}" data-bs-parent="#accordionExample">
                       <div class="accordion-body">
                         <ul class=" list-group">
                             {% for course in faculty.courses.all %}
