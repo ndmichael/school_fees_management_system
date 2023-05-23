@@ -22,7 +22,7 @@
                             {%for payment in payments %}
                             <tr>
                                 <td>
-                                    <a href="{% url 'payment_detail' %}">
+                                    <a href="{% url 'payment_detail' payment.pk %}">
                                         100{{payment.pk}}
                                     </a>
                                 </td>
