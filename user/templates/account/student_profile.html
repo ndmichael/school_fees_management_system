@@ -44,6 +44,7 @@
                 <table class="table table-striped w-100">
                     <thead class=" fs-6 fw-bold bg-primary text-white">
                         <tr>
+                            <th>Payment ID</th>
                             <th>
                                 Academic Year
                             </th>
@@ -78,8 +79,13 @@
                                     <td>{{payment.academic_year}}</td>
                                     <td>{{payment.semester}}</td>
                                     <td class="fw-bold">&#x20A6;{{payment.amount|intcomma}}</td>
-                                    <td> --- </td>
+                                    <td>---</td>
                                     <td>{{payment.date_paid|date}}</td>
+                                    <td>
+                                        <a href="{% url 'staff_profile' payment.staff %}">
+                                            {{payment.staff}}
+                                        </a>
+                                    </td>
                                 </tr>
                             {% endfor %}
                     {% else %}
