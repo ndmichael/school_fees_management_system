@@ -55,7 +55,7 @@
                                 Amount
                             </th>
                             <th>
-                                balance
+                                FEE
                             </th>
                             <th>
                                 Date Paid
@@ -79,7 +79,7 @@
                                     <td>{{payment.academic_year}}</td>
                                     <td>{{payment.semester}}</td>
                                     <td class="fw-bold">&#x20A6;{{payment.amount|intcomma}}</td>
-                                    <td>---</td>
+                                    <td>&#x20A6;{{student.courses.fee|intcomma}}</td>
                                     <td>{{payment.date_paid|date}}</td>
                                     <td>
                                         <a href="{% url 'staff_profile' payment.staff %}">
