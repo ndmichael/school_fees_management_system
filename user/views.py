@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from fees.models import Student, Payment, Staff
+from fees.models import Student, Payment, Staff, Course
 from fees.forms import RemarkForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -39,6 +39,7 @@ def student_profile(request, username):
     print("username : ", username)
     student = Student.objects.filter(user__username=username).first()
     payments = Payment.objects.filter(student=student)
+
     context = {
         'student': student,
         'payments': payments,
