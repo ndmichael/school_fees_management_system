@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from fees.models import Student, Payment
+from fees.models import Student, Payment, Staff
 from fees.forms import RemarkForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -43,6 +43,16 @@ def student_profile(request, username):
         'student': student,
         'payments': payments,
         "title": "student profile"
+    }
+    return render(request, 'account/student_profile.html', context)
+
+@login_required
+def staff_profile(request, username):
+    print("username : ", username)
+    staff = Staff.objects.filter(user__username=username).first()
+    context = {
+        'staff': staff,
+        "title": "staff profile"
     }
     return render(request, 'account/student_profile.html', context)
 
