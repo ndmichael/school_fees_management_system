@@ -137,13 +137,22 @@ def payment(request):
         if p_form.is_valid():
             p_form = p_form.save(commit=False)
             student = p_form.student
+            payment = Payment.objects.filter(
+                student=p_form.student, academic_year=p_form.academic_year, 
+                semester=p_form.semester
+            ).last()
+            
+            print(f"payment: {payment}")
+
             id = student.id
             course_fee = student.courses.fee
 
-            print(id)
-
             p_form.staff = staff
-            p_form.balance = course_fee - p_form.amount
+            if (payment):
+                p_form.balance = payment.balance - p_form.amount
+            else:
+                p_form.balance = course_fee -  p_form.amount
+
             p_form.save()
             
             messages.success(
