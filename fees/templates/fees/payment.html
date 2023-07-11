@@ -67,6 +67,7 @@
                             <th scope="col">Semester</th>
                             <th scope="col"> student name</th>
                             <th scope="col">Amount</th>
+                            <th scope="col">Balance</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -111,9 +112,10 @@
                             <td>
                                 {{payment.academic_year}}
                             </td>
-                            <td>{{ payment.semester}}</td>
-                            <td>{{ payment.student.user.first_name}} {{ payment.student.user.last_name}}</td>
+                            <td>{{ payment.semester }}</td>
+                            <td>{{ payment.student.user.first_name }} {{ payment.student.user.last_name }}</td>
                             <td>&#8358;{{payment.amount|intcomma }}</td>
+                            <td>&#8358;{{payment.balance|intcomma }}</td>
                             <td>
                                 <a href="{% url 'update_payment' payment.id %}" class="btn btn-warning btn-sm me-2">
                                     <i class="bi bi-pencil-square text-dark" style="font-size:16px"></i>
