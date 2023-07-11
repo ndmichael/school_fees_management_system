@@ -5,7 +5,7 @@ from .forms import (
     UserForm, StudentForm, StudentUpdateForm, UserUpdateForm, 
     DeactivateStudent, PaymentForm, PaymentUpdateForm
 )
-from .models import Student, Payment, Remark, Staff, Faculty
+from .models import Student, Payment, Remark, Staff, Faculty, Course
 from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
 
@@ -127,16 +127,25 @@ def payment(request):
                 request, f"You do not have permission to access this page."
             )
         return redirect("/")
+    
     if request.method == 'POST':
         p_form = PaymentForm(request.POST)
         # user = get_object_or_404(User, username=request.user.username)
         staff = get_object_or_404(Staff, user=request.user)
+        
 
         if p_form.is_valid():
             p_form = p_form.save(commit=False)
+            student = p_form.student
+            id = student.id
+            course_fee = student.courses.fee
+
+            print(id)
+
             p_form.staff = staff
+            p_form.balance = course_fee - p_form.amount
             p_form.save()
-            id = p_form.student
+            
             messages.success(
                 request, f"Payment fee has been added for student with id: {id}"
             )
