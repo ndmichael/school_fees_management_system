@@ -66,7 +66,7 @@ class Student (models.Model):
     def __str__(self):
         return f'{self.user.username}'
 
- 
+
 class Staff(models.Model):
     DEPARTMENT = (
         ("admin", "ADMIN"),
