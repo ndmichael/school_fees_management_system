@@ -155,7 +155,6 @@ def payment(request):
     }
     return render(request, 'fees/payment.html', context)
 
-
 @login_required
 def update_payment(request, pk):
     if not request.user.is_staff:
