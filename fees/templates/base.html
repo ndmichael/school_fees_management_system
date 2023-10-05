@@ -97,7 +97,12 @@
         </div>
     </section>
 
-    {% block sidebar %} {% endblock sidebar %} {% block content %} {% endblock content %}
+    {% block sidebar %} {% endblock sidebar %} 
+    <section class="content">
+        {% block content %} 
+        
+        {% endblock content %}
+    </section>
 
     <footer class="bg-dark">
         <div class="container">
