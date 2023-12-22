@@ -133,7 +133,7 @@ class Remark(models.Model):
         ('feedback', 'FEED BACK')
     )
     student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="remark", default="")
-    remark = models.CharField(choices=choice)
+    remark = models.CharField(choices=choice, max_length=50, default='feedback')
     subject = models.CharField(max_length=100)
     body = models.TextField()
     slug = models.SlugField(default="remark", max_length=100, unique=True)
