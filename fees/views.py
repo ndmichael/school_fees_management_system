@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import (
     UserForm, StudentForm, StudentUpdateForm, UserUpdateForm, 
-    DeactivateStudent, PaymentForm, PaymentUpdateForm
+    DeactivateStudent, PaymentForm, PaymentUpdateForm, PaymentSearchForm
 )
 from .models import Student, Payment, Remark, Staff, Faculty, Course
 from django.db.models import Sum
