@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'fees',
     'user',
     'crispy_forms',
+    'crispy_bootstrap5',
     'smart_selects',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -169,7 +170,9 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-CRISPY_TEMPLATE_PACK = "bootstrap4"
+# crispy forms
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 USE_DJANGO_JQUERY = True
 
