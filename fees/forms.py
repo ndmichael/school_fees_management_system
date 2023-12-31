@@ -88,4 +88,16 @@ class DeactivateStudent(forms.Form):
 
 class AdminForm(forms.ModelForm):
     pass
+
+
+# search feature for payment
+class PaymentSearchForm(forms.Form):
+    query = forms.CharField()
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['query'].label = ''
+        self.fields['query'].widget.attrs.update({
+            'class': 'form-control form-control-lg'
+        })
     
