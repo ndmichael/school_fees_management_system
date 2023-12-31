@@ -15,6 +15,10 @@ from pathlib import Path
 import django_heroku
 import environ
 
+import django
+from django.utils.encoding import force_str
+django.utils.encoding.force_text = force_str
+
 # Initialise environment 
 env = environ.Env()
 environ.Env.read_env()
@@ -71,6 +75,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #allauth middleware 3rd party
+    'allauth.account.middleware.AccountMiddleware'
 ]
 
 ROOT_URLCONF = 'nile.urls'
