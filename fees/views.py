@@ -9,11 +9,12 @@ from .models import Student, Payment, Remark, Staff, Faculty, Course
 from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+
 
 def index(request):
     return render(request, 'fees/index.html', {"title": "nile-home"})
 
+@login_required
 def admin_dashboard(request):
     total_students = Student.objects.all().count()
     total_money = Payment.objects.aggregate(total=Sum('amount'))['total'] or 0
@@ -27,11 +28,24 @@ def admin_dashboard(request):
 
 @login_required
 def student(request):
+
+    '''
+        - ** KEY LOGICS ** 
+        - only for staffs && admins
+        -  return all students
+        - return total students
+        - deactivate user by setting active to false
+    '''
+
+    # check if user is a staff
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
             )
         return redirect("/")
+    
+    # get the username from the form using post
+    # deactivate user
     if request.POST:
         username = request.POST.get('username')
         # user = User.objects.get(username=username)
@@ -49,7 +63,7 @@ def student(request):
         deactivate_form = DeactivateStudent()
 
     students = Student.objects.all().filter(user__is_active=True).order_by('-added_date')
-    total_students =  Student.objects.all().filter(user__is_active=True).count()
+    total_students =  Student.objects.all().filter(user__is_active=True).count() # total students
     context = {
         'students': students,
         'total_students': total_students,
@@ -204,11 +218,19 @@ def update_payment(request, pk):
 
 @login_required
 def delete_payment(request):
+
+    '''
+        ** KEY LOGIC **
+        - delete payment
+    '''
+
+    # redirect if not admin  
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
             )
         return redirect("/")
+    
     if request.POST:
         id = request.POST.get('pay_id')
         # user = User.objects.get(username=username)
@@ -221,8 +243,17 @@ def delete_payment(request):
                 "make_payment"
         ) 
 
+
 @login_required
 def payment_report(request):
+
+    '''
+        ** KEY FEATURES **
+        - return all reports and students
+        - search functionalities
+        - print payment report
+    '''
+
     form = PaymentSearchForm
     if not request.user.is_staff:
         messages.error(
