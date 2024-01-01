@@ -1,7 +1,21 @@
-{% extends 'base.html' %} {% load humanize %} {% load static %} {% block content %}
+{% extends 'base.html' %} {% load humanize %} {% load static %} {% load crispy_forms_tags %} {% block content %}
 
 <section class="py-5" style="min-height: 70vh;">
     <div class="container">
+
+        <section class="row">
+            <article class="col-12 col-md-6 mx-auto my-4">
+                <form action="" method="get" class="row">
+                    <div class="col-12 col-sm-9">
+                        {{ form | crispy }}
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg mb-3 col-12 col-sm-3">
+                        Search <i class="bi bi-search" style="font-size: 12px; font-weight: 700;"></i>
+                    </button>
+                </form>
+            </article>
+        </section>
+
         <section class="row">
             <article class="col-12">
                 <div class="table-responsive">
