@@ -223,6 +223,7 @@ def delete_payment(request):
 
 @login_required
 def payment_report(request):
+    form = PaymentSearchForm
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
@@ -231,7 +232,8 @@ def payment_report(request):
     payments = Payment.objects.all().order_by('-date_entered')
     context ={
         'payments': payments,
-        'title': 'payments'
+        'title': 'payments',
+        'form': form
     }
     return render(request, 'fees/payment_report.html/', context)
 
