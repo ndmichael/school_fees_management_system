@@ -9,6 +9,8 @@ from .models import Student, Payment, Remark, Staff, Faculty, Course
 from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
 
+from django.contrib.postgres.search import SearchVector
+
 
 
 def index(request):
@@ -255,12 +257,23 @@ def payment_report(request):
     '''
 
     form = PaymentSearchForm
+    if 'query' in request.GET:
+        form = PaymentSearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            if query.startswith('1'):
+                query = query[3:]
+            payments = Payment.objects.annotate(search=SearchVector('id', 'academic_year'),).filter(search=query)
+            print(payments)
+    else:
+        payments = Payment.objects.all().order_by('-date_entered')
+
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
             )
         return redirect("/")
-    payments = Payment.objects.all().order_by('-date_entered')
+    
     context ={
         'payments': payments,
         'title': 'payments',
