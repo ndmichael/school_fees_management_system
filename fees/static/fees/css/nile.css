@@ -89,7 +89,17 @@ i.bi {
     background: rgba(08, 08, 08, 0.4);
 }
 
+/* table css */
+.table thead th{
+    font-size: 14px;
+    font-weight: 700;
+}
 
+.table tbody td{
+    color: rgb(84, 83, 83);
+}
+
+/* footer css */
 footer{
     width: 100%;
     bottom: 0;
