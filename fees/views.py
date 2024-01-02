@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import (
@@ -264,7 +265,8 @@ def payment_report(request):
             if query.startswith('1'):
                 query = query[3:]
             payments = Payment.objects.annotate(search=SearchVector('id', 'academic_year'),).filter(search=query)
-            print(payments)
+            # return redirect(reverse_lazy('search_payments'), payments)
+            return render(request, 'fees/search_payment.html/', {'payments': payments})
     else:
         payments = Payment.objects.all().order_by('-date_entered')
 
@@ -289,6 +291,25 @@ def payment_detail(request, id):
         'title': 'payment details'
     }
     return render(request, 'fees/payment_details.html', context)
+
+@login_required
+def search_payments(request):
+    payments = []
+    form = PaymentSearchForm
+    if 'query' in request.GET:
+        form = PaymentSearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            if query.startswith('1'):
+                query = query[3:]
+            payments = Payment.objects.annotate(search=SearchVector('id', 'academic_year'),).filter(search=query)
+           
+    context ={
+        'form': form,
+        'payments': payments,
+    }
+    return render(request, 'fees/search_payment.html/', context)
+
 
 def remark_list(request):
     if not request.user.is_staff:

@@ -1,0 +1,73 @@
+{% extends 'base.html' %} {% load humanize %} {% load static %} {% load crispy_forms_tags %} {% block content %}
+
+<section class="py-5" style="min-height: 70vh;">
+    <div class="container">
+
+        <section class="row p-4">
+            <article class="col-12 col-md-6 my-4">
+                <form action="" method="get" class="row">
+                    <div class="col-12 col-sm-9">
+                        {{ form | crispy }}
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg mb-3 col-12 col-sm-3">
+                        Search <i class="bi bi-search" style="font-size: 12px; font-weight: 700;"></i>
+                    </button>
+                </form>
+            </article>
+        </section>
+
+        <section class="row">
+            <article class="col-12">
+                <div class="table-responsive">
+                    <table class="table bg-light">
+                        <thead class=" bg-primary text-white fw-bolder">
+                            <tr>
+                                <th scope="col">Payment ID</th>
+                                <th scope="col">Student ID</th>
+                                <th scope="col">Student Name</th>
+                                <th scope="col">Amount Paid</th>
+                                <th scope="col">Academic Year</th>
+                                <th scope="col">Semester</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Recorded By</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for payment in payments %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'payment_detail' payment.pk %}">
+                                        100{{payment.pk}}
+                                    </a>
+                                </td>
+                                <td>
+                                    {{payment.student}}
+                                </td>
+                                <td>
+                                    {{payment.student.user.first_name}} {{payment.student.user.last_name}}
+                                </td>
+                                <td style="font-weight: 700;">
+                                    &#8358;{{payment.amount|intcomma}}
+                                </td>
+                                <td> {{payment.academic_year}} </td>
+                                <td>{{payment.semester}}</td>
+                                <td>
+                                    {{payment.date_entered}}
+                                </td>
+                                <td class="fw-bolder text-danger">
+                                    {{payment.staff.user.last_name}} {{payment.staff.user.first_name}}
+                                </td>
+                            </tr>
+                            {% empty %}
+                                <h3>No Search Payment Record.</h3>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </article>
+        </section>
+    </div>
+</section>
+
+{% endblock %}
