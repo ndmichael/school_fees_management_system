@@ -99,6 +99,7 @@ class PaymentSearchForm(forms.Form):
         self.fields['query'].label = ''
         self.fields['query'].widget.attrs.update({
             'class': 'form-control form-control-lg mb-0',
-            'placeholder': '10001, john doe'
+            'placeholder': 'Search payments by payment id, academic year...',
+            'required': 'false'
     })
     
