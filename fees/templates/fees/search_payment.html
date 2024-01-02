@@ -19,6 +19,10 @@
             </article>
         </section>
 
+        <!-- 
+            ** Search results styled in table format
+            ** Loop through results.
+        -->
         <section class="row">
             <article class="col-12">
                 <div class="table-responsive rounded-5">
@@ -36,7 +40,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {%for payment in payments %}
+                            {% for payment in payments %}
                             <tr>
                                 <td>
                                     <a href="{% url 'payment_detail' payment.pk %}">
