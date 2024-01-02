@@ -1,19 +1,23 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import (
     UserForm, StudentForm, StudentUpdateForm, UserUpdateForm, 
-    DeactivateStudent, PaymentForm, PaymentUpdateForm
+    DeactivateStudent, PaymentForm, PaymentUpdateForm, PaymentSearchForm
 )
 from .models import Student, Payment, Remark, Staff, Faculty, Course
 from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+from django.contrib.postgres.search import SearchVector
+
+
 
 def index(request):
     return render(request, 'fees/index.html', {"title": "nile-home"})
 
+@login_required
 def admin_dashboard(request):
     total_students = Student.objects.all().count()
     total_money = Payment.objects.aggregate(total=Sum('amount'))['total'] or 0
@@ -27,11 +31,24 @@ def admin_dashboard(request):
 
 @login_required
 def student(request):
+
+    '''
+        - ** KEY LOGICS ** 
+        - only for staffs && admins
+        -  return all students
+        - return total students
+        - deactivate user by setting active to false
+    '''
+
+    # check if user is a staff
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
             )
         return redirect("/")
+    
+    # get the username from the form using post
+    # deactivate user
     if request.POST:
         username = request.POST.get('username')
         # user = User.objects.get(username=username)
@@ -49,7 +66,7 @@ def student(request):
         deactivate_form = DeactivateStudent()
 
     students = Student.objects.all().filter(user__is_active=True).order_by('-added_date')
-    total_students =  Student.objects.all().filter(user__is_active=True).count()
+    total_students =  Student.objects.all().filter(user__is_active=True).count() # total students
     context = {
         'students': students,
         'total_students': total_students,
@@ -204,11 +221,19 @@ def update_payment(request, pk):
 
 @login_required
 def delete_payment(request):
+
+    '''
+        ** KEY LOGIC **
+        - delete payment
+    '''
+
+    # redirect if not admin  
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
             )
         return redirect("/")
+    
     if request.POST:
         id = request.POST.get('pay_id')
         # user = User.objects.get(username=username)
@@ -221,17 +246,40 @@ def delete_payment(request):
                 "make_payment"
         ) 
 
+
 @login_required
 def payment_report(request):
+
+    '''
+        ** KEY FEATURES **
+        - return all reports and students
+        - search functionalities
+        - print payment report
+    '''
+
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
             )
         return redirect("/")
-    payments = Payment.objects.all().order_by('-date_entered')
+
+    form = PaymentSearchForm
+    if 'query' in request.GET:
+        form = PaymentSearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            if query.startswith('1'):
+                query = query[3:]
+            # payments = Payment.objects.annotate(search=SearchVector('id', 'academic_year'),).filter(search=query)
+            # return redirect(reverse_lazy('search_payments'), payments)
+            return redirect(f'/search/payment/?query={query}')
+    else:
+        payments = Payment.objects.all().order_by('-date_entered')
+    
     context ={
         'payments': payments,
-        'title': 'payments'
+        'title': 'payments',
+        'form': form
     }
     return render(request, 'fees/payment_report.html/', context)
 
@@ -243,6 +291,25 @@ def payment_detail(request, id):
         'title': 'payment details'
     }
     return render(request, 'fees/payment_details.html', context)
+
+@login_required
+def search_payments(request):
+    payments = []
+    form = PaymentSearchForm
+    if 'query' in request.GET:
+        form = PaymentSearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            if query.startswith('1'):
+                query = query[3:]
+            payments = Payment.objects.annotate(search=SearchVector('id', 'academic_year'),).filter(search=query)
+           
+    context ={
+        'form': form,
+        'payments': payments,
+    }
+    return render(request, 'fees/search_payment.html/', context)
+
 
 def remark_list(request):
     if not request.user.is_staff:

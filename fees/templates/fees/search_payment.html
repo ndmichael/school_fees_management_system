@@ -4,7 +4,7 @@
     <div class="container">
 
         <section class="row p-4">
-            <article class="col-12 col-md-6 mx-auto my-4">
+            <article class="col-12 col-md-6 my-4">
                 <form action="" method="get" class="row">
                     <div class="col-12 col-sm-9">
                         {{ form | crispy }}
@@ -19,11 +19,7 @@
         <section class="row">
             <article class="col-12">
                 <div class="table-responsive">
-<<<<<<< HEAD
-                    <table class="table">
-=======
                     <table class="table bg-light">
->>>>>>> search_ft
                         <thead class=" bg-primary text-white fw-bolder">
                             <tr>
                                 <th scope="col">Payment ID</th>
@@ -63,7 +59,7 @@
                                 </td>
                             </tr>
                             {% empty %}
-                                <h3>No Payment Recorded.</h3>
+                                <h3>No Search Payment Record.</h3>
                             {% endfor %}
                         </tbody>
                     </table>
