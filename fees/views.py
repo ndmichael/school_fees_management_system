@@ -72,7 +72,7 @@ def student(request):
         'total_students': total_students,
         'd_form': deactivate_form
     }
-    return render(request, 'fees/student.html', context)
+    return render(request, 'fees/all_students.html', context)
 
 @login_required
 def update_student(request, username):
