@@ -257,6 +257,12 @@ def payment_report(request):
         - print payment report
     '''
 
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
+
     form = PaymentSearchForm
     if 'query' in request.GET:
         form = PaymentSearchForm(request.GET)
@@ -264,17 +270,11 @@ def payment_report(request):
             query = form.cleaned_data['query']
             if query.startswith('1'):
                 query = query[3:]
-            payments = Payment.objects.annotate(search=SearchVector('id', 'academic_year'),).filter(search=query)
+            # payments = Payment.objects.annotate(search=SearchVector('id', 'academic_year'),).filter(search=query)
             # return redirect(reverse_lazy('search_payments'), payments)
-            return render(request, 'fees/search_payment.html/', {'payments': payments})
+            return redirect(f'/search/payment/?query={query}')
     else:
         payments = Payment.objects.all().order_by('-date_entered')
-
-    if not request.user.is_staff:
-        messages.error(
-                request, f"You do not have permission to access this page."
-            )
-        return redirect("/")
     
     context ={
         'payments': payments,
