@@ -73,6 +73,8 @@ def student(request):
             )  
     else:
         deactivate_form = DeactivateStudent()
+
+    # Logic to filter search list of students
     query = request.GET.get('query')
     if query and query != '':
         students = Student.objects.annotate(search=SearchVector('user__last_name', 'user__username'),).filter(search__icontains=query)
@@ -86,8 +88,17 @@ def student(request):
     }
     return render(request, 'fees/all_students.html', context)
 
+
 @login_required
 def update_student(request, username):
+    '''
+        - ** KEY LOGICS ** 
+        - only for staffs && admins
+        - Update user dynamically
+        - Returns form from 2 data models
+        - Validate and update 2 data models
+        - Redirect non admin with a message
+    '''
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
@@ -101,7 +112,7 @@ def update_student(request, username):
         stud_form = StudentUpdateForm(
             request.POST, request.FILES, instance=user.student_user
         )
-        if u_form.is_valid() and stud_form.is_valid():
+        if u_form.is_valid() and stud_form.is_valid(): # check both form instances are valid 
             u_form.save()
             stud_form.save(commit=True)
             messages.success(request, f"{user.student_user} has been updated successfully.")
@@ -111,6 +122,7 @@ def update_student(request, username):
         else:
             print("failed to update") 
     else:
+        # Using the instances to return data back to the form field
         u_form = UserUpdateForm(instance=user)
         stud_form = StudentUpdateForm(instance=user.student_user)
 
