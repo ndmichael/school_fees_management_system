@@ -4,7 +4,8 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import (
     UserForm, StudentForm, StudentUpdateForm, UserUpdateForm, 
-    DeactivateStudent, PaymentForm, PaymentUpdateForm, PaymentSearchForm
+    DeactivateStudent, PaymentForm, PaymentUpdateForm, 
+    PaymentSearchForm, StudentSearchForm
 )
 from .models import Student, Payment, Remark, Staff, Faculty, Course
 from django.db.models import Sum
@@ -46,6 +47,11 @@ def student(request):
                 request, f"You do not have permission to access this page."
             )
         return redirect("/")
+
+    # Search by filter
+    filter_form = StudentSearchForm
+
+
     
     # get the username from the form using post
     # deactivate user
@@ -66,11 +72,15 @@ def student(request):
         deactivate_form = DeactivateStudent()
 
     students = Student.objects.all().filter(user__is_active=True).order_by('-added_date')
+
+
+
     total_students =  Student.objects.all().filter(user__is_active=True).count() # total students
     context = {
         'students': students,
         'total_students': total_students,
-        'd_form': deactivate_form
+        'd_form': deactivate_form,
+        'filter_form': StudentSearchForm
     }
     return render(request, 'fees/all_students.html', context)
 
