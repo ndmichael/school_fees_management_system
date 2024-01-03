@@ -102,4 +102,16 @@ class PaymentSearchForm(forms.Form):
             'placeholder': 'Search payments by payment id, academic year...',
             'required': 'false'
     })
+        
+class StudentSearchForm(forms.Form):
+    query = forms.CharField()
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['query'].label = ''
+        self.fields['query'].widget.attrs.update({
+            'class': 'form-control form-control-lg mb-0',
+            'placeholder': 'Search by student name, student id',
+            'required': 'false'
+    })
     
