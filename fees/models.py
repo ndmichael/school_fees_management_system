@@ -54,7 +54,7 @@ class Student (models.Model):
 
     @property
     def fullname(self):
-        return self.user.first_name + ' ' + self.user.last_name
+        return self.user.first_name.title() + ' ' + self.user.last_name.title()
 
     @property
     def photo_url(self):
