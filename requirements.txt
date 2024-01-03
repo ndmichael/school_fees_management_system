@@ -2,6 +2,7 @@ asgiref==3.7.2
 certifi==2023.11.17
 cffi==1.16.0
 charset-normalizer==3.3.2
+crispy-bootstrap5==2023.10
 cryptography==41.0.7
 defusedxml==0.7.1
 dj-database-url==2.1.0
@@ -11,8 +12,11 @@ django-crispy-forms==2.1
 django-environ==0.11.2
 django-heroku==0.3.1
 django-smart-selects==1.6.0
+gunicorn==21.2.0
 idna==3.6
 oauthlib==3.2.2
+packaging==23.2
+Pillow==10.1.0
 psycopg2==2.9.9
 psycopg2-binary==2.9.9
 pycparser==2.21
