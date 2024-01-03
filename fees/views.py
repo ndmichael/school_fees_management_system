@@ -47,6 +47,9 @@ def student(request):
                 request, f"You do not have permission to access this page."
             )
         return redirect("/")
+    
+    students = Student.objects.all().filter(user__is_active=True).order_by('-added_date')
+    total_students =  Student.objects.all().filter(user__is_active=True).count() # total students
 
     # Search by filter
     filter_form = StudentSearchForm
@@ -70,12 +73,11 @@ def student(request):
             )  
     else:
         deactivate_form = DeactivateStudent()
+    query = request.GET.get('query')
+    if query and query != '':
+        students = Student.objects.annotate(search=SearchVector('user__last_name', 'user__username'),).filter(search__icontains=query)
+        print(students)
 
-    students = Student.objects.all().filter(user__is_active=True).order_by('-added_date')
-
-
-
-    total_students =  Student.objects.all().filter(user__is_active=True).count() # total students
     context = {
         'students': students,
         'total_students': total_students,
