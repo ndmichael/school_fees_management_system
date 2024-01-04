@@ -386,6 +386,8 @@ def remark_details(request, slug):
     return render(request, 'fees/remark_details.html', context)
 
 
+# return all faculties offered in school.
+# with their courses.
 def faculty(request):
     faculties = Faculty.objects.all()
     context = {
