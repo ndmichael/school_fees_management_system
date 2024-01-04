@@ -18,8 +18,15 @@ from django.contrib.postgres.search import SearchVector
 def index(request):
     return render(request, 'fees/index.html', {"title": "nile-home"})
 
+
 @login_required
 def admin_dashboard(request):
+    '''
+        - ** KEY LOGIC ** 
+        - Admin section page
+        - Rturns total students
+        - Total Money
+    '''
     total_students = Student.objects.all().count()
     total_money = Payment.objects.aggregate(total=Sum('amount'))['total'] or 0
     context = {
@@ -169,6 +176,7 @@ def addStudent(request):
     return render(request, 'fees/addstudent.html', context)
 
 
+@login_required
 def payment(request):
     if not request.user.is_staff:
         messages.error(
@@ -221,8 +229,13 @@ def payment(request):
     }
     return render(request, 'fees/payment.html', context)
 
+
 @login_required
 def update_payment(request, pk):
+    '''
+        - ** KEY LOGIC **
+        - Update payment records
+    '''
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
@@ -231,6 +244,7 @@ def update_payment(request, pk):
     payment = get_object_or_404(
             Payment, id=pk
         )
+    
     if request.method == "POST":
         p_form = PaymentUpdateForm(
             request.POST, instance=payment
