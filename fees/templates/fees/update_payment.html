@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
-
+<!-- 
+    - update payment page
+-->
 <section>
     <div class="container">
         <section class="row">
@@ -7,7 +9,7 @@
                 <form method="POST" class="py-5">
                     <fieldset>
                         <h1 class="form-group mb-4 mt-4">
-                            <h1 class="text-primary">Update Client Details.</h1>
+                            <h1 class="text-primary">Update Payment.</h1>
                         </h1>
                     </fieldset>
                     {% csrf_token %} {{p_form| crispy}}
