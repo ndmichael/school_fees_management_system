@@ -329,6 +329,7 @@ def payment_report(request):
     return render(request, 'fees/payment_report.html/', context)
 
 
+@login_required
 def payment_detail(request, id):
     payment = Payment.objects.get(id=id)
     context = {
@@ -337,6 +338,9 @@ def payment_detail(request, id):
     }
     return render(request, 'fees/payment_details.html', context)
 
+
+# Search payments by id and academic year
+# Using icontains to search for substrings of a full text
 @login_required
 def search_payments(request):
     payments = []
