@@ -54,8 +54,6 @@ def student(request):
     # Search by filter
     filter_form = StudentSearchForm
 
-
-    
     # get the username from the form using post
     # deactivate user
     if request.POST:
@@ -107,6 +105,7 @@ def update_student(request, username):
     user = get_object_or_404(
             User, username=username
         )
+    
     if request.method == "POST":
         u_form = UserUpdateForm(request.POST, instance=user)
         stud_form = StudentUpdateForm(
@@ -132,6 +131,14 @@ def update_student(request, username):
 
 @login_required
 def addStudent(request):
+    '''
+        - ** KEY LOGICS ** 
+        - only for staffs && admins
+        - Update user dynamically
+        - Returns form from 2 data models
+        - Validate and update 2 data models
+        - Redirect non admin with a message
+    '''
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
@@ -326,7 +333,7 @@ def search_payments(request):
             query = form.cleaned_data['query']
             if query.startswith('1'):
                 query = query[3:]
-            payments = Payment.objects.annotate(search=SearchVector('id', 'academic_year'),).filter(search=query)
+            payments = Payment.objects.annotate(search=SearchVector('id', 'academic_year'),).filter(search__icontains=query)
            
     context ={
         'form': form,
