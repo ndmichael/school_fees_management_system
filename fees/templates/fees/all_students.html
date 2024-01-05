@@ -59,28 +59,6 @@
                     </thead>
                     <tbody>
                         {% for student in students %}
-                        <!-- Modal For User Details -->
-                        <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-body table-responsive">
-                                            <table>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Student Names:</td>
-                                                        <td>{{student.fullname}}</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-danger">Save
-                                                changes</button>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div> -->
 
                         <div class="modal fade" id="studentDetailsModal" tabindex="-1" aria-labelledby="studentDetailsLabel1" aria-hidden="true">
                             <div class="modal-dialog">
@@ -93,14 +71,14 @@
                                             <div class="p-4">
                                                 <div class="d-flex justify-content-between">
                                                    <p>Fullname:</p>
-                                                   <p class="fw-bold">{{student.fullname}}</p>
+                                                   <p class="fw-bold text-end">{{student.fullname}}</p>
                                                 </div>
 
                                                 <div class="d-flex justify-content-between">
                                                     <p>Contact Info:</p>
-                                                    <p class="fw-bold ">
+                                                    <p class="fw-bold text-end">
                                                         {{student.user.email}} <br />
-                                                        <span class="text-end">{{student.mobile_number}}</span>
+                                                        <span class="text-muted">{{student.mobile_number}}</span>
                                                     </p>
                                                  </div>
 
@@ -118,12 +96,9 @@
                                                         {{student.admission_date}}
                                                     </p>
                                                  </div>
-                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-danger">Save
-                                                changes</button>
                                         </div>
                                     </div>
                                 </form>
