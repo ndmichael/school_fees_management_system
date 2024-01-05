@@ -35,9 +35,9 @@
                         <tbody>
                             {%for payment in payments %}
                             <tr>
-                                <td>
+                                <td class="fw-bolder text-decoration-underline">
                                     <a href="{% url 'payment_detail' payment.pk %}">
-                                        100{{payment.pk}}
+                                        <p>100{{payment.pk}}</p>
                                     </a>
                                 </td>
                                 <td>
