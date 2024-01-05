@@ -59,6 +59,77 @@
                     </thead>
                     <tbody>
                         {% for student in students %}
+                        <!-- Modal For User Details -->
+                        <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-body table-responsive">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Student Names:</td>
+                                                        <td>{{student.fullname}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-danger">Save
+                                                changes</button>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div> -->
+
+                        <div class="modal fade" id="studentDetailsModal" tabindex="-1" aria-labelledby="studentDetailsLabel1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <form action="" method="POST">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="p-4">
+                                                <div class="d-flex justify-content-between">
+                                                   <p>Fullname:</p>
+                                                   <p class="fw-bold">{{student.fullname}}</p>
+                                                </div>
+
+                                                <div class="d-flex justify-content-between">
+                                                    <p>Contact Info:</p>
+                                                    <p class="fw-bold ">
+                                                        {{student.user.email}} <br />
+                                                        <span class="text-end">{{student.mobile_number}}</span>
+                                                    </p>
+                                                 </div>
+
+                                                 <div class="d-flex justify-content-between">
+                                                    <p>Course:</p>
+                                                    <p class="fw-bold text-end">
+                                                        {{student.faculty}} <br />
+                                                        <span class="text-muted text-end">{{student.courses.name}}</span>
+                                                    </p>
+                                                 </div>
+
+                                                 <div class="d-flex justify-content-between">
+                                                    <p>Admission Date:</p>
+                                                    <p class="fw-bold">
+                                                        {{student.admission_date}}
+                                                    </p>
+                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-danger">Save
+                                                changes</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
                         <!-- Modal For User Deactivation-->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -93,9 +164,8 @@
                             </td>
                             <td class="fw-bolder">
                                 <a href="{% url 'student_profile' student.user.username %}">
-                                    {{student.user.username}}
-                                </a>
-                                
+                                    <b>{{student.user.username}}</b>
+                                </a>                                   
                             </td>
                             <td>
                                 {{student.fullname}}
@@ -108,12 +178,14 @@
                                 {% if client.is_payed %} Paid {% else %} not Paid {% endif %}
                             </td>
                             <td>
-                                <a href="{% url 'student_profile' student.user.username %}" class="btn btn-info btn-sm me-2" data-toggle="tooltip" data-placement="bottom" title="Visit Student Profile">
+                                <a href="{% url 'student_profile' student.user.username %}" data-bs-toggle="modal" data-bs-target="#studentDetailsModal" class="btn btn-info btn-sm me-2" data-toggle="tooltip" data-placement="bottom" title="all student Payments">
                                     <i class="bi bi-info-circle text-dark" style="font-size:18px"></i>
                                 </a>
+                                
                                 <a href="{% url 'update_student' student.user.username %}" class="btn btn-warning btn-sm me-2" data-toggle="tooltip" data-placement="bottom" title="Edit Student Info">
                                     <i class="bi bi-pencil-square text-dark" style="font-size:18px"></i>
                                 </a>
+
                                 <a href="#" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-toggle="tooltip" data-placement="bottom" title="Deactivate Student">
                                     <i class="bi bi-x-circle" style="font-size:18px"></i>
                                 </a>
