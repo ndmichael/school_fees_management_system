@@ -22,7 +22,7 @@ html, body{
     width: 250px;
     height: 100vh !important;
     position:fixed; 
-    background: #fefefe;
+    background: #dee2e6;
     z-index: 1;
     overflow: hidden;
     padding-top: 10vh !important;
