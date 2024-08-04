@@ -20,7 +20,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top" style="z-index: 10;">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
                 <b class="text-primary">
@@ -99,8 +99,6 @@
         </div>
     </section>
 
-    {% block sidebar %} {% endblock sidebar %} 
-    <section class="content">
         <nav class="navbar navbar-expand p-0 m-0 d-flex flex-column align-items-start" id="sidebar">
             <ul class="nav d-flex flex-column mt-3 w-100">
                 <li class="nav-item w-100">
@@ -159,23 +157,21 @@
                     </a>
                 </li>
 
-                <!-- <li class="nav-item w-100">
-                    <a href="#transfer" class="nav-link ps-4">
-                        <i class=" bi bi-person-add" style="font-size: 1em;"></i>
-                        Referrals
-                    </a>
-                </li> -->
-
                 <a href="" class="nav-link ps-4">
                     <i class=" bi bi-door-closed" style="font-size: .7em;"></i>
                     <small class="text-muted">Logout</small>
                 </a>
             </ul>
     </nav> 
+
+    <section id="admin-content">
+        <div class="p-5">
         {% block content %} 
         
         {% endblock content %}
+        </div>
     </section>
+        
 
     <footer class="bg-dark">
         <div class="container">
