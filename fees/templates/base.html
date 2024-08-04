@@ -19,7 +19,9 @@
 </head>
 
 <body>
-
+    <!--- 
+    === Main navbar ===
+    -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top" style="z-index: 10;">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
@@ -85,6 +87,9 @@
         </div>
     </nav>
 
+    <!-- 
+        ==== Pop up alert message ===
+    -->
     <section class="container">
         <div class="row">
             <div class="offset-sm-3 col-sm-6">
@@ -99,71 +104,78 @@
         </div>
     </section>
 
-        <nav class="navbar navbar-expand shadow-0 p-0 m-0 d-flex flex-column align-items-start" id="sidebar">
-            <ul class="nav d-flex flex-column mt-3 w-100">
-                <li class="nav-item w-100">
-                    <a href="" class="nav-link ps-4">
-                        <i class=" bi bi-house-door" style="font-size: 1.0em;"></i>
-                        Dashboard
-                    </a>
-                </li>
-
-                <li class="nav-item w-100">
-                    <a href="" class="nav-link ps-4">
-                        <i class=" bi bi-file-person" style="font-size: 1em;"></i>
-                        Fees & Payments
-                    </a>
-                </li>
-
-                <li class="nav-item w-100">
-                    <a href="" class="nav-link ps-4">
-                        <i class=" bi bi-clipboard-data-fill" style="font-size: 1em;"></i>
-                        Manage Students
-                    </a>
-                </li>
-
-                <li class="nav-item w-100 disabled">
-                    <a href="" class="nav-link ps-4">
-                        <i class=" bi bi-currency-bitcoin" style="font-size: 1em;"></i>
-                        Faculty & Courses
-                    </a>
-                </li>
-
-                <li class="nav-item w-100 disabled">
-                    <a href="" class="nav-link ps-4">
-                        <i class=" bi bi-briefcase" style="font-size: 1em;"></i>
-                        Complaints & Feedbacks
-                    </a>
-                </li>
-
-                <li class="nav-item w-100">
-                    <a href="" class="nav-link ps-4">
-                        <i class=" bi bi-graph-down-arrow" style="font-size: 1em;"></i>
-                        Profile
-                    </a>
-                </li>
-
-                <li class="nav-item w-100">
-                    <a href="" class="nav-link ps-4">
-                        <i class=" bi bi-graph-down-arrow" style="font-size: 1em;"></i>
-                        Generate Reports
-                    </a>
-                </li>
-
-                <li class="nav-item w-100">
-                    <a href="" class="nav-link ps-4">
-                        <i class=" bi bi-graph-down-arrow" style="font-size: 1em;"></i>
-                        Settings
-                    </a>
-                </li>
-
+    <!--- 
+        === Sidenav with an id sidebar ===
+        ** This sidebar is for admin and fully responsive **
+    -->
+    <nav class="navbar navbar-expand shadow-0 p-0 m-0 d-flex flex-column align-items-start" id="sidebar">
+        <ul class="nav d-flex flex-column mt-3 w-100">
+            <li class="nav-item w-100">
                 <a href="" class="nav-link ps-4">
-                    <i class=" bi bi-door-closed" style="font-size: .7em;"></i>
-                    <small class="text-muted">Logout</small>
+                    <i class=" bi bi-house-door" style="font-size: 1.0em;"></i>
+                    Dashboard
                 </a>
-            </ul>
+            </li>
+
+            <li class="nav-item w-100">
+                <a href="" class="nav-link ps-4">
+                    <i class=" bi bi-file-person" style="font-size: 1em;"></i>
+                    Fees & Payments
+                </a>
+            </li>
+
+            <li class="nav-item w-100">
+                <a href="" class="nav-link ps-4">
+                    <i class=" bi bi-clipboard-data-fill" style="font-size: 1em;"></i>
+                    Manage Students
+                </a>
+            </li>
+
+            <li class="nav-item w-100 disabled">
+                <a href="" class="nav-link ps-4">
+                    <i class=" bi bi-currency-bitcoin" style="font-size: 1em;"></i>
+                    Faculty & Courses
+                </a>
+            </li>
+
+            <li class="nav-item w-100 disabled">
+                <a href="" class="nav-link ps-4">
+                    <i class=" bi bi-briefcase" style="font-size: 1em;"></i>
+                    Complaints & Feedbacks
+                </a>
+            </li>
+
+            <li class="nav-item w-100">
+                <a href="" class="nav-link ps-4">
+                    <i class=" bi bi-graph-down-arrow" style="font-size: 1em;"></i>
+                    Profile
+                </a>
+            </li>
+
+            <li class="nav-item w-100">
+                <a href="" class="nav-link ps-4">
+                    <i class=" bi bi-graph-down-arrow" style="font-size: 1em;"></i>
+                    Generate Reports
+                </a>
+            </li>
+
+            <li class="nav-item w-100">
+                <a href="" class="nav-link ps-4">
+                    <i class=" bi bi-graph-down-arrow" style="font-size: 1em;"></i>
+                    Settings
+                </a>
+            </li>
+
+            <a href="" class="nav-link ps-4">
+                <i class=" bi bi-door-closed" style="font-size: .7em;"></i>
+                <small class="text-muted">Logout</small>
+            </a>
+        </ul>
     </nav> 
 
+    <!-- 
+    === Content Section ===
+    -->
     <section id="admin-content" class="bg-light">
         <div class="p-5">
         {% block content %} 
