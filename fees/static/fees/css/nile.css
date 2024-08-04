@@ -23,8 +23,9 @@ html, body{
     height: 100vh !important;
     position:fixed; 
     background: #fefefe;
-    z-index: 100;
+    z-index: 1;
     overflow: hidden;
+    padding-top: 10vh !important;
 
 }
 
@@ -44,15 +45,17 @@ html, body{
     color: black;
 }
 
-.content{
+#admin-content{
     flex-grow: 1;   
+    padding-top: 10vh;
+    padding-left: 250px;
+    width: 100%;
 }
 
 .accordion-button{
     font-size: 18px !important;
     font-weight: bolder !important;
     border: 2px double rgba(98, 98, 98, 0.4) !important;
-
 }
 
 .form-control::placeholder {
