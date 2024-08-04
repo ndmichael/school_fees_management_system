@@ -6,12 +6,19 @@
     - Deactivate user thorugh modal pop up
     - Add new user
 -->
-<section class="py-5 bg-light" style="min-height: 100vh;">
+<section style="min-height: 100vh;">
     <div class="container py-4">
         <div class="row">
-            <article class="col-12 col-md-5">
+            <article class="col-12 col-md-2 mx-auto">
+                <p class="text-secondary" onclick="history.back()" data-toggle="tooltip" 
+                    data-placement="bottom" 
+                    title="Go Back">
+                    <i class=" bi bi-arrow-left-circle-fill"></i>
+                </p>
+            </article>
+            
+            <article class="col-12 col-md-6 mx-auto text-center">
                 <div class=" pb-4">
-                    <p class="text-secondary" onclick="history.back()" data-toggle="tooltip" data-placement="bottom" title="Go Back"><i class=" bi bi-arrow-left-circle-fill"></i></p>
                     <h1>
                         All students ({{total_students}})
                     </h1>
@@ -25,8 +32,17 @@
                 </div>
             </article>
 
+            <!-- Add a new useer link -->
+            <article class="col-12 col-md-4 text-end">
+                <a href="{% url 'addstudent' %}" class=" btn btn-primary btn-lg">
+                    Add New Student
+                </a>
+            </article>
+        </div>
+
+        <div class="row my-3">
             <!-- Search feature form -->
-            <article class="col-12 col-md-5">
+            <article class="col-12 col-md-6">
                 <form action="" method="get" class="row" novalidate="nonvalidate">
                         <div class="col-12 col-sm-8">
                             {{ filter_form | crispy }}
@@ -35,13 +51,6 @@
                             Search <i class="bi bi-search" style="font-size: 12px; font-weight: 700;"></i>
                         </button>
                 </form>
-            </article>
-
-            <!-- Add a new useer link -->
-            <article class="col-12 col-md-2 text-end">
-                <a href="{% url 'addstudent' %}" class=" btn btn-primary btn-lg">
-                    Add New Student
-                </a>
             </article>
         </div>
         <div class="row">
