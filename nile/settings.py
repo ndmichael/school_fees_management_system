@@ -111,17 +111,17 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql',
 
-        # 'NAME': env('NAME'),
-        # 'USER': env('USER') ,
-        # 'PASSWORD': env('PASSWORD') ,
-        # 'HOST': 'localhost',
-        # 'PORT': '5432',
+        'NAME': env('NAME'),
+        'USER': env('USER') ,
+        'PASSWORD': env('PASSWORD') ,
+        'HOST': 'localhost',
+        'PORT': '5432',
 
-        'NAME': env('PGDATABASE'),
-        'USER': env('PGUSER') ,
-        'PASSWORD': env('PGPASSWORD') ,
-        'HOST': env('PGHOST'),
-        'PORT': env('PGPORT'),
+        # 'NAME': env('PGDATABASE'),
+        # 'USER': env('PGUSER') ,
+        # 'PASSWORD': env('PGPASSWORD') ,
+        # 'HOST': env('PGHOST'),
+        # 'PORT': env('PGPORT'),
     }
 }
 
@@ -193,7 +193,8 @@ ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "account_login"
 # 1 day
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400
 LOGIN_URL = 'account_login'
-LOGIN_REDIRECT_URL = '/'
+# LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'currentprofile'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
