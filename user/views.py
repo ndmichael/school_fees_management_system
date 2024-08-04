@@ -57,3 +57,9 @@ def staff_profile(request, username):
     }
     return render(request, 'account/student_profile.html', context)
 
+
+@login_required
+def current_user_profile(request):
+    if request.user.is_staff:
+        return redirect('admin_dashboard')
+    return redirect('clientprofile', username=request.user.username)
