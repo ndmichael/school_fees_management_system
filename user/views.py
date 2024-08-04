@@ -8,6 +8,10 @@ from django.contrib.auth.decorators import login_required
 
 
 def stud_profile(request, username):
+    '''*** Student profile section 1 ***
+        === All logics goes her ===
+    '''
+    
     if request.POST:
         r_form = RemarkForm(request.POST)
         if r_form.is_valid():
@@ -24,7 +28,6 @@ def stud_profile(request, username):
     student = Student.objects.filter(user__username=username).first()
     payments = Payment.objects.filter(student=student)
 
-    
     context = {
         'student': student,
         'payments': payments,
@@ -36,7 +39,10 @@ def stud_profile(request, username):
 
 @login_required
 def student_profile(request, username):
-    print("username : ", username)
+    '''*** Student profile section ***
+        === All logics goes her ===
+    '''
+
     student = Student.objects.filter(user__username=username).first()
     payments = Payment.objects.filter(student=student)
 
@@ -49,6 +55,8 @@ def student_profile(request, username):
 
 @login_required
 def staff_profile(request, username):
+    '''*** Staff profile section ***'''
+
     print("username : ", username)
     staff = Staff.objects.filter(user__username=username).first()
     context = {
@@ -60,6 +68,8 @@ def staff_profile(request, username):
 
 @login_required
 def current_user_profile(request):
+    '''On login if admin ? redirect admin dashboard else student profile'''
+
     if request.user.is_staff:
         return redirect('admin_dashboard')
     return redirect('clientprofile', username=request.user.username)
