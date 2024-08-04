@@ -25,6 +25,23 @@ html, body{
     background: #fefefe;
     z-index: 100;
     overflow: hidden;
+
+}
+
+#sidebar .nav-link{
+    font-size: 1em;
+    /* z-index: 100; */
+    color:  rgb(72, 71, 71);
+    margin-top: 7px;
+    border: 0 !important;
+    border-radius: 0 !important;
+}
+
+#sidebar .nav-link:active,
+#sidebar .nav-link:focus,
+#sidebar .nav-link:hover{
+    background-color: #fff;
+    color: black;
 }
 
 .content{
