@@ -45,6 +45,11 @@ html, body{
     color: black;
 }
 
+#sidebar .nav-link .bi{
+    color: rgb(15, 15, 150);
+    font-weight: 700;
+}
+
 #admin-content{
     flex-grow: 1;   
     padding-top: 10vh;
