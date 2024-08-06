@@ -18,6 +18,9 @@ class Faculty(models.Model):
     name = models.CharField(max_length= 150)
     slug = models.SlugField(max_length=200)
 
+    class Meta:
+         verbose_name = "faculties"
+
     def __str__(self):
         return self.name
 
