@@ -89,7 +89,7 @@ def student(request):
         'students': students,
         'total_students': total_students,
         'd_form': deactivate_form,
-        'filter_form': StudentSearchForm
+        'filter_form': StudentSearchForm,
     }
     return render(request, 'fees/all_students.html', context)
 
