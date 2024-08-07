@@ -15,7 +15,7 @@ class CourseAdmin(admin.ModelAdmin):
 
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
-    list_display = ("user", "faculty", "courses", "gender", "is_payed", "admission_date")
+    list_display = ("user", "faculty", "courses", "gender",  "admission_date")
 
 
 @admin.register(Staff)
@@ -24,7 +24,7 @@ class StaffAdmin(admin.ModelAdmin):
 
 @admin.register(Payment)
 class PaymentAdmin(admin.ModelAdmin):
-    list_display = ("academic_year", "semester", "amount", "date_entered", "payment_method", "student")
+    list_display = ("academic_year", "semester", "amount", "date_entered","is_paid", "is_confirmed", "image", "payment_method", "student")
 
 
 @admin.register(Remark)
