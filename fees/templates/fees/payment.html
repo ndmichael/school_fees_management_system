@@ -59,83 +59,109 @@
             </article>
         </section>
 
-        <section class="row mt-5">
+        <section class="row mt-5 g-5">
             <div class="col-12">
-                <article class="bg-white p-5 rounded-5 shadow-sm table-responsive">
-                    <table class="table">
-                        <thead class="bg-light p-5">
-                            <tr class="p-5">
-                                <th scope="col">Payment ID</th>
-                                <th scope="col">Academic Year</th>
-                                <th scope="col">Semester</th>
-                                <th scope="col"> student name</th>
-                                <th scope="col">Amount</th>
-                                <th scope="col">Balance</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {%for payment in payments %}
-                            <!-- Modal For Payment Deactivation-->
-                            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <form action="{% url 'delete_payment' %}" method="POST">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="deleteModalLabel">
-                                                    DELETE PAYMENT.
-                                                </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div>
-                                                    {% csrf_token %}
-                                                    <input type="hidden" value="{{payment.pk}}" name="pay_id">
-                                                    <h4>
-                                                        Are you sure you want to delete payment?
-                                                    </h4>
+            <ul class="nav nav-pills nav-fill d-flex flex-row" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a href="#investments" class="nav-link active" data-bs-toggle="tab">
+                        <i class=" bi bi-briefcase-fill pe-2" style="font-size: 1.2rem;"></i>
+                        Confirmed Payments
+                    </a>
+                </li>
+        
+                <li class="nav-item">
+                    <a href="#requests" class="nav-link" data-bs-toggle="tab">
+                        <i class=" bi bi-briefcase pe-2" style="font-size: 1.2rem;"></i>
+                        Pending Payments
+                    </a>
+                </li>
+            </ul>
+            </div> <!-- == End of the tablist == -->
+
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane show active" id="investments" role="tabpanel" aria-labelledby="investments-tab">
+                    <div class="col-12">
+                        <article class="bg-white p-5 rounded-5 shadow-sm table-responsive">
+                            <table class="table">
+                                <thead class="bg-light p-5">
+                                    <tr class="p-5">
+                                        <th scope="col">Payment ID</th>
+                                        <th scope="col">Academic Year</th>
+                                        <th scope="col">Semester</th>
+                                        <th scope="col"> student name</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col">Balance</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {%for payment in payments %}
+                                    <!-- Modal For Payment Deactivation-->
+                                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <form action="{% url 'delete_payment' %}" method="POST">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="deleteModalLabel">
+                                                            DELETE PAYMENT.
+                                                        </h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div>
+                                                            {% csrf_token %}
+                                                            <input type="hidden" value="{{payment.pk}}" name="pay_id">
+                                                            <h4>
+                                                                Are you sure you want to delete payment?
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-danger">
+                                                            DELETE
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-danger">
-                                                    DELETE
-                                                </button>
-                                            </div>
+                                            </form>
                                         </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <tr>
-                                <td>
-                                    <a href="{% url 'payment_detail' payment.pk %}" class=" text-decoration-underline">
-                                        100{{payment.pk}}
-                                    </a>
-                                </td>
-                                <td>
-                                    {{payment.academic_year}}
-                                </td>
-                                <td>{{ payment.semester }}</td>
-                                <td>{{ payment.student.user.first_name }} {{ payment.student.user.last_name }}</td>
-                                <td>&#8358;{{payment.amount|intcomma }}</td>
-                                <td>&#8358;{{payment.balance|intcomma }}</td>
-                                <td class="d-flex">
-                                    <a href="{% url 'update_payment' payment.id %}" class="btn btn-warning btn-sm m-2">
-                                        <i class="bi bi-pencil-square text-dark" style="font-size:16px"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-danger btn-sm m-2" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                        <i class="bi bi-trash" style="font-size:16px"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            {% empty %}
-                            <tr>
-                                <h3 class="alert alert-info">No Payment Recorded.</h3>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </article>
+                                    </div>
+                                    <tr>
+                                        <td>
+                                            <a href="{% url 'payment_detail' payment.pk %}" class=" text-decoration-underline">
+                                                100{{payment.pk}}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            {{payment.academic_year}}
+                                        </td>
+                                        <td>{{ payment.semester }}</td>
+                                        <td>{{ payment.student.user.first_name }} {{ payment.student.user.last_name }}</td>
+                                        <td>&#8358;{{payment.amount|intcomma }}</td>
+                                        <td>&#8358;{{payment.balance|intcomma }}</td>
+                                        <td class="d-flex">
+                                            <a href="{% url 'update_payment' payment.id %}" class="btn btn-warning btn-sm m-2">
+                                                <i class="bi bi-pencil-square text-dark" style="font-size:16px"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-danger btn-sm m-2" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                <i class="bi bi-trash" style="font-size:16px"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% empty %}
+                                    <p class="alert alert-info fw-bolder">No Payment Recorded.</p>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="tab-pane show" id="requests" role="tabpanel" aria-labelledby="requests-tab">
+                    <article class="col-12 col-md-12 mx-auto">
+                        <h3>Pending request coming soon.</h3>
+                    </article>
+                </div>
             </div>
         </section>
     </div>
