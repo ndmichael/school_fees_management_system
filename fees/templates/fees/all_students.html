@@ -8,19 +8,11 @@
 -->
 <section style="min-height: 100vh;">
     <div class="container py-4">
-        <div class="row">
-            <article class="col-12 col-md-2 mx-auto">
-                <p class="text-secondary" onclick="history.back()" data-toggle="tooltip" 
-                    data-placement="bottom" 
-                    title="Go Back">
-                    <i class=" bi bi-arrow-left-circle-fill"></i>
-                </p>
-            </article>
-            
-            <article class="col-12 col-md-6 mx-auto text-center">
+        <div class="row">         
+            <article class="col-12 col-md-4">
                 <div class=" pb-4">
                     <h1>
-                        All students ({{total_students}})
+                        Students ({{total_students}})
                     </h1>
 
                     <p>
@@ -32,15 +24,6 @@
                 </div>
             </article>
 
-            <!-- Add a new useer link -->
-            <article class="col-12 col-md-4 text-end">
-                <a href="{% url 'addstudent' %}" class=" btn btn-primary btn-lg">
-                    Add New Student
-                </a>
-            </article>
-        </div> <!-- === End of details row -->
-
-        <div class="row my-3">
             <!-- Search feature form -->
             <article class="col-12 col-md-5">
                 <form action="" method="get" class="row" novalidate="nonvalidate">
@@ -52,7 +35,14 @@
                         </button>
                 </form>
             </article>
-        </div> <!-- === End of erch and filter row === -->
+
+            <!-- Add a new useer link -->
+            <article class="col-12 col-md-3 text-end">
+                <a href="{% url 'addstudent' %}" class=" btn btn-primary btn-lg col-12">
+                    Add New Student
+                </a>
+            </article>
+        </div> <!-- === End of details row -->
 
         <!-- ===    Student table row === -->
         <div class="row">
