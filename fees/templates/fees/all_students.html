@@ -150,7 +150,7 @@
                                 <span>{{student.mobile_number}}</span> <br />
                             </td>
                             <td>
-                                {% if client.is_payed %} Paid {% else %} not Paid {% endif %}
+                                {{student.courses.name}}
                             </td>
                             <td class="d-flex flex-row">
                                 <a href="{% url 'student_profile' student.user.username %}" data-bs-toggle="modal" data-bs-target="#studentDetailsModal" class="btn btn-info btn-sm m-2" data-toggle="tooltip" data-placement="bottom" title="all student Payments">
