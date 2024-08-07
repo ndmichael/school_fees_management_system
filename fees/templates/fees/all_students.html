@@ -60,7 +60,38 @@
                     </thead>
                     <tbody>
                         {% for student in students %}
-                        <div class="modal fade" id="studentDetailsModal" tabindex="-1" aria-labelledby="studentDetailsLabel1" aria-hidden="true">
+                        <!-- Modal For User Deactivation-->
+                        
+                        <div class="modal fade" id="DeactivateStudentModal" tabindex="-1" aria-labelledby="DeactivateStudentLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <form action="" method="POST">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">
+                                                DEACTIVATE FORM.
+                                            </h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div>
+                                                <label for="deactivate" class="form-check-label" name="deactivate" id="deactivate">deactivate:</label>
+                                                <input type="checkbox" class="form-check-input">
+                                                {% csrf_token %}
+                                                <input type="hidden" value="{{student.user.username}}" name="username"> {{d_form | crispy}}
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-danger">Save
+                                                changes</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- == Modal to display students details == -->
+                        <div class="modal fade" id="studentDetailsModal" tabindex="-2" aria-labelledby="studentDetailsLabel1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <form action="" method="POST">
                                     <div class="modal-content">
@@ -105,34 +136,7 @@
                             </div>
                         </div>
 
-                        <!-- Modal For User Deactivation-->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <form action="" method="POST">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">
-                                                DEACTIVATE FORM.
-                                            </h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div>
-                                                <!-- <label for="deactivate" class="form-check-label" name="deactivate" id="deactivate">deactivate:</label>
-                                                <input type="checkbox" class="form-check-input"> -->
-                                                {% csrf_token %}
-                                                <input type="hidden" value="{{student.user.username}}" name="username"> {{d_form | crispy}}
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-danger">Save
-                                                changes</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                        
                         <tr>
                             <td>   
                                 {{forloop.counter}}
@@ -153,7 +157,7 @@
                                 {{student.courses.name}}
                             </td>
                             <td class="d-flex flex-row">
-                                <a href="{% url 'student_profile' student.user.username %}" data-bs-toggle="modal" data-bs-target="#studentDetailsModal" class="btn btn-info btn-sm m-2" data-toggle="tooltip" data-placement="bottom" title="all student Payments">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#studentDetailsModal" class="btn btn-info btn-sm m-2" data-toggle="tooltip" data-placement="bottom" title="all student Payments">
                                     <i class="bi bi-info-circle text-dark" style="font-size:18px"></i>
                                 </a>
                                 
@@ -161,7 +165,7 @@
                                     <i class="bi bi-pencil-square text-dark" style="font-size:18px"></i>
                                 </a>
 
-                                <a href="#" class="btn btn-dark btn-sm m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-toggle="tooltip" data-placement="bottom" title="Deactivate Student">
+                                <a href="#" class="btn btn-dark btn-sm m-2" data-bs-toggle="modal" data-bs-target="#DeactivateStudentModal" data-toggle="tooltip" data-placement="bottom" title="Deactivate Student">
                                     <i class="bi bi-x-circle" style="font-size:18px"></i>
                                 </a>
                             </td>
