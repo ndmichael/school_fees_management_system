@@ -127,7 +127,12 @@ class Payment(models.Model):
     date_paid = models.DateTimeField(default=timezone.now)
     date_entered = models.DateTimeField(default=timezone.now)
     
-
+    @property
+    def photo_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
+        else:
+            return None
 
     def __str__(self):
         return f"{self.student}"
