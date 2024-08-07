@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     # 'allauth.socialaccount.providers.facebook',
     "django.contrib.sites",
     'django.contrib.humanize',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
