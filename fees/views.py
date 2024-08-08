@@ -184,13 +184,17 @@ def payment(request):
             )
         return redirect("/")
     
+    # Get staff object reuesting payment add
+    staff = get_object_or_404(Staff, user=request.user)
+    
     if request.method == 'POST':
         p_form = PaymentForm(request.POST)
-        # Get staff object reuesting payment add
-        staff = get_object_or_404(Staff, user=request.user)
+        
 
         if p_form.is_valid():
             p_form = p_form.save(commit=False)
+            course_fee = student.courses.fee
+            p_form.staff = staff
 
             # Return the student from form
             # Chek their last payment for that year & semester
@@ -199,9 +203,6 @@ def payment(request):
                 student=student, academic_year=p_form.academic_year, 
                 semester=p_form.semester
             ).last()
-            
-            course_fee = student.courses.fee
-            p_form.staff = staff
 
             if (payment):
                 p_form.balance = payment.balance - p_form.amount
@@ -225,10 +226,13 @@ def payment(request):
 
     payments = Payment.objects.filter(is_confirmed=True).order_by('-date_entered')
     total_payments =  payments.count()
+    total_by_you = Payment.objects.filter(is_confirmed=True, staff=staff).count()
     context = {
         'p_form': p_form,
         'payments': payments,
         'total_payments': total_payments,
+        'total_by_you': total_by_you,
+        'total_pending': '',
         'title': 'nile-payment page'
     }
     return render(request, 'fees/payment.html', context)
