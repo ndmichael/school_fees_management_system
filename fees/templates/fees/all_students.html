@@ -62,7 +62,7 @@
                         {% for student in students %}
                         <!-- Modal For User Deactivation-->
                         
-                        <div class="modal fade" id="DeactivateStudentModal" tabindex="-1" aria-labelledby="DeactivateStudentLabel" aria-hidden="true">
+                        <div class="modal fade" id="DeactivateStudentModal{{student.id}}" tabindex="-1" aria-labelledby="DeactivateStudentLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <form action="" method="POST">
                                     <div class="modal-content">
@@ -74,8 +74,9 @@
                                         </div>
                                         <div class="modal-body">
                                             <div>
-                                                <label for="deactivate" class="form-check-label" name="deactivate" id="deactivate">deactivate:</label>
-                                                <input type="checkbox" class="form-check-input">
+                                                <p class="alert alert-danger fw-bolder">Do you want to deactivate student - {{student.user.username}}</p>
+                                                <!-- <label for="deactivate" class="form-check-label" name="deactivate" id="deactivate">deactivate:</label> -->
+                                                <!-- <input type="checkbox" class="form-check-input"> -->
                                                 {% csrf_token %}
                                                 <input type="hidden" value="{{student.user.username}}" name="username"> {{d_form | crispy}}
                                             </div>
@@ -171,7 +172,7 @@
                                     <i class="bi bi-pencil-square text-dark" style="font-size:18px"></i>
                                 </a>
 
-                                <a href="#" class="btn btn-dark btn-sm m-2" data-bs-toggle="modal" data-bs-target="#DeactivateStudentModal" data-toggle="tooltip" data-placement="bottom" title="Deactivate Student">
+                                <a href="#" class="btn btn-dark btn-sm m-2" data-bs-toggle="modal" data-bs-target="#DeactivateStudentModal{{student.id}}" data-toggle="tooltip" data-placement="bottom" title="Deactivate Student">
                                     <i class="bi bi-x-circle" style="font-size:18px"></i>
                                 </a>
                             </td>
