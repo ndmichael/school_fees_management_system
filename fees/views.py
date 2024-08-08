@@ -190,37 +190,34 @@ def payment(request):
         staff = get_object_or_404(Staff, user=request.user)
 
         if p_form.is_valid():
-            pass
-            # p_form = p_form.save(commit=False)
-            # student = p_form.student
-            # payment = Payment.objects.filter(
-            #     student=p_form.student, academic_year=p_form.academic_year, 
-            #     semester=p_form.semester
-            # ).last()
+            p_form = p_form.save(commit=False)
+
+            # Return the student from form
+            # Chek their last payment for that year & semester
+            student = p_form.student
+            payment = Payment.objects.filter(
+                student=student, academic_year=p_form.academic_year, 
+                semester=p_form.semester
+            ).last()
             
-            # print(f"payment: {payment}")
+            course_fee = student.courses.fee
+            p_form.staff = staff
 
-            # id = student.id
-            # course_fee = student.courses.fee
+            if (payment):
+                p_form.balance = payment.balance - p_form.amount
+            else:
+                p_form.balance = course_fee -  p_form.amount
 
-            # p_form.staff = staff
-            # if (payment):
-            #     p_form.balance = payment.balance - p_form.amount
-            # else:
-            #     p_form.balance = course_fee -  p_form.amount
+            if(p_form.balance in [0, 0.0, 0.00]):
+                p_form.is_paid = True
 
-            # if(p_form.balance in [0, 0.0, 0.00]):
-            #     p_form.is_paid = True
-
-            # p_form.is_confirmed = True
-
-            
-
-            # p_form.save()
+            p_form.is_confirmed = True
+            p_form.save()
             
             messages.success(
-                request, f"Payment fee has been added for student with id: {id}"
+                request, f"Payment fee has been added for {student}"
             )
+
             return redirect(
                 "make_payment"
             ) 
