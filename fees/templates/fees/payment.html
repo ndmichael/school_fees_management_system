@@ -1,6 +1,6 @@
 {% extends 'base.html' %}  {% load humanize %} {% load crispy_forms_tags %} {% block content %}
 
-<section class="py-5 bg-light" style="min-height: 100vh;">
+<section class=" bg-light">
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <form action="{% url 'make_payment' %}" method="POST">
