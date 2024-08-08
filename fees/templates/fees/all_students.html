@@ -91,7 +91,7 @@
                         </div>
 
                         <!-- == Modal to display students details == -->
-                        <div class="modal fade" id="studentDetailsModal" tabindex="-2" aria-labelledby="studentDetailsLabel1" aria-hidden="true">
+                        <div class="modal fade" id="studentDetailsModal{{student.id}}" tabindex="-2" aria-labelledby="studentDetailsLabel1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <form action="" method="POST">
                                     <div class="modal-content">
@@ -158,7 +158,7 @@
                             </td>
                             <td class="d-flex flex-row">
                                 <a href="#" data-bs-toggle="modal" 
-                                    data-bs-target="#studentDetailsModal" 
+                                    data-bs-target="#studentDetailsModal{{student.id}}" 
                                     class="btn btn-info btn-sm m-2" 
                                     data-toggle="tooltip" 
                                     data-placement="bottom" 
