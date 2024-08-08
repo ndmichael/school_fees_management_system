@@ -186,30 +186,37 @@ def payment(request):
     
     if request.method == 'POST':
         p_form = PaymentForm(request.POST)
-        # user = get_object_or_404(User, username=request.user.username)
+        # Get staff object reuesting payment add
         staff = get_object_or_404(Staff, user=request.user)
-        
 
         if p_form.is_valid():
-            p_form = p_form.save(commit=False)
-            student = p_form.student
-            payment = Payment.objects.filter(
-                student=p_form.student, academic_year=p_form.academic_year, 
-                semester=p_form.semester
-            ).last()
+            pass
+            # p_form = p_form.save(commit=False)
+            # student = p_form.student
+            # payment = Payment.objects.filter(
+            #     student=p_form.student, academic_year=p_form.academic_year, 
+            #     semester=p_form.semester
+            # ).last()
             
-            print(f"payment: {payment}")
+            # print(f"payment: {payment}")
 
-            id = student.id
-            course_fee = student.courses.fee
+            # id = student.id
+            # course_fee = student.courses.fee
 
-            p_form.staff = staff
-            if (payment):
-                p_form.balance = payment.balance - p_form.amount
-            else:
-                p_form.balance = course_fee -  p_form.amount
+            # p_form.staff = staff
+            # if (payment):
+            #     p_form.balance = payment.balance - p_form.amount
+            # else:
+            #     p_form.balance = course_fee -  p_form.amount
 
-            p_form.save()
+            # if(p_form.balance in [0, 0.0, 0.00]):
+            #     p_form.is_paid = True
+
+            # p_form.is_confirmed = True
+
+            
+
+            # p_form.save()
             
             messages.success(
                 request, f"Payment fee has been added for student with id: {id}"
@@ -220,7 +227,7 @@ def payment(request):
     p_form = PaymentForm()
 
     payments = Payment.objects.filter(is_confirmed=True).order_by('-date_entered')
-    total_payments =  Payment.objects.all().count()
+    total_payments =  payments.count()
     context = {
         'p_form': p_form,
         'payments': payments,
