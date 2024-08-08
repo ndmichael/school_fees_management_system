@@ -219,7 +219,7 @@ def payment(request):
             ) 
     p_form = PaymentForm()
 
-    payments = Payment.objects.all().order_by('-date_entered')
+    payments = Payment.objects.filter(is_confirmed=True).order_by('-date_entered')
     total_payments =  Payment.objects.all().count()
     context = {
         'p_form': p_form,
