@@ -6,6 +6,9 @@ from django.utils.text import slugify
 from smart_selects.db_fields import ChainedForeignKey # import from smart_select package
 from django.urls import reverse
 
+import random
+import uuid
+
 
 # Create your models here.
 
@@ -138,23 +141,30 @@ class Payment(models.Model):
         return f"{self.student}"
 
 
-class Remark(models.Model):
-    choice = (
-        ('complaint', 'COMPLAINT'),
-        ('feedback', 'FEED BACK')
+class Complaint(models.Model):
+    STATUS  =( ('P', 'Pending'),
+        ('R', 'Resolved'),
+        ('C', 'Closed')
     )
-    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="remark", default="")
-    remark = models.CharField(choices=choice, max_length=50, default='feedback')
+    reference_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    student = models.ForeignKey(
+        Student, 
+        on_delete=models.CASCADE, 
+        related_name="remark", 
+        default="anonymous"
+    )
+    status = models.CharField(max_length=1, choices=STATUS, default='P')
     subject = models.CharField(max_length=100)
-    body = models.TextField()
+    description = models.TextField()
     slug = models.SlugField(default="remark", max_length=100, unique=True)
-    date = models.DateTimeField(default=timezone.now)
+    date_submitted = models.DateTimeField(default=timezone.now)
 
     def save(
         self, *args, **kwargs
     ):  # i override the save to pre-populate slugs, another way is using signals
         self.slug = slugify(self.subject)
-        super(Remark, self).save(*args, **kwargs)
+        super(Complaint, self).save(*args, **kwargs)
+
 
     def __str__(self):
         return f"{self.subject}"
