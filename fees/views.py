@@ -7,7 +7,7 @@ from .forms import (
     DeactivateStudent, PaymentForm, PaymentUpdateForm, 
     PaymentSearchForm, StudentSearchForm
 )
-from .models import Student, Payment, Remark, Staff, Faculty, Course
+from .models import Student, Payment, Complaint, Staff, Faculty, Course
 from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
 
@@ -368,30 +368,30 @@ def search_payments(request):
     return render(request, 'fees/search_payment.html/', context)
 
 
-def remark_list(request):
+def complaint_list(request):
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
             )
         return redirect("/")
-    remarks = Remark.objects.all().order_by('-date')
+    complaints = Complaint.objects.all().order_by('-date')
     context={
-        'remarks': remarks
+        'complaints': complaints
     }
-    return render(request, 'fees/remark_list.html', context)
+    return render(request, 'fees/complaint_list.html', context)
 
-def remark_details(request, slug):
+def complaint_details(request, slug):
     if not request.user.is_staff:
         messages.error(
                 request, f"You do not have permission to access this page."
             )
         return redirect("/")
-    remark = Remark.objects.get(slug=slug)
+    complaint = complaint.objects.get(slug=slug)
     context={
-        'remark': remark,
-        'title': 'student-remarks'
+        'complaint': complaint,
+        'title': 'student-complaints'
     }
-    return render(request, 'fees/remark_details.html', context)
+    return render(request, 'fees/complaint_details.html', context)
 
 
 # return all faculties offered in school.
