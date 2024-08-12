@@ -156,7 +156,7 @@ class Complaint(models.Model):
     status = models.CharField(max_length=1, choices=STATUS, default='P')
     subject = models.CharField(max_length=100)
     description = models.TextField()
-    slug = models.SlugField(default="remark", max_length=100, unique=True)
+    slug = models.SlugField(default="complaint", max_length=100, unique=True)
     date_submitted = models.DateTimeField(default=timezone.now)
 
     def save(
