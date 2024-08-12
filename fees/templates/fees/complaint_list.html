@@ -9,8 +9,75 @@
                 </h1>
             </div>
         </section>
+
+        <section class="row g-5">
+            <div class="col-12">
+                <article class="bg-white p-5 rounded-5 shadow-sm table-responsive">
+                    <table class="table">
+                        <thead class="bg-light p-5">
+                            <tr class="p-5">
+                                <th scope="col">REF CODE</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Subject</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for complaint in complaints %}
+                            <!-- Modal For Payment Deactivation-->
+                            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <form action="" method="POST">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="deleteModalLabel">
+                                                    DELETE PAYMENT.
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div>
+                                                    {% csrf_token %}
+                                                    <input type="hidden" value="" name="pay_id">
+                                                    <h4>
+                                                        Are you sure you want to delete payment?
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-danger">
+                                                    DELETE
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <tr>
+                                <td>
+                                   {{complaint.reference_id}}
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            {% empty %}
+                            <p class="alert alert-info fw-bolder">No Complaint Recorded.</p>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </article>
+            </div> 
+            </div>
+        </section>
+
         <section class="row">
-            {% for remark in remarks %}
+            {% for complaint in complaints %}
             <article class="col-6 col-md-4 my-3">
                 <a href="{{ complaint.get_absolute_url }}" class="p-3 p-4 shadow-sm d-block rounded bg-white">
                     <h5 class=" text-primary">{{complaint.subject}}</h5>
