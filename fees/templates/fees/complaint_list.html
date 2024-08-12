@@ -5,22 +5,22 @@
         <section class="row pb-4">
             <div class="col-12">
                 <h1 class="h3">
-                    All Remarks.
+                    Complaints.
                 </h1>
             </div>
         </section>
         <section class="row">
             {% for remark in remarks %}
             <article class="col-6 col-md-4 my-3">
-                <a href="{{ remark.get_absolute_url }}" class="p-3 p-4 shadow-sm d-block rounded bg-white">
-                    <h5 class=" text-primary">{{remark.subject}}</h5>
+                <a href="{{ complaint.get_absolute_url }}" class="p-3 p-4 shadow-sm d-block rounded bg-white">
+                    <h5 class=" text-primary">{{complaint.subject}}</h5>
 
                     <div class="d-flex justify-content-between pt-2">
                         <div class="border-end border-2 px-2 text-dark">
-                            {{remark.student.user.username}}
+                            {{complaint.student.user.username}}
                         </div>
                         <div class=" text-muted">
-                            {{remark.date}}
+                            {{complaint.date}}
                         </div>
                     </div>
                 </a>
