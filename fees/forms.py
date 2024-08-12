@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm , UsernameField
-from .models import Staff, Student, Payment, Remark
+from .models import Staff, Student, Payment, Complaint
 
 sems = (
         ('semester 1', 'SEMESTER 1'),
@@ -40,13 +40,13 @@ class StudentForm(forms.ModelForm):
         fields =  ['faculty', 'courses','mobile_number', 'address', 'gender','dob', 'admission_date', 'image']
 
 
-class RemarkForm(forms.ModelForm):
+class ComplaintForm(forms.ModelForm):
     class Meta:
-        model = Remark
+        model = Complaint
         widgets = {
           'body': forms.Textarea(attrs={'rows':4})
         }
-        fields = ['subject', 'body']
+        fields = ['subject', 'description']
     
 
 class UserUpdateForm(forms.ModelForm):
@@ -103,7 +103,10 @@ class PaymentSearchForm(forms.Form):
     })
         
 class StudentSearchForm(forms.Form):
-    query = forms.CharField(required=False, widget=forms.TextInput(attrs={'required': 'false'}))
+    query = forms.CharField(
+        required=False, 
+        widget=forms.TextInput(attrs={'required': 'false'})
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
