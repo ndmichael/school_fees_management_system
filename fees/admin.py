@@ -29,5 +29,5 @@ class PaymentAdmin(admin.ModelAdmin):
 
 @admin.register(Complaint)
 class ComplaintAdmin(admin.ModelAdmin):
-    list_display = ("subject", "description", "date_submitted", "student")
+    list_display = ("reference_id", "subject", "description", "date_submitted", "student")
     prepopulated_fields = {"slug": ("subject",)}
