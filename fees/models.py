@@ -146,7 +146,7 @@ class Complaint(models.Model):
         ('R', 'Resolved'),
         ('C', 'Closed')
     )
-    reference_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    reference_id = models.CharField(primary_key=True, max_length=10, default=uuid.uuid4, editable=False)
     student = models.ForeignKey(
         Student, 
         on_delete=models.CASCADE, 
@@ -156,7 +156,7 @@ class Complaint(models.Model):
     status = models.CharField(max_length=1, choices=STATUS, default='P')
     subject = models.CharField(max_length=100)
     description = models.TextField()
-    slug = models.SlugField(default="complaint", max_length=100, unique=True)
+    slug = models.SlugField(max_length=100, unique=True)
     date_submitted = models.DateTimeField(default=timezone.now)
 
     def save(
@@ -170,4 +170,4 @@ class Complaint(models.Model):
         return f"{self.subject}"
     
     def get_absolute_url(self):
-        return reverse('remark_details', args=[self.slug])
+        return reverse('complaint_details', args=[self.slug])
