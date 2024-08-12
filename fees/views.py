@@ -373,7 +373,7 @@ def complaint_list(request):
                 request, f"You do not have permission to access this page."
             )
         return redirect("/")
-    complaints = Complaint.objects.all().order_by('-date')
+    complaints = Complaint.objects.all().order_by('-date_submitted')
     context={
         'complaints': complaints
     }
