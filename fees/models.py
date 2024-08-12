@@ -146,11 +146,16 @@ class Complaint(models.Model):
         ('R', 'Resolved'),
         ('C', 'Closed')
     )
-    reference_id = models.CharField(primary_key=True, max_length=10, default=uuid.uuid4, editable=False)
+    reference_id = models.CharField(
+        primary_key=True, 
+        max_length=50, 
+        default=str(uuid.uuid4())[:16], 
+        editable=False
+    )
     student = models.ForeignKey(
         Student, 
         on_delete=models.CASCADE, 
-        related_name="remark", 
+        related_name="complaints", 
         default="anonymous"
     )
     status = models.CharField(max_length=1, choices=STATUS, default='P')
