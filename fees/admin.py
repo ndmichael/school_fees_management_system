@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import (Faculty, Course, Student, Staff, Payment, Remark)
+from .models import (Faculty, Course, Student, Staff, Payment, Complaint)
 # Register your models here.
 
 @admin.register(Faculty)
@@ -27,6 +27,6 @@ class PaymentAdmin(admin.ModelAdmin):
     list_display = ("academic_year", "semester", "amount", "date_entered","is_paid", "is_confirmed", "image", "payment_method", "student")
 
 
-@admin.register(Remark)
+@admin.register(Complaint)
 class RemarkAdmin(admin.ModelAdmin):
     list_display = ("subject", "body", "date", "student")
