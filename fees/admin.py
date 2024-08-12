@@ -28,5 +28,5 @@ class PaymentAdmin(admin.ModelAdmin):
 
 
 @admin.register(Complaint)
-class RemarkAdmin(admin.ModelAdmin):
-    list_display = ("subject", "body", "date", "student")
+class ComplaintAdmin(admin.ModelAdmin):
+    list_display = ("subject", "description", "date_submitted", "student")

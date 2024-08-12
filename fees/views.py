@@ -39,7 +39,6 @@ def admin_dashboard(request):
 
 @login_required
 def student(request):
-
     '''
         - ** KEY LOGICS ** 
         - only for staffs && admins
