@@ -1,0 +1,1602 @@
+[
+    {
+        "user": {
+            "username": "nancywells",
+            "first_name": "Francisco",
+            "last_name": "Johnson",
+            "email": "nancywells@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 1,
+        "course_id": 3,
+        "address": "PSC 5821, Box 3224\nAPO AA 11197",
+        "gender": "Male",
+        "mobile_number": "(733)458-6204x0",
+        "dob": "1998-10-04",
+        "admission_date": "2023-11-04"
+    },
+    {
+        "user": {
+            "username": "georgestewart",
+            "first_name": "Timothy",
+            "last_name": "King",
+            "email": "georgestewart@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 6,
+        "course_id": 17,
+        "address": "463 Tammy Hill\nLake Jerry, MN 09356",
+        "gender": "Male",
+        "mobile_number": "564.692.0878x41",
+        "dob": "2006-02-12",
+        "admission_date": "2022-05-01"
+    },
+    {
+        "user": {
+            "username": "patriciawaters",
+            "first_name": "John",
+            "last_name": "Bryan",
+            "email": "patriciawaters@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 4,
+        "course_id": 12,
+        "address": "5151 Carrie Junction Suite 678\nNathanfort, TN 36981",
+        "gender": "Male",
+        "mobile_number": "+1-896-419-7193",
+        "dob": "1998-09-05",
+        "admission_date": "2022-10-24"
+    },
+    {
+        "user": {
+            "username": "charleswheeler",
+            "first_name": "James",
+            "last_name": "Jackson",
+            "email": "charleswheeler@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 7,
+        "course_id": 19,
+        "address": "467 Laura Locks\nEvanshaven, OH 44012",
+        "gender": "Male",
+        "mobile_number": "997.381.4061",
+        "dob": "2005-08-25",
+        "admission_date": "2021-08-09"
+    },
+    {
+        "user": {
+            "username": "aanderson",
+            "first_name": "Mackenzie",
+            "last_name": "Simpson",
+            "email": "aanderson@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 1,
+        "course_id": 1,
+        "address": "884 George Streets\nPort Angelicaside, ID 07611",
+        "gender": "Female",
+        "mobile_number": "(962)292-1493",
+        "dob": "1998-10-07",
+        "admission_date": "2024-06-28"
+    },
+    {
+        "user": {
+            "username": "jackson87",
+            "first_name": "Vanessa",
+            "last_name": "Jackson",
+            "email": "jackson87@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 7,
+        "course_id": 19,
+        "address": "140 Wayne Plains Apt. 394\nEast Russell, WA 41868",
+        "gender": "Female",
+        "mobile_number": "(990)382-8486x5",
+        "dob": "2002-12-08",
+        "admission_date": "2022-01-29"
+    },
+    {
+        "user": {
+            "username": "caroline61",
+            "first_name": "Natalie",
+            "last_name": "Jackson",
+            "email": "caroline61@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 3,
+        "course_id": 9,
+        "address": "048 Sarah Coves Apt. 382\nNorth Michael, MP 68292",
+        "gender": "Female",
+        "mobile_number": "9393280237",
+        "dob": "2005-07-31",
+        "admission_date": "2024-05-24"
+    },
+    {
+        "user": {
+            "username": "raymond95",
+            "first_name": "Steven",
+            "last_name": "Parker",
+            "email": "raymond95@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 3,
+        "course_id": 7,
+        "address": "584 Kimberly Court Apt. 361\nShawnton, RI 28712",
+        "gender": "Male",
+        "mobile_number": "798-286-6147",
+        "dob": "2006-05-22",
+        "admission_date": "2024-03-07"
+    },
+    {
+        "user": {
+            "username": "mjohnston",
+            "first_name": "Michael",
+            "last_name": "Molina",
+            "email": "mjohnston@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 3,
+        "course_id": 9,
+        "address": "581 Lisa Club Apt. 282\nChristophertown, RI 37852",
+        "gender": "Male",
+        "mobile_number": "210-267-9974",
+        "dob": "2000-04-21",
+        "admission_date": "2023-03-24"
+    },
+    {
+        "user": {
+            "username": "fischershelby",
+            "first_name": "Matthew",
+            "last_name": "Meza",
+            "email": "fischershelby@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 5,
+        "course_id": 14,
+        "address": "USS Gardner\nFPO AE 04369",
+        "gender": "Male",
+        "mobile_number": "264.444.7176x71",
+        "dob": "2005-06-18",
+        "admission_date": "2022-04-16"
+    },
+    {
+        "user": {
+            "username": "npalmer",
+            "first_name": "Andrew",
+            "last_name": "Mccoy",
+            "email": "npalmer@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 1,
+        "course_id": 2,
+        "address": "747 Alison Stravenue Apt. 578\nEast Kathleen, MA 46097",
+        "gender": "Male",
+        "mobile_number": "2875702937",
+        "dob": "2004-05-13",
+        "admission_date": "2021-05-26"
+    },
+    {
+        "user": {
+            "username": "mullinssean",
+            "first_name": "Ronald",
+            "last_name": "Hart",
+            "email": "mullinssean@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 4,
+        "course_id": 12,
+        "address": "5228 Hernandez Tunnel Suite 823\nJessicatown, NY 68339",
+        "gender": "Male",
+        "mobile_number": "586-336-3998",
+        "dob": "2002-08-05",
+        "admission_date": "2023-09-19"
+    },
+    {
+        "user": {
+            "username": "miranda35",
+            "first_name": "Donna",
+            "last_name": "Hanson",
+            "email": "miranda35@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 4,
+        "course_id": 12,
+        "address": "782 Ryan Course Suite 524\nPort Meagan, MD 39949",
+        "gender": "Female",
+        "mobile_number": "614-571-0733x44",
+        "dob": "2002-06-27",
+        "admission_date": "2023-01-19"
+    },
+    {
+        "user": {
+            "username": "sdillon",
+            "first_name": "Paul",
+            "last_name": "Spencer",
+            "email": "sdillon@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 6,
+        "course_id": 15,
+        "address": "9495 Gregory Run Apt. 542\nJennifermouth, WI 84987",
+        "gender": "Male",
+        "mobile_number": "889-710-3371",
+        "dob": "2000-03-08",
+        "admission_date": "2021-09-13"
+    },
+    {
+        "user": {
+            "username": "borozco",
+            "first_name": "Charles",
+            "last_name": "Martinez",
+            "email": "borozco@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 8,
+        "course_id": 23,
+        "address": "9938 Seth Plains Suite 011\nNew Shawnfurt, WY 30436",
+        "gender": "Male",
+        "mobile_number": "+1-300-433-6394",
+        "dob": "2002-04-24",
+        "admission_date": "2020-12-17"
+    },
+    {
+        "user": {
+            "username": "robin38",
+            "first_name": "Amanda",
+            "last_name": "Roberts",
+            "email": "robin38@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 8,
+        "course_id": 22,
+        "address": "888 Nathan Park\nRobbinsland, GA 07507",
+        "gender": "Female",
+        "mobile_number": "001-776-309-512",
+        "dob": "2000-04-16",
+        "admission_date": "2024-03-14"
+    },
+    {
+        "user": {
+            "username": "johnzamora",
+            "first_name": "David",
+            "last_name": "Jackson",
+            "email": "johnzamora@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 7,
+        "course_id": 20,
+        "address": "70789 Jessica Wells\nLake Dustin, VI 23237",
+        "gender": "Male",
+        "mobile_number": "866-295-3338",
+        "dob": "2006-06-03",
+        "admission_date": "2022-09-29"
+    },
+    {
+        "user": {
+            "username": "munozscott",
+            "first_name": "Kimberly",
+            "last_name": "Hughes",
+            "email": "munozscott@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 3,
+        "course_id": 8,
+        "address": "80396 Cummings Meadows\nRosaleschester, NE 60932",
+        "gender": "Female",
+        "mobile_number": "001-327-684-460",
+        "dob": "2002-10-15",
+        "admission_date": "2020-11-10"
+    },
+    {
+        "user": {
+            "username": "teresamcmahon",
+            "first_name": "Jeff",
+            "last_name": "Steele",
+            "email": "teresamcmahon@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 7,
+        "course_id": 19,
+        "address": "092 Sims Estate\nHughesmouth, UT 16993",
+        "gender": "Male",
+        "mobile_number": "856.205.6969x73",
+        "dob": "2005-06-15",
+        "admission_date": "2021-06-30"
+    },
+    {
+        "user": {
+            "username": "nmercado",
+            "first_name": "Clayton",
+            "last_name": "Mills",
+            "email": "nmercado@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 7,
+        "course_id": 19,
+        "address": "058 Dawn Prairie Apt. 977\nWest Dustintown, MN 34641",
+        "gender": "Male",
+        "mobile_number": "657-998-6850x58",
+        "dob": "2000-01-02",
+        "admission_date": "2022-03-24"
+    },
+    {
+        "user": {
+            "username": "daniel34",
+            "first_name": "Cynthia",
+            "last_name": "Sanders",
+            "email": "daniel34@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 1,
+        "course_id": 3,
+        "address": "48569 Duncan Spring Suite 808\nBrittneyland, OH 57403",
+        "gender": "Female",
+        "mobile_number": "+1-478-454-3076",
+        "dob": "2004-12-22",
+        "admission_date": "2024-07-04"
+    },
+    {
+        "user": {
+            "username": "christopher71",
+            "first_name": "Betty",
+            "last_name": "Hoffman",
+            "email": "christopher71@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 7,
+        "course_id": 19,
+        "address": "PSC 2417, Box 4194\nAPO AE 10280",
+        "gender": "Female",
+        "mobile_number": "413-577-8950x42",
+        "dob": "2002-06-14",
+        "admission_date": "2024-05-16"
+    },
+    {
+        "user": {
+            "username": "imoore",
+            "first_name": "Tina",
+            "last_name": "Johnson",
+            "email": "imoore@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 4,
+        "course_id": 11,
+        "address": "28587 Greg Corners\nNew Jennifer, NE 79195",
+        "gender": "Female",
+        "mobile_number": "340.432.3874x38",
+        "dob": "1998-08-11",
+        "admission_date": "2023-12-08"
+    },
+    {
+        "user": {
+            "username": "burgessstephanie",
+            "first_name": "Bernard",
+            "last_name": "Gomez",
+            "email": "burgessstephanie@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 8,
+        "course_id": 21,
+        "address": "68126 Ashley Squares\nGrantmouth, FL 28816",
+        "gender": "Male",
+        "mobile_number": "001-837-431-166",
+        "dob": "2002-08-21",
+        "admission_date": "2023-10-14"
+    },
+    {
+        "user": {
+            "username": "phillipsjohn",
+            "first_name": "Brandon",
+            "last_name": "Hoover",
+            "email": "phillipsjohn@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 3,
+        "course_id": 9,
+        "address": "279 Charles Extensions Suite 472\nNicholsport, VI 39091",
+        "gender": "Male",
+        "mobile_number": "634.306.2304",
+        "dob": "2002-03-20",
+        "admission_date": "2022-08-22"
+    },
+    {
+        "user": {
+            "username": "tarahughes",
+            "first_name": "Linda",
+            "last_name": "Sanchez",
+            "email": "tarahughes@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 3,
+        "course_id": 9,
+        "address": "7176 Allen Shore Suite 156\nOwensburgh, KY 44402",
+        "gender": "Female",
+        "mobile_number": "(579)717-1510x6",
+        "dob": "2000-10-03",
+        "admission_date": "2021-02-10"
+    },
+    {
+        "user": {
+            "username": "kpadilla",
+            "first_name": "Jesse",
+            "last_name": "Young",
+            "email": "kpadilla@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 6,
+        "course_id": 15,
+        "address": "91288 Michael Route Suite 258\nCoxport, AS 12491",
+        "gender": "Male",
+        "mobile_number": "796.416.4473",
+        "dob": "2002-06-08",
+        "admission_date": "2023-11-19"
+    },
+    {
+        "user": {
+            "username": "gfischer",
+            "first_name": "Kathleen",
+            "last_name": "Reynolds",
+            "email": "gfischer@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 5,
+        "course_id": 13,
+        "address": "67188 Ariana Trail Apt. 838\nDakotaport, WI 44367",
+        "gender": "Female",
+        "mobile_number": "672.460.3791",
+        "dob": "2000-01-26",
+        "admission_date": "2020-08-30"
+    },
+    {
+        "user": {
+            "username": "wardjohn",
+            "first_name": "Jodi",
+            "last_name": "Juarez",
+            "email": "wardjohn@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 3,
+        "course_id": 9,
+        "address": "USNS Butler\nFPO AA 03683",
+        "gender": "Female",
+        "mobile_number": "729-722-6852",
+        "dob": "2006-02-02",
+        "admission_date": "2024-02-02"
+    },
+    {
+        "user": {
+            "username": "cuevasvictor",
+            "first_name": "Stephen",
+            "last_name": "White",
+            "email": "cuevasvictor@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 6,
+        "course_id": 16,
+        "address": "2183 Hernandez Spurs Apt. 932\nDavishaven, AS 16842",
+        "gender": "Male",
+        "mobile_number": "989-350-5708x28",
+        "dob": "2003-12-11",
+        "admission_date": "2023-10-04"
+    },
+    {
+        "user": {
+            "username": "zbrown",
+            "first_name": "Eric",
+            "last_name": "Wagner",
+            "email": "zbrown@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 8,
+        "course_id": 21,
+        "address": "90244 Andrew Locks\nSouth Michael, ME 54880",
+        "gender": "Male",
+        "mobile_number": "733-835-9289",
+        "dob": "2000-02-06",
+        "admission_date": "2024-07-19"
+    },
+    {
+        "user": {
+            "username": "taylormelanie",
+            "first_name": "Christopher",
+            "last_name": "Moore",
+            "email": "taylormelanie@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 2,
+        "course_id": 5,
+        "address": "335 Russo Expressway\nNorth Curtis, LA 90088",
+        "gender": "Male",
+        "mobile_number": "436-407-5536x23",
+        "dob": "2000-03-19",
+        "admission_date": "2021-01-20"
+    },
+    {
+        "user": {
+            "username": "dhernandez",
+            "first_name": "Timothy",
+            "last_name": "Carter",
+            "email": "dhernandez@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 7,
+        "course_id": 19,
+        "address": "94927 Gregory Parkway Suite 472\nChristopherbury, CA 14761",
+        "gender": "Male",
+        "mobile_number": "559.573.3318x71",
+        "dob": "2000-11-28",
+        "admission_date": "2022-12-15"
+    },
+    {
+        "user": {
+            "username": "fcarlson",
+            "first_name": "April",
+            "last_name": "Goodwin",
+            "email": "fcarlson@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 8,
+        "course_id": 23,
+        "address": "254 Hannah Skyway Suite 284\nSouth Donald, AK 30430",
+        "gender": "Female",
+        "mobile_number": "(980)240-0633x6",
+        "dob": "2002-06-19",
+        "admission_date": "2020-11-14"
+    },
+    {
+        "user": {
+            "username": "darlene40",
+            "first_name": "Shannon",
+            "last_name": "Tran",
+            "email": "darlene40@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 5,
+        "course_id": 14,
+        "address": "89512 Jamie Wall Apt. 727\nAtkinsfurt, MP 33609",
+        "gender": "Female",
+        "mobile_number": "508.423.4351x97",
+        "dob": "2001-08-13",
+        "admission_date": "2021-05-08"
+    },
+    {
+        "user": {
+            "username": "jeffrey83",
+            "first_name": "Terry",
+            "last_name": "Kelly",
+            "email": "jeffrey83@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 3,
+        "course_id": 9,
+        "address": "86443 Charles Plain Apt. 290\nNew Alyssashire, AS 68041",
+        "gender": "Male",
+        "mobile_number": "526.626.3785",
+        "dob": "2004-02-18",
+        "admission_date": "2022-12-16"
+    },
+    {
+        "user": {
+            "username": "yatesbrian",
+            "first_name": "Lisa",
+            "last_name": "Austin",
+            "email": "yatesbrian@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 2,
+        "course_id": 6,
+        "address": "300 Moore Stream Suite 513\nLindaberg, GA 42822",
+        "gender": "Female",
+        "mobile_number": "001-801-628-213",
+        "dob": "2005-07-11",
+        "admission_date": "2023-03-06"
+    },
+    {
+        "user": {
+            "username": "jermainehammond",
+            "first_name": "Sean",
+            "last_name": "Mueller",
+            "email": "jermainehammond@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 7,
+        "course_id": 19,
+        "address": "PSC 5682, Box 2791\nAPO AA 91238",
+        "gender": "Male",
+        "mobile_number": "5783895446",
+        "dob": "2004-12-28",
+        "admission_date": "2023-07-27"
+    },
+    {
+        "user": {
+            "username": "rbyrd",
+            "first_name": "Katie",
+            "last_name": "Phillips",
+            "email": "rbyrd@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 2,
+        "course_id": 6,
+        "address": "2777 Rachel Mews\nHarrisonton, ID 40743",
+        "gender": "Female",
+        "mobile_number": "432.820.4709x22",
+        "dob": "2001-07-03",
+        "admission_date": "2022-08-18"
+    },
+    {
+        "user": {
+            "username": "pamela68",
+            "first_name": "Cameron",
+            "last_name": "Hamilton",
+            "email": "pamela68@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 7,
+        "course_id": 19,
+        "address": "37454 Amanda Bypass\nPort Jamesmouth, PA 40207",
+        "gender": "Male",
+        "mobile_number": "963-864-0719x94",
+        "dob": "1999-02-20",
+        "admission_date": "2021-10-13"
+    },
+    {
+        "user": {
+            "username": "rsingh",
+            "first_name": "Nicole",
+            "last_name": "Wilkerson",
+            "email": "rsingh@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 3,
+        "course_id": 8,
+        "address": "03152 Schultz Underpass Suite 724\nKirkshire, NC 18912",
+        "gender": "Female",
+        "mobile_number": "001-708-791-325",
+        "dob": "2004-03-01",
+        "admission_date": "2023-01-30"
+    },
+    {
+        "user": {
+            "username": "misty67",
+            "first_name": "Maria",
+            "last_name": "Gallegos",
+            "email": "misty67@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 2,
+        "course_id": 4,
+        "address": "966 Deborah Branch\nPort Kathrynchester, IL 65548",
+        "gender": "Female",
+        "mobile_number": "(935)730-2345",
+        "dob": "2005-09-04",
+        "admission_date": "2021-04-17"
+    },
+    {
+        "user": {
+            "username": "jamiesimpson",
+            "first_name": "Colin",
+            "last_name": "Wolf",
+            "email": "jamiesimpson@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 3,
+        "course_id": 9,
+        "address": "0109 Cindy Groves Apt. 132\nNew Donaldchester, UT 72287",
+        "gender": "Male",
+        "mobile_number": "467.719.2674",
+        "dob": "1999-07-16",
+        "admission_date": "2022-08-18"
+    },
+    {
+        "user": {
+            "username": "kbaker",
+            "first_name": "Anthony",
+            "last_name": "Curry",
+            "email": "kbaker@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 7,
+        "course_id": 18,
+        "address": "822 Steven Garden\nMichaelview, IN 66858",
+        "gender": "Male",
+        "mobile_number": "523.225.2973x45",
+        "dob": "2001-03-07",
+        "admission_date": "2021-09-11"
+    },
+    {
+        "user": {
+            "username": "gary25",
+            "first_name": "Melissa",
+            "last_name": "Davidson",
+            "email": "gary25@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 1,
+        "course_id": 3,
+        "address": "1082 Jones Square\nNorth Autumn, NJ 97659",
+        "gender": "Female",
+        "mobile_number": "886-822-3467x80",
+        "dob": "2005-10-29",
+        "admission_date": "2021-07-27"
+    },
+    {
+        "user": {
+            "username": "tanya15",
+            "first_name": "Stephanie",
+            "last_name": "Clark",
+            "email": "tanya15@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 8,
+        "course_id": 23,
+        "address": "98892 Mason Mountains Suite 644\nTaylorberg, NY 25796",
+        "gender": "Female",
+        "mobile_number": "001-811-608-402",
+        "dob": "2002-01-03",
+        "admission_date": "2023-10-26"
+    },
+    {
+        "user": {
+            "username": "cblanchard",
+            "first_name": "Tara",
+            "last_name": "Hernandez",
+            "email": "cblanchard@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 5,
+        "course_id": 14,
+        "address": "253 Munoz Island\nNorth Waltermouth, SC 37172",
+        "gender": "Female",
+        "mobile_number": "+1-716-551-5512",
+        "dob": "2004-12-28",
+        "admission_date": "2023-07-02"
+    },
+    {
+        "user": {
+            "username": "ricardo23",
+            "first_name": "Angel",
+            "last_name": "Rhodes",
+            "email": "ricardo23@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 3,
+        "course_id": 7,
+        "address": "04808 Hill Prairie Apt. 585\nRaybury, DC 37328",
+        "gender": "Female",
+        "mobile_number": "(264)926-6110x9",
+        "dob": "2003-08-05",
+        "admission_date": "2021-02-21"
+    },
+    {
+        "user": {
+            "username": "hansenlindsey",
+            "first_name": "Amy",
+            "last_name": "Rodriguez",
+            "email": "hansenlindsey@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 7,
+        "course_id": 18,
+        "address": "3780 Rush Mews\nAliciaside, OK 02999",
+        "gender": "Female",
+        "mobile_number": "338-632-6042x77",
+        "dob": "2004-08-27",
+        "admission_date": "2023-11-17"
+    },
+    {
+        "user": {
+            "username": "odoyle",
+            "first_name": "Bradley",
+            "last_name": "Romero",
+            "email": "odoyle@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 6,
+        "course_id": 16,
+        "address": "036 John Center\nEast Marciachester, AK 21808",
+        "gender": "Male",
+        "mobile_number": "383-419-3962",
+        "dob": "2004-07-14",
+        "admission_date": "2020-10-01"
+    },
+    {
+        "user": {
+            "username": "cynthiamoore",
+            "first_name": "Kevin",
+            "last_name": "Singleton",
+            "email": "cynthiamoore@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 3,
+        "course_id": 8,
+        "address": "9132 Shelton Glen\nSouth David, ME 76437",
+        "gender": "Male",
+        "mobile_number": "001-987-220-846",
+        "dob": "1999-11-24",
+        "admission_date": "2021-03-13"
+    },
+    {
+        "user": {
+            "username": "nmartin",
+            "first_name": "Matthew",
+            "last_name": "Erickson",
+            "email": "nmartin@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 1,
+        "course_id": 1,
+        "address": "Unit 1509 Box 0737\nDPO AP 74826",
+        "gender": "Male",
+        "mobile_number": "001-357-567-732",
+        "dob": "2005-02-23",
+        "admission_date": "2022-01-25"
+    },
+    {
+        "user": {
+            "username": "edwardfisher",
+            "first_name": "Beverly",
+            "last_name": "Carroll",
+            "email": "edwardfisher@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 6,
+        "course_id": 16,
+        "address": "29601 Michelle Island\nPort Aprilfurt, IN 11151",
+        "gender": "Female",
+        "mobile_number": "990.912.1026",
+        "dob": "2004-05-11",
+        "admission_date": "2021-12-16"
+    },
+    {
+        "user": {
+            "username": "carlasimmons",
+            "first_name": "Amanda",
+            "last_name": "Lee",
+            "email": "carlasimmons@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 8,
+        "course_id": 22,
+        "address": "437 Reynolds Bridge\nNew Eddie, AR 41084",
+        "gender": "Female",
+        "mobile_number": "444.444.9309x27",
+        "dob": "2003-11-18",
+        "admission_date": "2024-02-15"
+    },
+    {
+        "user": {
+            "username": "timothy58",
+            "first_name": "Ryan",
+            "last_name": "Dean",
+            "email": "timothy58@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 2,
+        "course_id": 4,
+        "address": "8549 Dalton Walks Apt. 110\nHarpermouth, PA 70728",
+        "gender": "Male",
+        "mobile_number": "386-276-0940",
+        "dob": "2006-05-22",
+        "admission_date": "2024-03-05"
+    },
+    {
+        "user": {
+            "username": "charles19",
+            "first_name": "Misty",
+            "last_name": "Gonzales",
+            "email": "charles19@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 5,
+        "course_id": 14,
+        "address": "977 Barnes Summit Apt. 230\nKellyton, ID 45073",
+        "gender": "Female",
+        "mobile_number": "+1-898-798-8311",
+        "dob": "2004-03-05",
+        "admission_date": "2022-08-04"
+    },
+    {
+        "user": {
+            "username": "george52",
+            "first_name": "Natalie",
+            "last_name": "Coleman",
+            "email": "george52@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 5,
+        "course_id": 13,
+        "address": "1151 Ashley Grove Suite 029\nEast Paulberg, VI 70327",
+        "gender": "Female",
+        "mobile_number": "+1-998-537-8634",
+        "dob": "2001-11-26",
+        "admission_date": "2022-06-07"
+    },
+    {
+        "user": {
+            "username": "david57",
+            "first_name": "Joshua",
+            "last_name": "Adams",
+            "email": "david57@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 6,
+        "course_id": 17,
+        "address": "71446 Mark Ramp Suite 515\nLake Jerryfort, DC 90854",
+        "gender": "Male",
+        "mobile_number": "697-425-1893x21",
+        "dob": "2005-06-22",
+        "admission_date": "2021-08-21"
+    },
+    {
+        "user": {
+            "username": "ljefferson",
+            "first_name": "Katherine",
+            "last_name": "Barrett",
+            "email": "ljefferson@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 6,
+        "course_id": 15,
+        "address": "693 Weaver Squares\nHollandfurt, OR 40315",
+        "gender": "Female",
+        "mobile_number": "+1-340-830-0381",
+        "dob": "2002-09-12",
+        "admission_date": "2024-01-04"
+    },
+    {
+        "user": {
+            "username": "lindsaysteele",
+            "first_name": "Gabriel",
+            "last_name": "Yang",
+            "email": "lindsaysteele@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 5,
+        "course_id": 13,
+        "address": "364 Ronald Cove\nWest Elizabethfurt, DE 63684",
+        "gender": "Male",
+        "mobile_number": "001-886-471-268",
+        "dob": "2000-03-02",
+        "admission_date": "2024-06-07"
+    },
+    {
+        "user": {
+            "username": "jacquelinekelly",
+            "first_name": "Vicki",
+            "last_name": "Smith",
+            "email": "jacquelinekelly@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 6,
+        "course_id": 16,
+        "address": "27044 Morgan Drive\nSmithview, OH 65795",
+        "gender": "Female",
+        "mobile_number": "5739741284",
+        "dob": "2004-01-09",
+        "admission_date": "2021-12-17"
+    },
+    {
+        "user": {
+            "username": "ross30",
+            "first_name": "Elizabeth",
+            "last_name": "Walker",
+            "email": "ross30@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 6,
+        "course_id": 15,
+        "address": "2051 Raymond Parkway\nWallside, IA 06211",
+        "gender": "Female",
+        "mobile_number": "784.374.4373",
+        "dob": "2003-10-28",
+        "admission_date": "2023-08-25"
+    },
+    {
+        "user": {
+            "username": "levans",
+            "first_name": "Samuel",
+            "last_name": "Nicholson",
+            "email": "levans@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 3,
+        "course_id": 7,
+        "address": "711 Hill Extension\nJustinfort, VA 60851",
+        "gender": "Male",
+        "mobile_number": "572.611.0393x16",
+        "dob": "2002-08-24",
+        "admission_date": "2023-12-05"
+    },
+    {
+        "user": {
+            "username": "castroteresa",
+            "first_name": "Brent",
+            "last_name": "Jensen",
+            "email": "castroteresa@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 3,
+        "course_id": 8,
+        "address": "USNV Meyer\nFPO AP 38282",
+        "gender": "Male",
+        "mobile_number": "(799)896-8229x8",
+        "dob": "2000-11-25",
+        "admission_date": "2021-11-24"
+    },
+    {
+        "user": {
+            "username": "murphyrebecca",
+            "first_name": "Kevin",
+            "last_name": "Sims",
+            "email": "murphyrebecca@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 4,
+        "course_id": 10,
+        "address": "422 Laura Turnpike Apt. 111\nMarshallview, MD 67332",
+        "gender": "Male",
+        "mobile_number": "001-468-862-131",
+        "dob": "2001-10-24",
+        "admission_date": "2020-11-02"
+    },
+    {
+        "user": {
+            "username": "holly80",
+            "first_name": "Kathy",
+            "last_name": "Collier",
+            "email": "holly80@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 4,
+        "course_id": 11,
+        "address": "96347 Price Falls Apt. 332\nSouth Nicole, VI 99485",
+        "gender": "Female",
+        "mobile_number": "926.649.6561",
+        "dob": "2003-08-30",
+        "admission_date": "2022-08-10"
+    },
+    {
+        "user": {
+            "username": "katherinekent",
+            "first_name": "Brandon",
+            "last_name": "Strickland",
+            "email": "katherinekent@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 1,
+        "course_id": 2,
+        "address": "311 Lee Road Suite 468\nSouth James, WA 43569",
+        "gender": "Male",
+        "mobile_number": "+1-855-634-5782",
+        "dob": "2003-01-11",
+        "admission_date": "2024-03-09"
+    },
+    {
+        "user": {
+            "username": "pagechristopher",
+            "first_name": "Ann",
+            "last_name": "Russell",
+            "email": "pagechristopher@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 2,
+        "course_id": 6,
+        "address": "048 Carol Drive Suite 412\nPinedaview, LA 92089",
+        "gender": "Female",
+        "mobile_number": "(367)575-8178x8",
+        "dob": "2005-12-23",
+        "admission_date": "2020-11-07"
+    },
+    {
+        "user": {
+            "username": "fschmitt",
+            "first_name": "Cindy",
+            "last_name": "Ruiz",
+            "email": "fschmitt@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 7,
+        "course_id": 20,
+        "address": "89527 Sweeney Shore Apt. 876\nMatthewmouth, OR 35453",
+        "gender": "Female",
+        "mobile_number": "446.820.0016x58",
+        "dob": "2003-12-05",
+        "admission_date": "2023-01-23"
+    },
+    {
+        "user": {
+            "username": "brandyramirez",
+            "first_name": "Jasmine",
+            "last_name": "Mathews",
+            "email": "brandyramirez@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 1,
+        "course_id": 3,
+        "address": "6284 Cindy Valley\nEast Thomas, GA 86520",
+        "gender": "Female",
+        "mobile_number": "957.482.3184x07",
+        "dob": "2002-06-18",
+        "admission_date": "2023-12-16"
+    },
+    {
+        "user": {
+            "username": "owoodard",
+            "first_name": "Mary",
+            "last_name": "Newman",
+            "email": "owoodard@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 2,
+        "course_id": 6,
+        "address": "1896 Meghan Divide Suite 848\nNorth Anthonyside, TN 14950",
+        "gender": "Female",
+        "mobile_number": "846-700-2532",
+        "dob": "2003-12-29",
+        "admission_date": "2023-08-11"
+    },
+    {
+        "user": {
+            "username": "joseph78",
+            "first_name": "Jacob",
+            "last_name": "Gonzalez",
+            "email": "joseph78@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 4,
+        "course_id": 11,
+        "address": "03679 Michael Lodge\nLake Adambury, NC 42386",
+        "gender": "Male",
+        "mobile_number": "(526)913-4287x2",
+        "dob": "2001-11-14",
+        "admission_date": "2021-06-21"
+    },
+    {
+        "user": {
+            "username": "erin93",
+            "first_name": "Daniel",
+            "last_name": "Nelson",
+            "email": "erin93@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 4,
+        "course_id": 12,
+        "address": "USNV Lewis\nFPO AA 72453",
+        "gender": "Male",
+        "mobile_number": "266-588-6115x70",
+        "dob": "2005-11-25",
+        "admission_date": "2022-04-21"
+    },
+    {
+        "user": {
+            "username": "michaelwilliams",
+            "first_name": "Jamie",
+            "last_name": "Wade",
+            "email": "michaelwilliams@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 8,
+        "course_id": 21,
+        "address": "44660 Angela Hills\nWest Robertchester, FM 69545",
+        "gender": "Female",
+        "mobile_number": "345-576-0028x58",
+        "dob": "2005-10-07",
+        "admission_date": "2021-12-20"
+    },
+    {
+        "user": {
+            "username": "destinyjames",
+            "first_name": "Erica",
+            "last_name": "Allen",
+            "email": "destinyjames@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 1,
+        "course_id": 1,
+        "address": "0378 Thomas Key\nSouth Jenniferfort, OR 88745",
+        "gender": "Female",
+        "mobile_number": "001-553-772-059",
+        "dob": "1999-08-22",
+        "admission_date": "2021-07-27"
+    },
+    {
+        "user": {
+            "username": "jeffery29",
+            "first_name": "Danny",
+            "last_name": "Cross",
+            "email": "jeffery29@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 2,
+        "course_id": 6,
+        "address": "20603 Turner Mountain\nNew James, OR 60114",
+        "gender": "Male",
+        "mobile_number": "415.320.5025",
+        "dob": "2005-12-02",
+        "admission_date": "2022-01-09"
+    },
+    {
+        "user": {
+            "username": "robinsonrobert",
+            "first_name": "David",
+            "last_name": "Neal",
+            "email": "robinsonrobert@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 7,
+        "course_id": 20,
+        "address": "065 Dale Shores\nSouth Josephmouth, WV 23056",
+        "gender": "Male",
+        "mobile_number": "+1-611-650-7683",
+        "dob": "2004-10-18",
+        "admission_date": "2022-09-06"
+    },
+    {
+        "user": {
+            "username": "jessica07",
+            "first_name": "Brandon",
+            "last_name": "Duke",
+            "email": "jessica07@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 6,
+        "course_id": 16,
+        "address": "56888 Reed Shores Apt. 458\nNorth Robert, NE 37361",
+        "gender": "Male",
+        "mobile_number": "(349)658-1274x0",
+        "dob": "2003-01-29",
+        "admission_date": "2020-12-30"
+    },
+    {
+        "user": {
+            "username": "alicialyons",
+            "first_name": "Sandra",
+            "last_name": "Blevins",
+            "email": "alicialyons@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 5,
+        "course_id": 13,
+        "address": "941 Sharon Inlet Suite 533\nNew Williamberg, CA 57043",
+        "gender": "Female",
+        "mobile_number": "+1-548-436-7118",
+        "dob": "2003-10-13",
+        "admission_date": "2021-11-21"
+    },
+    {
+        "user": {
+            "username": "ruth85",
+            "first_name": "Nicholas",
+            "last_name": "Knight",
+            "email": "ruth85@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 1,
+        "course_id": 3,
+        "address": "03105 Steven Trail\nNorth Valeriefurt, ID 33411",
+        "gender": "Male",
+        "mobile_number": "642-614-4864",
+        "dob": "2001-09-01",
+        "admission_date": "2021-12-09"
+    },
+    {
+        "user": {
+            "username": "emilyjordan",
+            "first_name": "Jonathan",
+            "last_name": "Huff",
+            "email": "emilyjordan@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 5,
+        "course_id": 14,
+        "address": "17914 Tonya Orchard\nSarahside, MD 74706",
+        "gender": "Male",
+        "mobile_number": "001-903-911-006",
+        "dob": "2000-01-21",
+        "admission_date": "2021-09-20"
+    },
+    {
+        "user": {
+            "username": "tashamiles",
+            "first_name": "Michael",
+            "last_name": "Kelly",
+            "email": "tashamiles@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 2,
+        "course_id": 6,
+        "address": "035 Curtis Course\nPort Nicoleburgh, WV 93457",
+        "gender": "Male",
+        "mobile_number": "620-708-9825x15",
+        "dob": "2005-02-26",
+        "admission_date": "2024-08-07"
+    },
+    {
+        "user": {
+            "username": "ivalencia",
+            "first_name": "Christopher",
+            "last_name": "Buchanan",
+            "email": "ivalencia@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 5,
+        "course_id": 13,
+        "address": "2423 Lewis Dale\nEast Nicholas, MS 19417",
+        "gender": "Male",
+        "mobile_number": "001-238-278-125",
+        "dob": "2006-06-22",
+        "admission_date": "2024-06-06"
+    },
+    {
+        "user": {
+            "username": "paulaalexander",
+            "first_name": "Patrick",
+            "last_name": "Bates",
+            "email": "paulaalexander@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 7,
+        "course_id": 19,
+        "address": "79985 Jensen Crest Apt. 408\nNew Jessica, WA 85874",
+        "gender": "Male",
+        "mobile_number": "001-579-212-699",
+        "dob": "2001-08-11",
+        "admission_date": "2022-08-28"
+    },
+    {
+        "user": {
+            "username": "crystalsosa",
+            "first_name": "Christina",
+            "last_name": "Oliver",
+            "email": "crystalsosa@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 6,
+        "course_id": 17,
+        "address": "27935 Rodgers Mews Apt. 056\nWest Derek, MN 47481",
+        "gender": "Female",
+        "mobile_number": "(928)999-9504x4",
+        "dob": "2001-01-05",
+        "admission_date": "2023-07-23"
+    },
+    {
+        "user": {
+            "username": "kserrano",
+            "first_name": "Christopher",
+            "last_name": "Fuentes",
+            "email": "kserrano@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 4,
+        "course_id": 12,
+        "address": "87843 Stewart Road Apt. 215\nSouth Angela, MD 25510",
+        "gender": "Male",
+        "mobile_number": "981.424.1702",
+        "dob": "1999-04-23",
+        "admission_date": "2023-02-28"
+    },
+    {
+        "user": {
+            "username": "lance74",
+            "first_name": "Abigail",
+            "last_name": "Stein",
+            "email": "lance74@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 7,
+        "course_id": 18,
+        "address": "5416 Chandler Extensions\nChristineview, MP 75666",
+        "gender": "Female",
+        "mobile_number": "+1-622-619-2145",
+        "dob": "1999-01-14",
+        "admission_date": "2024-04-12"
+    },
+    {
+        "user": {
+            "username": "xthomas",
+            "first_name": "David",
+            "last_name": "Craig",
+            "email": "xthomas@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 4,
+        "course_id": 11,
+        "address": "77865 Rebecca Stream Apt. 288\nHillmouth, MH 94691",
+        "gender": "Male",
+        "mobile_number": "(798)662-1808x4",
+        "dob": "2002-02-13",
+        "admission_date": "2024-08-04"
+    },
+    {
+        "user": {
+            "username": "wallacemarcus",
+            "first_name": "Michael",
+            "last_name": "Carey",
+            "email": "wallacemarcus@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 8,
+        "course_id": 22,
+        "address": "454 Norris Estates Suite 867\nJuanland, AL 07836",
+        "gender": "Male",
+        "mobile_number": "(296)419-8481x1",
+        "dob": "2005-10-19",
+        "admission_date": "2021-01-21"
+    },
+    {
+        "user": {
+            "username": "mmcdonald",
+            "first_name": "Ashley",
+            "last_name": "Jenkins",
+            "email": "mmcdonald@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 6,
+        "course_id": 16,
+        "address": "2055 Cynthia Place Apt. 957\nLake Adam, ND 83138",
+        "gender": "Female",
+        "mobile_number": "(878)243-9054",
+        "dob": "2001-06-11",
+        "admission_date": "2021-10-22"
+    },
+    {
+        "user": {
+            "username": "gdavis",
+            "first_name": "Lisa",
+            "last_name": "Brooks",
+            "email": "gdavis@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 5,
+        "course_id": 14,
+        "address": "36506 Stephanie Estate Suite 143\nJasmineville, VI 88885",
+        "gender": "Female",
+        "mobile_number": "723.985.2957",
+        "dob": "2001-11-15",
+        "admission_date": "2022-01-02"
+    },
+    {
+        "user": {
+            "username": "barronlinda",
+            "first_name": "Cheryl",
+            "last_name": "Bennett",
+            "email": "barronlinda@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 4,
+        "course_id": 12,
+        "address": "0657 Jacob Oval\nJessicaville, IN 25418",
+        "gender": "Female",
+        "mobile_number": "516-487-7038",
+        "dob": "1999-08-11",
+        "admission_date": "2023-04-25"
+    },
+    {
+        "user": {
+            "username": "psanchez",
+            "first_name": "John",
+            "last_name": "Hamilton",
+            "email": "psanchez@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 2,
+        "course_id": 4,
+        "address": "727 Hayes Tunnel\nWest Amanda, CA 70960",
+        "gender": "Male",
+        "mobile_number": "973.664.3849x10",
+        "dob": "2005-06-03",
+        "admission_date": "2021-01-21"
+    },
+    {
+        "user": {
+            "username": "nicholsclaudia",
+            "first_name": "Cesar",
+            "last_name": "Beard",
+            "email": "nicholsclaudia@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 8,
+        "course_id": 23,
+        "address": "87034 Nelson Creek Apt. 976\nBonniehaven, VT 81314",
+        "gender": "Male",
+        "mobile_number": "661.548.1057",
+        "dob": "2002-06-11",
+        "admission_date": "2021-06-01"
+    },
+    {
+        "user": {
+            "username": "jonathan86",
+            "first_name": "Jared",
+            "last_name": "Mullen",
+            "email": "jonathan86@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 8,
+        "course_id": 23,
+        "address": "737 Julie Spring\nJamesstad, GU 23643",
+        "gender": "Male",
+        "mobile_number": "+1-286-557-8409",
+        "dob": "1998-10-09",
+        "admission_date": "2020-09-27"
+    },
+    {
+        "user": {
+            "username": "dmorgan",
+            "first_name": "Joshua",
+            "last_name": "Torres",
+            "email": "dmorgan@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 5,
+        "course_id": 14,
+        "address": "04069 Joseph Plains Suite 188\nWest Jason, UT 68398",
+        "gender": "Male",
+        "mobile_number": "001-963-902-465",
+        "dob": "2004-11-26",
+        "admission_date": "2021-11-10"
+    },
+    {
+        "user": {
+            "username": "justinvaughn",
+            "first_name": "Jason",
+            "last_name": "Khan",
+            "email": "justinvaughn@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 3,
+        "course_id": 7,
+        "address": "6208 Alexander Fork\nClaytonmouth, UT 98053",
+        "gender": "Male",
+        "mobile_number": "+1-228-512-5686",
+        "dob": "2001-06-03",
+        "admission_date": "2023-09-01"
+    },
+    {
+        "user": {
+            "username": "sanchezdiana",
+            "first_name": "Raymond",
+            "last_name": "Johnson",
+            "email": "sanchezdiana@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 8,
+        "course_id": 22,
+        "address": "4738 Jared Common\nLake Timothy, HI 24756",
+        "gender": "Male",
+        "mobile_number": "639.813.6611x38",
+        "dob": "2002-08-10",
+        "admission_date": "2022-04-11"
+    },
+    {
+        "user": {
+            "username": "james67",
+            "first_name": "Carlos",
+            "last_name": "Alexander",
+            "email": "james67@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 1,
+        "course_id": 3,
+        "address": "270 Buckley Spurs\nScottbury, PW 28050",
+        "gender": "Male",
+        "mobile_number": "001-976-353-703",
+        "dob": "2000-02-18",
+        "admission_date": "2024-04-20"
+    },
+    {
+        "user": {
+            "username": "heatherlong",
+            "first_name": "Dustin",
+            "last_name": "Hunt",
+            "email": "heatherlong@example.com",
+            "password": "testing1234"
+        },
+        "faculty_id": 4,
+        "course_id": 10,
+        "address": "USS Robles\nFPO AE 14726",
+        "gender": "Male",
+        "mobile_number": "001-318-291-112",
+        "dob": "2005-01-10",
+        "admission_date": "2020-12-30"
+    }
+]
