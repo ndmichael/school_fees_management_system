@@ -140,7 +140,7 @@ class ComplaintFilterForm(forms.Form):
                 FloatingField("reference_id", wrapper_class='col-md-4'),
                 FloatingField("status", wrapper_class='col-md-4'),
                 Div(
-                    Submit('submit', 'filter',  css_class="col-12 col-md-8 btn-danger h-75"), 
+                    Submit('submit', 'filter',  css_class="col-12 col-md-8 btn-primary h-75"), 
                     css_class='col-md-4',
                     
                 )
