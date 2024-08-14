@@ -11,20 +11,21 @@
         </section>
 
         <section class="row g-5">
-                
-
             <div class="col-12">
-                <article class="bg-white p-5 rounded-5 shadow-sm table-responsive">
+                <article 
+                    class="
+                        bg-white 
+                        rounded-5 
+                        shadow
+                        table-responsive
+                        p-5
+                    ">
                     <form action="" method="get">
-                        
-                        <!-- <div class="row"> -->
-                            {% crispy form %}
-                            
-                        <!-- </div> -->
+                        {% crispy form %}
                     </form>
-                    <table class="table">
-                        <thead class="bg-light p-5">
-                            <tr class="p-5">
+                    <table class="table mt-4 table-hover">
+                        <thead class="bg-light">
+                            <tr>
                                 <th scope="col">REF CODE</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Subject</th>
@@ -64,16 +65,24 @@
                                     </form>
                                 </div>
                             </div>
-                            <tr>
+                            <tr>  
                                 <td>
-                                   {{complaint.reference_id}}
+                                   <span class="fw-bold">{{complaint.reference_id | upper}}</span>
                                 </td>
                                 <td>
-                                    
+                                    {{complaint.student.user}}
                                 </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    {{complaint.subject}}
+                                </td>
+                                <td>
+                                    {{complaint.status}}
+                                </td>
+                                <td>
+                                    <i class="bi bi-arrow-right-circle-fill text-dark"
+                                        style="font-size: 20px;"
+                                    ></i>
+                                </td>
                             </tr>
                             {% empty %}
                             <p class="alert alert-info fw-bolder">No Complaint Recorded.</p>
