@@ -2,6 +2,10 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm , UsernameField
 from .models import Staff, Student, Payment, Complaint
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit, Layout, Div, Row
+from crispy_bootstrap5.bootstrap5 import FloatingField
+
 
 sems = (
         ('semester 1', 'SEMESTER 1'),
@@ -115,4 +119,33 @@ class StudentSearchForm(forms.Form):
             'class': 'form-control form-control-lg mb-0',
             'placeholder': 'Search by student name, student id',
     })
+        
+
+class ComplaintFilterForm(forms.Form):
+    STATUS  =( 
+        ('', '----'),
+        ('P', 'Pending'),
+        ('R', 'Resolved'),
+        ('C', 'Closed')
+    )
+    reference_id = forms.CharField()
+    status = forms.ChoiceField(choices=STATUS, required=False)
+
+    def __init__(self, *args, **kwargs):
+        super(ComplaintFilterForm, self).__init__(*args, **kwargs)
+        # super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.layout = Layout(
+            Row(
+                FloatingField("reference_id", wrapper_class='col-md-4'),
+                FloatingField("status", wrapper_class='col-md-4'),
+                Div(
+                    Submit('submit', 'filter',  css_class="col-12 col-md-8 btn-danger h-75"), 
+                    css_class='col-md-4',
+                    
+                )
+                
+            ),
+        )
+
     
