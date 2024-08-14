@@ -5,13 +5,15 @@ from django.contrib import messages
 from .forms import (
     UserForm, StudentForm, StudentUpdateForm, UserUpdateForm, 
     DeactivateStudent, PaymentForm, PaymentUpdateForm, 
-    PaymentSearchForm, StudentSearchForm
+    PaymentSearchForm, StudentSearchForm,
+    ComplaintFilterForm
 )
 from .models import Student, Payment, Complaint, Staff, Faculty, Course
 from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.postgres.search import SearchVector
+
 
 
 
@@ -374,8 +376,10 @@ def complaint_list(request):
             )
         return redirect("/")
     complaints = Complaint.objects.all().order_by('-date_submitted')
+    form =  ComplaintFilterForm()
     context={
-        'complaints': complaints
+        'complaints': complaints,
+        'form': form
     }
     return render(request, 'fees/complaint_list.html', context)
 
