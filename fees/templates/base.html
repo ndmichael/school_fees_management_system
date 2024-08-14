@@ -87,22 +87,7 @@
         </div>
     </nav>
 
-    <!-- 
-        ==== Pop up alert message ===
-    -->
-    <section class="container">
-        <div class="row">
-            <div class="offset-sm-3 col-sm-6">
-                {% for message in messages %}
-                <div class="alert alert-{{ message.tags }} alert-dismissable fade show ">
-                    <b>{{ message }}</b> 
-                    <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
-
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
+    
 
     <!--- 
         === Sidenav with an id sidebar ===
@@ -173,11 +158,24 @@
         </ul>
     </nav> 
 
-    <!-- 
-    === Content Section ===
-    -->
-    <section id="admin-content" class="bg-light">
+    <section id="admin-content" class="bg-light"> 
         <div class="p-5">
+            <!-- 
+                ==== Pop up alert message ===
+            -->
+            {% for message in messages %}
+                <div 
+                    class="offset-sm-3 
+                            col-sm-6
+                            alert 
+                            alert-{{ message.tags }} 
+                            alert-dismissable fade show 
+                        ">
+                    <b>{{ message }}</b> 
+                    <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                </div>
+           {% endfor %}
         {% block content %} 
         
         {% endblock content %}
