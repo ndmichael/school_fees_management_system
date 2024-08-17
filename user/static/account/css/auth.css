@@ -1,0 +1,7 @@
+#login-main{
+    background: linear-gradient(rgb(0,0,0,0.6), rgb(0, 0, 0, .7)), url('../images/Nile-Building.jpg');
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    color: white;
+}
