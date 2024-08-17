@@ -80,11 +80,10 @@
                                     {{complaint.subject}}
                                 </td>
                                 <td>
-                                    {{complaint.status}}
+                                    {{complaint.get_status_display}}
                                 </td>
                                 <td>
-                                    <i class="bi bi-arrow-right-circle-fill"
-                                    ></i>
+                                    <i class="bi bi-arrow-right-circle-fill"></i>
                                 </td>
                             </tr>
                             {% empty %}
