@@ -1,6 +1,10 @@
 {% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} {% block content %}
 
-<section class=" bg-light py-5" style="min-height: 70vh;">
+<section 
+    id="complaint"
+    class=" bg-light py-5" 
+    style="min-height: 70vh;"
+>
     <div class="container">
         <section class="row pb-4">
             <div class="col-12">
@@ -30,7 +34,7 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Subject</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">Date</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -79,8 +83,7 @@
                                     {{complaint.status}}
                                 </td>
                                 <td>
-                                    <i class="bi bi-arrow-right-circle-fill text-dark"
-                                        style="font-size: 20px;"
+                                    <i class="bi bi-arrow-right-circle-fill"
                                     ></i>
                                 </td>
                             </tr>
@@ -91,7 +94,6 @@
                     </table>
                 </article>
             </div> 
-            </div>
         </section>
     </div>
 
