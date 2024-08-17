@@ -1,1 +1,46 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'fees/css/b5css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'fees/css/mdb/mdb.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'fees/css/nile.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'account/css/auth.css' %}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+<body>
+    
+    {% block content %} 
+        
+    {% endblock content %}
+
+
+    <!-- <footer class="bg-dark fixed-bottom">
+        <div class="container">
+            <article class="row">
+                <div class="col-12 py-4 px-2 text-center">
+                    <p class="p-0">
+                        <span class="text-light">
+                            Developed By BalladTech
+                        </span>
+                        <span class=" text-warning">|</span>
+                        <span class=" text-muted">
+                            FYP
+                        </span>
+                    </p>
+                </div>
+            </article>
+        </div>
+    </footer> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="{% static 'fees/js/b5js/bootstrap.min.js' %}">
+    </script>
+    <script src="{% static 'fees/js/mdb/mdb.min.js' %}"></script>
+    <script src="{% static 'smart-selects/admin/js/bindfields.js' %}"></script>
+    <script src="{% static 'smart-selects/admin/js/chainedfk.js' %}"></script>
+</body>
+</html>
