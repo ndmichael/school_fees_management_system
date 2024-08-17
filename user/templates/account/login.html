@@ -9,7 +9,7 @@
 
 <div  class="container-fluid bg-light">
     <div class="row">
-        <div id="login-main" class="col-12 col-md-7 d-none d-sm-block ">
+        <div id="login-main" class="col-12 col-md-7 d-none d-sm-block">
             <div class="p-5 h-100 d-flex flex-column justify-content-center">
                 <h1>
                     Welcome To Nile University School Fees System.
@@ -29,11 +29,14 @@
                 </div>
                 <div class="pt-4">
                     <form class="login" method="POST" action="{% url 'account_login' %}">
-                        {% csrf_token %} {{ form|crispy }} {% if redirect_field_value %}
+                        {% csrf_token %} 
+                        {{ form|crispy }} 
+                        {% if redirect_field_value %}
                         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
-                        <button class="btn btn-primary btn-lg btn-block primaryAction" type="submit">{% trans "Log In" %}</button>
-                        <a class="button secondaryAction pt-3 d-block" href="{% url 'account_reset_password' %}">
-                {% trans "Forgot Password?" %}</a>
+                        <button class="btn btn-primary btn-lg btn-block primaryAction" type="submit">
+                            {% trans "Log In" %}
+                        </button>
+                        <a class="button secondaryAction pt-3 d-block" href="{% url 'account_reset_password' %}"></a>
                     </form>
                     <div class="row">
                         <div class="col-12">
