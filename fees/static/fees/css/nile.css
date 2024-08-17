@@ -126,6 +126,19 @@ i.bi {
     background: rgba(08, 08, 08, 0.4);
 }
 
+/** **Complaints** **/
+#complaint .bi{
+    color: black;
+    font-size: 22px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .2s;
+}
+
+#complaint .bi:hover{
+    color: blue;
+}
+
 /* table css */
 .table thead th{
     font-size: 14px;
