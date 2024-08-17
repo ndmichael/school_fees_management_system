@@ -1,0 +1,8 @@
+#login-main{
+    background: linear-gradient(rgba(141, 35, 254, 0.4) rgb(0,0,0,0.4)), 
+        url('https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190710102234/download3.png');
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
