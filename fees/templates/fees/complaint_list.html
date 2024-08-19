@@ -45,6 +45,7 @@
                                     <form action="" method="POST">
                                         <div class="modal-content">
                                             <div class="modal-header">
+                                                <h4>Ref Code: <span class="text-danger">{{complaint.reference_id | upper}}</span></h4>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
@@ -137,8 +138,14 @@
                                 <td>
                                     {{complaint.subject}}
                                 </td>
-                                <td>
-                                    {{complaint.get_status_display}}
+                                <td class="fw-bolder">
+                                    {% if complaint.status == 'P' %}
+                                    <span class="text-warning">{{complaint.get_status_display}}</span>
+                                    {% elif complaint.status == 'R' %}
+                                    <span class="text-success">{{complaint.get_status_display}}</span>
+                                    {% else %}
+                                    <span class="text-secondary">{{complaint.get_status_display}}</span>
+                                    {% endif %}
                                 </td>
                                 <td>
                                     <a href="#"
