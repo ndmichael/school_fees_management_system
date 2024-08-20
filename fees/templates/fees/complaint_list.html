@@ -91,6 +91,9 @@
                                                         </p>
                                                     </div>
 
+                                                    <hr />
+                                                    
+                                                    <!-- === Form to update the status-->
                                                     <form method="post" action="">
                                                         {% csrf_token %}
                                                         <input type="hidden" value="{{complaint.reference_id}}" name="ref_code">
