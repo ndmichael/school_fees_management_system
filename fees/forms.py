@@ -90,6 +90,15 @@ class DeactivateStudent(forms.Form):
     deactivate = forms.BooleanField()
     
 
+class ComplaintFixedForm(forms.Form):
+    STATUS  =( 
+        ('', '----'),
+        ('P', 'Pending'),
+        ('R', 'Resolved'),
+        ('C', 'Closed')
+    )
+    status = forms.ChoiceField(choices=STATUS)
+
 class AdminForm(forms.ModelForm):
     pass
 
