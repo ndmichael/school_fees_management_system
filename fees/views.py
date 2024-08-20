@@ -6,7 +6,7 @@ from .forms import (
     UserForm, StudentForm, StudentUpdateForm, UserUpdateForm, 
     DeactivateStudent, PaymentForm, PaymentUpdateForm, 
     PaymentSearchForm, StudentSearchForm,
-    ComplaintFilterForm
+    ComplaintFilterForm, ComplaintFixedForm
 )
 from .models import Student, Payment, Complaint, Staff, Faculty, Course
 from django.db.models import Sum
@@ -377,9 +377,24 @@ def complaint_list(request):
         return redirect("/")
     complaints = Complaint.objects.all().order_by('-date_submitted')
     form =  ComplaintFilterForm()
+    
+    complaintFixedForm = ComplaintFixedForm(request.POST)
+    if request.method =='POST':
+        ref_code = request.POST.get('ref_code')
+        
+        if complaintFixedForm.is_valid():
+            # Using the ref_code to get the exact complaint
+            complaint = get_object_or_404(Complaint, reference_id=ref_code)
+            complaint.status = complaintFixedForm.cleaned_data['status']
+            complaint.save()
+    else:
+        complaintFixedForm = ComplaintFixedForm()
+
+
     context={
         'complaints': complaints,
-        'form': form
+        'form': form,
+        "complaintFixedForm": complaintFixedForm
     }
     return render(request, 'fees/complaint_list.html', context)
 
