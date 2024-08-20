@@ -122,8 +122,7 @@ class PaymentSearchForm(forms.Form):
 class StudentSearchForm(forms.Form):
     """Form to filter and search students records"""
     query = forms.CharField(
-        required=False, 
-        widget=forms.TextInput(attrs={'required': 'false'})
+        required=False
     )
 
     def __init__(self, *args, **kwargs):
@@ -147,9 +146,9 @@ class ComplaintFilterForm(forms.Form):
     status = forms.ChoiceField(choices=STATUS, required=False)
 
     def __init__(self, *args, **kwargs):
-        super(ComplaintFilterForm, self).__init__(*args, **kwargs)
-        # super().__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.helper = FormHelper()
+        self.helper.disable_csrf = True
         self.helper.layout = Layout(
             Row(
                 FloatingField("reference_id", wrapper_class='col-md-4'),
