@@ -8,11 +8,14 @@ from crispy_bootstrap5.bootstrap5 import FloatingField
 
 
 sems = (
-        ('semester 1', 'SEMESTER 1'),
-        ('semester 2', 'SEMESTER 2')
-    )
+    ('semester 1', 'SEMESTER 1'),
+    ('semester 2', 'SEMESTER 2')
+)
 
 class UserForm(UserCreationForm):
+    '''The user creation form.
+    It will work together with the student form.
+    '''
     email = forms.EmailField()
     username = forms.CharField()
     username = UsernameField(
@@ -34,6 +37,7 @@ class DateInput(forms.DateInput):
     input_type = 'date'
 
 class StudentForm(forms.ModelForm):
+    """Student form for creating students instance"""
     admission_date = forms.DateField(widget=DateInput)
     dob = forms.DateField(widget=DateInput)
     class Meta:
@@ -45,6 +49,9 @@ class StudentForm(forms.ModelForm):
 
 
 class ComplaintForm(forms.ModelForm):
+    """Complaint form
+    Students can use to send complaints.
+    """
     class Meta:
         model = Complaint
         widgets = {
@@ -60,37 +67,33 @@ class UserUpdateForm(forms.ModelForm):
 
 
 class StudentUpdateForm(forms.ModelForm):
+    """Form to update student."""
     class Meta:
         model = Student
         fields = ['image', 'faculty', 'courses', 'address', 'mobile_number']
 
 
 class PaymentForm(forms.ModelForm):
+    """The payment form to create payment instances"""
     date_paid = forms.DateField(widget=DateInput)
     class Meta:
         model = Payment
         fields = ['student','academic_year', 'semester', 'amount', 'payment_method', 'date_paid']
 
 class PaymentUpdateForm(forms.ModelForm):
+    """Form to update payment"""
     class Meta:
         model = Payment
         fields = ['student','academic_year', 'semester', 'amount', 'payment_method']
 
 
-# class OnlinePaymentForm(forms.Form):
-#     cardnumber = forms.CharField(max_length=16)
-#     cvc = forms.IntegerField()
-#     expiration_date =forms.DateField()
-#     academic_year = forms.CharField(max_length=4)
-#     semester = forms.CharField(choices=sems)
-#     amount = forms.DecimalField(max_digits=10, decimal_places=2)
-
-
 class DeactivateStudent(forms.Form):
+    """Deactivate user form"""
     deactivate = forms.BooleanField()
     
 
 class ComplaintFixedForm(forms.Form):
+    """Updating complaint status when resolved"""
     STATUS  =( 
         ('', '----'),
         ('P', 'Pending'),
@@ -105,6 +108,7 @@ class AdminForm(forms.ModelForm):
 
 # search feature for payment
 class PaymentSearchForm(forms.Form):
+    """Form for filtering and searching payment records"""
     query = forms.CharField()
 
     def __init__(self, *args, **kwargs):
@@ -116,6 +120,7 @@ class PaymentSearchForm(forms.Form):
     })
         
 class StudentSearchForm(forms.Form):
+    """Form to filter and search students records"""
     query = forms.CharField(
         required=False, 
         widget=forms.TextInput(attrs={'required': 'false'})
@@ -131,6 +136,7 @@ class StudentSearchForm(forms.Form):
         
 
 class ComplaintFilterForm(forms.Form):
+    """Form to filter complaint records."""
     STATUS  =( 
         ('', '----'),
         ('P', 'Pending'),
@@ -150,10 +156,8 @@ class ComplaintFilterForm(forms.Form):
                 FloatingField("status", wrapper_class='col-md-4'),
                 Div(
                     Submit('submit', 'filter',  css_class="col-12 col-md-8 btn-primary h-75"), 
-                    css_class='col-md-4',
-                    
-                )
-                
+                    css_class='col-md-4',        
+                )    
             ),
         )
 
