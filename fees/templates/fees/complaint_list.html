@@ -42,7 +42,7 @@
                             <!-- == Modal to display complaint details == -->
                             <div class="modal fade" id="complaintModal{{complaint.id}}" tabindex="-2" aria-labelledby="studentDetailsLabel1" aria-hidden="true">
                                 <div class="modal-dialog">
-                                    <form action="" method="POST">
+                                    <form action="{% url 'complaint_list' %}" method="POST">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h4>Ref Code: <span class="text-danger">{{complaint.reference_id | upper}}</span></h4>
@@ -90,6 +90,15 @@
                                                             {% endif %}
                                                         </p>
                                                     </div>
+
+                                                    <form method="post" action="">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" value="{{complaint.reference_id}}" name="ref_code">
+                                                        {{complaintFixedForm | crispy}}
+                                                        <button type="submit" class="btn btn-primary">
+                                                            Update
+                                                        </button>
+                                                    </form>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
