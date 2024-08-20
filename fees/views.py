@@ -376,7 +376,7 @@ def complaint_list(request):
             )
         return redirect("/")
     complaints = Complaint.objects.all().order_by('-date_submitted')
-    form =  ComplaintFilterForm()
+    FilterForm =  ComplaintFilterForm
     
     complaintFixedForm = ComplaintFixedForm(request.POST)
     if request.method =='POST':
@@ -390,10 +390,20 @@ def complaint_list(request):
     else:
         complaintFixedForm = ComplaintFixedForm()
 
+    # Logic to filter complaints by reference id
+    ref_id = request.GET.get('reference_id')
+    if ref_id and ref_id != '':
+        complaints = Complaint.objects.annotate(search=SearchVector('reference_id'),).filter(search__icontains=ref_id)
+
+    # Logic to filter complaints by status
+    status = request.GET.get('status')
+    if status and status != '':
+        complaints = Complaint.objects.annotate(search=SearchVector('status'),).filter(search__icontains=status)
+
 
     context={
         'complaints': complaints,
-        'form': form,
+        'FilterForm': FilterForm,
         "complaintFixedForm": complaintFixedForm
     }
     return render(request, 'fees/complaint_list.html', context)
