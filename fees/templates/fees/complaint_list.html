@@ -24,9 +24,10 @@
                         table-responsive
                         p-5
                     ">
-                    <form action="" method="get">
-                        {% crispy form %}
+                    <form action="" method="get" novalidate="nonvalidate">
+                        {% crispy FilterForm %}
                     </form>
+
                     <table class="table mt-4 table-hover">
                         <thead class="bg-light">
                             <tr>
@@ -109,7 +110,8 @@
                                         </div>
                                     </form>
                                 </div>
-                            </div> <!-=== End of modal details ===->
+                            </div> <!-- === End of modal details === -->
+
                             <!-- Modal For Payment Deactivation-->
                             <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
