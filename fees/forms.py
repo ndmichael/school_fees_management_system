@@ -143,7 +143,7 @@ class ComplaintFilterForm(forms.Form):
         ('R', 'Resolved'),
         ('C', 'Closed')
     )
-    reference_id = forms.CharField()
+    reference_id = forms.CharField(required=False)
     status = forms.ChoiceField(choices=STATUS, required=False)
 
     def __init__(self, *args, **kwargs):
