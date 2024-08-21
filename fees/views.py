@@ -191,7 +191,6 @@ def payment(request):
     if request.method == 'POST':
         p_form = PaymentForm(request.POST)
         
-
         if p_form.is_valid():
             p_form = p_form.save(commit=False)
             course_fee = student.courses.fee
