@@ -9,7 +9,7 @@
                     <tbody>
                         <tr>
                             <th>Name:</th>
-                            <td>{{payment.student.user.first_name}} {{payment.student.user.last_name}}
+                            <td>{{payment.student.user.first_name | title}} {{payment.student.user.last_name | title}}
                             </td>
                         </tr>
                         <tr>
@@ -17,7 +17,11 @@
                             <td>&#8358;{{payment.amount}}</td>
                         </tr>
                         <tr>
-                            <th>Faculty:</th>
+                            <th>Balance:</th>
+                            <td>&#8358;{{payment.balance}}</td>
+                        </tr>
+                        <tr>
+                            <th>Year:</th>
                             <td>{{payment.academic_year}}</td>
                         </tr>
                         <tr>
@@ -25,8 +29,20 @@
                             <td>{{payment.semester}}</td>
                         </tr>
                         <tr>
+                            <th>Course:</th>
+                            <td>{{payment.student.courses}}</td>
+                        </tr>
+                        <tr>
                             <th>Payment Method:</th>
                             <td>{{payment.payment_method}}</td>
+                        </tr>
+                        <tr>
+                            <th>Confirmed By:</th>
+                            <td>{{payment.staff}}</td>
+                        </tr>
+                        <tr>
+                            <th>Date Paid:</th>
+                            <td>{{payment.date_paid}}</td>
                         </tr>
                     </tbody>
                 </table>
