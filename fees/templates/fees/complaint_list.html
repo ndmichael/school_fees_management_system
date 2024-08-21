@@ -43,72 +43,70 @@
                             <!-- == Modal to display complaint details == -->
                             <div class="modal fade" id="complaintModal{{complaint.id}}" tabindex="-2" aria-labelledby="studentDetailsLabel1" aria-hidden="true">
                                 <div class="modal-dialog">
-                                    <form action="{% url 'complaint_list' %}" method="POST">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4>Ref Code: <span class="text-danger">{{complaint.reference_id | upper}}</span></h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="p-4">
-                                                    <div class="d-flex justify-content-between">
-                                                    <p>Subject:</p>
-                                                    <p class="fw-bold text-end">{{complaint.subject}}</p>
-                                                    </div>
-
-                                                    <div class="d-flex justify-content-between">
-                                                        <p>Details:</p>
-                                                        <p class="fw-bold text-end">
-                                                            {{complaint.description}} <br />
-                                                            <span class="text-muted">{{student.mobile_number}}</span>
-                                                        </p>
-                                                    </div>
-
-                                                    <div class="d-flex justify-content-between">
-                                                        <p>By:</p>
-                                                        <p class="fw-bold text-end">
-                                                            {{complaint.student}} <br />
-                                                            <span class="text-muted text-end">{{student.courses.name}}</span>
-                                                        </p>
-                                                    </div>
-
-                                                    <div class="d-flex justify-content-between">
-                                                        <p>Date Submitted:</p>
-                                                        <p class="fw-bold">
-                                                            {{complaint.date_submitted}}
-                                                        </p>
-                                                    </div>
-
-                                                    <div class="d-flex justify-content-between">
-                                                        <p>Status:</p>
-                                                        <p class="fw-bolder">
-                                                            {% if complaint.status == 'P' %}
-                                                            <span class="text-warning">{{complaint.get_status_display}}</span>
-                                                            {% elif complaint.status == 'R' %}
-                                                            <span class="text-success">{{complaint.get_status_display}}</span>
-                                                            {% else %}
-                                                            <span class="text-secondary">{{complaint.get_status_display}}</span>
-                                                            {% endif %}
-                                                        </p>
-                                                    </div>
-
-                                                    <hr />
-                                                    
-                                                    <!-- === Form to update the status-->
-                                                    <form method="post" action="">
-                                                        {% csrf_token %}
-                                                        <input type="hidden" value="{{complaint.reference_id}}" name="ref_code">
-                                                        {{complaintFixedForm | crispy}}
-                                                        <button type="submit" class="btn btn-primary">
-                                                            Update
-                                                        </button>
-                                                    </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-                                            </div>
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4>Ref Code: <span class="text-danger">{{complaint.reference_id | upper}}</span></h4>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                    </form>
+                                        <div class="modal-body">
+                                            <div class="p-4">
+                                                <div class="d-flex justify-content-between">
+                                                <p>Subject:</p>
+                                                <p class="fw-bold text-end">{{complaint.subject}}</p>
+                                                </div>
+
+                                                <div class="d-flex justify-content-between">
+                                                    <p>Details:</p>
+                                                    <p class="fw-bold text-end">
+                                                        {{complaint.description}} <br />
+                                                        <span class="text-muted">{{student.mobile_number}}</span>
+                                                    </p>
+                                                </div>
+
+                                                <div class="d-flex justify-content-between">
+                                                    <p>By:</p>
+                                                    <p class="fw-bold text-end">
+                                                        {{complaint.student}} <br />
+                                                        <span class="text-muted text-end">{{student.courses.name}}</span>
+                                                    </p>
+                                                </div>
+
+                                                <div class="d-flex justify-content-between">
+                                                    <p>Date Submitted:</p>
+                                                    <p class="fw-bold">
+                                                        {{complaint.date_submitted}}
+                                                    </p>
+                                                </div>
+
+                                                <div class="d-flex justify-content-between">
+                                                    <p>Status:</p>
+                                                    <p class="fw-bolder">
+                                                        {% if complaint.status == 'P' %}
+                                                        <span class="text-warning">{{complaint.get_status_display}}</span>
+                                                        {% elif complaint.status == 'R' %}
+                                                        <span class="text-success">{{complaint.get_status_display}}</span>
+                                                        {% else %}
+                                                        <span class="text-secondary">{{complaint.get_status_display}}</span>
+                                                        {% endif %}
+                                                    </p>
+                                                </div>
+
+                                                <hr />
+                                                
+                                                <!-- === Form to update the status-->
+                                                <form method="post" action="">
+                                                    {% csrf_token %}
+                                                    <input type="hidden" value="{{complaint.reference_id}}" name="ref_code">
+                                                    {{complaintFixedForm | crispy}}
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Update
+                                                    </button>
+                                                </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div> <!-- === End of modal details === -->
 
