@@ -175,7 +175,20 @@
                                         </td>
                                         <td>{{ payment.student.user.first_name }} {{ payment.student.user.last_name }}</td>
                                         <td>&#8358;{{payment.amount|intcomma }}</td>
-                                        <td>&#8358;{{payment.balance|intcomma }}</td>
+                                        <td>
+                                            {% if payment.balance == 0 %}
+                                                <span class="text-success fw-bolder">
+                                                    &#8358;{{payment.balance|intcomma }}
+                                                </span>
+                                            {% else %}
+                                            <span class="text-danger fw-bolder">
+                                                &#8358;{{payment.balance|intcomma }}
+                                            </span>
+                                            {% endif %}
+
+                        
+
+                                        </td>
                                         <td class="d-flex">
                                             <a href="{% url 'update_payment' payment.id %}" class="btn btn-warning btn-sm m-2">
                                                 <i class="bi bi-pencil-square text-dark" style="font-size:16px"></i>
