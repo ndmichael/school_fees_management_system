@@ -126,9 +126,8 @@
                                 <thead class="bg-light p-5">
                                     <tr class="p-5">
                                         <th scope="col">P.ID</th>
-                                        <th scope="col">Academic Year</th>
-                                        <th scope="col">Semester</th>
-                                        <th scope="col"> student name</th>
+                                        <th scope="col">Academic Details</th>
+                                        <th scope="col">Fullname</th>
                                         <th scope="col">Amount</th>
                                         <th scope="col">Balance</th>
                                         <th>Actions</th>
@@ -167,15 +166,13 @@
                                         </div>
                                     </div>
                                     <tr>
-                                        <td>
-                                            <a href="{% url 'payment_detail' payment.pk %}" class=" text-decoration-underline">
-                                                100{{payment.pk}}
-                                            </a>
+                                        <td>    
+                                            <span class="fw-bolder text-dark">100{{payment.pk}}</span>    
                                         </td>
                                         <td>
-                                            {{payment.academic_year}}
+                                           <b>{{payment.academic_year}}</b> <br/>
+                                            {{ payment.semester }}
                                         </td>
-                                        <td>{{ payment.semester }}</td>
                                         <td>{{ payment.student.user.first_name }} {{ payment.student.user.last_name }}</td>
                                         <td>&#8358;{{payment.amount|intcomma }}</td>
                                         <td>&#8358;{{payment.balance|intcomma }}</td>
@@ -186,7 +183,7 @@
                                             <a href="#" class="btn btn-outline-danger btn-sm m-2" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                                 <i class="bi bi-trash" style="font-size:16px"></i>
                                             </a>
-                                            <a href="#" class="btn btn-outline-secondary btn-sm m-2" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                            <a href="{% url 'payment_detail' payment.pk %}" class="btn btn-outline-secondary btn-sm m-2">
                                                 <i class="bi bi-chevron-double-right" style="font-size:16px"></i>
                                             </a>
                                         </td>
