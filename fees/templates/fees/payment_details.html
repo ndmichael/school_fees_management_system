@@ -1,10 +1,17 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'account/base.html' %} {% load static %} {% block content %}
 
 <section class="my-5" style=" min-height: 80vh;">
     <div class="container">
         <section class="row">
             <article class="col-12 col-sm-8 mx-auto text-center">
-                <h1 class="pb-4">PAYMENT RECEIPT</h1>
+                <a class="navbar-brand d-block" href="/">
+                    <img 
+                        class="img-fluid rounded-circle shadow-lg user-thumbnail"
+                        style="height: 50px; width: 50px;"
+                        src="{% static 'fees/images/nile.jpg' %}"
+                    >
+                </a>
+                <h3 class="pb-4">NILE UNIVERSITY: RECEIPT</h3>
                 <table class="table table-responsive table-striped">
                     <tbody>
                         <tr>
