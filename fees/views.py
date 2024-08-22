@@ -18,7 +18,18 @@ from django.contrib.postgres.search import SearchVector
 
 
 def index(request):
-    return render(request, 'fees/index.html', {"title": "nile-home"})
+    '''===Logic Here ===
+    - If user is authenticated, check if staff
+    - If staff redirect to admin dashboard else user profile
+    - If not authenticated redirect to login page
+    '''
+    if request.user.is_authenticated:
+        if request.user.is_staff:
+            return redirect('admin_dashboard')
+        return redirect('student_profile', username=request.user.username)
+    else:
+        return redirect('account_login')
+    # return render(request, 'fees/index.html', {"title": "nile-home"})
 
 
 @login_required
