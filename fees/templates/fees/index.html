@@ -1,4 +1,4 @@
-{% extends 'base2.html' %} {% load static %} {% block content %}
+{% extends 'account/base.html' %} {% load static %} {% block content %}
 <section id="hero" >
     <div class="container">
         <section class="row g-5">
@@ -13,7 +13,7 @@
                     </p>
                     <div class="pt-4">
                         {% if user.is_authenticated and not user.is_staff %}
-                        <a href="{% url 'stud_profile' request.user.username %}" class=" btn btn-primary btn-lg">
+                        <a href="{% url 'student_profile' request.user.username %}" class=" btn btn-primary btn-lg">
                             your profile
                         </a> {% elif user.is_authenticated and user.is_staff %}
                         <a href="{% url 'admin_dashboard' %}" class=" btn btn-primary btn-lg">
