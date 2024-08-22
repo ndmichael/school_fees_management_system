@@ -86,8 +86,7 @@ html, body{
   }
 
 #hero{
-    min-height: 80vh; 
-    padding-top: 14vh;
+    min-height: 100vh; 
 }
 
 #hero h1{
@@ -95,7 +94,7 @@ html, body{
     font-weight: bold;
     text-transform: uppercase;
     text-shadow: 2px 3px 3px rgba(08, 08, 08, 0.4);
-    color: black;
+    color: white;
     /* opacity: 0.8; */
 }
 
