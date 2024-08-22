@@ -127,6 +127,7 @@ class Payment(models.Model):
     is_confirmed = models.BooleanField(default=False)
     is_paid =  models.BooleanField(default=False)
     image = models.ImageField( upload_to='payment_proof/', blank=True, null=True)
+    complaint = models.TextField(required=False)
     date_paid = models.DateTimeField(default=timezone.now)
     date_entered = models.DateTimeField(default=timezone.now)
     
