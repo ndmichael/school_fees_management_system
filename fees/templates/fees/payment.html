@@ -172,35 +172,41 @@
                                             <form action="" method="POST">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
+                                                        <h3>Payment ID: 100{{payment.id}}</h3>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
                                                         <div class="p-4">
                                                             <div class="d-flex justify-content-between">
-                                                               <p>Fullname:</p>
-                                                               <p class="fw-bold text-end">{{student.fullname}}</p>
+                                                                <p>Amount Paid:</p>
+                                                                <p class="fw-bold text-success text-end">&#8358;{{payment.amount}}</p>
+                                                            </div>
+
+                                                            <div class="d-flex justify-content-between">
+                                                               <p>Student Name:</p>
+                                                               <p class="fw-bold text-end">{{payment.student.fullname}}</p>
                                                             </div>
             
                                                             <div class="d-flex justify-content-between">
-                                                                <p>Contact Info:</p>
+                                                                <p>Student Info:</p>
                                                                 <p class="fw-bold text-end">
-                                                                    {{student.user.email}} <br />
-                                                                    <span class="text-muted">{{student.mobile_number}}</span>
+                                                                    {{payment.student.courses}} <br />
+                                                                    <span class="text-muted">{{payment.student.faculty}}</span>
                                                                 </p>
                                                              </div>
             
                                                              <div class="d-flex justify-content-between">
-                                                                <p>Course:</p>
+                                                                <p>Academic Details:</p>
                                                                 <p class="fw-bold text-end">
-                                                                    {{student.faculty}} <br />
-                                                                    <span class="text-muted text-end">{{student.courses.name}}</span>
+                                                                    {{payment.academic_year}} <br />
+                                                                    <span class="text-muted text-end">{{payment.semester}}</span>
                                                                 </p>
                                                              </div>
             
                                                              <div class="d-flex justify-content-between">
-                                                                <p>Admission Date:</p>
+                                                                <p>Payment Date:</p>
                                                                 <p class="fw-bold">
-                                                                    {{student.admission_date}}
+                                                                    {{payment.date_paid}}
                                                                 </p>
                                                              </div>
                                                     </div>
@@ -231,9 +237,6 @@
                                                 &#8358;{{payment.balance|intcomma }}
                                             </span>
                                             {% endif %}
-
-                        
-
                                         </td>
                                         <td class="d-flex">
                                             <a href="{% url 'update_payment' payment.id %}" class="btn btn-warning btn-sm m-2">
