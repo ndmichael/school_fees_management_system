@@ -40,6 +40,13 @@ def admin_dashboard(request):
         - Rturns total students
         - Total Money
     '''
+    # check if user is a staff
+    if not request.user.is_staff:
+        messages.error(
+                request, f"You do not have permission to access this page."
+            )
+        return redirect("/")
+    
     total_students = Student.objects.all().count()
     total_money = Payment.objects.aggregate(total=Sum('amount'))['total'] or 0
     context = {
