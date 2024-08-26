@@ -59,6 +59,7 @@ def staff_profile(request, username):
 
     print("username : ", username)
     staff = Staff.objects.filter(user__username=username).first()
+
     context = {
         'staff': staff,
         "title": "staff profile"
