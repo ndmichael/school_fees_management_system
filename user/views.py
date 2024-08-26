@@ -4,6 +4,8 @@ from fees.forms import ComplaintForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
+from django.db.models import Sum
+
 # Create your views here.
 
 
@@ -61,12 +63,15 @@ def staff_profile(request, username):
     staff = Staff.objects.filter(user__username=username).first()
     payments_handled_by_staff = Payment.objects.filter(staff=staff)
     total_payments_handled_by_staff = payments_handled_by_staff.count()
+    total_amount_handled_by_staff = payments_handled_by_staff.aggregate(total=Sum('amount'))['total']
+    #CustomUser.objects.aggregate(total=Sum('balance'))
     print(f"payments - {payments_handled_by_staff}")
 
     context = {
         'staff': staff,
         "title": "staff profile",
-        "total_payments": total_payments_handled_by_staff
+        "total_payments": total_payments_handled_by_staff,
+        "total_amounts": total_amount_handled_by_staff,
     }
     return render(request, 'account/staff_profile.html', context)
 
