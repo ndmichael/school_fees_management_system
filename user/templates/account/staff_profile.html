@@ -5,8 +5,31 @@
 <section>
     <div class="container">
         <section class="row">
-            <article class="col-12 col-sm-10 col-md-8">
-                <h3>Profile page!!!</h3>
+            <article 
+                class="
+                    col-12 col-sm-10 col-md-8 
+                    bg-white 
+                    mx-auto 
+                    p-4
+                    shadow-sm
+                    rounded-3
+                ">
+                <div class="d-flex align-items-center justify-content-center">
+                    <div class="pe-5">
+                        <img class="img-fluid rounded-circle shadow-lg user-thumbnail"    
+                             style="height: 100px; width: 100px;"
+                             src="{{ staff.photo_url }}">
+                    </div>
+                    <div>
+                        <h3 class="fw-bolder">
+                            {{staff.user.last_name}} {{staff.user.first_name}}
+                        </h3>
+                        <span class="text-muted pb-3">{{staff.user.email}}</span>
+                        <p>
+                            <span>{{staff.mobileNo}}</span> <br/>
+                        </p>     
+                    </div>
+                </div>
             </article>
         </section>
     </div>
