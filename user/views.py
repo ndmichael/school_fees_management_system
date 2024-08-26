@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 from fees.models import Student, Payment, Staff, Course
-from fees.forms import ComplaintForm
+from .forms import UserUpdateForm, StaffUpdateForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -60,6 +61,7 @@ def staff_profile(request, username):
     '''*** Staff profile section ***'''
 
     print("username : ", username)
+    user = User.objects.get(username=username)
     staff = Staff.objects.filter(user__username=username).first()
     payments_handled_by_staff = Payment.objects.filter(staff=staff)
     total_payments_handled_by_staff = payments_handled_by_staff.count()
@@ -67,11 +69,28 @@ def staff_profile(request, username):
     #CustomUser.objects.aggregate(total=Sum('balance'))
     print(f"payments - {payments_handled_by_staff}")
 
+    if request.POST:
+        userUpdateForm = UserUpdateForm(request.POST, instance=user)
+        staffUpdateForm = StaffUpdateForm(
+            request.POST,
+            request.FILES,
+            instance=staff 
+        )
+    else:
+        userUpdateForm = UserUpdateForm(instance=user)
+        staffUpdateForm = StaffUpdateForm(
+            instance=staff 
+        )
+
+        
+
     context = {
         'staff': staff,
         "title": "staff profile",
         "total_payments": total_payments_handled_by_staff,
         "total_amounts": total_amount_handled_by_staff,
+        "userUpdateForm": userUpdateForm,
+        "staffUpdateForm": staffUpdateForm
     }
     return render(request, 'account/staff_profile.html', context)
 
