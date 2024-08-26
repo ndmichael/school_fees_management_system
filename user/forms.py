@@ -20,7 +20,7 @@ class UserUpdateForm(forms.ModelForm):
         fields = ['last_name', 'first_name', 'username', 'email']
 
 
-class StudentUpdateForm(forms.ModelForm):
+class StaffUpdateForm(forms.ModelForm):
     """Form to update staff profile."""
     class Meta:
         model = Staff
