@@ -59,10 +59,14 @@ def staff_profile(request, username):
 
     print("username : ", username)
     staff = Staff.objects.filter(user__username=username).first()
+    payments_handled_by_staff = Payment.objects.filter(staff=staff)
+    total_payments_handled_by_staff = payments_handled_by_staff.count()
+    print(f"payments - {payments_handled_by_staff}")
 
     context = {
         'staff': staff,
-        "title": "staff profile"
+        "title": "staff profile",
+        "total_payments": total_payments_handled_by_staff
     }
     return render(request, 'account/staff_profile.html', context)
 
