@@ -20,11 +20,14 @@ class SelfLoginForm (LoginForm):
 class UserUpdateForm(forms.ModelForm):
     """Form to update staff as user."""
     class Meta:
+
         model = User
         fields = ['last_name', 'first_name', 'username', 'email']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields['username'].disabled = True
+        self.fields['email'].disabled = True
         self.helper = FormHelper()
         self.helper.disable_csrf = True
         self.helper.form_tag = False
