@@ -68,6 +68,14 @@
                     <p>Money collected</p>
                 </div>
             </article>
+        </section> <!-- End of row one -->
+
+        <section class="row">
+            <div class="col-12 col-md-10">
+                {% csrf_token %} 
+                {{userUpdateForm| crispy}} 
+                {{staffUpdateForm| crispy}}
+            </div>
         </section>
     </div>
 </section>
