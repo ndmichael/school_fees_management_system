@@ -63,7 +63,7 @@ def staff_profile(request, username):
         'staff': staff,
         "title": "staff profile"
     }
-    return render(request, 'account/student_profile.html', context)
+    return render(request, 'account/staff_profile.html', context)
 
 
 @login_required
