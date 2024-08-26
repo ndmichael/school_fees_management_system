@@ -70,17 +70,19 @@
             </article>
         </section> <!-- End of row one -->
 
-        <section class="row">
-            <div class="col-12 col-md-10 mx-auto">
-                {% csrf_token %} 
-                {% crispy userUpdateForm %} 
-                {% crispy staffUpdateForm %}
+        <section class="row my-5">
+            <div class="col-12 col-md-12 mx-auto">
+                <form action="" method="post" enctype="multipart/form-data"
+                    class="p-5 bg-white shadow"
+                > 
+                    {% csrf_token %}
+                    {% crispy userUpdateForm %}
+                    {% crispy staffUpdateForm %}
 
-                <div>
                     <button type="submit" class="btn btn-primary btn-lg px-5">
-                        UPDATE PROFILE
+                        Update Profile
                     </button>
-                </div>
+                </form>
             </div>
         </section>
     </div>
