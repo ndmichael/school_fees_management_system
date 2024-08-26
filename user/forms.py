@@ -3,6 +3,10 @@ from django import forms
 from django.contrib.auth.models import User
 from fees.models import Staff
 
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit, Layout, Div, Row
+from crispy_bootstrap5.bootstrap5 import FloatingField, Field
+
 class SelfLoginForm (LoginForm):
 
     def __init__(self, *args, **kwargs):
@@ -19,9 +23,34 @@ class UserUpdateForm(forms.ModelForm):
         model = User
         fields = ['last_name', 'first_name', 'username', 'email']
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.disable_csrf = True
+        self.helper.layout = Layout(
+            Row(
+                FloatingField("last_name", wrapper_class='col-md-6'),
+                FloatingField("first_name", wrapper_class='col-md-6'),
+                FloatingField("username", wrapper_class='col-md-6'),
+                FloatingField("email", wrapper_class='col-md-6'),
+            ),
+        )
+
 
 class StaffUpdateForm(forms.ModelForm):
     """Form to update staff profile."""
     class Meta:
         model = Staff
         fields = ['image', 'mobileNo', 'DOB', 'address']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.disable_csrf = True
+        self.helper.layout = Layout(
+            Row(
+                FloatingField("mobileNo", wrapper_class='col-md-6'),
+                FloatingField("DOB", wrapper_class='col-md-6'),
+            ),
+            Field("address", rows=6)
+        )
