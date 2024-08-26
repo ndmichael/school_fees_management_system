@@ -112,7 +112,6 @@ def student(request):
     }
     return render(request, 'fees/all_students.html', context)
 
-
 @login_required
 def update_student(request, username):
     '''

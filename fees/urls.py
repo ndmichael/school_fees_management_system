@@ -3,7 +3,7 @@ from .views import (
     index, addStudent, student, update_student, 
     payment, update_payment, delete_payment, admin_dashboard,
     payment_report, payment_detail, complaint_details, complaint_list,
-    faculty, search_payments
+    faculty, search_payments,
 )
 
 urlpatterns = [
