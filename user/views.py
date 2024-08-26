@@ -110,3 +110,8 @@ def current_user_profile(request):
     if request.user.is_staff:
         return redirect('admin_dashboard')
     return redirect('student_profile', username=request.user.username)
+
+@login_required
+def user_settings(request):
+    context = {}
+    return render(request, 'account/user_settings.html', context)
