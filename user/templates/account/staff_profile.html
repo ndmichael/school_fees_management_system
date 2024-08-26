@@ -71,10 +71,16 @@
         </section> <!-- End of row one -->
 
         <section class="row">
-            <div class="col-12 col-md-10">
+            <div class="col-12 col-md-10 mx-auto">
                 {% csrf_token %} 
-                {{userUpdateForm| crispy}} 
-                {{staffUpdateForm| crispy}}
+                {% crispy userUpdateForm %} 
+                {% crispy staffUpdateForm %}
+
+                <div>
+                    <button type="submit" class="btn btn-primary btn-lg px-5">
+                        UPDATE PROFILE
+                    </button>
+                </div>
             </div>
         </section>
     </div>
