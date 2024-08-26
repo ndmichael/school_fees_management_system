@@ -24,4 +24,4 @@ class StaffUpdateForm(forms.ModelForm):
     """Form to update staff profile."""
     class Meta:
         model = Staff
-        fields = ['image', 'mobileNo', 'dob', 'Address']
+        fields = ['image', 'mobileNo', 'DOB', 'address']
