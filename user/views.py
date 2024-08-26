@@ -76,6 +76,14 @@ def staff_profile(request, username):
             request.FILES,
             instance=staff 
         )
+        if userUpdateForm.is_valid() and staffUpdateForm.is_valid():
+            userUpdateForm.save()
+            staffUpdateForm.save()
+            messages.success(
+                    request, f"Profile Updated successfully."
+                )
+            return redirect("staff_profile", user.username)
+
     else:
         userUpdateForm = UserUpdateForm(instance=user)
         staffUpdateForm = StaffUpdateForm(
