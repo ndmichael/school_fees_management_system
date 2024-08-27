@@ -5,3 +5,38 @@
     background-size: cover;
     color: white;
 }
+
+/**** === User Settings ==== ***/
+#user_settings a{
+    color: inherit;
+    display: block;
+}
+
+#user_settings .usettings1{
+    background: rgb(185, 203, 176, .4);
+
+}
+#user_settings  .bi-hourglass-split{
+    color: #4a7936;
+}
+
+#user_settings .usettings2{
+    background: rgb(255, 213, 197, .4);
+}
+#user_settings  .bi-lock-fill{
+    color: #D23600;
+} 
+
+#user_settings .usettings3{
+    background: rgb(215, 199, 230, .4);
+}
+#user_settings  .bi-bell-slash-fill{
+    color: #420F8D;
+}
+
+#user_settings .usettings4{
+    background: rgb(220, 210, 255, .4);
+}
+#user_settings  .bi-person-check{
+    color: rgb(28, 63, 253);
+}
