@@ -27,7 +27,7 @@ html, body{
     width: 250px;
     height: 100vh !important;
     position:fixed; 
-    background: #dee2e6;
+    background: #eee8ff;
     z-index: 1;
     overflow: hidden;
     padding-top: 14vh !important;
