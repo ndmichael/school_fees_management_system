@@ -9,8 +9,9 @@
 <section style="min-height: 100vh;">
     <div class="container py-4">
         <div class="row">         
-            <article class="col-12 col-md-4">
+            <article class="col-12 col-md-6">
                 <div class=" pb-4">
+                    <p class="fw-bolder"> <span class="text-danger">Admin</span> / Students </p>
                     <h1>
                         Students ({{total_students}})
                     </h1>
@@ -24,28 +25,32 @@
                 </div>
             </article>
 
-            <!-- Search feature form -->
-            <article class="col-12 col-md-5">
-                <form action="" method="get" class="row" novalidate="nonvalidate">
-                        <div class="col-12 col-sm-8">
-                            {{ filter_form | crispy }}
-                        </div>
-                        <button type="submit" class="btn btn-outline-primary btn-lg mb-3 col-12 col-sm-4">
-                            Search <i class="bi bi-search" style="font-size: 12px; font-weight: 700;"></i>
-                        </button>
-                </form>
-            </article>
+            <article class="col-12 col-md-6">
+                <div class="row g-5">
+                    <!-- Add a new useer link -->
+                    <article class="col-12 text-end p-1">
+                        <a href="{% url 'addstudent' %}" class=" btn btn-primary btn-lg">
+                            Add New Student
+                        </a>
+                    </article>
 
-            <!-- Add a new useer link -->
-            <article class="col-12 col-md-3 text-end">
-                <a href="{% url 'addstudent' %}" class=" btn btn-primary btn-lg col-12">
-                    Add New Student
-                </a>
+                    <!-- Search feature form -->
+                    <article class="col-12">
+                        <form action="" method="get" class="row" novalidate="nonvalidate">
+                            <div class="col-12 col-sm-8">
+                                {{ filter_form | crispy }}
+                            </div>
+                            <button type="submit" class="btn btn-outline-primary btn-lg mb-3 col-12 col-sm-4">
+                                Search <i class="bi bi-search" style="font-size: 12px; font-weight: 700;"></i>
+                            </button>
+                        </form>
+                    </article>
+                </div>    
             </article>
         </div> <!-- === End of details row -->
 
         <!-- ===    Student table row === -->
-        <div class="row">
+        <div class="row pt-4">
             <article class="col-12 table-responsive bg-white rounded-5 p-5 shadow-sm">
                 <table class="table">
                     <thead>
