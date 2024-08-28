@@ -36,11 +36,13 @@
 
                     <!-- Search feature form -->
                     <article class="col-12">
-                        <form action="" method="get" class="row" novalidate="nonvalidate">
-                            <div class="col-12 col-sm-8">
+                        <form action="" method="get" class="d-flex" novalidate="nonvalidate">
+                            <div class="col-12 col-sm-8 pe-2">
                                 {{ filter_form | crispy }}
                             </div>
-                            <button type="submit" class="btn btn-outline-primary btn-lg mb-3 col-12 col-sm-4">
+                            <button 
+                                type="submit" 
+                                class="btn btn-outline-primary btn-lg mb-3 col-12 col-sm-4">
                                 Search <i class="bi bi-search" style="font-size: 12px; font-weight: 700;"></i>
                             </button>
                         </form>
