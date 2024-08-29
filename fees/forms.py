@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm , UsernameField
 from .models import Student, Payment, Complaint
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Div, Row
+from crispy_forms.layout import Submit, Layout, Div, Row, BaseInput
 from crispy_bootstrap5.bootstrap5 import FloatingField
 
 
@@ -106,6 +106,11 @@ class AdminForm(forms.ModelForm):
     pass
 
 
+class CustomSubmit(BaseInput):
+    input_type = "submit"
+    field_classes = "btn btn-outline-primary"
+
+
 # search feature for payment
 class PaymentFilterForm(forms.Form):
     """Form for filtering and searching payment records"""
@@ -124,9 +129,13 @@ class PaymentFilterForm(forms.Form):
                 FloatingField("start_date", wrapper_class='col-md-3'),
                 FloatingField("end_date", wrapper_class='col-md-3'),
                 Div(
-                    Submit('submit', 'filter Results',  css_class="col-12 col-md-8 btn btn-lg btn-primary"), 
+                    CustomSubmit(
+                        'submit', 
+                        'filter result',  
+                        css_class="btn-lg col-12"
+                    ), 
                     css_class='col-md-3',        
-                ) 
+                )  
             ),
         )
 
@@ -167,10 +176,11 @@ class ComplaintFilterForm(forms.Form):
                 FloatingField("reference_id", wrapper_class='col-md-4'),
                 FloatingField("status", wrapper_class='col-md-4'),
                 Div(
-                    Submit('submit', 'filter',  css_class="col-12 col-md-8 btn-primary h-75"), 
+                    Submit('submit', 'filter',  css_class="col-12 col-md-8 btn-lg btn-primary"), 
                     css_class='col-md-4',        
                 )    
             ),
         )
+        
 
     
