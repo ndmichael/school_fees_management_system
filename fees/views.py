@@ -201,13 +201,13 @@ def payment(request):
                 request, f"You do not have permission to access this page."
             )
         return redirect("/")
+
+    payments = Payment.objects.filter(is_confirmed=True).order_by('-date_entered')
     
     # Get staff object reuesting payment add
     staff = get_object_or_404(Staff, user=request.user)
     paymentFilterForm =  PaymentFilterForm
-
-
-    
+  
     if request.method == 'POST':
         p_form = PaymentForm(request.POST)
         
@@ -244,9 +244,23 @@ def payment(request):
             ) 
     p_form = PaymentForm()
 
-    payments = Payment.objects.filter(is_confirmed=True).order_by('-date_entered')
+    # Manage the filter form here.
+    get_payment_id = request.GET.get('payment_id')
+    get_start_date = request.GET.get('start_date')
+    get_end_date = request.GET.get('end_date')
+
+    if get_payment_id and get_payment_id != '':
+       payments = Payment.objects.annotate(search=SearchVector('id'),).filter(search__icontains=get_payment_id)
+    if get_start_date and get_payment_id != '':
+        pass
+    if get_end_date and get_payment_id != '':
+        pass
+
+    
     total_payments =  payments.count()
     total_by_you = Payment.objects.filter(is_confirmed=True, staff=staff).count()
+
+
     context = {
         'p_form': p_form,
         'payments': payments,
