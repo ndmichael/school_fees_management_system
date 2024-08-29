@@ -123,6 +123,10 @@ class PaymentFilterForm(forms.Form):
                 FloatingField("payment_id", wrapper_class='col-md-3'),
                 FloatingField("start_date", wrapper_class='col-md-3'),
                 FloatingField("end_date", wrapper_class='col-md-3'),
+                Div(
+                    Submit('submit', 'filter Results',  css_class="col-12 col-md-8 btn btn-lg btn-primary"), 
+                    css_class='col-md-3',        
+                ) 
             ),
         )
 
