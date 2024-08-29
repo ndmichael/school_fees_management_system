@@ -107,17 +107,38 @@ class AdminForm(forms.ModelForm):
 
 
 # search feature for payment
-class PaymentSearchForm(forms.Form):
+class PaymentFilterForm(forms.Form):
     """Form for filtering and searching payment records"""
     query = forms.CharField()
+    start_date = forms.DateField(widget=DateInput)
+    end_date = forms.DateField(widget=DateInput)
+
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     # self.fields['query'].label = ''
+    #     # self.fields['start_date'].label = ''
+    #     # self.fields['end_date'].label = ''
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['query'].label = ''
-        self.fields['query'].widget.attrs.update({
-            'class': 'form-control form-control-lg mb-0',
-            'placeholder': 'Search payments by payment id, academic year...',
-    })
+        self.helper = FormHelper()
+        self.helper.disable_csrf = True
+        self.helper.layout = Layout(
+            Row(
+                FloatingField("reference_id", wrapper_class='col-md-3'),
+                FloatingField("start_date", wrapper_class='col-md-3'),
+                FloatingField("end_date", wrapper_class='col-md-3'),
+                # Div(
+                #     Submit('submit', 'filter',  css_class="col-12 col-md-8 btn-primary h-75"), 
+                #     css_class='col-md-4',        
+                # )    
+            ),
+        )
+
+        # self.fields['query'].widget.attrs.update({
+        #     'class': 'form-control form-control-lg mb-0',
+        #     'placeholder': 'Search payments by payment id, academic year...',
+        #  })
         
 class StudentSearchForm(forms.Form):
     """Form to filter and search students records"""
