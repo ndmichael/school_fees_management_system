@@ -32,12 +32,14 @@ class UserForm(UserCreationForm):
             for fieldname in ['username', 'password1', 'password2']:
                 self.fields[fieldname].help_text = None
 
-
+# Custom date input
 class DateInput(forms.DateInput):
     input_type = 'date'
 
+# Form to create student
 class StudentForm(forms.ModelForm):
     """Student form for creating students instance"""
+    
     admission_date = forms.DateField(widget=DateInput)
     dob = forms.DateField(widget=DateInput)
     class Meta:
@@ -106,14 +108,16 @@ class AdminForm(forms.ModelForm):
     pass
 
 
+#Custom submit button
 class CustomSubmit(BaseInput):
     input_type = "submit"
     field_classes = "btn btn-outline-primary"
 
 
-# search feature for payment
+# Filer feature for payment
 class PaymentFilterForm(forms.Form):
     """Form for filtering and searching payment records"""
+
     payment_id = forms.CharField(required=False)
     start_date = forms.DateField(widget=DateInput, required=False)
     end_date = forms.DateField(widget=DateInput, required=False)
@@ -140,7 +144,7 @@ class PaymentFilterForm(forms.Form):
         )
 
         
-        
+# Search features for students      
 class StudentSearchForm(forms.Form):
     """Form to filter and search students records"""
     query = forms.CharField(
@@ -156,6 +160,7 @@ class StudentSearchForm(forms.Form):
     })
         
 
+# Filter form for complaints
 class ComplaintFilterForm(forms.Form):
     """Form to filter complaint records."""
     STATUS  =( 
