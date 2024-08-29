@@ -122,13 +122,8 @@
                     <div class="col-12">
                         <article class="bg-white p-5 rounded-5 shadow-sm table-responsive">
                             
-                            <form action="" method="get" novalidate="nonvalidate">
-                                {% crispy paymentFilterForm %}
-                                <input 
-                                    type="submit" 
-                                    value="submit" 
-                                    class="btn btn-lg btn-outline-primary"
-                                >
+                            <form action="" class="mb-4" method="get" novalidate="nonvalidate">
+                                    {% crispy paymentFilterForm %}
                             </form>
                             
                             <table class="table">
