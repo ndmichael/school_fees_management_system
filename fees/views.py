@@ -252,9 +252,9 @@ def payment(request):
     if get_payment_id and get_payment_id != '':
        payments = Payment.objects.annotate(search=SearchVector('id'),).filter(search__icontains=get_payment_id)
     if get_start_date and get_payment_id != '':
-        pass
+        payments = Payment.objects.annotate(search=SearchVector('id'),).filter(search__gte=get_payment_id)
     if get_end_date and get_payment_id != '':
-        pass
+        payments = Payment.objects.annotate(search=SearchVector('id'),).filter(search__lt=get_payment_id)
 
     
     total_payments =  payments.count()
