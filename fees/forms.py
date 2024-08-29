@@ -117,7 +117,7 @@ class PaymentFilterForm(forms.Form):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.disable_csrf = True
-        # self.helper.form_tag = False
+        self.helper.form_tag = False
         self.helper.layout = Layout(
             Row(
                 FloatingField("payment_id", wrapper_class='col-md-3'),
