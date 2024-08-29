@@ -121,6 +121,11 @@
                 <div class="tab-pane show active" id="confirmed_payments" role="tabpanel" aria-labelledby="investments-tab">
                     <div class="col-12">
                         <article class="bg-white p-5 rounded-5 shadow-sm table-responsive">
+                            
+                            <form action="" method="get" novalidate="nonvalidate">
+                                {% crispy paymentFilterForm %}
+                            </form>
+                            
                             <table class="table">
                                 <thead class="bg-light p-5">
                                     <tr class="p-5">
