@@ -5,7 +5,7 @@ from django.contrib import messages
 from .forms import (
     UserForm, StudentForm, StudentUpdateForm, UserUpdateForm, 
     DeactivateStudent, PaymentForm, PaymentUpdateForm, 
-    PaymentSearchForm, StudentSearchForm,
+    PaymentFilterForm, StudentSearchForm,
     ComplaintFilterForm, ComplaintFixedForm
 )
 from .models import Student, Payment, Complaint, Staff, Faculty, Course
@@ -204,6 +204,9 @@ def payment(request):
     
     # Get staff object reuesting payment add
     staff = get_object_or_404(Staff, user=request.user)
+    paymentFilterForm =  PaymentFilterForm
+
+
     
     if request.method == 'POST':
         p_form = PaymentForm(request.POST)
@@ -250,7 +253,8 @@ def payment(request):
         'total_payments': total_payments,
         'total_by_you': total_by_you,
         'total_pending': '',
-        'title': 'nile-payment page'
+        'title': 'nile-payment page',
+        'paymentFilterForm': paymentFilterForm
     }
     return render(request, 'fees/payment.html', context)
 
@@ -333,9 +337,9 @@ def payment_report(request):
             )
         return redirect("/")
 
-    form = PaymentSearchForm
+    form = PaymentFilterForm
     if 'query' in request.GET:
-        form = PaymentSearchForm(request.GET)
+        form = PaymentFilterForm(request.GET)
         if form.is_valid():
             query = form.cleaned_data['query']
             if query.startswith('1'):
@@ -369,9 +373,9 @@ def payment_detail(request, id):
 @login_required
 def search_payments(request):
     payments = []
-    form = PaymentSearchForm
+    form = PaymentFilterForm
     if 'query' in request.GET:
-        form = PaymentSearchForm(request.GET)
+        form = PaymentFilterForm(request.GET)
         if form.is_valid():
             query = form.cleaned_data['query']
             if query.startswith('1'):
