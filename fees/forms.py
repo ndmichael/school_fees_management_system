@@ -115,8 +115,8 @@ class CustomSubmit(BaseInput):
 class PaymentFilterForm(forms.Form):
     """Form for filtering and searching payment records"""
     payment_id = forms.CharField(required=False)
-    start_date = forms.DateField(widget=DateInput)
-    end_date = forms.DateField(widget=DateInput)
+    start_date = forms.DateField(widget=DateInput, required=False)
+    end_date = forms.DateField(widget=DateInput, required=False)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
