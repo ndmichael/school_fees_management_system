@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from fees.models import Student, Payment, Staff, Course
-from .forms import UserUpdateForm, StaffUpdateForm
+from .forms import UserUpdateForm, StaffUpdateForm, ProfilePicUpdateForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -113,5 +113,8 @@ def current_user_profile(request):
 
 @login_required
 def user_settings(request):
-    context = {}
+    update_image_form = ProfilePicUpdateForm
+    context = {
+        'update_image_form': update_image_form
+    }
     return render(request, 'account/user_settings.html', context)
