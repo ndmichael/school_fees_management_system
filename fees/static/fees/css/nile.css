@@ -160,6 +160,10 @@ footer{
     /* margin-top: auto; */
 }
 
+.toggler{
+    width: 250px !important;
+}
+
 
 /*** CSS for small screen ***/
 @media(max-width:768px){
