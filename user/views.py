@@ -114,6 +114,16 @@ def current_user_profile(request):
 @login_required
 def user_settings(request):
     update_image_form = ProfilePicUpdateForm
+    if request.POST:
+        update_image = ProfilePicUpdateForm(request.POST, request.FILES)
+        if update_image.is_valid():
+            staff = Staff.objects.get(user=request.user)
+            staff.image = update_image.cleaned_data['profile_pic']
+            staff.save()
+            messages.success(
+                    request, f"Profile Image updated successfully."
+                )
+            return redirect("user_settings")
     context = {
         'update_image_form': update_image_form
     }
