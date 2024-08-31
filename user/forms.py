@@ -59,6 +59,15 @@ class StaffUpdateForm(forms.ModelForm):
             ),
             Row(
                 Field("address", rows=6, wrapper_class='col-12'),
-            )
-            
+            )  
         )
+
+
+class ProfilePicUpdateForm(forms.Form):
+    profile_pic = forms.FileField()
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['profile_pic'].widget.attrs.update({
+            'class': 'form-control form-control-lg mb-0',
+         })
