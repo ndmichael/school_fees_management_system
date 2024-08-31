@@ -59,10 +59,7 @@
                         src="{% static 'fees/images/nile.jpg' %}">
                 </b>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
                 <ul class="navbar-nav me-auto mb-lg-0">
                     {% if user.is_authenticated and user.is_staff %}
                     <li class="nav-item">
@@ -72,9 +69,9 @@
                     </li>
                     {% endif %}
                 </ul>
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav mb-2 mb-lg-0 ms- d-flex flex-row">
                     {% if user.is_authenticated %}
-                    <li class="nav-item dropdown nav-item nav-auth pt-2">
+                    <li class="nav-item dropdown nav-item nav-auth pe-3">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {% if user.is_authenticated and user.is_staff %}
                             <img class="img-fluid rounded-circle shadow-lg user-thumbnail"
@@ -100,8 +97,22 @@
                             </a>
                             {% endif %}
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'account_logout' %}">Logout </a>
-                        </div>
+                                <a class="dropdown-item" href="{% url 'account_logout' %}">Logout </a>
+                            </div>
+                        </li>
+                        <li>
+                            <a
+                                type="menu"
+                                class="
+                                    openbtn 
+                                    btn 
+                                    btn-primary
+                                    btn-small 
+                                    " 
+                                id="toggleSidebar"  
+                            >
+                            <i class="bi bi-menu-app" style="font-size: 14px;"></i>
+                        </a> 
                     </li>
                     {% else %}
                     <li class="nav-item">
@@ -110,23 +121,8 @@
                         </a>
                     </li>
                     {% endif %}
-                    <li>
-                        <a
-                            type="menu"
-                            class="
-                                openbtn 
-                                btn 
-                                btn-danger
-                                btn-small 
-                                
-                                " 
-                            id="toggleSidebar"  
-                        >
-                        <i class="bi bi-menu-app" style="font-size: 18px;"></i>
-                    </a> 
-                </li>
+                    
                 </ul>
-            </div>
         </div>
     </nav>
 
@@ -223,7 +219,6 @@
         </div>
     </section>
         
-
     <footer class="bg-dark">
         <div class="container">
             <article class="row">
@@ -252,6 +247,7 @@
 
     <script>
         $('#toggleSidebar').click(function(e){
+            console.log("You clicked toggle sidebar");
             e.preventDefault();
             $('#sidebar').toggleClass('toggler');
         })    
