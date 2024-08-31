@@ -159,3 +159,24 @@ footer{
     bottom: 0;
     /* margin-top: auto; */
 }
+
+
+/*** CSS for small screen ***/
+@media(max-width:768px){
+    #sidebar{
+        width: 0px;
+        min-height: 100vh;
+        position: fixed; 
+        background: #000;
+        z-index: 100;
+        overflow-y: hidden;
+        transition: .3s ease-in-out;
+    }
+
+    #admin-content{
+        width: 100%;
+        padding: 15px;
+        position: absolute;
+        background: #f8f9fa;
+    }
+}
