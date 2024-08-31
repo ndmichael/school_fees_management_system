@@ -157,7 +157,7 @@ class StudentSearchForm(forms.Form):
         self.fields['query'].widget.attrs.update({
             'class': 'form-control form-control-lg mb-0',
             'placeholder': 'Search by student name, student id',
-    })
+         })
         
 
 # Filter form for complaints
