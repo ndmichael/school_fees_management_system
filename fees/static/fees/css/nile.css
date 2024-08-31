@@ -57,7 +57,7 @@ html, body{
 
 #admin-content{
     flex-grow: 1;   
-    padding-top: 10vh;
+    padding-top: 7rem;
     padding-left: 250px;
     width: 100%;
 }
@@ -178,7 +178,7 @@ footer{
 
     #admin-content{
         width: 100%;
-        padding: 15px;
+        padding: 7rem 0!important;
         position: absolute;
         background: #f8f9fa;
     }
