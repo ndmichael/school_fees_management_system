@@ -249,6 +249,13 @@
     <script src="{% static 'fees/js/mdb/mdb.min.js' %}"></script>
     <script src="{% static 'smart-selects/admin/js/bindfields.js' %}"></script>
     <script src="{% static 'smart-selects/admin/js/chainedfk.js' %}"></script>
+
+    <script>
+        $('#toggleSidebar').click(function(e){
+            e.preventDefault();
+            $('#sidebar').toggleClass('toggler');
+        })    
+    </script>
 </body>
 
 </html>
