@@ -14,6 +14,8 @@ from django.contrib.auth.decorators import login_required
 
 from django.contrib.postgres.search import SearchVector
 
+from django.core.paginator import Paginator
+
 
 
 
@@ -74,7 +76,10 @@ def student(request):
             )
         return redirect("/")
     
-    students = Student.objects.all().filter(user__is_active=True).order_by('-added_date')
+    p = Paginator(Student.objects.all().filter(user__is_active=True).order_by('-added_date'), 10)
+    page = request.GET.get('page')
+    students = p.get_page(page)
+    
     total_students =  Student.objects.all().filter(user__is_active=True).count() # total students
 
     # Search by filter
