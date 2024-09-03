@@ -218,6 +218,27 @@
                         {% endfor %}
                     </tbody>
                 </table>
+                <!-- pagination added to students -->
+                <div class="pt-3 text-center">
+                    {% if students.paginator.num_pages > 1 %}
+                        {% if students.has_previous %}
+                        <a class="btn btn-outline-dark" href="?page=1">First</a>
+                        <a class="btn btn-outline-dark" href="?page={{ students.previous_page_number }}">Previous</a>
+                        {% endif %}
+                        {% for num in students.paginator.page_range %}
+                            {% if students.number == num %}
+                                <a class="btn btn-primary" href="?page={{ num }}">{{ num }}</a>
+                            {% elif num > students.number|add:'-3' and num < students.number|add:'3' %}
+                                <a class="btn btn-outline-dark" href="?page={{ num }}">{{ num }}</a>
+                            {% endif %}
+                        {% endfor %}
+                        {% if students.has_next %}
+                            <a class="btn btn-outline-primary btn-lg" href="?page={{ students.next_page_number }}">Next</a>
+                            <a class="btn btn-dark " href="?page={{ students.paginator.num_pages }}">Last</a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+
             </article>
         </div> <!-- ===    End of Student table row === -->
     </div>
