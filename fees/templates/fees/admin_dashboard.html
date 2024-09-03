@@ -4,7 +4,12 @@
     <div class="container">
         <div class="row">
             <article class="col-12 col-md-6 text-center text-md-start">
-                <h1 class="h3"><small>Welcome</small> <span class="text-danger">{{request.user.last_name}}</span>
+                <h1 class="
+                    h3 animate__animated
+                    animate__jello
+                ">
+                        <small>Welcome</small> 
+                        <span class="text-danger">{{request.user.last_name}}</span>
                 </h1>
                 <p class="fw-bolder">Admin / Dashboard</p>    
             </article>
@@ -20,7 +25,15 @@
         </div>
         <div class="row g-5 py-5">
             <article class="col-6 col-md-4 ">
-                <a href="{% url 'students' %}" class="bg-info text-light  pt-3 action-box">
+                <a 
+                    href="{% url 'students' %}" 
+                    class="
+                        bg-info 
+                        text-light  
+                        pt-3 action-box
+                        animate__animated 
+                        animate__fadeInDown
+                    ">
                     <div class="d-flex justify-content-between px-3">
                         <i class="bi bi-person-badge "></i>
                         <p>
@@ -36,7 +49,15 @@
             </article>
 
             <article class="col-6 col-md-4 ">
-                <a href="{% url 'make_payment' %}" class="bg-success text-light pt-3 action-box">
+                <a href="{% url 'make_payment' %}" 
+                    class="
+                        bg-success 
+                        text-light 
+                        pt-3 
+                        action-box
+                        animate__animated 
+                        animate__fadeInDown
+                    ">
                     <div class="d-flex justify-content-between px-3">
                         <i class="bi bi-wallet2 "></i>
                         <p>
@@ -52,7 +73,15 @@
             </article>
 
             <article class="col-6 col-md-4">
-                <a href="{% url 'payment_report' %}" class="bg-warning text-light  pt-3 action-box">
+                <a href="{% url 'payment_report' %}" 
+                    class="
+                        bg-warning 
+                        text-light  
+                        pt-3 
+                        action-box
+                        animate__animated 
+                        animate__fadeInDown
+                    ">
                     <div class="d-flex justify-content-between px-3">
                         <i class="bi bi-gear-wide-connected"></i>
                         <p>
@@ -69,7 +98,16 @@
 
             <!-- Bottom rows -->
             <article class="col-6 col-md-4">
-                <a href="{% url 'complaint_list' %}" class="bg-secondary text-light  pt-3 action-box">
+                <a href="{% url 'complaint_list' %}" 
+                    class="
+                        bg-secondary 
+                        text-light  
+                        pt-3 
+                        action-box
+                        animate__animated
+                        animate__fadeInUp
+                        animate__delay-1s
+                    ">
                     <div class="d-flex justify-content-between px-3">
                         <i class="bi bi-rss "></i>
                         <p>
@@ -85,7 +123,16 @@
             </article>
 
             <article class="col-6 col-md-4 ">
-                <a href="{% url 'faculties' %}" class="bg-primary text-light  pt-3 action-box">
+                <a href="{% url 'faculties' %}" 
+                    class="
+                        bg-primary 
+                        text-light  
+                        pt-3 
+                        action-box
+                        animate__animated
+                        animate__fadeInUp
+                        animate__delay-2s
+                    ">
                     <div class="d-flex justify-content-between px-3">
                         <i class="bi bi-graph-up-arrow "></i>
                         <p>
@@ -101,7 +148,16 @@
             </article>
 
             <article class="col-6 col-md-4 ">
-                <a href="#" class="bg-danger text-light pt-3 action-box">
+                <a href="#" 
+                    class="
+                        bg-danger 
+                        text-light 
+                        pt-3 
+                        action-box
+                        animate__animated
+                        animate__fadeInUp
+                        animate__delay-3s
+                    ">
                     <div class="d-flex justify-content-between px-3">
                         <i class="bi bi-gear "></i>
                         <p>
