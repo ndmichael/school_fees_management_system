@@ -26,10 +26,6 @@
                         shadow
                         table-responsive
                         p-5
-                        animate__animated
-                        animate__fadeInUp
-                        animate_slow
-                        
                     ">
                     <form action="" method="get" novalidate="nonvalidate">
                         {% crispy FilterForm %}
@@ -45,7 +41,13 @@
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody
+                            class="
+                            animate__animated
+                            animate__fadeInUp
+                            animate_slow
+                            "
+                        >
                             {%for complaint in complaints %}
                             <!-- == Modal to display complaint details == -->
                             <div class="modal fade" id="complaintModal{{complaint.id}}" tabindex="-2" aria-labelledby="studentDetailsLabel1" aria-hidden="true">
