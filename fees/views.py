@@ -421,6 +421,12 @@ def complaint_list(request):
             complaint = get_object_or_404(Complaint, reference_id=ref_code)
             complaint.status = complaintFixedForm.cleaned_data['status']
             complaint.save()
+            messages.success(
+                request, f"Comnplaint status updated."
+            )
+            return redirect(
+                "complaint_list"
+            ) 
     else:
         complaintFixedForm = ComplaintFixedForm()
 
