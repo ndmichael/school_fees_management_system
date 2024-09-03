@@ -9,7 +9,7 @@ from .forms import (
     ComplaintFilterForm, ComplaintFixedForm
 )
 from .models import Student, Payment, Complaint, Staff, Faculty, Course
-from django.db.models import Sum
+from django.db.models import Sum, Count
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.postgres.search import SearchVector
@@ -79,7 +79,7 @@ def student(request):
     p = Paginator(Student.objects.all().filter(user__is_active=True).order_by('-added_date'), 10)
     page = request.GET.get('page')
     students = p.get_page(page)
-    
+
     total_students =  Student.objects.all().filter(user__is_active=True).count() # total students
 
     # Search by filter
@@ -105,9 +105,13 @@ def student(request):
 
     # Logic to filter search list of students
     query = request.GET.get('query')
-    if query and query != '':
+    if query != None and query != '':
         students = Student.objects.annotate(search=SearchVector('user__last_name', 'user__username'),).filter(search__icontains=query)
-        print(students)
+        total_students = students.count()
+        messages.success(
+                request, f"{total_students} results has been returned."
+        )
+        
 
     context = {
         'students': students,
