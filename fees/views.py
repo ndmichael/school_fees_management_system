@@ -112,7 +112,6 @@ def student(request):
                 request, f"{total_students} results has been returned."
         )
         
-
     context = {
         'students': students,
         'total_students': total_students,
@@ -137,8 +136,8 @@ def update_student(request, username):
             )
         return redirect("/")
     user = get_object_or_404(
-            User, username=username
-        )
+        User, username=username
+    )
     
     if request.method == "POST":
         u_form = UserUpdateForm(request.POST, instance=user)
@@ -211,7 +210,10 @@ def payment(request):
             )
         return redirect("/")
 
-    payments = Payment.objects.filter(is_confirmed=True).order_by('-date_entered')
+    p = Paginator(
+            Payment.objects.filter(is_confirmed=True).order_by('-date_entered'), 10)
+    page = request.GET.get('page')
+    payments = p.get_page(page)
     
     # Get staff object reuesting payment add
     staff = get_object_or_404(Staff, user=request.user)
@@ -266,9 +268,8 @@ def payment(request):
         payments = Payment.objects.annotate(search=SearchVector('id'),).filter(search__lt=get_payment_id)
 
     
-    total_payments =  payments.count()
+    total_payments =  p.count # Count from paginations
     total_by_you = Payment.objects.filter(is_confirmed=True, staff=staff).count()
-
 
     context = {
         'p_form': p_form,
