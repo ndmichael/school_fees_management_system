@@ -19,7 +19,13 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+
+        <!-- Alertify CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css"/>
     
+
     <style>
         .form-floating label {
             left: 10px;
@@ -203,23 +209,19 @@
         </ul>
     </nav> 
 
+    <!-- Alertify JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
     <section id="admin-content" class="bg-light"> 
         <div class="p-2 p-sm-3 p-md-4">
             <!-- 
                 ==== Pop up alert message ===
             -->
             {% for message in messages %}
-                <div 
-                    class="offset-sm-3 
-                            col-sm-6
-                            alert 
-                            alert-{{ message.tags }} 
-                            alert-dismissable fade show 
-                        ">
-                    <b>{{ message }}</b> 
-                    <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
-
-                </div>
+                <script>
+                        alertify.set('notifier','position', 'top-right');
+                        alertify.{{message.tags}}('{{message}}');
+                </script>
+                
            {% endfor %}
         {% block content %} 
         
