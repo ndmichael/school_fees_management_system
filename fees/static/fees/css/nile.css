@@ -37,10 +37,12 @@ html, body{
 #sidebar .nav-link{
     font-size: 1em;
     /* z-index: 100; */
-    color:  rgb(72, 71, 71);
+    color:  #232323;
     margin-top: 7px;
     border: 0 !important;
     border-radius: 0 !important;
+    font-weight: bold;
+    letter-spacing: .05rem;
 }
 
 #sidebar .nav-link:active,
@@ -52,7 +54,8 @@ html, body{
 
 #sidebar .nav-link .bi{
     color: rgb(15, 15, 150);
-    font-weight: 700;
+    font-weight: bolder;
+    font-size: 1.3rem;
 }
 
 #admin-content{
