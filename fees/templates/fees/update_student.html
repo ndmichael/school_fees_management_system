@@ -6,10 +6,9 @@
             <div class="col-12 col-md-5 mx-auto">
                 <form method="POST" class="py-5">
                     <fieldset>
-                        <h1 class="form-group mb-4 mt-4">
-                            <h1 class="text-primary">Update Student Details.
+                            <h1 class="text-primary">
+                                Update Student Details.
                             </h1>
-                        </h1>
                     </fieldset>
                     {% csrf_token %} {{u_form| crispy}} {{stud_form| crispy}}
                     <div class="pt-3">
