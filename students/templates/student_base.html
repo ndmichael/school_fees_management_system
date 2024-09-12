@@ -37,7 +37,7 @@
     <!--- 
     === Main navbar ===
     -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top" 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top" 
         style="z-index: 10;"
     >
         <div class="container">
@@ -110,31 +110,6 @@
         </div>
     </nav>
 
-
-    <section id="admin-content" class="bg-light"> 
-        <div class="p-5">
-            <!-- 
-                ==== Pop up alert message ===
-            -->
-            {% for message in messages %}
-                <div 
-                    class="offset-sm-3 
-                            col-sm-6
-                            alert 
-                            alert-{{ message.tags }} 
-                            alert-dismissable fade show 
-                        ">
-                    <b>{{ message }}</b> 
-                    <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
-
-                </div>
-           {% endfor %}
-        {% block content %} 
-        
-        {% endblock content %}
-        </div>
-    </section>
-
     <!--- 
         === Sidenav with an id sidebar ===
         ** This sidebar is for admin and fully responsive **
@@ -206,6 +181,26 @@
             </a>
         </ul>
     </nav> 
+
+    <!-- Alertify JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
+    <section id="student-content"> 
+        <div class="p-2 p-sm-3 p-md-4">
+            <!-- 
+                ==== Pop up alert message ===
+            -->
+            {% for message in messages %}
+                <script>
+                        alertify.set('notifier','position', 'top-right');
+                        alertify.{{message.tags}}('{{message}}');
+                </script>
+                
+           {% endfor %}
+        {% block content %} 
+        
+        {% endblock content %}
+        </div>
+    </section>
         
 
     <footer class="bg-dark">
