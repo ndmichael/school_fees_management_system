@@ -87,6 +87,37 @@ footer{
     width: 250px !important;
 }
 
+/* student dashboard */
+#student-dashboard a{
+    display: block;
+
+}
+
+#student-dashboard .actions{
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    font-size: 1.2rem;
+    background: rgba(9, 121, 241, 0.4);
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important
+}
+
+#student-dashboard .actions .icon{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: rgba(9, 121, 241, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+}
+
+#student-dashboard .actions .bi{
+    font-size: 2rem;
+    color: rgb(0, 0, 0, .7);
+}
+
 
 
 
