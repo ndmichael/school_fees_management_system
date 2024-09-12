@@ -43,7 +43,7 @@
     padding-top: 7rem;
     padding-left: 250px;
     width: 100%;
-    background: rgb(147, 187, 230, .4);;
+    background: rgb(147, 187, 230, .4);
 }
 
 .accordion-button{
@@ -74,10 +74,43 @@
     font-weight: bold;
   }
 
-  /* footer css */
+/* footer css */
 footer{
     width: 100%;
     bottom: 0;
     padding-left: 250px;
     /* margin-top: auto; */
+}
+
+/* toggler css */
+.toggler{
+    width: 250px !important;
+}
+
+
+
+
+/*** CSS for small screen ***/
+@media(max-width:768px){
+    #sidebar{
+        width: 0px;
+        min-height: 100vh;
+        position: fixed; 
+        /* z-index: 100; */
+        overflow-y: hidden;
+        transition: .3s ease-in-out;
+    }
+
+    #student-content{
+        width: 100%;
+        padding: 7rem 0!important;
+        background: rgb(147, 187, 230, .4);
+    }
+
+    /* footer css */
+    footer{
+        width: 100%;
+        bottom: 0;
+        padding-left: 0;
+    }
 }
