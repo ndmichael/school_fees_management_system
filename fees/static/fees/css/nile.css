@@ -17,6 +17,7 @@ html, body{
     flex-direction: column;
     min-height: 100vh;
     font-family: "Poppins", sans-serif;
+    color: black;
     
 }
 
