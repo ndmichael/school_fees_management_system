@@ -47,73 +47,64 @@
                 </b>
             </a>
             
-                <ul class="navbar-nav me-auto mb-lg-0">
-                    {% if user.is_authenticated and user.is_staff %}
-                    <li class="nav-item d-none d-sm-block">
-                        <a class="nav-link" href="{% url 'admin_dashboard' %}">
-                            <b>admin</b>
-                        </a>
-                    </li>
-                    {% endif %}
-                </ul>
-                <ul class="navbar-nav mb-2 mb-lg-0 ms- d-flex flex-row">
-                    {% if user.is_authenticated %}
-                    <li class="nav-item dropdown nav-item nav-auth pe-3">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {% if user.is_authenticated and user.is_staff %}
-                            <img class="img-fluid rounded-circle shadow-lg user-thumbnail"
-                                style="height: 35px; width: 35px;"
-                                src="{{ request.user.staff_user.photo_url }}">
-                            {% else %}
+            <ul class="navbar-nav mb-2 mb-lg-0 ms- d-flex flex-row">
+                {% if user.is_authenticated %}
+                <li class="nav-item dropdown nav-item nav-auth pe-3">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {% if user.is_authenticated and user.is_staff %}
+                        <img class="img-fluid rounded-circle shadow-lg user-thumbnail"
+                            style="height: 35px; width: 35px;"
+                            src="{{ request.user.staff_user.photo_url }}">
+                        {% else %}
 
-                            <img class="img-fluid rounded-circle shadow-lg user-thumbnail"
-                                style="height: 30px; width: 30px;"
-                                src="{{ request.user.student_user.photo_url }}">
-                            {% endif %}
-                            {{ request.user.username }}
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {% if request.user.is_staff and request.user.is_authenticated %}
+                        <img class="img-fluid rounded-circle shadow-lg user-thumbnail"
+                            style="height: 30px; width: 30px;"
+                            src="{{ request.user.student_user.photo_url }}">
+                        {% endif %}
+                        {{ request.user.username }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {% if request.user.is_staff and request.user.is_authenticated %}
 
-                            <a class="dropdown-item" href="{% url 'staff_profile' request.user.username  %}">
-                                <p>Profile</p>
-                            </a>
-                            {% elif request.user.is_authenticated %}
-                            <a class="dropdown-item" href="{% url 'student_profile' request.user.username %}">
-                                <p>Profile</p>
-                            </a>
-                            {% endif %}
-                            <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{% url 'account_logout' %}">Logout </a>
-                            </div>
-                        </li>
-                        <li>
-                            <a
-                                type="menu"
-                                class="
-                                    openbtn 
-                                    btn 
-                                    btn-primary
-                                    btn-small 
-                                    d-md-none
-                                    " 
-                                id="toggleSidebar"  
-                                data-toggle="tooltip" 
-                                data-placement="bottom" 
-                                title="Toggle sidebar"
-                            >
-                            <i class="bi bi-menu-app" style="font-size: 14px;"></i>
-                        </a> 
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-sm btn-secondary text-white" href="{% url 'account_login' %}">
-                            LOGIN
+                        <a class="dropdown-item" href="{% url 'staff_profile' request.user.username  %}">
+                            <p>Profile</p>
                         </a>
+                        {% elif request.user.is_authenticated %}
+                        <a class="dropdown-item" href="{% url 'student_profile' request.user.username %}">
+                            <p>Profile</p>
+                        </a>
+                        {% endif %}
+                        <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'account_logout' %}">Logout </a>
+                        </div>
                     </li>
-                    {% endif %}
-                    
-                </ul>
+                    <li>
+                        <a
+                            type="menu"
+                            class="
+                                openbtn 
+                                btn 
+                                btn-primary
+                                btn-small 
+                                d-md-none
+                                " 
+                            id="toggleSidebar"  
+                            data-toggle="tooltip" 
+                            data-placement="bottom" 
+                            title="Toggle sidebar"
+                        >
+                        <i class="bi bi-menu-app" style="font-size: 14px;"></i>
+                    </a> 
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link btn btn-sm btn-secondary text-white" href="{% url 'account_login' %}">
+                        LOGIN
+                    </a>
+                </li>
+                {% endif %}
+                
+            </ul>
         </div>
     </nav>
 
@@ -158,14 +149,14 @@
             <li class="nav-item w-100">
                 <a href="" class="nav-link ps-4">
                     <i class=" bi bi-wallet-fill pe-3"></i>
-                    Fees & Payments
+                    Payment Proof
                 </a>
             </li>
 
             <li class="nav-item w-100">
                 <a href="{% url 'students' %}" class="nav-link ps-4">
                     <i class=" bi bi-people-fill pe-3"></i>
-                    Manage Students
+                    Payments
                 </a>
             </li>
 

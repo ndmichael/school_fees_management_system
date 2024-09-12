@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/***
+    === Styling for the side bar ===
+***/
+#sidebar{
+    width: 250px;
+    height: 100vh !important;
+    position:fixed; 
+    background: #140834;
+    z-index: 1;
+    overflow: hidden;
+    padding-top: 14vh !important;
+
+}
+
+#sidebar .nav-link{
+    font-size: 1em;
+    /* z-index: 100; */
+    color:  #eaf1fa;
+    margin-top: 2px;
+    border: 0 !important;
+    border-radius: 0 !important;
+    font-weight: bold;
+    letter-spacing: .05rem;
+}
+
+#sidebar .nav-link:active,
+#sidebar .nav-link:focus,
+#sidebar .nav-link:hover{
+    background-color: #000;
+    color: #fff;
+}
+
+#sidebar .nav-link .bi{
+    color: rgb(147, 187, 230);
+    font-weight: bolder;
+    font-size: 1.3rem;
+}
+
+#admin-content{
+    flex-grow: 1;   
+    padding-top: 7rem;
+    padding-left: 250px;
+    width: 100%;
+}
+
+.accordion-button{
+    font-size: 18px !important;
+    font-weight: bolder !important;
+    border: 2px double rgba(98, 98, 98, 0.4) !important;
+}
+
+.form-control::placeholder {
+    color: grey;
+    font-size: small;
+    opacity: 0.85; /* Firefox */
+  }
+  
+  .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: grey;
+    font-size: small;
+    opacity: 0.85; /* Firefox */
+  }
+  
+  .form-control::-ms-input-placeholder { /* Microsoft Edge */
+    color: grey;
+    font-size: small;
+    opacity: 0.85; /* Firefox */
+  }
+
+  h1, h2, h3, h4, h4, h6{
+    font-weight: bold;
+  }
