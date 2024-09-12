@@ -3,8 +3,13 @@
 <section class="border-bottom">
     <div class="container">
         <section class="row">
-            <article class="col-12">
-                
+            <article class="col-12 col-sm-6">
+                <h4>Welcome, {{request.user.first_name}} {{request.user.last_name}}</h4>
+            </article>
+
+            <article class="col-12 col-sm-6 text-end">
+                <h5 class="text-muted">{{student.faculty}}</h5>
+                <p class="fw-bolder">{{student.courses}}</p>
             </article>
         </section>
     </div>
