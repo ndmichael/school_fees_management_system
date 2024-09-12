@@ -73,3 +73,11 @@
   h1, h2, h3, h4, h4, h6{
     font-weight: bold;
   }
+
+  /* footer css */
+footer{
+    width: 100%;
+    bottom: 0;
+    padding-left: 250px;
+    /* margin-top: auto; */
+}
