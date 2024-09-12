@@ -38,11 +38,12 @@
     font-size: 1.3rem;
 }
 
-#admin-content{
+#student-content{
     flex-grow: 1;   
     padding-top: 7rem;
     padding-left: 250px;
     width: 100%;
+    background: rgb(147, 187, 230, .4);;
 }
 
 .accordion-button{
