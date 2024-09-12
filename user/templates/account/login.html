@@ -25,6 +25,12 @@
         <div class="col-12 col-md-5 p-5 align-self-center">
             <section class="bg-white shadow rounded-7 p-5 ">
                 <div class=" text-center text-dark">
+                    <div class="pb-3">
+                        <img 
+                            class="img-fluid rounded-circle shadow user-thumbnail"
+                            style="height: 60px; width: 60px;"
+                            src="{% static 'fees/images/nile.jpg' %}">
+                    </div>
                     <h3>{% trans "Login  Now" %}</h3>
                 </div>
                 <div class="pt-4">
@@ -53,7 +59,6 @@
                                 <div class="login-or">{% trans 'or' %}</div>
 
                             </div>
-
                             {% include "socialaccount/snippets/login_extra.html" %} {% else %} {% endif %}
                         </div>
                     </div>
