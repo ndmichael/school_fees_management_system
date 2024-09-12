@@ -4,7 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>
+        {% if title %}
+            {{title}}
+        {% else %}
+            accounts
+        {% endif %}
+    </title>
     <link rel="stylesheet" type="text/css" href="{% static 'fees/css/b5css/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'fees/css/mdb/mdb.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'fees/css/nile.css' %}" />
