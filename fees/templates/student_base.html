@@ -141,6 +141,75 @@
         {% endblock content %}
         </div>
     </section>
+
+    <!--- 
+        === Sidenav with an id sidebar ===
+        ** This sidebar is for admin and fully responsive **
+    -->
+    <nav class="navbar navbar-expand shadow-0 p-0 m-0 d-flex flex-column align-items-start" id="sidebar">
+        <ul class="nav d-flex flex-column mt-3 w-100">
+            <li class="nav-item w-100">
+                <a href="" class="nav-link ps-4">
+                    <i class=" bi bi-house-door pe-3"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li class="nav-item w-100">
+                <a href="" class="nav-link ps-4">
+                    <i class=" bi bi-wallet-fill pe-3"></i>
+                    Fees & Payments
+                </a>
+            </li>
+
+            <li class="nav-item w-100">
+                <a href="{% url 'students' %}" class="nav-link ps-4">
+                    <i class=" bi bi-people-fill pe-3"></i>
+                    Manage Students
+                </a>
+            </li>
+
+            <li class="nav-item w-100 disabled">
+                <a href="{% url 'faculties' %}" class="nav-link ps-4">
+                    <i class=" bi bi-book-half pe-3"></i>
+                    Faculty & Courses
+                </a>
+            </li>
+
+            <li class="nav-item w-100 disabled">
+                <a href="{% url 'complaint_list' %}" class="nav-link ps-4">
+                    <i class=" bi bi-rss-fill pe-3"></i>
+                    Complaints 
+                </a>
+            </li>
+
+            <li class="nav-item w-100">
+                <a href="" class="nav-link ps-4">
+                    <i class=" bi bi-person-circle pe-3"></i>
+                    Profile
+                </a>
+            </li>
+
+            <!-- <li class="nav-item w-100">
+                <a href="" class="nav-link ps-4">
+                    <i class=" bi bi-journal-richtext pe-3" style="font-size: 1em;"></i>
+                    Generate Reports
+                </a>
+            </li> -->
+
+            <li class="nav-item w-100">
+                <a href="" class="nav-link ps-4">
+                    <i class=" bi bi-gear-fill pe-3"></i>
+                    Settings
+                </a>
+            </li>
+
+            <a href="" class="nav-link ps-4">
+                <i class=" bi bi-door-closed pe-3 fw-bolder text-danger" style="font-size: .7em;"></i>
+                <small class="text-danger">Logout</small>
+            </a>
+        </ul>
+    </nav> 
         
 
     <footer class="bg-dark">
