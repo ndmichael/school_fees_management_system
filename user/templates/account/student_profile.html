@@ -1,6 +1,6 @@
 {% extends 'student_base.html' %} {% load l10n %} {% load static %} {% load humanize %} {% load crispy_forms_tags %} {% block content %}
 
-<section class="border-bottom">
+<section id="student-dashboard">
     <div class="container">
         <section class="row">
             <article class="col-12 col-sm-6">
@@ -10,6 +10,35 @@
             <article class="col-12 col-sm-6 text-end">
                 <h5 class="text-muted">{{student.faculty}}</h5>
                 <p class="fw-bolder">{{student.courses}}</p>
+            </article>
+        </section>
+
+        <section class="row g-5 mt-4">
+            <article class="col-12 col-sm-4">
+                <a href="" class="actions rounded-9">
+                    <div class="icon mb-4">
+                        <i class="bi bi-credit-card-2-front-fill"></i>
+                    </div>
+                    <p>Make Payments</p>
+                </a>
+            </article>
+
+            <article class="col-12 col-sm-4">
+                <a href="" class="actions rounded-9">
+                    <div class="icon mb-4">
+                        <i class="bi bi-check2-circle"></i>
+                    </div>
+                    <p>Send Proof</p>
+                </a>
+            </article>
+
+            <article class="col-12 col-sm-4">
+                <a href="" class="actions rounded-9">
+                    <div class="icon mb-4">
+                        <i class="bi bi-envelope-check-fill"></i>
+                    </div>
+                    <p>Complaints here</p>
+                </a>
             </article>
         </section>
     </div>
