@@ -113,9 +113,13 @@
                     href="#"
                     class="d-block"
                   >
-                    <i class="bi bi-arrow-right"></i>
-                  </a>
-                  
+                    <i 
+                      class="bi bi-arrow-right"
+                      data-toggle="tooltip" 
+                      data-placement="bottom" 
+                      title="View all your payments"
+                    ></i>
+                  </a> 
               </div>
               <table 
                 class="
@@ -143,6 +147,7 @@
                               <h3>Payment ID: {{payment.id}}</h3>
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
+
                           <div class="modal-body">
                             <div class="p-4">
                               <div class="d-flex justify-content-between">
@@ -183,7 +188,6 @@
                               <a 
                                   href="{% url 'payment_detail' payment.id %}"
                                   class="btn btn-lg btn-info"
-                              
                               >
                                 Print Fee Reciept
                               </a>
