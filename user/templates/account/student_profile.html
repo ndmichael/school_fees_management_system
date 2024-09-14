@@ -107,13 +107,23 @@
         <section class="row g-4 my-5">
           <div class="col-12 col-sm-10 mx-auto">
             <div class="table-responsive bg-light p-5 rounded-7">
+              <div class="d-flex justify-content-between pb-4">
+                  <h6>Payment Infos</h6>
+                  <a 
+                    href="#"
+                    class="d-block"
+                  >
+                    <i class="bi bi-arrow-right"></i>
+                  </a>
+                  
+              </div>
               <table 
                 class="
                   table
                   animate__animated
                   animate__fadeInUp
                 ">
-              <thead class="bg-light p-5">
+              <thead class="bg-white">
                   <tr class="p-5">
                       <th scope="col">P.ID</th>
                       <th scope="col">Academic Details</th>
@@ -128,60 +138,58 @@
                 <!-- Modal pop for fee payment details -->
                 <div class="modal fade" id="paymentDetailsModal{{payment.id}}" tabindex="-2" aria-labelledby="paymentDetailsLabel" aria-hidden="true">
                     <div class="modal-dialog">
-                        <form action="" method="POST">
-                          <div class="modal-content">
-                              <div class="modal-header">
-                                  <h3>Payment ID: {{payment.id}}</h3>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h3>Payment ID: {{payment.id}}</h3>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="p-4">
+                              <div class="d-flex justify-content-between">
+                                  <p>Amount Paid:</p>
+                                  <p class="fw-bold text-success text-end">&#8358;{{payment.amount|intcomma}}</p>
                               </div>
-                              <div class="modal-body">
-                                <div class="p-4">
-                                  <div class="d-flex justify-content-between">
-                                      <p>Amount Paid:</p>
-                                      <p class="fw-bold text-success text-end">&#8358;{{payment.amount|intcomma}}</p>
-                                  </div>
 
-                                  <div class="d-flex justify-content-between">
-                                      <p>Student Name:</p>
-                                      <p class="fw-bold text-end">{{payment.student.fullname}}</p>
-                                  </div>
-
-                                  <div class="d-flex justify-content-between">
-                                    <p>Student Info:</p>
-                                    <p class="fw-bold text-end">
-                                        {{payment.student.courses}} <br />
-                                        <span class="text-muted">{{payment.student.faculty}}</span>
-                                    </p>
-                                  </div>
-
-                                  <div class="d-flex justify-content-between">
-                                    <p>Academic Details:</p>
-                                    <p class="fw-bold text-end">
-                                        {{payment.academic_year}} <br />
-                                        <span class="text-muted text-end">{{payment.semester}}</span>
-                                    </p>
-                                  </div>
-
-                                  <div class="d-flex justify-content-between">
-                                    <p>Payment Date:</p>
-                                    <p class="fw-bold">
-                                        {{payment.date_paid | date:"D, d M, Y"}}
-                                    </p>
-                                  </div>
-                                </div>
+                              <div class="d-flex justify-content-between">
+                                  <p>Student Name:</p>
+                                  <p class="fw-bold text-end">{{payment.student.fullname}}</p>
                               </div>
-                              <div class="modal-footer">
-                                  <a 
-                                      href="{% url 'payment_detail' payment.id %}"
-                                      class="btn btn-lg btn-info"
-                                  
-                                  >
-                                    Print Fee Reciept
-                                  </a>
-                                  <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+
+                              <div class="d-flex justify-content-between">
+                                <p>Student Info:</p>
+                                <p class="fw-bold text-end">
+                                    {{payment.student.courses}} <br />
+                                    <span class="text-muted">{{payment.student.faculty}}</span>
+                                </p>
+                              </div>
+
+                              <div class="d-flex justify-content-between">
+                                <p>Academic Details:</p>
+                                <p class="fw-bold text-end">
+                                    {{payment.academic_year}} <br />
+                                    <span class="text-muted text-end">{{payment.semester}}</span>
+                                </p>
+                              </div>
+
+                              <div class="d-flex justify-content-between">
+                                <p>Payment Date:</p>
+                                <p class="fw-bold">
+                                    {{payment.date_paid | date:"D, d M, Y"}}
+                                </p>
                               </div>
                             </div>
-                        </form>
+                          </div>
+                          <div class="modal-footer">
+                              <a 
+                                  href="{% url 'payment_detail' payment.id %}"
+                                  class="btn btn-lg btn-info"
+                              
+                              >
+                                Print Fee Reciept
+                              </a>
+                              <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                          </div>
+                        </div>
                     </div>
                 </div> <!-- === End of the details modal ===-->
                 <!-- === start of the body content === -->
