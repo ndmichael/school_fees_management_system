@@ -106,8 +106,8 @@ footer{
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    background: #140834;
-    /* background: #133463; */
+    /* background: #140834; */
+    background: rgba(9, 121, 241); 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -117,8 +117,8 @@ footer{
 
 #student-dashboard .actions .bi{
     font-size: 2rem;
-    color: rgba(9, 121, 241);
-    /* color: #133463; */
+    /* color: rgba(9, 121, 241); */
+    color: #140834;
 }
 
 
