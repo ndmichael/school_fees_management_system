@@ -47,7 +47,7 @@ def student_profile(request, username):
     '''
 
     student = Student.objects.filter(user__username=username).first()
-    payments = Payment.objects.filter(student=student)
+    payments = Payment.objects.filter(student=student).order_by('-date_entered')
 
     context = {
         'student': student,
