@@ -80,13 +80,28 @@ class PaymentForm(forms.ModelForm):
     date_paid = forms.DateField(widget=DateInput)
     class Meta:
         model = Payment
-        fields = ['student','academic_year', 'semester', 'amount', 'payment_method', 'date_paid']
+        fields = [
+                    'student',
+                    'academic_year', 
+                    'semester', 
+                    'amount', 
+                    'payment_method', 
+                    'date_paid',
+                    'image',
+                ]
 
 class PaymentUpdateForm(forms.ModelForm):
     """Form to update payment"""
     class Meta:
         model = Payment
-        fields = ['student','academic_year', 'semester', 'amount', 'payment_method']
+        fields = [
+                    'student', 
+                    'academic_year', 
+                    'semester', 
+                    'amount', 
+                    'payment_method', 
+                    'status'
+                ]
 
 
 class DeactivateStudent(forms.Form):
