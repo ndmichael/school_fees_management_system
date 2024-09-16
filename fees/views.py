@@ -211,7 +211,7 @@ def payment(request):
         return redirect("/")
 
     p = Paginator(
-            Payment.objects.filter(is_confirmed=True).order_by('-date_entered'), 10)
+            Payment.objects.all().order_by('-date_entered'), 10)
     page = request.GET.get('page')
     payments = p.get_page(page)
     
@@ -243,7 +243,7 @@ def payment(request):
             if(p_form.balance in [0, 0.0, 0.00]):
                 p_form.is_paid = True
 
-            p_form.is_confirmed = True
+            # p_form.is_confirmed = True
             p_form.save()
             
             messages.success(
@@ -269,7 +269,7 @@ def payment(request):
 
     
     total_payments =  p.count # Count from paginations
-    total_by_you = Payment.objects.filter(is_confirmed=True, staff=staff).count()
+    total_by_you = Payment.objects.filter(staff=staff).count()
 
     context = {
         'p_form': p_form,
