@@ -24,7 +24,7 @@ class StaffAdmin(admin.ModelAdmin):
 
 @admin.register(Payment)
 class PaymentAdmin(admin.ModelAdmin):
-    list_display = ("academic_year", "semester", "amount", "date_entered","is_paid", "is_confirmed", "image", "payment_method", "student")
+    list_display = ("academic_year", "semester", "amount", "date_entered","is_paid", "status", "image", "payment_method", "student")
 
 
 @admin.register(Complaint)
