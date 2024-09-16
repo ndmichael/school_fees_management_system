@@ -116,6 +116,14 @@ class Payment(models.Model):
         ('transfer', 'TRANSFER'),
         ('pos', 'POS')
     )
+
+    STATUS = (
+        ('pending', 'PENDING'),
+        ('confirmed', 'CONFIRMED'),
+        ('rejected', 'REJECTED')
+    )
+
+
     year_choices = [(r,r) for r in range(2005, datetime.date.today().year + 1)]
     student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="stud_payment")
     staff = models.ForeignKey(Staff, on_delete=models.CASCADE, related_name="staff_payment", null=True)
@@ -124,7 +132,7 @@ class Payment(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     balance = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
     payment_method = models.CharField(choices=p_method, max_length=15)
-    is_confirmed = models.BooleanField(default=False)
+    status = models.CharField(choices=STATUS, max_length=50, default='pending')
     is_paid =  models.BooleanField(default=False)
     image = models.ImageField( upload_to='payment_proof/', blank=True, null=True)
     complaint = models.TextField(blank=True)
