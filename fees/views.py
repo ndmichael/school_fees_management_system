@@ -214,6 +214,7 @@ def payment(request):
             Payment.objects.all().order_by('-date_entered'), 10)
     page = request.GET.get('page')
     payments = p.get_page(page)
+    pending_payments = Payment.objects.filter(status="pending")
     
     # Get staff object reuesting payment add
     staff = get_object_or_404(Staff, user=request.user)
@@ -275,6 +276,7 @@ def payment(request):
     context = {
         'p_form': p_form,
         'payments': payments,
+        'pending_payments': pending_payments,
         'total_payments': total_payments,
         'total_by_you': total_by_you,
         'total_pending': '',
