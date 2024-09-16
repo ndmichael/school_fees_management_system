@@ -16,7 +16,7 @@ class PaymentProofForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['image'].required = True
         self.helper = FormHelper()
-        self.helper.disable_csrf = True
+        # self.helper.disable_csrf = True
         self.helper.form_tag = False
         self.helper.layout = Layout(
             Row(
