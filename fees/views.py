@@ -224,7 +224,7 @@ def payment(request):
         
         if p_form.is_valid():
             p_form = p_form.save(commit=False)
-            course_fee = student.courses.fee
+            course_fee = p_form.student.courses.fee
             p_form.staff = staff
 
             # Return the student from form
@@ -240,10 +240,11 @@ def payment(request):
             else:
                 p_form.balance = course_fee -  p_form.amount
 
+            #Check balnce after evaluation and set is_paid to true
             if(p_form.balance in [0, 0.0, 0.00]):
                 p_form.is_paid = True
 
-            # p_form.is_confirmed = True
+            p_form.status = 'confirmed'
             p_form.save()
             
             messages.success(
