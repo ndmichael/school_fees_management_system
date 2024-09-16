@@ -5,5 +5,5 @@ from .views import (
 
 
 urlpatterns = [
-    path('student/payment/proof', payment_proof, name="payment_proof"),
+    path('payment/proof', payment_proof, name="payment_proof"),
 ]
