@@ -8,7 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('fees.urls')),
     path('profile/', include('user.urls')),
-    path('dashboard/', include('students.urls')),
+    path('student/', include('students.urls')),
     path('accounts/', include('allauth.urls')),
     # path('chaining/', include('smart_selects.urls')),
     re_path(r'^chaining/', include('smart_selects.urls')),
