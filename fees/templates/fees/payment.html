@@ -248,11 +248,24 @@
                                                                     <span class="text-muted text-end">{{payment.semester}}</span>
                                                                 </p>
                                                              </div>
-            
+                                                
                                                              <div class="d-flex justify-content-between">
                                                                 <p>Payment Date:</p>
                                                                 <p class="fw-bold">
                                                                     {{payment.date_paid | date:"D, d M, Y"}}
+                                                                </p>
+                                                             </div>
+
+                                                             <div class="d-flex justify-content-between">
+                                                                <p>Payment Status:</p>
+                                                                <p class="fw-bolder">
+                                                                    {% if payment.status == 'confirmed' %}
+                                                                        <span class="text-success">{{payment.status}}</span>
+                                                                    {% elif payment.status == 'rejected' %}
+                                                                        <span class="text-danger">{{payment.status}}</span>
+                                                                    {% else %}
+                                                                        <span class="text-warning">{{payment.status}}</span>
+                                                                    {% endif %}
                                                                 </p>
                                                              </div>
                                                     </div>
