@@ -10,7 +10,14 @@ class PaymentProofForm(forms.ModelForm):
     """Form to update payment"""
     class Meta:
         model = Payment
-        fields = ['academic_year', 'semester', 'amount', 'payment_method', 'image']
+        fields = [
+                    'academic_year', 
+                    'semester', 
+                    'amount', 
+                    'payment_method', 
+                    'reference_number',
+                    'image'
+                ]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -24,6 +31,7 @@ class PaymentProofForm(forms.ModelForm):
                 FloatingField("semester", wrapper_class='col-md-6'),
                 FloatingField("amount", wrapper_class='col-md-6'),
                 FloatingField("payment_method", wrapper_class='col-md-6'),
+                FloatingField("reference_number", wrapper_class='col-md-12'),
                 FloatingField("image", wrapper_class='col-md-12'),
                 Div(
                     Submit('submit', 'SEND PROOF', css_class='btn-lg col-12 px-2')
