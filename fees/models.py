@@ -134,8 +134,9 @@ class Payment(models.Model):
     payment_method = models.CharField(choices=p_method, max_length=15)
     status = models.CharField(choices=STATUS, max_length=50, default='pending')
     is_paid =  models.BooleanField(default=False)
+    reference_number = models.CharField(max_length=100, null=True, blank=True)
     image = models.ImageField( upload_to='payment_proof/', blank=True, null=True)
-    complaint = models.TextField(blank=True)
+    comment = models.TextField(blank=True)
     date_paid = models.DateTimeField(default=timezone.now)
     date_entered = models.DateTimeField(default=timezone.now)
     
