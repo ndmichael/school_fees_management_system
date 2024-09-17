@@ -328,7 +328,46 @@
                 <!-- === Pending payments tab starts here === -->
                 <div class="tab-pane show" id="pending_payments" role="tabpanel" aria-labelledby="requests-tab">
                     <article class="col-12 col-md-12 mx-auto">
-                        <h3>Pending request coming soon.</h3>
+                        <table class="table">
+                            <thead class="bg-light p-5">
+                                <tr class="p-5">
+                                    <th scope="col">Academic Details</th>
+                                    <th scope="col">Fullname</th>
+                                    <th scope="col">Amount</th>
+                                    <th scope="col">Balance</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {% for pp in pending_payments %}
+                                <tr>
+                                    <td>
+                                        <b>{{pp.academic_year}}</b> <br/>
+                                         {{ pp.semester }}
+                                    </td>
+                                    <td>{{ pp.student.user.first_name }} {{ payment.student.user.last_name }}</td>
+                                    <td>&#8358;{{pp.amount|intcomma }}</td>
+                                    <td>
+                                        {% if pp.balance == 0 %}
+                                            <span class="text-success fw-bolder">
+                                                &#8358;{{pp.balance|intcomma }}
+                                            </span>
+                                        {% else %}
+                                        <span class="text-danger fw-bolder">
+                                            &#8358;{{pp.balance|intcomma }}
+                                        </span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary btn-sm m-2" data-bs-toggle="modal" data-bs-target="#paymentConfirm{{pp.id}}" data-toggle="tooltip" data-placement="bottom" title="Confirm/Reject Payment">
+                                            <i class="bi bi-app-indicator" style="font-size:16px"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
                     </article>
                 </div> <!-- === Pending payments tab ends here === -->
             </div>
