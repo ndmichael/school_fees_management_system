@@ -292,7 +292,11 @@
                                             {{ payment.semester }}
                                         </td>
                                         <td>{{ payment.student.user.first_name }} {{ payment.student.user.last_name }}</td>
-                                        <td>&#8358;{{payment.amount|intcomma }}</td>
+                                        <td>
+                                            <span class="fw-bolder text-dark">
+                                                &#8358;{{payment.amount|intcomma }}
+                                            </span>
+                                        </td>
                                         <td>
                                             {% if payment.balance == 0 %}
                                                 <span class="text-success fw-bolder">
@@ -347,7 +351,11 @@
                                          {{ pp.semester }}
                                     </td>
                                     <td>{{ pp.student.user.first_name }} {{ payment.student.user.last_name }}</td>
-                                    <td>&#8358;{{pp.amount|intcomma }}</td>
+                                    <td>
+                                        <span class="fw-bolder text-dark">
+                                            &#8358;{{pp.amount|intcomma }}
+                                        </span>
+                                    </td>
                                     <td>
                                         {% if pp.balance == 0 %}
                                             <span class="text-success fw-bolder">
