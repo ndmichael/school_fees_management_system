@@ -111,15 +111,14 @@ class paymentConfirmForm(forms.Form):
         ('rejected', 'REJECTED')
     )
     status = forms.ChoiceField(choices=STATUS)
+    
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.disable_csrf = True
         self.helper.form_tag = False
         self.helper.layout = Layout(
-            Row(
-                Field("status", wrapper_class='col-md-12'),
-            )
+            Field("status", wrapper_class='col-md-12 control-lg'),
+            Submit('submit', "Submit Payment", css_class="btn-lg")
         )
 
 class DeactivateStudent(forms.Form):
