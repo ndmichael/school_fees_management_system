@@ -6,7 +6,8 @@ from .forms import (
     UserForm, StudentForm, StudentUpdateForm, UserUpdateForm, 
     DeactivateStudent, PaymentForm, PaymentUpdateForm, 
     PaymentFilterForm, StudentSearchForm,
-    ComplaintFilterForm, ComplaintFixedForm
+    ComplaintFilterForm, ComplaintFixedForm,
+    paymentConfirmForm
 )
 from .models import Student, Payment, Complaint, Staff, Faculty, Course
 from django.db.models import Sum, Count
@@ -222,6 +223,7 @@ def payment(request):
   
     if request.method == 'POST':
         p_form = PaymentForm(request.POST)
+        confirm_form = paymentConfirmForm(request.POST)
         
         if p_form.is_valid():
             p_form = p_form.save(commit=False)
@@ -255,7 +257,9 @@ def payment(request):
             return redirect(
                 "make_payment"
             ) 
-    p_form = PaymentForm()
+    else:
+        p_form = PaymentForm()
+        confirm_form = confirm_form()
 
     # Manage the filter form here.
     get_payment_id = request.GET.get('payment_id')
@@ -281,7 +285,8 @@ def payment(request):
         'total_by_you': total_by_you,
         'total_pending': '',
         'title': 'nile-payment page',
-        'paymentFilterForm': paymentFilterForm
+        'paymentFilterForm': paymentFilterForm,
+        'confirm_form': confirm_form,
     }
     return render(request, 'fees/payment.html', context)
 
