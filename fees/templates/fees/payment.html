@@ -352,7 +352,6 @@
                                 == -->
                                 <div class="modal fade" id="paymentConfirm{{pp.id}}" tabindex="-2" aria-labelledby="paymentDetailsLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-scrollable">
-                                        <form action="" method="POST">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h3>Payment ID: {{pp.id}}</h3>
@@ -414,16 +413,22 @@
                                                         </p>
                                                         </div>
 
-                                                        <form action="">
+                                                        <div class="border p-4 bg-light">
+                                                            <h5>
+                                                                Is payment,
+                                                                Please confirm?
+                                                            </h5>
                                                             {% crispy confirm_form %}
-                                                        </form>
+                                                        </div>
+                                                        
+                                                    
+
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
                                     </div>
                                 </div>
 
