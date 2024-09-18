@@ -115,7 +115,7 @@ class paymentConfirmForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.form_tag = False
+        # self.helper.form_tag = False
         self.helper.layout = Layout(
             Field("status", wrapper_class='col-md-12 control-lg'),
             Submit('submit', "Submit Payment", css_class="btn-lg")
