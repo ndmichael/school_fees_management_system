@@ -4,6 +4,7 @@ from fees.models import Student, Payment, Staff, Course
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import PaymentProofForm
+from django.http import HttpResponseForbidden
 
 # Create your views here.
 
@@ -11,6 +12,14 @@ from .forms import PaymentProofForm
 @login_required
 def payment_proof(request):
     '''Manage Payment proof here'''
+
+    if not hasattr(request.user, 'student'):
+        messages.error(
+                    request, f"You do not exist as a student"
+                )
+        return redirect(
+            "account_login"
+        ) 
 
     if request.POST:
         form = PaymentProofForm(request.POST, request.FILES)
@@ -22,17 +31,12 @@ def payment_proof(request):
                 Student,
                 user = request.user
             ) 
-
-            if student:
-                pp_form.student = student
-                pp_form.save()
-                messages.success(
-                    request, f"Payment proof has been submitted"
-                )
-            else:
-                messages.danger(
-                    request, f"User doesn't exist"
-                )
+            pp_form.student = student
+            pp_form.save()
+            messages.success(
+                request, f"Payment proof has been submitted"
+            )
+            
 
             
         return redirect(
