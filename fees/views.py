@@ -259,7 +259,7 @@ def payment(request):
             ) 
     else:
         p_form = PaymentForm()
-        confirm_form = confirm_form()
+        confirm_form = paymentConfirmForm()
 
     # Manage the filter form here.
     get_payment_id = request.GET.get('payment_id')
