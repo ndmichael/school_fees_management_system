@@ -335,6 +335,7 @@
                         <table class="table">
                             <thead class="bg-light p-5">
                                 <tr class="p-5">
+                                    <th scope="col">Proof</th>
                                     <th scope="col">Academic Details</th>
                                     <th scope="col">Fullname</th>
                                     <th scope="col">Amount</th>
@@ -346,6 +347,19 @@
                             <tbody>
                                 {% for pp in pending_payments %}
                                 <tr>
+                                    <td>
+                                        {% if pp.image %}
+                                            <img 
+                                                src="{{pp.photo_url}}" 
+                                                alt=""
+                                                style="width: 40px; height: 40px;"
+                                                class="img-fluid"
+                                            />
+                                        {% else %}
+
+                                        {% endif %}
+                                    </td>
+                                    
                                     <td>
                                         <b>{{pp.academic_year}}</b> <br/>
                                          {{ pp.semester }}
