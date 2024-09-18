@@ -106,7 +106,7 @@
 
         <!-- === Start of the  top 5payments === -->
         <section class="row g-4 my-5">
-          <div class="col-12 col-sm-10 mx-auto">
+          <div class="col-12 mx-auto">
             <div class="table-responsive bg-light p-5 rounded-7">
               <div class="d-flex justify-content-between pb-4">
                   <h6>Payment Infos</h6>
@@ -181,6 +181,13 @@
                                 <p>Payment Date:</p>
                                 <p class="fw-bold">
                                     {{payment.date_paid | date:"D, d M, Y"}}
+                                </p>
+                              </div>
+
+                              <div class="d-flex justify-content-between">
+                                <p>Payment Date:</p>
+                                <p class="fw-bold">
+                                    {{payment.reference_number}}
                                 </p>
                               </div>
                             </div>
