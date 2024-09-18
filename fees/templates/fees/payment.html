@@ -346,6 +346,83 @@
 
                             <tbody>
                                 {% for pp in pending_payments %}
+
+                                <!-- ==
+                                    === Modal For Payment Confirmation / Rejection === 
+                                == -->
+                                <div class="modal fade" id="paymentConfirm{{pp.id}}" tabindex="-2" aria-labelledby="paymentDetailsLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <form action="" method="POST">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3>Payment ID: {{pp.id}}</h3>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="px-4 py-2">
+                                                        <div class="text-center pb-3">
+                                                            <img 
+                                                                src="{{pp.photo_url}}" 
+                                                                alt=""
+                                                                style="width: 140px; height: 140px;"
+                                                                class="img-fluid"
+                                                            />
+                                                        </div>
+
+                                                        <div class="d-flex justify-content-between">
+                                                            <p>Reference ID:</p>
+                                                            <p class="fw-bold text-success text-end">
+                                                                {{pp.reference_number}}
+                                                            </p>
+                                                        </div>
+
+                                                        <div class="d-flex justify-content-between">
+                                                            <p>Amount Paid:</p>
+                                                            <p class="fw-bold text-success text-end">&#8358;{{pp.amount|intcomma}}</p>
+                                                        </div>
+
+                                                        <div class="d-flex justify-content-between">
+                                                            <p>Student Name:</p>
+                                                            <p class="fw-bold text-end">{{pp.student.fullname}}</p>
+                                                        </div>
+
+                                                        <div class="d-flex justify-content-between">
+                                                            <p>Academic Details:</p>
+                                                            <p class="fw-bold text-end">
+                                                                {{pp.academic_year}} <br />
+                                                                <span class="text-muted text-end">{{pp.semester}}</span>
+                                                            </p>
+                                                        </div>
+                                        
+                                                        <div class="d-flex justify-content-between">
+                                                        <p>Payment Date:</p>
+                                                        <p class="fw-bold">
+                                                            {{pp.date_paid | date:"D, d M, Y"}}
+                                                        </p>
+                                                        </div>
+
+                                                        <div class="d-flex justify-content-between">
+                                                        <p>Payment Status:</p>
+                                                        <p class="fw-bolder">
+                                                            {% if pp.status == 'confirmed' %}
+                                                                <span class="text-success">{{pp.status}}</span>
+                                                            {% elif pp.status == 'rejected' %}
+                                                                <span class="text-danger">{{pp.status}}</span>
+                                                            {% else %}
+                                                                <span class="text-warning">{{pp.status}}</span>
+                                                            {% endif %}
+                                                        </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
                                 <tr>
                                     <td>
                                         {% if pp.image %}
