@@ -13,7 +13,7 @@ from django.http import HttpResponseForbidden
 def payment_proof(request):
     '''Manage Payment proof here'''
 
-    if not hasattr(request.user, 'student'):
+    if not hasattr(request.user, 'student_user'):
         messages.error(
                     request, f"You do not exist as a student"
                 )
