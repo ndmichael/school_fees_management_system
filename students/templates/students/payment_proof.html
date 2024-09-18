@@ -12,9 +12,12 @@
         <section class="row">
             <div class="col-12 col-md-6">
                 <div>
-                    <h4></h4>
-                    <h6>faculty</h6>
-                    <p>Course studying</p>
+                    <table class="table">
+                        <tr>
+                            <th>Faculty</th>
+                            <td>{{request.user.first_name}}</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
 
