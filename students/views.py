@@ -21,7 +21,7 @@ def payment_proof(request):
             "account_login"
         ) 
 
-    if request.POST:
+    if request.method == 'POST':
         form = PaymentProofForm(request.POST, request.FILES)
 
         if form.is_valid():
@@ -42,10 +42,9 @@ def payment_proof(request):
         return redirect(
                     "payment_proof"
                 )   
-             
-            
-        
-    form = PaymentProofForm
+    else:
+        form = PaymentProofForm()
+
     context = {
         'pp_form': form
     }
