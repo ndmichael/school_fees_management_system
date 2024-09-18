@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm , UsernameField
 from .models import Student, Payment, Complaint
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Div, Row, BaseInput
-from crispy_bootstrap5.bootstrap5 import FloatingField
+from crispy_bootstrap5.bootstrap5 import FloatingField, Field
 
 
 sems = (
@@ -95,14 +95,32 @@ class PaymentUpdateForm(forms.ModelForm):
     class Meta:
         model = Payment
         fields = [
-                    'student', 
-                    'academic_year', 
-                    'semester', 
-                    'amount', 
-                    'payment_method', 
-                    'status'
-                ]
+            'student', 
+            'academic_year', 
+            'semester', 
+            'amount', 
+            'payment_method', 
+            'status'
+        ]
 
+
+class paymentConfirmForm(forms.Form):
+    STATUS = (
+        ('pending', 'PENDING'),
+        ('confirmed', 'CONFIRMED'),
+        ('rejected', 'REJECTED')
+    )
+    status = forms.CharField(choices=STATUS)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.disable_csrf = True
+        self.helper.form_tag = False
+        self.helper.layout = Layout(
+            Row(
+                Field("status", wrapper_class='col-md-12'),
+            )
+        )
 
 class DeactivateStudent(forms.Form):
     """Deactivate user form"""
