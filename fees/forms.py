@@ -110,7 +110,7 @@ class paymentConfirmForm(forms.Form):
         ('confirmed', 'CONFIRMED'),
         ('rejected', 'REJECTED')
     )
-    status = forms.CharField(choices=STATUS)
+    status = forms.ChoiceField(choices=STATUS)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
