@@ -418,7 +418,14 @@
                                                                 Is payment valid,
                                                                 Please confirm first?
                                                             </h5>
-                                                            {% crispy confirm_form %}
+                                                            <form action="" method="POST">
+                                                                <input 
+                                                                    type="hidden" 
+                                                                    name="obj_pk" 
+                                                                    value="{{pp.pk}}"
+                                                                >
+                                                                {% crispy confirm_form %}
+                                                            </form>
                                                         </div>
                                                         
                                                     
