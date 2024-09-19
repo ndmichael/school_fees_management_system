@@ -223,7 +223,48 @@ def payment(request):
   
     if request.method == 'POST':
         p_form = PaymentForm(request.POST)
-        confirm_form = paymentConfirmForm(request.POST)
+        confirm_form = paymentConfirmForm(request.POST, request.FILES)
+
+        if confirm_form.is_valid():
+            pk = request.POST.get('obj_pk')
+            pending_payment = get_object_or_404(Payment, pk=pk)
+            status = confirm_form.cleaned_data['status']
+            comment = confirm_form.cleaned_data['comment']
+
+            if status is 'rejected':
+                pending_payment.staff = staff
+                pending_payment.status = status
+                pending_payment.comment = comment
+                pending_payment.save()
+
+                messages.info(
+                    request, f"Payment with id{pk} has been {status}"
+                )
+
+                return redirect(
+                    "make_payment"
+                ) 
+            
+            else:
+                pending_payment.staff = staff
+                pending_payment.status = status
+                pending_payment.comment = comment
+
+                #Check balnce after evaluation and set is_paid to true
+                if(pending_payment.balance in [0, 0.0, 0.00]):
+                    pending_payment.is_paid = True
+                pending_payment.save()
+
+                messages.success(
+                        request, f"Payment with id{pk} has been {status}"
+                    )
+
+                return redirect(
+                    "make_payment"
+                ) 
+
+
+            
         
         if p_form.is_valid():
             p_form = p_form.save(commit=False)
