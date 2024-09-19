@@ -104,7 +104,7 @@ class PaymentUpdateForm(forms.ModelForm):
         ]
 
 
-class paymentConfirmForm(forms.Form):
+class paymentConfirmForm(forms.ModelForm):
     STATUS = (
         ('pending', 'PENDING'),
         ('confirmed', 'CONFIRMED'),
@@ -112,6 +112,10 @@ class paymentConfirmForm(forms.Form):
     )
     status = forms.ChoiceField(choices=STATUS)
     comment = forms.CharField(widget=forms.Textarea(attrs={'name':'body', 'rows':'3'}), required=False)
+
+    class Meta:
+        model = Payment
+        fields = ('status', 'comment')
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
