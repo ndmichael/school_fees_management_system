@@ -412,7 +412,8 @@
                                                             {% endif %}
                                                         </p>
                                                         </div>
-
+                                                        
+                                                        <!-- === Section for validating or rejecting forms ===-->
                                                         <div class="border p-4 bg-light">
                                                             <h5 class="text-danger">
                                                                 Is payment valid,
@@ -428,8 +429,6 @@
                                                             </form>
                                                         </div>
                                                         
-                                                    
-
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -480,6 +479,8 @@
                                         </a>
                                     </td>
                                 </tr>
+                                {% empty %}
+                                    <p class="alert alert-info fw-bolder">No Pending Payment.</p>
                                 {% endfor %}
                             </tbody>
                         </table>
