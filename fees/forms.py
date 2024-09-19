@@ -111,6 +111,7 @@ class paymentConfirmForm(forms.Form):
         ('rejected', 'REJECTED')
     )
     status = forms.ChoiceField(choices=STATUS)
+    comment = forms.CharField(widget=forms.Textarea(attrs={'name':'body', 'rows':'3'}), required=False)
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -118,6 +119,7 @@ class paymentConfirmForm(forms.Form):
         # self.helper.form_tag = False
         self.helper.layout = Layout(
             Field("status", wrapper_class='col-md-12 control-lg'),
+            Field("comment",),
             Submit('submit', "Submit Payment", css_class="btn-lg")
         )
 
