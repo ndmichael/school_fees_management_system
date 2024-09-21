@@ -36,9 +36,7 @@ def payment_proof(request):
             messages.success(
                 request, f"Payment proof has been submitted"
             )
-            
-
-            
+               
         return redirect(
                     "payment_proof"
                 )   
@@ -49,3 +47,9 @@ def payment_proof(request):
         'pp_form': form
     }
     return render(request, 'students/payment_proof.html',context)
+
+
+
+def make_payment(request):
+    context = {}
+    return render(request, 'students/make_payment.html',context)
