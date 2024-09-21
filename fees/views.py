@@ -225,6 +225,7 @@ def payment(request):
         p_form = PaymentForm(request.POST)
         confirm_form = paymentConfirmForm(request.POST, request.FILES)
 
+        # Logic to Confirm / Reject Payment
         if confirm_form.is_valid():
             pk = request.POST.get('obj_pk')
             pending_payment = get_object_or_404(Payment, pk=pk)
