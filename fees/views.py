@@ -232,7 +232,8 @@ def payment(request):
             status = confirm_form.cleaned_data['status']
             comment = confirm_form.cleaned_data['comment']
 
-            if status is 'rejected':
+            # if rejected just update some fiels
+            if status is 'rejected': 
                 pending_payment.staff = staff
                 pending_payment.status = status
                 pending_payment.comment = comment
@@ -264,9 +265,8 @@ def payment(request):
                     "make_payment"
                 ) 
 
-
-            
-        
+        # Handles the payment section
+        # If the admin is filling in the payment themselves
         if p_form.is_valid():
             p_form = p_form.save(commit=False)
             course_fee = p_form.student.courses.fee
