@@ -164,7 +164,8 @@
                               <div class="d-flex justify-content-between">
                                 <p>Student Info:</p>
                                 <p class="fw-bold text-end">
-                                    {{payment.student.courses}} <br />
+                                    {{payment.student.courses}} 
+                                    <br />
                                     <span class="text-muted">{{payment.student.faculty}}</span>
                                 </p>
                               </div>
@@ -172,7 +173,8 @@
                               <div class="d-flex justify-content-between">
                                 <p>Academic Details:</p>
                                 <p class="fw-bold text-end">
-                                    {{payment.academic_year}} <br />
+                                    {{payment.academic_year}} 
+                                    <br />
                                     <span class="text-muted text-end">{{payment.semester}}</span>
                                 </p>
                               </div>
@@ -210,7 +212,8 @@
                       <span class="fw-bolder text-dark">{{payment.pk}}</span>    
                   </td>
                   <td>
-                      <b>{{payment.academic_year}}</b> <br/>
+                      <b>{{payment.academic_year}}</b> 
+                      <br/>
                       {{ payment.semester }}
                   </td>
                   <td>
@@ -235,9 +238,16 @@
                       </span>
                       {% endif %}
                   </td>
-                  <td class="d-flex">
-                    <a href="#" class="btn btn-outline-secondary btn-sm m-2" data-bs-toggle="modal" data-bs-target="#paymentDetailsModal{{payment.id}}" data-toggle="tooltip" data-placement="bottom" title="Paymenyt details">
-                        <i class="bi bi-chevron-double-right" style="font-size:16px"></i>
+                  <td>
+                    <a href="#" 
+                      class="btn btn-outline-secondary" 
+                      data-bs-toggle="modal" 
+                      data-bs-target="#paymentDetailsModal{{payment.id}}" 
+                      data-toggle="tooltip" 
+                      data-placement="bottom" 
+                      title="Paymenyt details"
+                    >
+                        <i class="bi bi-chevron-double-right"></i>
                     </a>
                   </td>
                 </tr>
