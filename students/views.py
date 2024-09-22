@@ -51,5 +51,8 @@ def payment_proof(request):
 
 
 def make_payment(request):
-    context = {}
+    payments = Payment.objects.all()
+    context = {
+        'payments': payments,
+    }
     return render(request, 'students/make_payment.html',context)
