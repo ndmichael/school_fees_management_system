@@ -126,7 +126,7 @@ html, body{
     color: none;
 }
 
-i.bi {
+#index-main i.bi {
     font-size: 30px;
 }
 
@@ -148,13 +148,25 @@ i.bi {
 }
 
 /* table css */
+
+
 .table thead th{
     font-size: 14px;
     font-weight: 700;
+    padding: .75rem !important;
 }
 
 .table tbody td{
     color: rgb(84, 83, 83);
+    padding: .75rem !important;
+    padding-bottom: 0 !important;
+    text-overflow: ellipsis;
+}
+
+.table tbody td .btn{
+    padding: 4px 12px;
+    font-size: 18.5px;
+    display: inline-block !important;
 }
 
 /* footer css */
