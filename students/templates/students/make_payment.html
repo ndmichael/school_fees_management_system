@@ -36,20 +36,9 @@
     <!-- === Start of the  top 5payments === -->
     <section class="row g-4 my-5">
         <div class="col-12 mx-auto">
-          <div class="table-responsive bg-light p-5 rounded-7">
+          <div class="table-responsive bg-white p-5 rounded-7">
             <div class="d-flex justify-content-between pb-4">
-                <h6>Payment Infos</h6>
-                <a 
-                  href="#"
-                  class="d-block"
-                >
-                  <i 
-                    class="bi bi-arrow-right"
-                    data-toggle="tooltip" 
-                    data-placement="bottom" 
-                    title="View all your payments"
-                  ></i>
-                </a> 
+                
             </div>
             <table 
               class="
@@ -57,7 +46,7 @@
                 animate__animated
                 animate__fadeInUp
               ">
-            <thead class="bg-white">
+            <thead class="bg-light">
                 <tr class="p-5">
                     <th scope="col">P.ID</th>
                     <th scope="col">Academic Details</th>
@@ -164,9 +153,9 @@
                     </span>
                     {% endif %}
                 </td>
-                <td class="d-flex">
-                  <a href="#" class="btn btn-outline-secondary btn-sm m-2" data-bs-toggle="modal" data-bs-target="#paymentDetailsModal{{payment.id}}" data-toggle="tooltip" data-placement="bottom" title="Paymenyt details">
-                      <i class="bi bi-chevron-double-right" style="font-size:16px"></i>
+                <td>
+                  <a href="#" class="btn btn-outline-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#paymentDetailsModal{{payment.id}}" data-toggle="tooltip" data-placement="bottom" title="Paymenyt details">
+                      <i class="bi bi-chevron-double-right"></i>
                   </a>
                 </td>
               </tr>
