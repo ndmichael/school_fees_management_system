@@ -122,6 +122,16 @@ footer{
 }
 
 
+#make-payment a{
+    display: block;
+    color: black;
+    background: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: o 7px 10px rgba(0, 0, 0, 0.6);
+
+}
+
 
 
 /*** CSS for small screen ***/
