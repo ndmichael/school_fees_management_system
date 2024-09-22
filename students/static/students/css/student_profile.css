@@ -121,9 +121,11 @@ footer{
     color: #140834;
 }
 
-
 #make-payment a{
     display: block;
+}
+
+#make-payment .key-actions {
     color: black;
     background: white;
     text-align: center;
@@ -150,7 +152,7 @@ footer{
     outline: 0 !important;
   }
   
-#make-payment a::before{
+#make-payment key-actions::before{
     position: absolute;
     top: 0;
     left: 0;
