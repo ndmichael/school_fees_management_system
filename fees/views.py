@@ -244,7 +244,7 @@ def payment(request):
                 )
 
                 return redirect(
-                    "make_payment"
+                    "manage_payment"
                 ) 
             
             else:
@@ -262,7 +262,7 @@ def payment(request):
                     )
 
                 return redirect(
-                    "make_payment"
+                    "manage_payment"
                 ) 
 
         # Handles the payment section
@@ -309,9 +309,9 @@ def payment(request):
     get_end_date = request.GET.get('end_date')
     total_filtered_payment = 0
 
-    # if get_payment_id and get_payment_id != '':
-    #    payments = Payment.objects.annotate(search=SearchVector('id'),).filter(search__icontains=get_payment_id)
-    #    total_filtered_payment = payments.count()
+    if get_payment_id and get_payment_id != '':
+       payments = Payment.objects.annotate(search=SearchVector('id'),).filter(search__icontains=get_payment_id)
+       total_filtered_payment = payments.count()
 
     if get_start_date and get_start_date != '':
         payments = Payment.objects.filter(date_paid__gte=get_start_date)
@@ -371,7 +371,7 @@ def update_payment(request, pk):
                 request, f"Payment fee with id: {pk} has been updated."
             )
             return redirect(
-                "make_payment"
+                "manage_payment"
             ) 
     else:
         p_form = PaymentUpdateForm(instance=payment)
@@ -404,7 +404,7 @@ def delete_payment(request):
             request, f"{id} has been deactivated."
         )
         return redirect(
-                "make_payment"
+                "manage_payment"
         ) 
 
 
