@@ -297,7 +297,7 @@ def payment(request):
             )
 
             return redirect(
-                "make_payment"
+                "manage_payment"
             ) 
     else:
         p_form = PaymentForm()
@@ -307,13 +307,26 @@ def payment(request):
     get_payment_id = request.GET.get('payment_id')
     get_start_date = request.GET.get('start_date')
     get_end_date = request.GET.get('end_date')
+    total_filtered_payment = 0
 
-    if get_payment_id and get_payment_id != '':
-       payments = Payment.objects.annotate(search=SearchVector('id'),).filter(search__icontains=get_payment_id)
-    if get_start_date and get_payment_id != '':
-        payments = Payment.objects.annotate(search=SearchVector('id'),).filter(search__gte=get_payment_id)
-    if get_end_date and get_payment_id != '':
-        payments = Payment.objects.annotate(search=SearchVector('id'),).filter(search__lt=get_payment_id)
+    # if get_payment_id and get_payment_id != '':
+    #    payments = Payment.objects.annotate(search=SearchVector('id'),).filter(search__icontains=get_payment_id)
+    #    total_filtered_payment = payments.count()
+
+    if get_start_date and get_start_date != '':
+        payments = Payment.objects.filter(date_paid__gte=get_start_date)
+        total_filtered_payment = payments.count()
+
+    if get_end_date and get_end_date != '':
+        payments = Payment.objects.filter(date_paid__lt=get_end_date)
+        total_filtered_payment = payments.count()
+
+
+    if total_filtered_payment:
+        messages.success(
+            request, f"{total_filtered_payment} returned from search"
+        )
+
 
     
     total_payments =  p.count # Count from paginations
