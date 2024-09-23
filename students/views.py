@@ -4,6 +4,7 @@ from fees.models import Student, Payment, Staff, Course
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import PaymentProofForm
+from fees.forms import PaymentFilterForm
 from django.http import HttpResponseForbidden
 
 # Create your views here.
@@ -52,7 +53,18 @@ def payment_proof(request):
 
 def make_payment(request):
     payments = Payment.objects.all().order_by('-date_entered')
+
+
+    paymentFilterForm =  PaymentFilterForm
+    # if get_payment_id and get_payment_id != '':
+    #    payments = Payment.objects.annotate(search=SearchVector('id'),).filter(search__icontains=get_payment_id)
+    # if get_start_date and get_start_date != '':
+    #     payments = Payment.objects.annotate(search=SearchVector('id'),).filter(search__gte=get_payment_id)
+    # if get_end_date and get_end_date != '':
+    #     payments = Payment.objects.annotate(search=SearchVector('id'),).filter(search__lt=get_payment_id)
+
     context = {
         'payments': payments,
+        'paymentFilterForm': paymentFilterForm,
     }
     return render(request, 'students/make_payment.html',context)
