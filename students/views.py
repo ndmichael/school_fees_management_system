@@ -51,7 +51,7 @@ def payment_proof(request):
 
 
 def make_payment(request):
-    payments = Payment.objects.all()
+    payments = Payment.objects.all().order_by('-date_entered')
     context = {
         'payments': payments,
     }
