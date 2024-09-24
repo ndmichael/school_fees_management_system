@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from fees.models import Student, Payment, Staff, Course
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import PaymentProofForm
+from .forms import PaymentProofForm, ComplaintForm
 from fees.forms import PaymentFilterForm
 from django.http import HttpResponseForbidden
 
@@ -72,5 +72,8 @@ def make_payment(request):
 
 
 def payment_complaints(request):
-    context = {}
+    complaintForm = ComplaintForm()
+    context = {
+        "complaintForm": complaintForm
+    }
     return render(request, 'students/payment_complaints.html',context)

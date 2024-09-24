@@ -11,13 +11,13 @@ class PaymentProofForm(forms.ModelForm):
     class Meta:
         model = Payment
         fields = [
-                    'academic_year', 
-                    'semester', 
-                    'amount', 
-                    'payment_method', 
-                    'reference_number',
-                    'image'
-                ]
+            'academic_year', 
+            'semester', 
+            'amount', 
+            'payment_method', 
+            'reference_number',
+            'image'
+        ]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -38,5 +38,11 @@ class PaymentProofForm(forms.ModelForm):
                 )
                 
             ),
-
         )
+
+
+class ComplaintForm(forms.ModelForm):
+
+    class Meta:
+        model = Complaint
+        fields = ['subject', 'description']
