@@ -98,7 +98,7 @@ footer{
     color: rgb(0, 0, 0);
     font-size: 1.2rem;
     /* font-weight: bolder; */
-    background: rgba(9, 121, 241, .7); 
+    background: linear-gradient(to bottom, rgb(9, 121, 241, .4) 60%, rgba(9, 121, 241, 1));
     box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important
 }
 
