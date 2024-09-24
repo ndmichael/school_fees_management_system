@@ -46,3 +46,15 @@ class ComplaintForm(forms.ModelForm):
     class Meta:
         model = Complaint
         fields = ['subject', 'description']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['subject'].widget.attrs.update({
+            'class': 'form-control form-control-lg mb-0',
+            'placeholder': 'Subject of complain',
+        })
+
+        self.fields['description'].widget.attrs.update({
+            'placeholder': 'Describe your complains',
+            'rows': 4
+        })
