@@ -69,3 +69,8 @@ def make_payment(request):
         'paymentFilterForm': paymentFilterForm,
     }
     return render(request, 'students/make_payment.html',context)
+
+
+def payment_complaints(request):
+    context = {}
+    return render(request, 'students/payment_complaints.html',context)
