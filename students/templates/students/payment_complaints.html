@@ -5,16 +5,21 @@
 <section id="make-payment">
     <div class="container">
         <section class="row">
-            <div class="col-md-12 text-center pb-5">
+            <div class="col-md-12 text-center pb-4">
                 <div>
                     <h3>Complaints and History</h3>
                 </div>    
             </div>
 
             <div class="col-md-8 mx-auto">
-                <div>
-                    {{ complaintForm| crispy }}
-                </div>    
+                <form method="post" action="" class="border border-1 border-info rounded-3 p-4">
+                    {{ complaintForm | crispy }}
+                    <div>
+                        <button type="submit" class="btn btn-lg btn-primary">
+                            Send Complain
+                        </button>
+                    </div>
+                </form>    
             </div>
         </section>
   </div> <!-- === End of the section page === -->
