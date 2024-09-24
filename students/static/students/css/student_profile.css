@@ -99,7 +99,8 @@ footer{
     font-size: 1.2rem;
     /* font-weight: bolder; */
     background: linear-gradient(to bottom, rgb(9, 121, 241, .4) 60%, rgba(9, 121, 241, 1));
-    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
+    transition: .4s;
 }
 
 #student-dashboard .actions .icon{
@@ -112,7 +113,19 @@ footer{
     align-items: center;
     justify-content: center;
     padding: 20px;
+    transition: .4s;
+}
 
+#student-dashboard .actions:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 .125rem .75rem rgba(0,0,0,.2) !important;
+    
+}
+
+/** Animate icon when action box is moused over **/
+#student-dashboard .actions:hover .icon{
+    transform: rotate(360deg); 
+    /* background-color: brown; */
 }
 
 #student-dashboard .actions .bi{
