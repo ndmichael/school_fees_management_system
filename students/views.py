@@ -52,7 +52,8 @@ def payment_proof(request):
 
 
 def make_payment(request):
-    payments = Payment.objects.all().order_by('-date_entered')
+    student = Student.objects.get(user=request.user)
+    payments = Payment.objects.filter(student=student).order_by('-date_entered')
 
 
     paymentFilterForm =  PaymentFilterForm

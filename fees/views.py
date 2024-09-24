@@ -258,8 +258,8 @@ def payment(request):
                 pending_payment.save()
 
                 messages.success(
-                        request, f"Payment with id{pk} has been {status}"
-                    )
+                    request, f"Payment with id{pk} has been {status}"
+                )
 
                 return redirect(
                     "manage_payment"
