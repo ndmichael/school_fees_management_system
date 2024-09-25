@@ -73,7 +73,7 @@ def make_payment(request):
 
 def payment_complaints(request):
     student = Student.objects.get(user=request.user)
-    complaints = Complaint.objects.filter(student = student)
+    complaints = Complaint.objects.filter(student = student).order_by('-date_submitted')
     if request.method == "POST":
         complaintForm = ComplaintForm(request.POST)
         if complaintForm.is_valid():
