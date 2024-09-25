@@ -38,135 +38,134 @@
         <div class="col-12 mx-auto">
           <div class="table-responsive bg-white p-5 rounded-7">
             <div class="d-flex justify-content-between pb-4">
-                
-            </div>
-            <table 
-              class="
-                table
-                animate__animated
-                animate__fadeInUp
-              ">
-            <thead class="bg-light">
-                <tr class="p-5">
-                    <th scope="col">P.ID</th>
-                    <th scope="col">Academic Details</th>
-                    <th scope="col">Confirmed by</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Balance</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-              {%for payment in payments %}
-              <!-- Modal pop for fee payment details -->
-              <div class="modal fade" id="paymentDetailsModal{{payment.id}}" tabindex="-2" aria-labelledby="paymentDetailsLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3>Payment ID: {{payment.id}}</h3>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
+              <table 
+                class="
+                  table
+                  animate__animated
+                  animate__fadeInUp
+                ">
+              <thead class="bg-light">
+                  <tr class="p-5">
+                      <th scope="col">P.ID</th>
+                      <th scope="col">Academic Details</th>
+                      <th scope="col">Confirmed by</th>
+                      <th scope="col">Amount</th>
+                      <th scope="col">Balance</th>
+                      <th>Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                {%for payment in payments %}
+                <!-- Modal pop for fee payment details -->
+                <div class="modal fade" id="paymentDetailsModal{{payment.id}}" tabindex="-2" aria-labelledby="paymentDetailsLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h3>Payment ID: {{payment.id}}</h3>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
 
-                        <div class="modal-body">
-                          <div class="p-4">
-                            <div class="d-flex justify-content-between">
-                                <p>Amount Paid:</p>
-                                <p class="fw-bold text-success text-end">&#8358;{{payment.amount|intcomma}}</p>
-                            </div>
+                          <div class="modal-body">
+                            <div class="p-4">
+                              <div class="d-flex justify-content-between">
+                                  <p>Amount Paid:</p>
+                                  <p class="fw-bold text-success text-end">&#8358;{{payment.amount|intcomma}}</p>
+                              </div>
 
-                            <div class="d-flex justify-content-between">
-                                <p>Student Name:</p>
-                                <p class="fw-bold text-end">{{payment.student.fullname}}</p>
-                            </div>
+                              <div class="d-flex justify-content-between">
+                                  <p>Student Name:</p>
+                                  <p class="fw-bold text-end">{{payment.student.fullname}}</p>
+                              </div>
 
-                            <div class="d-flex justify-content-between">
-                              <p>Student Info:</p>
-                              <p class="fw-bold text-end">
-                                  {{payment.student.courses}} <br />
-                                  <span class="text-muted">{{payment.student.faculty}}</span>
-                              </p>
-                            </div>
+                              <div class="d-flex justify-content-between">
+                                <p>Student Info:</p>
+                                <p class="fw-bold text-end">
+                                    {{payment.student.courses}} <br />
+                                    <span class="text-muted">{{payment.student.faculty}}</span>
+                                </p>
+                              </div>
 
-                            <div class="d-flex justify-content-between">
-                              <p>Academic Details:</p>
-                              <p class="fw-bold text-end">
-                                  {{payment.academic_year}} <br />
-                                  <span class="text-muted text-end">{{payment.semester}}</span>
-                              </p>
-                            </div>
+                              <div class="d-flex justify-content-between">
+                                <p>Academic Details:</p>
+                                <p class="fw-bold text-end">
+                                    {{payment.academic_year}} <br />
+                                    <span class="text-muted text-end">{{payment.semester}}</span>
+                                </p>
+                              </div>
 
-                            <div class="d-flex justify-content-between">
-                              <p>Payment Date:</p>
-                              <p class="fw-bold">
-                                  {{payment.date_paid | date:"D, d M, Y"}}
-                              </p>
-                            </div>
+                              <div class="d-flex justify-content-between">
+                                <p>Payment Date:</p>
+                                <p class="fw-bold">
+                                    {{payment.date_paid | date:"D, d M, Y"}}
+                                </p>
+                              </div>
 
-                            <div class="d-flex justify-content-between">
-                              <p>Payment Date:</p>
-                              <p class="fw-bold">
-                                  {{payment.reference_number}}
-                              </p>
+                              <div class="d-flex justify-content-between">
+                                <p>Payment Date:</p>
+                                <p class="fw-bold">
+                                    {{payment.reference_number}}
+                                </p>
+                              </div>
                             </div>
                           </div>
+                          <div class="modal-footer">
+                              <a 
+                                  href="{% url 'payment_detail' payment.id %}"
+                                  class="btn btn-lg btn-info"
+                              >
+                                Print Fee Reciept
+                              </a>
+                              <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                          </div>
                         </div>
-                        <div class="modal-footer">
-                            <a 
-                                href="{% url 'payment_detail' payment.id %}"
-                                class="btn btn-lg btn-info"
-                            >
-                              Print Fee Reciept
-                            </a>
-                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                  </div>
-              </div> <!-- === End of the details modal ===-->
-              <!-- === start of the body content === -->
-              <tr>
-                <td>    
-                    <span class="fw-bolder text-dark">{{payment.pk}}</span>    
-                </td>
-                <td>
-                    <b>{{payment.academic_year}}</b> <br/>
-                    {{ payment.semester }}
-                </td>
-                <td>
-                  <span>{{payment.staff}}</span>
-                  {% if payment.status == 'confirmed' %}
-                  <p class="fw-bolder text-success">{{payment.status}}</p>
-                  {% elif payment.status == 'rejected' %}
-                  <p class="fw-bolder text-danger">{{payment.status}}</p>
-                  {% else %}
-                  <p class="fw-bolder text-warning">{{payment.status}}</p>
-                  {% endif %}
-                </td>
-                <td>&#8358;{{payment.amount|intcomma }}</td>
-                <td>
-                    {% if payment.balance == 0 %}
-                        <span class="text-success fw-bolder">
-                            &#8358;{{payment.balance|intcomma }}
-                        </span>
+                    </div>
+                </div> <!-- === End of the details modal ===-->
+                <!-- === start of the body content === -->
+                <tr>
+                  <td>    
+                      <span class="fw-bolder text-dark">{{payment.pk}}</span>    
+                  </td>
+                  <td>
+                      <b>{{payment.academic_year}}</b> <br/>
+                      {{ payment.semester }}
+                  </td>
+                  <td>
+                    <span>{{payment.staff}}</span>
+                    {% if payment.status == 'confirmed' %}
+                    <p class="fw-bolder text-success">{{payment.status}}</p>
+                    {% elif payment.status == 'rejected' %}
+                    <p class="fw-bolder text-danger">{{payment.status}}</p>
                     {% else %}
-                    <span class="text-danger fw-bolder">
-                        &#8358;{{payment.balance|intcomma }}
-                    </span>
+                    <p class="fw-bolder text-warning">{{payment.status}}</p>
                     {% endif %}
-                </td>
-                <td>
-                  <a href="#" class="btn btn-outline-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#paymentDetailsModal{{payment.id}}" data-toggle="tooltip" data-placement="bottom" title="Paymenyt details">
-                      <i class="bi bi-chevron-double-right"></i>
-                  </a>
-                </td>
-              </tr>
-              {% empty %}
-              <p class="alert alert-info fw-bolder">No Payment Recorded.</p>
-              {% endfor %}
-            </tbody>
-          </table>
+                  </td>
+                  <td>&#8358;{{payment.amount|intcomma }}</td>
+                  <td>
+                      {% if payment.balance == 0 %}
+                          <span class="text-success fw-bolder">
+                              &#8358;{{payment.balance|intcomma }}
+                          </span>
+                      {% else %}
+                      <span class="text-danger fw-bolder">
+                          &#8358;{{payment.balance|intcomma }}
+                      </span>
+                      {% endif %}
+                  </td>
+                  <td>
+                    <a href="#" class="btn btn-outline-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#paymentDetailsModal{{payment.id}}" data-toggle="tooltip" data-placement="bottom" title="Paymenyt details">
+                        <i class="bi bi-chevron-double-right"></i>
+                    </a>
+                  </td>
+                </tr>
+                {% empty %}
+                <p class="alert alert-info fw-bolder">No Payment Recorded.</p>
+                {% endfor %}
+              </tbody>
+            </table>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
   </div> <!-- === End of the section page === -->
 
 
