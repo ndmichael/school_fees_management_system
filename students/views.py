@@ -72,7 +72,21 @@ def make_payment(request):
 
 
 def payment_complaints(request):
-    complaintForm = ComplaintForm()
+    student = Student.objects.get(user=request.user)
+    if request.method == "POST":
+        complaintForm = ComplaintForm(request.POST)
+        if complaintForm.is_valid():
+            c_form = complaintForm.save(commit=False)
+            c_form.student = student
+            c_form.save()
+            messages.success(
+                request, f"Complaint sent, await response"
+            )
+            return redirect(
+                "payment_complaint"
+            ) 
+    else:
+        complaintForm = ComplaintForm()
     context = {
         "complaintForm": complaintForm
     }
