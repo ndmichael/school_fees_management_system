@@ -166,12 +166,11 @@ class Complaint(models.Model):
         Student, 
         on_delete=models.CASCADE, 
         related_name="complaints", 
-        default="anonymous"
     )
     status = models.CharField(max_length=1, choices=STATUS, default='P')
     subject = models.CharField(max_length=100)
     description = models.TextField()
-    slug = models.SlugField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100)
     date_submitted = models.DateTimeField(default=timezone.now)
 
     def save(
