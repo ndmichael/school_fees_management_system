@@ -12,6 +12,7 @@ from .forms import (
 from .models import Student, Payment, Complaint, Staff, Faculty, Course
 from django.db.models import Sum, Count
 from django.contrib.auth.decorators import login_required
+from nile.decorators import staff_required
 
 from django.contrib.postgres.search import SearchVector
 
@@ -36,6 +37,7 @@ def index(request):
 
 
 @login_required
+@staff_required
 def admin_dashboard(request):
     '''
         - ** KEY LOGIC ** 
@@ -43,12 +45,6 @@ def admin_dashboard(request):
         - Rturns total students
         - Total Money
     '''
-    # check if user is a staff
-    if not request.user.is_staff:
-        messages.error(
-                request, f"You do not have permission to access this page."
-            )
-        return redirect("/")
     
     total_students = Student.objects.all().count()
     total_money = Payment.objects.aggregate(total=Sum('amount'))['total'] or 0
@@ -61,6 +57,7 @@ def admin_dashboard(request):
 
 
 @login_required
+@staff_required
 def student(request):
     '''
         - ** KEY LOGICS ** 
@@ -69,13 +66,6 @@ def student(request):
         - return total students
         - deactivate user by setting active to false
     '''
-
-    # check if user is a staff
-    if not request.user.is_staff:
-        messages.error(
-                request, f"You do not have permission to access this page."
-            )
-        return redirect("/")
     
     p = Paginator(Student.objects.all().filter(user__is_active=True).order_by('-added_date'), 10)
     page = request.GET.get('page')
@@ -122,6 +112,7 @@ def student(request):
     return render(request, 'fees/all_students.html', context)
 
 @login_required
+@staff_required
 def update_student(request, username):
     '''
         - ** KEY LOGICS ** 
@@ -131,11 +122,6 @@ def update_student(request, username):
         - Validate and update 2 data models
         - Redirect non admin with a message
     '''
-    if not request.user.is_staff:
-        messages.error(
-                request, f"You do not have permission to access this page."
-            )
-        return redirect("/")
     user = get_object_or_404(
         User, username=username
     )
@@ -164,6 +150,7 @@ def update_student(request, username):
 
 
 @login_required
+@staff_required
 def addStudent(request):
     '''
         - ** KEY LOGICS ** 
@@ -173,11 +160,7 @@ def addStudent(request):
         - Validate and update 2 data models
         - Redirect non admin with a message
     '''
-    if not request.user.is_staff:
-        messages.error(
-                request, f"You do not have permission to access this page."
-            )
-        return redirect("/")
+
     if request.method == 'POST':
         userform = UserForm(request.POST)
         studentform = StudentForm(request.POST, request.FILES)
@@ -204,13 +187,8 @@ def addStudent(request):
 
 
 @login_required
+@staff_required
 def payment(request):
-    if not request.user.is_staff:
-        messages.error(
-                request, f"You do not have permission to access this page."
-            )
-        return redirect("/")
-
     p = Paginator(
             Payment.objects.all().order_by('-date_entered'), 10)
     page = request.GET.get('page')
@@ -326,8 +304,6 @@ def payment(request):
         messages.success(
             request, f"{total_filtered_payment} returned from search"
         )
-
-
     
     total_payments =  p.count # Count from paginations
     total_by_you = Payment.objects.filter(staff=staff).count()
@@ -347,16 +323,13 @@ def payment(request):
 
 
 @login_required
+@staff_required
 def update_payment(request, pk):
     '''
         - ** KEY LOGIC **
         - Update payment records
     '''
-    if not request.user.is_staff:
-        messages.error(
-                request, f"You do not have permission to access this page."
-            )
-        return redirect("/")
+
     payment = get_object_or_404(
             Payment, id=pk
         )
@@ -381,19 +354,13 @@ def update_payment(request, pk):
 
 
 @login_required
+@staff_required
 def delete_payment(request):
 
     '''
         ** KEY LOGIC **
         - delete payment
     '''
-
-    # redirect if not admin  
-    if not request.user.is_staff:
-        messages.error(
-                request, f"You do not have permission to access this page."
-            )
-        return redirect("/")
     
     if request.POST:
         id = request.POST.get('pay_id')
@@ -446,6 +413,7 @@ def payment_report(request):
 
 
 @login_required
+@staff_required
 def payment_detail(request, id):
     payment = Payment.objects.get(id=id)
     context = {
@@ -475,13 +443,9 @@ def search_payments(request):
     }
     return render(request, 'fees/search_payment.html/', context)
 
-
+@login_required
+@staff_required
 def complaint_list(request):
-    if not request.user.is_staff:
-        messages.error(
-                request, f"You do not have permission to access this page."
-            )
-        return redirect("/")
     complaints = Complaint.objects.all().order_by('-date_submitted')
     FilterForm =  ComplaintFilterForm
     
@@ -521,12 +485,11 @@ def complaint_list(request):
     }
     return render(request, 'fees/complaint_list.html', context)
 
+
+@login_required
+@staff_required
 def complaint_details(request, slug):
-    if not request.user.is_staff:
-        messages.error(
-                request, f"You do not have permission to access this page."
-            )
-        return redirect("/")
+
     complaint = complaint.objects.get(slug=slug)
     context={
         'complaint': complaint,
@@ -537,6 +500,8 @@ def complaint_details(request, slug):
 
 # return all faculties offered in school.
 # with their courses.
+@login_required
+@staff_required
 def faculty(request):
     faculties = Faculty.objects.all()
     context = {
