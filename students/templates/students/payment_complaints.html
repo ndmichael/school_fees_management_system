@@ -23,6 +23,68 @@
                 </form>    
             </div>
         </section>
+
+        <!-- === New table row section ===-->
+        <section class="row pt-3">
+            <div class="col-12 col-md-10 mx-auto pb-4">
+                <table class="table mt-4 table-hover">
+                    <thead class="bg-light">
+                        <tr>
+                            <th scope="col">REF CODE</th>
+                            <th scope="col">Subject</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Date Submitted</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody
+                        class="
+                        animate__animated
+                        animate__fadeInUp
+                        animate_slow
+                        "
+                    >
+                    {%for complaint in complaints %}
+                    <tr>  
+                        <td>
+                           <span class="fw-bold">{{complaint.reference_id | upper}}</span>
+                        </td>
+                        <td>
+                            {{complaint.subject}}
+                        </td>
+                        <td class="fw-bolder">
+                            {% if complaint.status == 'P' %}
+                            <span class="text-warning">{{complaint.get_status_display}}</span>
+                            {% elif complaint.status == 'R' %}
+                            <span class="text-success">{{complaint.get_status_display}}</span>
+                            {% else %}
+                            <span class="text-secondary">{{complaint.get_status_display}}</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {{complaint.date_submitted}}
+                        </td>
+                        <td>
+                            <a href="#"
+                                data-bs-toggle="modal" 
+                                data-bs-target="#complaintModal{{complaint.id}}"  to
+                                data-toggle="tooltip" 
+                                data-placement="bottom" 
+                                title="Complaint Details"
+                            >
+                            <i class="bi bi-arrow-right-circle-fill"></i>
+                            </a>
+                            
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <p class="alert alert-info fw-bolder">No Complaint Recorded.</p>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
   </div> <!-- === End of the section page === -->
 
 {% endblock %}
