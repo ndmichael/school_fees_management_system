@@ -6,11 +6,13 @@ from django.contrib.auth.decorators import login_required
 from .forms import PaymentProofForm, ComplaintForm
 from fees.forms import PaymentFilterForm
 from django.http import HttpResponseForbidden
+from nile.decorators import student_required
 
 # Create your views here.
 
 
 @login_required
+@student_required
 def payment_proof(request):
     '''Manage Payment proof here'''
 
@@ -51,10 +53,10 @@ def payment_proof(request):
 
 
 @login_required
+@student_required
 def make_payment(request):
     student = Student.objects.get(user=request.user)
     payments = Payment.objects.filter(student=student).order_by('-date_entered')
-
 
     paymentFilterForm =  PaymentFilterForm
     # if get_payment_id and get_payment_id != '':
@@ -72,6 +74,7 @@ def make_payment(request):
 
 
 @login_required
+@student_required
 def payment_complaints(request):
     student = Student.objects.get(user=request.user)
     complaints = Complaint.objects.filter(student = student).order_by('-date_submitted')
