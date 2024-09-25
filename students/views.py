@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
-from fees.models import Student, Payment, Staff, Course
+from fees.models import Student, Payment, Staff, Course, Complaint
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import PaymentProofForm, ComplaintForm
@@ -73,6 +73,7 @@ def make_payment(request):
 
 def payment_complaints(request):
     student = Student.objects.get(user=request.user)
+    complaints = Complaint.objects.filter(student = student)
     if request.method == "POST":
         complaintForm = ComplaintForm(request.POST)
         if complaintForm.is_valid():
@@ -88,6 +89,7 @@ def payment_complaints(request):
     else:
         complaintForm = ComplaintForm()
     context = {
-        "complaintForm": complaintForm
+        "complaintForm": complaintForm,
+        "complaints": complaints,
     }
     return render(request, 'students/payment_complaints.html',context)
