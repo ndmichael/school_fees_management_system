@@ -83,7 +83,7 @@ def payment_complaints(request):
                 request, f"Complaint sent, await response"
             )
             return redirect(
-                "payment_complaint"
+                "payment_complaints"
             ) 
     else:
         complaintForm = ComplaintForm()
