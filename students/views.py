@@ -50,7 +50,7 @@ def payment_proof(request):
     return render(request, 'students/payment_proof.html',context)
 
 
-
+@login_required
 def make_payment(request):
     student = Student.objects.get(user=request.user)
     payments = Payment.objects.filter(student=student).order_by('-date_entered')
@@ -71,6 +71,7 @@ def make_payment(request):
     return render(request, 'students/make_payment.html',context)
 
 
+@login_required
 def payment_complaints(request):
     student = Student.objects.get(user=request.user)
     complaints = Complaint.objects.filter(student = student).order_by('-date_submitted')
