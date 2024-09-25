@@ -18,6 +18,7 @@ html, body{
     min-height: 100vh;
     font-family: "Poppins", sans-serif;
     color: black;
+    font-size: 15px !important;
     
 }
 
@@ -199,3 +200,9 @@ footer{
         background: #f8f9fa;
     }
 }
+
+/* @media screen and (-webkit-min-device-pixel-ratio:0){
+    body{
+        font-size: 10px;
+    }
+} */
