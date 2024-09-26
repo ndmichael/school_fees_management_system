@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from django.db.models import Sum
+from  nile.decorators import staff_required
 
 # Create your views here.
 
@@ -112,6 +113,7 @@ def current_user_profile(request):
     return redirect('student_profile', username=request.user.username)
 
 @login_required
+@staff_required
 def user_settings(request):
     update_image_form = ProfilePicUpdateForm
     if request.POST:
