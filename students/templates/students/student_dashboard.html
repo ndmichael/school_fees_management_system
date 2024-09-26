@@ -1,100 +1,266 @@
-{% extends 'base.html' %} 
-{% load static %} 
-{% load humanize %}
-{% load crispy_forms_tags %} 
-{% block content %}
-<section id="staffDashboard">
+{% extends 'student_base.html' %} {% load l10n %} {% load static %} {% load humanize %} {% load crispy_forms_tags %} {% block content %}
+
+<section id="student-dashboard">
     <div class="container">
-        <section class="row g-4">
-            <article 
-                class="
-                    col-12 col-md-6
-                    bg-white 
-                    mx-auto 
-                    p-4
-                    shadow-sm
-                    rounded-3
-                    animate__animated
-                    animate__bounceInDown
-                    animate_slow
-                ">
-                <div class="d-flex">
-                    <div class="pe-5">
-                        <img class="img-fluid rounded-circle shadow-lg user-thumbnail"    
-                             style="height: 100px; width: 100px;"
-                             src="{{ staff.photo_url }}">
-                    </div>
-                    <div>
-                        <h3 class="fw-bolder">
-                            {{staff.user.last_name}} {{staff.user.first_name}}
-                        </h3>
-                        <span class="text-muted pb-3">{{staff.user.email}}</span>
-                        <p>
-                            <span>{{staff.mobileNo}}</span> <br/>
-                        </p>     
-                    </div>
-                </div>
-            </article>
-            
-            <article class="col-6 col-md-3">
-                <div 
-                    class="
-                        p-4 
-                        bg-white 
-                        shadow-sm 
-                        rounded-3 
-                        d-flex 
-                        flex-column 
-                        text-center
-                        animate__animated
-                        animate__bounce
-                        animate_slow
-                    "
-                >
-                    <i class=" bi bi-vinyl" style="color: #0067A6;"></i>
-                    <p class="fw-bolder text-black">{{total_payments}}</p>
-                    <p>Fees Recorded</p>
-                </div>
+        <section class="row">
+            <article class="col-12 col-sm-6">
+                <h4>Welcome, {{request.user.first_name}} {{request.user.last_name}}</h4>
             </article>
 
-            <article class="col-6 col-md-3">
-                <div 
-                    class="
-                        p-4 
-                        bg-white 
-                        shadow-sm 
-                        rounded-3 
-                        d-flex 
-                        flex-column 
-                        text-center
-                        animate__animated
-                        animate__bounce
-                        animate_slow
-                    "
-                >
-                    <i class=" bi bi-cash-coin" style="color: #FFDC00"></i>
-                    <p class="fw-bolder text-black">&#8358;{{ total_amounts | intcomma }}</p>
-                    <p>Money collected</p>
-                </div>
+            <article class="col-12 col-sm-6 text-end">
+                <h5 class="text-muted">{{student.faculty}}</h5>
+                <p class="fw-bolder">{{student.courses}}</p>
             </article>
-        </section> <!-- End of row one -->
-
-        <section class="row my-5">
-            <div class="col-12 col-md-12 mx-auto">
-                <form action="" method="post" enctype="multipart/form-data"
-                    class="p-5 bg-white shadow"
-                > 
-                    {% csrf_token %}
-                    {% crispy userUpdateForm %}
-                    {% crispy staffUpdateForm %}
-
-                    <button type="submit" class="btn btn-primary btn-lg px-5">
-                        Update Profile
-                    </button>
-                </form>
-            </div>
         </section>
-    </div>
+
+        <section class="row g-5">
+            <article class="col-6 col-sm-3">
+                <a href="" class="actions rounded-4">
+                    <div class="icon mb-4 bg-dark">
+                        <i class="bi bi-credit-card-2-front-fill text-warning"></i>
+                    </div>
+                    <p>Make Payments</p>
+                </a>
+            </article>
+
+            <article class="col-6 col-sm-3">
+                <a href="{% url 'payment_proof' %}" class="actions rounded-4">
+                    <div class="icon mb-4">
+                        <i class="bi bi-check2-circle"></i>
+                    </div>
+                    <p>Send Proof</p>
+                </a>
+            </article>
+
+            <article class="col-6 col-sm-3">
+                <a href="{% url 'payment_complaints' %}" class="actions rounded-4">
+                    <div class="icon mb-4">
+                        <i class="bi bi-envelope-check-fill"></i>
+                    </div>
+                    <p>Complaint</p>
+                </a>
+            </article>
+
+            <article class="col-6 col-sm-3">
+                <a href="" class="actions rounded-4">
+                    <div class="icon mb-4">
+                        <i class="bi bi-newspaper"></i>
+                    </div>
+                    <p>Announcements</p>
+                </a>
+            </article>
+        </section>
+
+        <section class="row g-5 my-3">
+            <div class="col-12 col-sm-8 col-md-7 px-4">
+                <div class="accordion accordion-flush" id="accordionExample">
+                    <div class="accordion-item border-0">
+                      <h4 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          How to Make Payment
+                        </button>
+                      </h4>
+                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item border-0">
+                      <p class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Why the app is more secured
+                        </button>
+                      </p>
+                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item border-0">
+                      <p class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          Living the Dream
+                        </button>
+                      </p>
+                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+            <!-- === The image section === -->
+            <div class="col-12 col-sm-4 col-md-5">
+                <img 
+                  src="{% static 'students/images/students_chatting.jpg' %}" 
+                  style="width: 100%; height:100%; object-fit: cover;" 
+                  class="img-fluid rounded-9"
+                  alt="student chattings"
+                />
+            </div>
+        </section> <!--=== End of frequently asked question -->
+
+        <!-- === Start of the  top 5payments === -->
+        <section class="row g-4 my-5">
+          <div class="col-12 mx-auto">
+            <div class="table-responsive bg-light p-5 rounded-7">
+              <div class="d-flex justify-content-between pb-4">
+                  <h6>Payment Infos</h6>
+                  <a 
+                    href="{% url 'make_payment' %}"
+                    class="d-block"
+                  >
+                    <i 
+                      class="bi bi-arrow-right"
+                      data-toggle="tooltip" 
+                      data-placement="bottom" 
+                      title="View all your payments"
+                    ></i>
+                  </a> 
+              </div>
+              <table 
+                class="
+                  table
+                  animate__animated
+                  animate__fadeInUp
+                ">
+              <thead class="bg-white">
+                  <tr class="p-5">
+                      <th scope="col">P.ID</th>
+                      <th scope="col">Academic Details</th>
+                      <th scope="col">Confirmed by</th>
+                      <th scope="col">Amount</th>
+                      <th scope="col">Balance</th>
+                      <th>Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                {%for payment in payments %}
+                <!-- Modal pop for fee payment details -->
+                <div class="modal fade" id="paymentDetailsModal{{payment.id}}" tabindex="-2" aria-labelledby="paymentDetailsLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h3>Payment ID: {{payment.id}}</h3>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+
+                          <div class="modal-body">
+                            <div class="p-4">
+                              <div class="d-flex justify-content-between">
+                                  <p>Amount Paid:</p>
+                                  <p class="fw-bold text-success text-end">&#8358;{{payment.amount|intcomma}}</p>
+                              </div>
+
+                              <div class="d-flex justify-content-between">
+                                  <p>Student Name:</p>
+                                  <p class="fw-bold text-end">{{payment.student.fullname}}</p>
+                              </div>
+
+                              <div class="d-flex justify-content-between">
+                                <p>Student Info:</p>
+                                <p class="fw-bold text-end">
+                                    {{payment.student.courses}} 
+                                    <br />
+                                    <span class="text-muted">{{payment.student.faculty}}</span>
+                                </p>
+                              </div>
+
+                              <div class="d-flex justify-content-between">
+                                <p>Academic Details:</p>
+                                <p class="fw-bold text-end">
+                                    {{payment.academic_year}} 
+                                    <br />
+                                    <span class="text-muted text-end">{{payment.semester}}</span>
+                                </p>
+                              </div>
+
+                              <div class="d-flex justify-content-between">
+                                <p>Payment Date:</p>
+                                <p class="fw-bold">
+                                    {{payment.date_paid | date:"D, d M, Y"}}
+                                </p>
+                              </div>
+
+                              <div class="d-flex justify-content-between">
+                                <p>Payment Date:</p>
+                                <p class="fw-bold">
+                                    {{payment.reference_number}}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                              <a 
+                                  href="{% url 'payment_detail' payment.id %}"
+                                  class="btn btn-lg btn-info"
+                              >
+                                Print Fee Reciept
+                              </a>
+                              <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                    </div>
+                </div> <!-- === End of the details modal ===-->
+                <!-- === start of the body content === -->
+                <tr>
+                  <td>    
+                      <span class="fw-bolder text-dark">{{payment.pk}}</span>    
+                  </td>
+                  <td>
+                      <b>{{payment.academic_year}}</b> 
+                      <br/>
+                      {{ payment.semester }}
+                  </td>
+                  <td>
+                    <span>{{payment.staff}}</span>
+                    {% if payment.status == 'confirmed' %}
+                    <p class="fw-bolder text-success">{{payment.status}}</p>
+                    {% elif payment.status == 'rejected' %}
+                    <p class="fw-bolder text-danger">{{payment.status}}</p>
+                    {% else %}
+                    <p class="fw-bolder text-warning">{{payment.status}}</p>
+                    {% endif %}
+                  </td>
+                  <td>&#8358;{{payment.amount|intcomma }}</td>
+                  <td>
+                      {% if payment.balance == 0 %}
+                          <span class="text-success fw-bolder">
+                              &#8358;{{payment.balance|intcomma }}
+                          </span>
+                      {% else %}
+                      <span class="text-danger fw-bolder">
+                          &#8358;{{payment.balance|intcomma }}
+                      </span>
+                      {% endif %}
+                  </td>
+                  <td>
+                    <a href="#" 
+                      class="btn btn-outline-secondary" 
+                      data-bs-toggle="modal" 
+                      data-bs-target="#paymentDetailsModal{{payment.id}}" 
+                      data-toggle="tooltip" 
+                      data-placement="bottom" 
+                      title="Paymenyt details"
+                    >
+                        <i class="bi bi-chevron-double-right"></i>
+                    </a>
+                  </td>
+                </tr>
+                {% empty %}
+                <p class="alert alert-info fw-bolder">No Payment Recorded.</p>
+                {% endfor %}
+              </tbody>
+            </table>
+            </div>
+          </div>
+        </section>
+    </div> <!-- === End of the section page === -->
+
 </section>
 
-{% endblock content %}
+{% endblock %}
