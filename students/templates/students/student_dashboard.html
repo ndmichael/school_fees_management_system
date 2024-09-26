@@ -1,0 +1,100 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load humanize %}
+{% load crispy_forms_tags %} 
+{% block content %}
+<section id="staffDashboard">
+    <div class="container">
+        <section class="row g-4">
+            <article 
+                class="
+                    col-12 col-md-6
+                    bg-white 
+                    mx-auto 
+                    p-4
+                    shadow-sm
+                    rounded-3
+                    animate__animated
+                    animate__bounceInDown
+                    animate_slow
+                ">
+                <div class="d-flex">
+                    <div class="pe-5">
+                        <img class="img-fluid rounded-circle shadow-lg user-thumbnail"    
+                             style="height: 100px; width: 100px;"
+                             src="{{ staff.photo_url }}">
+                    </div>
+                    <div>
+                        <h3 class="fw-bolder">
+                            {{staff.user.last_name}} {{staff.user.first_name}}
+                        </h3>
+                        <span class="text-muted pb-3">{{staff.user.email}}</span>
+                        <p>
+                            <span>{{staff.mobileNo}}</span> <br/>
+                        </p>     
+                    </div>
+                </div>
+            </article>
+            
+            <article class="col-6 col-md-3">
+                <div 
+                    class="
+                        p-4 
+                        bg-white 
+                        shadow-sm 
+                        rounded-3 
+                        d-flex 
+                        flex-column 
+                        text-center
+                        animate__animated
+                        animate__bounce
+                        animate_slow
+                    "
+                >
+                    <i class=" bi bi-vinyl" style="color: #0067A6;"></i>
+                    <p class="fw-bolder text-black">{{total_payments}}</p>
+                    <p>Fees Recorded</p>
+                </div>
+            </article>
+
+            <article class="col-6 col-md-3">
+                <div 
+                    class="
+                        p-4 
+                        bg-white 
+                        shadow-sm 
+                        rounded-3 
+                        d-flex 
+                        flex-column 
+                        text-center
+                        animate__animated
+                        animate__bounce
+                        animate_slow
+                    "
+                >
+                    <i class=" bi bi-cash-coin" style="color: #FFDC00"></i>
+                    <p class="fw-bolder text-black">&#8358;{{ total_amounts | intcomma }}</p>
+                    <p>Money collected</p>
+                </div>
+            </article>
+        </section> <!-- End of row one -->
+
+        <section class="row my-5">
+            <div class="col-12 col-md-12 mx-auto">
+                <form action="" method="post" enctype="multipart/form-data"
+                    class="p-5 bg-white shadow"
+                > 
+                    {% csrf_token %}
+                    {% crispy userUpdateForm %}
+                    {% crispy staffUpdateForm %}
+
+                    <button type="submit" class="btn btn-primary btn-lg px-5">
+                        Update Profile
+                    </button>
+                </form>
+            </div>
+        </section>
+    </div>
+</section>
+
+{% endblock content %}

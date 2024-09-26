@@ -61,14 +61,11 @@ def student_profile(request, username):
 def staff_profile(request, username):
     '''*** Staff profile section ***'''
 
-    print("username : ", username)
     user = User.objects.get(username=username)
-    staff = Staff.objects.filter(user__username=username).first()
+    staff = Staff.objects.filter(user=user).first()
     payments_handled_by_staff = Payment.objects.filter(staff=staff)
     total_payments_handled_by_staff = payments_handled_by_staff.count()
     total_amount_handled_by_staff = payments_handled_by_staff.aggregate(total=Sum('amount'))['total']
-    #CustomUser.objects.aggregate(total=Sum('balance'))
-    print(f"payments - {payments_handled_by_staff}")
 
     if request.POST:
         userUpdateForm = UserUpdateForm(request.POST, instance=user)
@@ -105,7 +102,7 @@ def staff_profile(request, username):
 
 
 @login_required
-def current_user_profile(request):
+def current_user_dashboard(request):
     '''On login if admin ? redirect admin dashboard else student profile'''
 
     if request.user.is_staff:
