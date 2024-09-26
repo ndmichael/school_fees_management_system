@@ -10,6 +10,21 @@ from nile.decorators import student_required
 
 # Create your views here.
 
+@login_required
+def student_dashboard(request):
+    '''*** Student Dashboard section ***
+        === All logics goes her ===
+    '''
+    student = Student.objects.filter(user=request.user).first()
+    payments = Payment.objects.filter(student=student).order_by('-date_entered')
+
+    context = {
+        'student': student,
+        'payments': payments,
+        "title": "student profile"
+    }
+    return render(request, 'students/student_dashboard.html', context)
+
 
 @login_required
 @student_required
@@ -41,8 +56,8 @@ def payment_proof(request):
             )
                
         return redirect(
-                    "payment_proof"
-                )   
+            "payment_proof"
+        )   
     else:
         form = PaymentProofForm()
 
