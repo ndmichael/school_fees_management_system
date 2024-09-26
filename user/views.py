@@ -107,7 +107,8 @@ def current_user_dashboard(request):
 
     if request.user.is_staff:
         return redirect('admin_dashboard')
-    return redirect('student_profile', username=request.user.username)
+    return redirect('student_dashboard')
+
 
 @login_required
 @staff_required
