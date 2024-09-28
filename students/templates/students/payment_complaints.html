@@ -45,14 +45,23 @@
                         animate_slow
                         "
                     >
-                    {%for complaint in complaints %}
+                    {% for complaint in complaints %}
 
                     <!-- == Modal to display complaint details == -->
                     <div class="modal fade" id="complaintModal{{complaint.id}}" tabindex="-2" aria-labelledby="studentDetailsLabel1" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h4>Ref Code: <span class="text-danger">{{complaint.reference_id | upper}}</span></h4>
+                                    <h4 class="text-center">
+                                        Status: 
+                                        {% if complaint.status == 'P' %}
+                                        <span class="text-warning">{{complaint.get_status_display}}</span>
+                                        {% elif complaint.status == 'R' %}
+                                        <span class="text-success">{{complaint.get_status_display}}</span>
+                                        {% else %}
+                                        <span class="text-secondary">{{complaint.get_status_display}}</span>
+                                        {% endif %}
+                                    </h4>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body p-4">
