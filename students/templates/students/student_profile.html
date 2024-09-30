@@ -9,21 +9,19 @@
             <article 
                 class="
                     col-12
-                    mx-auto 
+                    col-sm-7
+                    details
                     p-4
                     shadow-sm
                     rounded-3
-                    details
                     animate__animated
                     animate__bounceInDown
                     animate_slow
                 ">
                 <div class="d-flex justify-content-between">
-                    <div>
-                        <img class="img-fluid rounded-circle shadow-lg user-thumbnail"    
-                             style="height: 100px; width: 100px;"
-                             src="{{student.photo_url}}">
-                    </div>
+                    <img class="img-fluid rounded-circle shadow-lg user-thumbnail"    
+                            style="height: 100px; width: 100px;"
+                            src="{{student.photo_url}}">
 
                     <div>
                         <h5 class="fw-bolder">
@@ -34,20 +32,39 @@
                             <span>{{student.user.email}}</span> <br/>
                         </p>     
                     </div>
-
-                    <div class="text-end">
-                        <p class="text-muted">
-                            {{student.faculty}}
-                        </p>
-                        <p>
-                            {{student.courses}}
-                        </p>
-                    </div>
                 </div>
             </article>    
+
+            <article 
+                class="
+                    text-end 
+                    col-12
+                    col-sm-5
+                ">
+                <div
+                    class="
+                    p-4
+                    border
+                    border-primary
+                    rounded-3
+                    animate__animated
+                    animate__bounceInDown
+                    animate_slow
+                ">
+                    <p class="text-muted">
+                        {{student.faculty}}
+                    </p>
+                    <p>
+                        {{student.courses}}
+                    </p>
+                    <a href="" class="btn btn-lg btn-primary">
+                        View payment records
+                    </a>
+                </div>
+            </article>
         </section> <!-- End of row one -->
 
-        <section class="row my-5">
+        <section class="row my-5 g-4">
             <article class="col-12 col-md-4">
                 <div 
                     id="all-record"
