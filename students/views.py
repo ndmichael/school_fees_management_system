@@ -28,6 +28,26 @@ def student_dashboard(request):
 
 @login_required
 @student_required
+def student_profile(request, username):
+    '''*** Student profile section ***
+        === All logics goes her ===
+    '''
+
+    student = Student.objects.get(user__username=username)
+    payments = Payment.objects.filter(student=student).order_by('-date_entered')
+    total_payment = payments.count()
+
+    context = {
+        'student': student,
+        'payments': payments,
+        'total_payment': total_payment,
+        "title": "student profile"
+    }
+    return render(request, 'students/student_profile.html', context)
+
+
+@login_required
+@student_required
 def payment_proof(request):
     '''Manage Payment proof here'''
 
