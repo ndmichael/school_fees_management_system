@@ -1,0 +1,136 @@
+{% extends 'student_base.html' %} 
+{% load static %} 
+{% load humanize %}
+{% load crispy_forms_tags %} 
+{% block content %}
+<section id="student-dashboard">
+    <div class="container">
+        <section class="row g-4">
+            <article 
+                class="
+                    col-12
+                    mx-auto 
+                    p-4
+                    shadow-sm
+                    rounded-3
+                    actions
+                    animate__animated
+                    animate__bounceInDown
+                    animate_slow
+                ">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <img class="img-fluid rounded-circle shadow-lg user-thumbnail"    
+                             style="height: 100px; width: 100px;"
+                             src="{{student.photo_url}}">
+                    </div>
+
+                    <div>
+                        <h5 class="fw-bolder">
+                            {{student.user.first_name}} {{student.user.last_name}}
+                        </h5>
+                        <span class="text-muted pb-3">{{student.user.username}}</span>
+                        <p>
+                            <span>{{student.user.email}}</span> <br/>
+                        </p>     
+                    </div>
+
+                    <div class="text-end">
+                        <p class="text-muted">
+                            {{student.faculty}}
+                        </p>
+                        <p>
+                            {{student.courses}}
+                        </p>
+                    </div>
+                </div>
+            </article>
+            
+            
+        </section> <!-- End of row one -->
+
+        <section class="row my-5">
+            <article class="col-12 col-md-4">
+                <div 
+                    class="
+                        p-4 
+                        shadow-sm 
+                        bg-white
+                        rounded-7 
+                        d-flex 
+                        justify-content-between
+                        animate__animated
+                        animate__bounce
+                        animate_slow
+                    "
+                >
+                    <i class=" bi bi-vinyl" style="color: #0067A6;"></i>
+                    <div>
+                        <p class="fw-bolder text-black">{{total_payment}}</p>
+                        <p>Fees Recorded</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="col-12 col-md-4">
+                <div 
+                    class="
+                        p-4 
+                        shadow-sm 
+                        bg-white
+                        rounded-7
+                        d-flex 
+                        justify-content-between
+                        animate__animated
+                        animate__bounce
+                        animate_slow
+                    "
+                >
+                    <i class=" bi bi-vinyl" style="color: #0067A6;"></i>
+                    <div>
+                        <p class="fw-bolder text-black">{{total_payment}}</p>
+                        <p>Successful Fees</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="col-12 col-md-4">
+                <div 
+                    class="
+                        p-4 
+                        shadow-sm 
+                        bg-white
+                        rounded-7 
+                        d-flex 
+                        justify-content-between
+                        animate__animated
+                        animate__bounce
+                        animate_slow
+                    "
+                >
+                    <i class=" bi bi-vinyl" style="color: #0067A6;"></i>
+                    <div>
+                        <p class="fw-bolder text-black">{{total_payment}}</p>
+                        <p>Pending fees</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="row my-5">
+            <div class="col-12 col-md-12 mx-auto">
+                <form action="" method="post" enctype="multipart/form-data"
+                    class="p-5 bg-white shadow"
+                > 
+                    
+
+                    <button type="submit" class="btn btn-primary btn-lg px-5">
+                        Update Profile
+                    </button>
+                </form>
+            </div>
+        </section>
+    </div>
+</section>
+
+{% endblock content %}
