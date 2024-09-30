@@ -3,7 +3,7 @@
 {% load humanize %}
 {% load crispy_forms_tags %} 
 {% block content %}
-<section id="student-dashboard">
+<section id="student-profile">
     <div class="container">
         <section class="row g-4">
             <article 
@@ -13,7 +13,7 @@
                     p-4
                     shadow-sm
                     rounded-3
-                    actions
+                    details
                     animate__animated
                     animate__bounceInDown
                     animate_slow
@@ -44,49 +44,47 @@
                         </p>
                     </div>
                 </div>
-            </article>
-            
-            
+            </article>    
         </section> <!-- End of row one -->
 
         <section class="row my-5">
             <article class="col-12 col-md-4">
                 <div 
+                    id="all-record"
                     class="
                         p-4 
-                        shadow-sm 
-                        bg-white
                         rounded-7 
                         d-flex 
                         justify-content-between
                         animate__animated
                         animate__bounce
                         animate_slow
+                        records
                     "
                 >
-                    <i class=" bi bi-vinyl" style="color: #0067A6;"></i>
+                    <i class=" bi bi-vinyl-fill"></i>
                     <div>
                         <p class="fw-bolder text-black">{{total_payment}}</p>
-                        <p>Fees Recorded</p>
+                        <p>All Fees</p>
                     </div>
                 </div>
             </article>
 
             <article class="col-12 col-md-4">
                 <div 
+                    id="successful-record"
                     class="
                         p-4 
-                        shadow-sm 
-                        bg-white
                         rounded-7
                         d-flex 
                         justify-content-between
                         animate__animated
                         animate__bounce
                         animate_slow
+                        records
                     "
                 >
-                    <i class=" bi bi-vinyl" style="color: #0067A6;"></i>
+                    <i class=" bi bi-check2-circle"></i>
                     <div>
                         <p class="fw-bolder text-black">{{total_successful_payment}}</p>
                         <p>Successful Fees</p>
@@ -96,19 +94,19 @@
 
             <article class="col-12 col-md-4">
                 <div 
+                    id="pending-record"
                     class="
                         p-4 
-                        shadow-sm 
-                        bg-white
                         rounded-7 
                         d-flex 
                         justify-content-between
                         animate__animated
                         animate__bounce
                         animate_slow
+                        records
                     "
                 >
-                    <i class=" bi bi-vinyl" style="color: #0067A6;"></i>
+                    <i class=" bi bi-folder-symlink-fill"></i>
                     <div>
                         <p class="fw-bolder text-black">{{total_pending_payment}}</p>
                         <p>Pending fees</p>
