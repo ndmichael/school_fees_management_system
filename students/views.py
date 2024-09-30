@@ -35,11 +35,15 @@ def student_profile(request, username):
 
     student = Student.objects.get(user__username=username)
     payments = Payment.objects.filter(student=student).order_by('-date_entered')
+    total_successful_payment = Payment.objects.filter(student=student, status="confirmed").count()
+    total_pending_payment = Payment.objects.filter(student=student, status="pending").count()
     total_payment = payments.count()
 
     context = {
         'student': student,
         'payments': payments,
+        "total_pending_payment": total_pending_payment,
+        "total_successful_payment": total_successful_payment,
         'total_payment': total_payment,
         "title": "student profile"
     }
