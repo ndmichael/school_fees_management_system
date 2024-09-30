@@ -40,23 +40,6 @@ from  nile.decorators import staff_required
 #     }
 #     return render(request, 'account/stud_profile.html', context)
 
-
-@login_required
-def student_profile(request, username):
-    '''*** Student profile section ***
-        === All logics goes her ===
-    '''
-
-    student = Student.objects.filter(user__username=username).first()
-    payments = Payment.objects.filter(student=student).order_by('-date_entered')
-
-    context = {
-        'student': student,
-        'payments': payments,
-        "title": "student profile"
-    }
-    return render(request, 'account/student_profile.html', context)
-
 @login_required
 def staff_profile(request, username):
     '''*** Staff profile section ***'''
