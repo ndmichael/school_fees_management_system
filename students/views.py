@@ -3,8 +3,9 @@ from django.contrib.auth.models import User
 from fees.models import Student, Payment, Staff, Course, Complaint
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import PaymentProofForm, ComplaintForm
+from .forms import PaymentProofForm, ComplaintForm, StudentUpdateForm
 from fees.forms import PaymentFilterForm
+from user.forms import UserUpdateForm
 from django.http import HttpResponseForbidden
 from nile.decorators import student_required
 
@@ -32,12 +33,33 @@ def student_profile(request, username):
     '''*** Student profile section ***
         === All logics goes her ===
     '''
-
-    student = Student.objects.get(user__username=username)
+    user = User.objects.get(username=username)
+    student = Student.objects.get(user__username=user)
     payments = Payment.objects.filter(student=student).order_by('-date_entered')
     total_successful_payment = Payment.objects.filter(student=student, status="confirmed").count()
     total_pending_payment = Payment.objects.filter(student=student, status="pending").count()
     total_payment = payments.count()
+
+    if request.POST:
+        userUpdateForm = UserUpdateForm(request.POST, instance=user)
+        staffUpdateForm = StaffUpdateForm(
+            request.POST,
+            request.FILES,
+            instance=staff 
+        )
+        if userUpdateForm.is_valid() and staffUpdateForm.is_valid():
+            userUpdateForm.save()
+            staffUpdateForm.save()
+            messages.success(
+                    request, f"Profile Updated successfully."
+                )
+            return redirect("staff_profile", user.username)
+
+    else:
+        userUpdateForm = UserUpdateForm(instance=user)
+        studentUpdateForm = StudentUpdateForm(
+            instance=student
+        )
 
     context = {
         'student': student,
@@ -45,7 +67,9 @@ def student_profile(request, username):
         "total_pending_payment": total_pending_payment,
         "total_successful_payment": total_successful_payment,
         'total_payment': total_payment,
-        "title": "student profile"
+        "title": "student profile",
+        "userUpdateForm": userUpdateForm,
+        "studentUpdateForm": studentUpdateForm,
     }
     return render(request, 'students/student_profile.html', context)
 
