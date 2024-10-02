@@ -376,6 +376,7 @@ def delete_payment(request):
 
 
 @login_required
+@staff_required
 def payment_report(request):
 
     '''
@@ -384,12 +385,6 @@ def payment_report(request):
         - search functionalities
         - print payment report
     '''
-
-    if not request.user.is_staff:
-        messages.error(
-                request, f"You do not have permission to access this page."
-            )
-        return redirect("/")
 
     form = PaymentFilterForm
     if 'query' in request.GET:
