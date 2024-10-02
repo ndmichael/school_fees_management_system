@@ -79,6 +79,7 @@
             </article>
         </section> <!-- End of row one -->
 
+        {% if staff.user == request.user %}
         <section class="row my-5">
             <div class="col-12 col-md-12 mx-auto">
                 <form action="" method="post" enctype="multipart/form-data"
@@ -94,6 +95,7 @@
                 </form>
             </div>
         </section>
+        {% endif %}
     </div>
 </section>
 
