@@ -137,7 +137,9 @@
                 <form action="" method="post" enctype="multipart/form-data"
                     class="p-5 bg-white shadow"
                 > 
-                    
+                    {% csrf_token %}
+                    {% crispy userUpdateForm %}
+                    {% crispy studentUpdateForm %}
 
                     <button type="submit" class="btn btn-primary btn-lg px-5">
                         Update Profile
