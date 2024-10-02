@@ -5,6 +5,8 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Row, Div
 from crispy_bootstrap5.bootstrap5 import FloatingField, Field
 
+from fees.forms import CustomSubmit
+
 
 class PaymentProofForm(forms.ModelForm):
     """Form to update payment"""
@@ -80,4 +82,34 @@ class StudentUpdateForm(forms.ModelForm):
             Row(
                 Field("address", rows=6, wrapper_class='col-12'),
             )  
+        )
+
+
+# Filer feature for payment
+class StudentPaymentFilterForm(forms.Form):
+    """Form for filtering and searching payment records"""
+
+    payment_id = forms.CharField(required=False)
+    semester = forms.DateField(required=False)
+    year = forms.DateField(required=False)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.disable_csrf = True
+        self.helper.form_tag = False
+        self.helper.layout = Layout(
+            Row(
+                FloatingField("payment_id", wrapper_class='col-md-3'),
+                FloatingField("semester", wrapper_class='col-md-3'),
+                FloatingField("year", wrapper_class='col-md-3'),
+                Div(
+                    CustomSubmit(
+                        'submit', 
+                        'filter result',  
+                        css_class="btn-lg col-12"
+                    ), 
+                    css_class='col-md-3',        
+                )  
+            ),
         )
