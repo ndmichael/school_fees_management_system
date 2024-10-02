@@ -140,8 +140,7 @@
                             LOGIN
                         </a>
                     </li>
-                    {% endif %}
-                    
+                    {% endif %}    
                 </ul>
         </div>
     </nav>
@@ -157,7 +156,11 @@
 
     <!-- Alertify JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
-    <section id="admin-content" class="bg-light"> 
+    {% if request.user.is_staff %}
+    <section id="admin-content">
+    {% else %}
+    <section id="student-content">
+    {% endif %}
         <div class="p-2 p-sm-3 p-md-4">
             <!-- 
                 ==== Pop up alert message ===
