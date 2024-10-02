@@ -71,8 +71,6 @@ def staff_profile(request, username):
             instance=staff 
         )
 
-        
-
     context = {
         'staff': staff,
         "title": "staff profile",

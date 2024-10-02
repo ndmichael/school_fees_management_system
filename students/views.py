@@ -12,6 +12,7 @@ from nile.decorators import student_required
 # Create your views here.
 
 @login_required
+@student_required
 def student_dashboard(request):
     '''*** Student Dashboard section ***
         === All logics goes her ===
