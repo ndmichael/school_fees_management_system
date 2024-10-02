@@ -28,7 +28,6 @@ def student_dashboard(request):
 
 
 @login_required
-@student_required
 def student_profile(request, username):
     '''*** Student profile section ***
         === All logics goes her ===
