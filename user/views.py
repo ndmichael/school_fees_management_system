@@ -95,13 +95,23 @@ def current_user_dashboard(request):
 
 @login_required
 def user_settings(request):
+    """ ==== User settings ===
+        Shared settings for both admin, staff, and students
+        Handles profile Image change and password change
+    """
     update_image_form = ProfilePicUpdateForm
     if request.POST:
         update_image = ProfilePicUpdateForm(request.POST, request.FILES)
         if update_image.is_valid():
-            staff = Staff.objects.get(user=request.user)
-            staff.image = update_image.cleaned_data['profile_pic']
-            staff.save()
+            if request.user.is_staff:
+                staff = Staff.objects.get(user=request.user)
+                staff.image = update_image.cleaned_data['profile_pic']
+                staff.save()
+            else:
+                student = Student.objects.get(user=request.user)
+                student.image = update_image.cleaned_data['profile_pic']
+                student.save()
+
             messages.success(
                     request, f"Profile Image updated successfully."
                 )
