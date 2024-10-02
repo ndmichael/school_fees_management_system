@@ -34,7 +34,7 @@ def student_profile(request, username):
         === All logics goes her ===
     '''
     user = User.objects.get(username=username)
-    student = Student.objects.get(user__username=user)
+    student = Student.objects.get(user=user)
     payments = Payment.objects.filter(student=student).order_by('-date_entered')
     total_successful_payment = Payment.objects.filter(student=student, status="confirmed").count()
     total_pending_payment = Payment.objects.filter(student=student, status="pending").count()
@@ -42,18 +42,18 @@ def student_profile(request, username):
 
     if request.POST:
         userUpdateForm = UserUpdateForm(request.POST, instance=user)
-        staffUpdateForm = StaffUpdateForm(
+        studentUpdateForm = StudentUpdateForm(
             request.POST,
             request.FILES,
-            instance=staff 
+            instance=student 
         )
-        if userUpdateForm.is_valid() and staffUpdateForm.is_valid():
+        if userUpdateForm.is_valid() and studentUpdateForm.is_valid():
             userUpdateForm.save()
-            staffUpdateForm.save()
+            studentUpdateForm.save()
             messages.success(
                     request, f"Profile Updated successfully."
                 )
-            return redirect("staff_profile", user.username)
+            return redirect("student_profile", user.username)
 
     else:
         userUpdateForm = UserUpdateForm(instance=user)
@@ -78,14 +78,6 @@ def student_profile(request, username):
 @student_required
 def payment_proof(request):
     '''Manage Payment proof here'''
-
-    if not hasattr(request.user, 'student_user'):
-        messages.error(
-                    request, f"You do not exist as a student"
-                )
-        return redirect(
-            "account_login"
-        ) 
 
     if request.method == 'POST':
         form = PaymentProofForm(request.POST, request.FILES)
