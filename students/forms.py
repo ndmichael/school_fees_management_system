@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from fees.models import Student, Payment, Complaint
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Row, Div
-from crispy_bootstrap5.bootstrap5 import FloatingField
+from crispy_bootstrap5.bootstrap5 import FloatingField, Field
 
 
 class PaymentProofForm(forms.ModelForm):
@@ -58,3 +58,26 @@ class ComplaintForm(forms.ModelForm):
             'placeholder': 'Describe your complains',
             'rows': 4
         })
+
+
+
+class StudentUpdateForm(forms.ModelForm):
+    """Form to update student profile."""
+    class Meta:
+        model = Student
+        fields = ['mobile_number', 'dob', 'address']
+
+    def __init__(self, *args, **kwargs):
+        super(StudentUpdateForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.disable_csrf = True
+        self.helper.form_tag = False
+        self.helper.layout = Layout(
+            Row(
+                FloatingField("mobile_number", wrapper_class='col-md-6'),
+                FloatingField("dob", wrapper_class='col-md-6'),
+            ),
+            Row(
+                Field("address", rows=6, wrapper_class='col-12'),
+            )  
+        )
