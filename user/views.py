@@ -94,7 +94,6 @@ def current_user_dashboard(request):
 
 
 @login_required
-@staff_required
 def user_settings(request):
     update_image_form = ProfilePicUpdateForm
     if request.POST:
