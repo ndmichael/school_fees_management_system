@@ -88,7 +88,7 @@ footer{
 }
 
 /* student dashboard */
-.student-dashboard a{
+#student-dashboard a{
     display: block;
 
 }
@@ -103,7 +103,7 @@ footer{
     transition: .4s;
 }
 
-.student-dashboard .actions .icon{
+#student-dashboard .actions .icon{
     height: 50px;
     width: 50px;
     border-radius: 50%;
