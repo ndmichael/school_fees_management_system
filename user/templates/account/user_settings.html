@@ -18,12 +18,16 @@
                         <div
                             class="text-center"
                         >
-                            <img 
-                                style="height: 100px; width: 100px;"
-                                class="img-fluid"
-                                src="{{ request.user.staff_user.photo_url }}" 
-                                alt=""
-                            >
+                        {% if user.is_authenticated and user.is_staff %}
+                        <img class="img-fluid rounded-circle shadow-lg user-thumbnail"
+                            style="height: 100px; width: 100px;"
+                            src="{{ request.user.staff_user.photo_url }}">
+                        {% else %}
+
+                        <img class="img-fluid rounded-circle shadow-lg user-thumbnail"
+                            style="height: 100px; width: 100px;"
+                            src="{{ request.user.student_user.photo_url }}">
+                        {% endif %}
                         </div>
                         <div>
                             {% csrf_token %}
