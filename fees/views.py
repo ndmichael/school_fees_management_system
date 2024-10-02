@@ -195,7 +195,7 @@ def payment(request):
     payments = p.get_page(page)
     pending_payments = Payment.objects.filter(status="pending")
     
-    # Get staff object reuesting payment add
+    # Get staff object requesting payment add
     staff = get_object_or_404(Staff, user=request.user)
     paymentFilterForm =  PaymentFilterForm
   
