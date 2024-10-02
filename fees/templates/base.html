@@ -146,9 +146,13 @@
     </nav>
 
     <!--- ==== sidebar logic ===-->
-    {% block sidebar %}
-
-    {% endblock sidebar %}
+    {% if request.user.is_staff %}
+        <!-- Include staff sidebar -->
+        {% include "fees/admin_sidebar.html" %}
+    {% else %}
+        <!-- Include staff sidebar -->
+        {% include "students/student_sidebar.html" %}
+    {% endif %}
 
     <!-- Alertify JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
