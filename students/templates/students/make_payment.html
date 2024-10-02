@@ -36,6 +36,12 @@
     <section class="row g-4 my-4">
         <div class="col-12 mx-auto">
           <div class="table-responsive bg-white p-5 rounded-7">
+
+            <!--=== Student Payment filter form-->
+            <form action="" class="mb-4" method="get" novalidate="nonvalidate">
+              {% crispy studentPaymentFilterForm %}
+            </form>
+            
             <div class="d-flex justify-content-between pb-4">
               <table 
                 class="
@@ -55,6 +61,7 @@
               </thead>
               <tbody>
                 {%for payment in payments %}
+
                 <!-- Modal pop for fee payment details -->
                 <div class="modal fade" id="paymentDetailsModal{{payment.id}}" tabindex="-2" aria-labelledby="paymentDetailsLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -119,6 +126,7 @@
                         </div>
                     </div>
                 </div> <!-- === End of the details modal ===-->
+
                 <!-- === start of the body content === -->
                 <tr>
                   <td>    
