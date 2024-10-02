@@ -116,20 +116,20 @@ footer{
     transition: .4s;
 }
 
-.student-dashboard .actions:hover{
+#student-dashboard .actions:hover{
     transform: translateY(-10px);
     box-shadow: 0 .125rem .75rem rgba(0,0,0,.2) !important;
     
 }
 
 /** Animate icon when action box is moused over **/
-.student-dashboard .actions:hover .icon{
+#student-dashboard .actions:hover .icon{
     transform: rotate(360deg); 
     /* background-color: brown; */
 }
 
-.student-dashboard .actions .bi{
-    font-size: 2rem;
+#student-dashboard .actions .bi{
+    font-size: 1.5rem;
     /* color: rgba(9, 121, 241); */
     color: #140834;
 }
