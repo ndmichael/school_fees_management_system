@@ -25,7 +25,7 @@ html, body{
 /***
     === Styling for the side bar ===
 ***/
-#sidebar{
+#adminsidebar{
     width: 250px;
     height: 100vh !important;
     position:fixed; 
@@ -36,7 +36,7 @@ html, body{
 
 }
 
-#sidebar .nav-link{
+#adminsidebar .nav-link{
     font-size: 1em;
     /* z-index: 100; */
     color:  #232323;
@@ -47,14 +47,14 @@ html, body{
     letter-spacing: .05rem;
 }
 
-#sidebar .nav-link:active,
-#sidebar .nav-link:focus,
-#sidebar .nav-link:hover{
+#adminsidebar .nav-link:active,
+#adminsidebar .nav-link:focus,
+#adminsidebar .nav-link:hover{
     background-color: #fff;
     color: black;
 }
 
-#sidebar .nav-link .bi{
+#adminsidebar .nav-link .bi{
     color: rgb(15, 15, 150);
     font-weight: bolder;
     font-size: 1.3rem;
@@ -184,7 +184,7 @@ footer{
 
 /*** CSS for small screen ***/
 @media(max-width:768px){
-    #sidebar{
+    #adminsidebar{
         width: 0px;
         min-height: 100vh;
         position: fixed; 
