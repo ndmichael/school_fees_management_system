@@ -3,8 +3,12 @@ from django.contrib.auth.models import User
 from fees.models import Student, Payment, Staff, Course, Complaint
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import PaymentProofForm, ComplaintForm, StudentUpdateForm
-from fees.forms import PaymentFilterForm
+from .forms import (
+    PaymentProofForm, 
+    ComplaintForm, 
+    StudentUpdateForm,
+    StudentPaymentFilterForm
+)
 from user.forms import UserUpdateForm
 from django.http import HttpResponseForbidden
 from nile.decorators import student_required
@@ -113,17 +117,12 @@ def make_payment(request):
     student = Student.objects.get(user=request.user)
     payments = Payment.objects.filter(student=student).order_by('-date_entered')
 
-    paymentFilterForm =  PaymentFilterForm
-    # if get_payment_id and get_payment_id != '':
-    #    payments = Payment.objects.annotate(search=SearchVector('id'),).filter(search__icontains=get_payment_id)
-    # if get_start_date and get_start_date != '':
-    #     payments = Payment.objects.annotate(search=SearchVector('id'),).filter(search__gte=get_payment_id)
-    # if get_end_date and get_end_date != '':
-    #     payments = Payment.objects.annotate(search=SearchVector('id'),).filter(search__lt=get_payment_id)
+    studentPaymentFilterForm =  StudentPaymentFilterForm
+    
 
     context = {
         'payments': payments,
-        'paymentFilterForm': paymentFilterForm,
+        'studentPaymentFilterForm': studentPaymentFilterForm,
     }
     return render(request, 'students/make_payment.html',context)
 
