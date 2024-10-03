@@ -8,6 +8,12 @@ from crispy_bootstrap5.bootstrap5 import FloatingField, Field
 from fees.forms import CustomSubmit
 
 
+SEMESTER = (
+    ('', '-------'),
+    ('semester 1', 'SEMESTER 1'),
+    ('semester 2', 'SEMESTER 2')
+)
+
 class PaymentProofForm(forms.ModelForm):
     """Form to update payment"""
     class Meta:
@@ -90,7 +96,7 @@ class StudentPaymentFilterForm(forms.Form):
     """Form for filtering and searching payment records"""
 
     payment_id = forms.CharField(required=False)
-    semester = forms.DateField(required=False)
+    semester = forms.ChoiceField(choices=SEMESTER, required=False)
     year = forms.DateField(required=False)
 
     def __init__(self, *args, **kwargs):
