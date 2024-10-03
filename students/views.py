@@ -116,13 +116,33 @@ def payment_proof(request):
 def make_payment(request):
     student = Student.objects.get(user=request.user)
     payments = Payment.objects.filter(student=student).order_by('-date_entered')
+    filterForm = StudentPaymentFilterForm(request.GET or None)
 
-    studentPaymentFilterForm =  StudentPaymentFilterForm
+    if filterForm.is_valid():
+        payment_id = filterForm.cleaned_data.get('payment_id')
+        selected_year = filterForm.cleaned_data.get('year')
+        selected_semester = filterForm.cleaned_data.get('semester')
+
+        # Filter by payment id if selected
+        if payment_id:
+            payments = payments.filter(id=int(payment_id))
+
+        # Filter by year if selected
+        if selected_year:
+            payments = payments.filter(academic_year=selected_year)
+
+        # Filter by semester if selected
+        if selected_semester:
+            payments = payments.filter(semester=selected_semester)    
+
+        messages.success(
+            request, f"records have been filtered"
+        )    
     
 
     context = {
         'payments': payments,
-        'studentPaymentFilterForm': studentPaymentFilterForm,
+        'filterForm': filterForm,
     }
     return render(request, 'students/make_payment.html',context)
 
