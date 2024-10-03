@@ -7,6 +7,14 @@ from crispy_bootstrap5.bootstrap5 import FloatingField, Field
 
 from fees.forms import CustomSubmit
 
+import datetime
+
+
+def year_choices():
+    return [(r,r) for r in range(datetime.date.today().year+1, 1995, -1 )]
+
+YEARS = [(str(year), str(year)) for year in range(2025, 1995, -1)]
+
 
 SEMESTER = (
     ('', '-------'),
@@ -97,7 +105,7 @@ class StudentPaymentFilterForm(forms.Form):
 
     payment_id = forms.CharField(required=False)
     semester = forms.ChoiceField(choices=SEMESTER, required=False)
-    year = forms.DateField(required=False)
+    year = forms.ChoiceField(choices=[('', 'Select Year')] + year_choices(),  required=False)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
