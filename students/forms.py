@@ -10,10 +10,10 @@ from fees.forms import CustomSubmit
 import datetime
 
 
+# Return only years from 1995 - 1+ year ahead the current year.
 def year_choices():
     return [(r,r) for r in range(datetime.date.today().year+1, 1995, -1 )]
 
-YEARS = [(str(year), str(year)) for year in range(2025, 1995, -1)]
 
 
 SEMESTER = (
