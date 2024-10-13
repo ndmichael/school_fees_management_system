@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'fees',
     'user',
     'students',
+    'payments',
     'crispy_forms',
     'crispy_bootstrap5',
     'smart_selects',
