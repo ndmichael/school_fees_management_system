@@ -39,7 +39,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY_NILE")
 DEBUG = env('DEBUG')
 print(DEBUG)
 
-ALLOWED_HOSTS = ['web-production-1a4a.up.railway.app', 'nilepay.us', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['schoolfeesmanagementsystem-production.up.railway.app', 'nilepay.us', 'localhost', '127.0.0.1']
 
 SITE_ID = 1
 
