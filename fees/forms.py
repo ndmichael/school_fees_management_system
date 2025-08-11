@@ -81,14 +81,14 @@ class PaymentForm(forms.ModelForm):
     class Meta:
         model = Payment
         fields = [
-                    'student',
-                    'academic_year', 
-                    'semester', 
-                    'amount', 
-                    'payment_method', 
-                    'date_paid',
-                    'image',
-                ]
+            'student',
+            'academic_year', 
+            'semester', 
+            'amount', 
+            'payment_method', 
+            'date_paid',
+            'image',
+        ]
 
 class PaymentUpdateForm(forms.ModelForm):
     """Form to update payment"""
