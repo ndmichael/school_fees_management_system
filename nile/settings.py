@@ -125,6 +125,7 @@ DATABASES = {
         'PASSWORD': env('PGPASSWORD') ,
         'HOST': env('PGHOST'),
         'PORT': env('PGPORT'),
+        'URL': env('DATABASE_PRIVATE_URL'),
     }
 }
 
