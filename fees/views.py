@@ -19,8 +19,6 @@ from django.contrib.postgres.search import SearchVector
 from django.core.paginator import Paginator
 
 
-
-
 def index(request):
     '''===Logic Here ===
     - If user is authenticated, check if staff
