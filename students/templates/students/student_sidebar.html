@@ -2,63 +2,66 @@
     === Sidenav with an id sidebar ===
     ** This sidebar is for admin and fully responsive **
 -->
-<nav 
-    class="navbar navbar-expand shadow-0 p-0 m-0 d-flex flex-column align-items-start" 
-    id="sidebar"
+<!-- Student Sidebar -->
+ {% load static %}
+<nav id="sidebar" 
+    class="navbar navbar-expand-lg shadow-sm flex-column align-items-start p-0 bg-white border-end"
 >
-    <ul class="nav d-flex flex-column mt-3 w-100">
-        <li class="nav-item w-100">
-            <a href="{% url 'student_dashboard' %}" class="nav-link ps-4">
-                <i class=" bi bi-house-door pe-3"></i>
+    <!-- Sidebar Header / Logo -->
+    <div class="w-100 text-center py-4 border-bottom">
+        <h6 class="mt-5 pt-4 mb-0 text-primary fw-bold">Student Panel</h6>
+        <small class="text-muted">{{ request.user.username }}</small>
+    </div>
+
+    <!-- Sidebar Links -->
+    <ul class="nav flex-column mt-3 w-100">
+        <li class="nav-item">
+            <a href="{% url 'student_dashboard' %}" class="nav-link ps-4 py-2 d-flex align-items-center">
+                <i class="bi bi-house-door me-3 fs-5 text-primary"></i> 
                 Dashboard
             </a>
         </li>
 
-        <li class="nav-item w-100">
-            <a href="{% url 'payment_proof' %}" class="nav-link ps-4">
-                <i class=" bi bi-receipt-cutoff pe-3"></i>
+        <li class="nav-item">
+            <a href="{% url 'payment_proof' %}" class="nav-link ps-4 py-2 d-flex align-items-center">
+                <i class="bi bi-receipt-cutoff me-3 fs-5 text-success"></i>
                 Payment Proof
             </a>
         </li>
 
-        <li class="nav-item w-100">
-            <a href="{% url 'make_payment' %}" class="nav-link ps-4">
-                <i class=" bi bi-credit-card pe-3"></i>
+        <li class="nav-item">
+            <a href="{% url 'make_payment' %}" class="nav-link ps-4 py-2 d-flex align-items-center">
+                <i class="bi bi-credit-card me-3 fs-5 text-info"></i>
                 Payments
             </a>
         </li>
 
-        <li class="nav-item w-100 disabled">
-            <a href="{% url 'payment_complaints' %}" class="nav-link ps-4">
-                <i class=" bi bi-rss-fill pe-3"></i>
-                Complaints 
+        <li class="nav-item">
+            <a href="{% url 'payment_complaints' %}" class="nav-link ps-4 py-2 d-flex align-items-center">
+                <i class="bi bi-chat-left-dots me-3 fs-5 text-warning"></i>
+                Complaints
             </a>
         </li>
 
-        <li class="nav-item w-100">
-            <a href="{% url 'student_profile' request.user.username  %}" class="nav-link ps-4">
-                <i class=" bi bi-person-circle pe-3"></i>
+        <li class="nav-item">
+            <a href="{% url 'student_profile' request.user.username %}" class="nav-link ps-4 py-2 d-flex align-items-center">
+                <i class="bi bi-person-circle me-3 fs-5 text-secondary"></i>
                 Profile
             </a>
         </li>
 
-        <!-- <li class="nav-item w-100">
-            <a href="" class="nav-link ps-4">
-                <i class=" bi bi-journal-richtext pe-3" style="font-size: 1em;"></i>
-                Generate Reports
-            </a>
-        </li> -->
-
-        <li class="nav-item w-100">
-            <a href="{% url 'user_settings' %}" class="nav-link ps-4">
-                <i class=" bi bi-gear-fill pe-3"></i>
+        <li class="nav-item">
+            <a href="{% url 'user_settings' %}" class="nav-link ps-4 py-2 d-flex align-items-center">
+                <i class="bi bi-gear-fill me-3 fs-5 text-dark"></i>
                 Settings
             </a>
         </li>
 
-        <a href="{% url 'account_logout' %}" class="nav-link ps-4">
-            <i class=" bi bi-door-closed pe-3 fw-bolder text-danger" style="font-size: .7em;"></i>
-            <small class="text-danger">Logout</small>
-        </a>
+        <li class="nav-item mt-3 border-top">
+            <a href="{% url 'account_logout' %}" class="nav-link ps-4 py-3 text-danger d-flex align-items-center">
+                <i class="bi bi-door-closed me-3 fs-6 fw-bold"></i>
+                Logout
+            </a>
+        </li>
     </ul>
-</nav> 
+</nav>
