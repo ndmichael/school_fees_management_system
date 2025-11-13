@@ -25,53 +25,92 @@ html, body{
 /***
     === Styling for the side bar ===
 ***/
-#adminsidebar{
+#adminsidebar {
     width: 250px;
-    height: 100vh !important;
-    position:fixed; 
-    background: #eee8ff;
-    z-index: 1;
-    overflow: hidden;
-    padding-top: 14vh !important;
-
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, #f4f3ff 0%, #ece9ff 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 80px; /* space for top navbar */
+    box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+    z-index: 9; /* sit below navbar (z=10 in your navbar) */
+    transition: all 0.3s ease;
 }
 
-#adminsidebar .nav-link{
-    font-size: 1em;
-    /* z-index: 100; */
-    color:  #232323;
-    margin-top: 2px;
-    border: 0 !important;
-    border-radius: 0 !important;
-    font-weight: bold;
-    letter-spacing: .05rem;
+#adminsidebar .nav-link {
+    color: #2c2c54;
+    font-weight: 500;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
 }
 
-#adminsidebar .nav-link:active,
-#adminsidebar .nav-link:focus,
-#adminsidebar .nav-link:hover{
-    background-color: #fff;
-    color: black;
+#adminsidebar .nav-link .bi {
+    color: #3b3b98;
+    font-size: 1.2rem;
 }
 
-#adminsidebar .nav-link .bi{
-    color: rgb(15, 15, 150);
-    font-weight: bolder;
-    font-size: 1.3rem;
+#adminsidebar .nav-link:hover {
+    background: #fff;
+    color: #000;
+    font-weight: 600;
+    border-left: 4px solid #3b3b98;
+    padding-left: 24px;
 }
 
-#admin-content{
+#adminsidebar .nav-link.active {
+    background: #fff;
+    font-weight: 600;
+    color: #000;
+    border-left: 4px solid #3b3b98;
+}
+
+.sidebar-footer {
+    padding: 0;
+    background: #f8f9ff;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.sidebar-footer a {
+    text-decoration: none;
+    display: block;
+    transition: all 0.2s ease-in-out;
+}
+
+.sidebar-footer a:hover {
+    background: rgba(255, 0, 0, 0.05);
+    font-weight: 600;
+}
+
+/* ===== Responsive Sidebar ===== */
+@media (max-width: 768px) {
+    #adminsidebar {
+        transform: translateX(-100%);
+        z-index: 1; /* bring above content when toggled */
+    }
+
+    #adminsidebar.toggler {
+        transform: translateX(0);
+        box-shadow: 4px 0 8px rgba(0,0,0,0.1);
+    }
+}
+
+#admin-content {
     flex-grow: 1;   
-    padding-top: 7rem;
-    padding-left: 250px;
+    padding-top: 5rem;
+    padding-left: 250px;  /* ✅ keeps space for sidebar */
     width: 100%;
+    transition: all 0.3s ease;
 }
 
-.accordion-button{
-    font-size: 18px !important;
-    font-weight: bolder !important;
-    border: 2px double rgba(98, 98, 98, 0.4) !important;
-}
+
+
 
 .form-control::placeholder {
     color: grey;
