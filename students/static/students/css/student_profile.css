@@ -3,48 +3,65 @@
 /***
     === Styling for the side bar ===
 ***/
-#sidebar{
+/* Sidebar visual improvements */
+#sidebar {
     width: 250px;
-    height: 100vh !important;
-    position:fixed; 
-    background: #140834;
-    z-index: 1;
-    overflow: hidden;
-    padding-top: 14vh !important;
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    overflow-y: auto;
+    background: #ffffff;
+    transition: all 0.3s ease;
+    z-index: 9;
 }
 
-#sidebar .nav-link{
-    font-size: 1em;
-    /* z-index: 100; */
-    color:  #eaf1fa;
-    margin-top: 2px;
-    border: 0 !important;
-    border-radius: 0 !important;
-    font-weight: bold;
-    letter-spacing: .05rem;
+#sidebar .nav-link {
+    color: #555;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
 }
 
-#sidebar .nav-link:active,
-#sidebar .nav-link:focus,
-#sidebar .nav-link:hover{
-    background-color: #133463;
-    color: #fff;
+#sidebar .nav-link:hover,
+#sidebar .nav-link.active {
+    background: #f1f5ff;
+    color: #0d6efd;
+    border-left: 4px solid #0d6efd;
 }
 
-#sidebar .nav-link .bi{
-    color: rgb(147, 187, 230);
-    font-weight: bolder;
-    font-size: 1.3rem;
+#sidebar .nav-link i {
+    width: 22px;
+    text-align: center;
 }
 
-#student-content{
+/* Scrollbar styling */
+#sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+#sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+/* Responsive for mobile */
+@media (max-width: 992px) {
+    #sidebar {
+        left: -250px;
+    }
+    #sidebar.toggler {
+        left: 0;
+    }
+}
+
+#student-content {
     flex-grow: 1;   
     padding-top: 7rem;
     padding-left: 250px;
     width: 100%;
-    background: rgb(147, 187, 230, .4);
+    background: linear-gradient(135deg, #edf2fa 0%, #f9fbfd 100%);
 }
+
+
 
 .accordion-button{
     font-size: 18px !important;
