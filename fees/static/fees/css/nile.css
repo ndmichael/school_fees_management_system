@@ -27,19 +27,23 @@ html, body{
 ***/
 #adminsidebar {
     width: 250px;
-    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
+    /* subtract navbar height (~70px) from total height */
+    min-height: calc(100vh - 70px);
+    height: calc(100% - 70px);
+    margin-top: 70px; /* push below navbar */
     background: linear-gradient(180deg, #f4f3ff 0%, #ece9ff 100%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 80px; /* space for top navbar */
     box-shadow: 2px 0 8px rgba(0,0,0,0.05);
-    z-index: 9; /* sit below navbar (z=10 in your navbar) */
+    z-index: 9;
     transition: all 0.3s ease;
+    overflow-y: auto; /* if content overflows */
 }
+
 
 #adminsidebar .nav-link {
     color: #2c2c54;
@@ -64,42 +68,36 @@ html, body{
     padding-left: 24px;
 }
 
-#adminsidebar .nav-link.active {
-    background: #fff;
-    font-weight: 600;
-    color: #000;
-    border-left: 4px solid #3b3b98;
-}
-
 .sidebar-footer {
-    padding: 0;
     background: #f8f9ff;
     border-top: 1px solid rgba(0,0,0,0.05);
 }
-
 .sidebar-footer a {
-    text-decoration: none;
     display: block;
+    color: #dc3545;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 0;
     transition: all 0.2s ease-in-out;
 }
-
 .sidebar-footer a:hover {
     background: rgba(255, 0, 0, 0.05);
-    font-weight: 600;
 }
 
-/* ===== Responsive Sidebar ===== */
+/* Mobile slide effect */
 @media (max-width: 768px) {
     #adminsidebar {
         transform: translateX(-100%);
-        z-index: 1; /* bring above content when toggled */
+        height: 100vh; /* full on mobile */
+        margin-top: 0;
+        z-index: 10;
     }
-
     #adminsidebar.toggler {
         transform: translateX(0);
         box-shadow: 4px 0 8px rgba(0,0,0,0.1);
     }
 }
+
 
 #admin-content {
     flex-grow: 1;   
@@ -107,6 +105,7 @@ html, body{
     padding-left: 250px;  /* ✅ keeps space for sidebar */
     width: 100%;
     transition: all 0.3s ease;
+    background: #f8f9fb;
 }
 
 
@@ -170,8 +169,14 @@ html, body{
     font-size: 30px;
 }
 
-#index-main .footer {
-    background: rgba(08, 08, 08, 0.4);
+
+/* Footer center alignment */
+footer {
+    text-align: left;
+}
+footer p {
+    margin: 0;
+    font-weight: 500;
 }
 
 /** **Complaints** **/
